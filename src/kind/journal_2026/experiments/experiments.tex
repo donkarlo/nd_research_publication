@@ -1,0 +1,15 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{graphs, quotes, graphdrawing}
+\usegdlibrary{layered}
+
+\begin{document}
+    
+    \begin{tikzpicture}
+        % 'level distance' controls the length of the edges between layers
+        \graph [layered layout, grow=right, level distance=4cm] {
+            Experiment ->["runs" above] "learning condition"
+        };
+    \end{tikzpicture}
+
+\end{document}

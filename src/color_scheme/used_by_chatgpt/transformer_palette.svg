@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1700" viewBox="0 0 1000 1700">
+<rect x="0" y="0" width="1000" height="1700" fill="white"/>
+<text x="500.0" y="60" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="30">Full Donut Palette from the Transformer Figure</text>
+<path d="M 500.00,225.00 A 85,85 0 0 1 525.05,228.78 L 570.74,80.66 A 240,240 0 0 0 500.00,70.00 Z" fill="#F6F5F8" stroke="white" stroke-width="2"/><text x="524.14" y="149.81" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="black">#F6F5F8</text><path d="M 525.05,228.78 A 85,85 0 0 1 547.88,239.77 L 635.20,111.70 A 240,240 0 0 0 570.74,80.66 Z" fill="#9D9DA3" stroke="white" stroke-width="2"/><text x="570.29" y="164.04" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="black">#9D9DA3</text><path d="M 547.88,239.77 A 85,85 0 0 1 566.46,257.00 L 687.64,160.36 A 240,240 0 0 0 635.20,111.70 Z" fill="#5C5D64" stroke="white" stroke-width="2"/><text x="610.19" y="191.25" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="white">#5C5D64</text><path d="M 566.46,257.00 A 85,85 0 0 1 579.12,278.95 L 723.41,222.32 A 240,240 0 0 0 687.64,160.36 Z" fill="#232327" stroke="white" stroke-width="2"/><text x="640.30" y="229.00" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="white">#232327</text><path d="M 579.12,278.95 A 85,85 0 0 1 584.76,303.65 L 739.33,292.06 A 240,240 0 0 0 723.41,222.32 Z" fill="#223450" stroke="white" stroke-width="2"/><text x="657.94" y="273.95" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="white">#223450</text><path d="M 584.76,303.65 A 85,85 0 0 1 582.87,328.91 L 733.98,363.41 A 240,240 0 0 0 739.33,292.06 Z" fill="#5F769B" stroke="white" stroke-width="2"/><text x="661.55" y="322.11" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="white">#5F769B</text><path d="M 582.87,328.91 A 85,85 0 0 1 573.61,352.50 L 707.85,430.00 A 240,240 0 0 0 733.98,363.41 Z" fill="#345D95" stroke="white" stroke-width="2"/><text x="650.80" y="369.19" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="white">#345D95</text><path d="M 573.61,352.50 A 85,85 0 0 1 557.81,372.31 L 663.24,485.93 A 240,240 0 0 0 707.85,430.00 Z" fill="#5C86B9" stroke="white" stroke-width="2"/><text x="626.66" y="411.01" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="white">#5C86B9</text><path d="M 557.81,372.31 A 85,85 0 0 1 536.88,386.58 L 604.13,526.23 A 240,240 0 0 0 663.24,485.93 Z" fill="#6390C2" stroke="white" stroke-width="2"/><text x="591.26" y="443.85" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="white">#6390C2</text><path d="M 536.88,386.58 A 85,85 0 0 1 512.67,394.05 L 535.77,547.32 A 240,240 0 0 0 604.13,526.23 Z" fill="#B4D2EA" stroke="white" stroke-width="2"/><text x="547.75" y="464.80" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="black">#B4D2EA</text><path d="M 512.67,394.05 A 85,85 0 0 1 487.33,394.05 L 464.23,547.32 A 240,240 0 0 0 535.77,547.32 Z" fill="#70AE61" stroke="white" stroke-width="2"/><text x="500.00" y="472.00" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="white">#70AE61</text><path d="M 487.33,394.05 A 85,85 0 0 1 463.12,386.58 L 395.87,526.23 A 240,240 0 0 0 464.23,547.32 Z" fill="#ACCDA1" stroke="white" stroke-width="2"/><text x="452.25" y="464.80" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="black">#ACCDA1</text><path d="M 463.12,386.58 A 85,85 0 0 1 442.19,372.31 L 336.76,485.93 A 240,240 0 0 0 395.87,526.23 Z" fill="#F9DC8C" stroke="white" stroke-width="2"/><text x="408.74" y="443.85" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="black">#F9DC8C</text><path d="M 442.19,372.31 A 85,85 0 0 1 426.39,352.50 L 292.15,430.00 A 240,240 0 0 0 336.76,485.93 Z" fill="#F7D375" stroke="white" stroke-width="2"/><text x="373.34" y="411.01" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="black">#F7D375</text><path d="M 426.39,352.50 A 85,85 0 0 1 417.13,328.91 L 266.02,363.41 A 240,240 0 0 0 292.15,430.00 Z" fill="#DEA52C" stroke="white" stroke-width="2"/><text x="349.20" y="369.19" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="black">#DEA52C</text><path d="M 417.13,328.91 A 85,85 0 0 1 415.24,303.65 L 260.67,292.06 A 240,240 0 0 0 266.02,363.41 Z" fill="#E8995A" stroke="white" stroke-width="2"/><text x="338.45" y="322.11" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="black">#E8995A</text><path d="M 415.24,303.65 A 85,85 0 0 1 420.88,278.95 L 276.59,222.32 A 240,240 0 0 0 260.67,292.06 Z" fill="#D8902C" stroke="white" stroke-width="2"/><text x="342.06" y="273.95" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="black">#D8902C</text><path d="M 420.88,278.95 A 85,85 0 0 1 433.54,257.00 L 312.36,160.36 A 240,240 0 0 0 276.59,222.32 Z" fill="#D86A50" stroke="white" stroke-width="2"/><text x="359.70" y="229.00" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="white">#D86A50</text><path d="M 433.54,257.00 A 85,85 0 0 1 452.12,239.77 L 364.80,111.70 A 240,240 0 0 0 312.36,160.36 Z" fill="#9B592E" stroke="white" stroke-width="2"/><text x="389.81" y="191.25" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="white">#9B592E</text><path d="M 452.12,239.77 A 85,85 0 0 1 474.95,228.78 L 429.26,80.66 A 240,240 0 0 0 364.80,111.70 Z" fill="#C7BCDA" stroke="white" stroke-width="2"/><text x="429.71" y="164.04" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="black">#C7BCDA</text><path d="M 474.95,228.78 A 85,85 0 0 1 500.00,225.00 L 500.00,70.00 A 240,240 0 0 0 429.26,80.66 Z" fill="#AAAFC9" stroke="white" stroke-width="2"/><text x="475.86" y="149.81" text-anchor="middle" dominant-baseline="middle" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="black">#AAAFC9</text><circle cx="500" cy="310" r="85" fill="white"/><text x="500" y="302" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="32" font-weight="bold">21 Colors</text><text x="500" y="334" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="18">hex labels inside slices</text><text x="80" y="640" font-family="DejaVu Sans, Arial, sans-serif" font-size="32" font-weight="bold">Neutral and background</text>
+    <rect x="80" y="675" width="100" height="30" rx="3" ry="3" fill="#F6F5F8" stroke="#777" stroke-width="0.6"/>
+    <text x="195" y="695" font-family="DejaVu Sans Mono, monospace" font-size="19">bgVeryLight = #F6F5F8</text>
+    <rect x="80" y="727" width="100" height="30" rx="3" ry="3" fill="#9D9DA3" stroke="#777" stroke-width="0.6"/>
+    <text x="195" y="747" font-family="DejaVu Sans Mono, monospace" font-size="19">grayLight = #9D9DA3</text>
+    <rect x="80" y="779" width="100" height="30" rx="3" ry="3" fill="#5C5D64" stroke="#777" stroke-width="0.6"/>
+    <text x="195" y="799" font-family="DejaVu Sans Mono, monospace" font-size="19">grayMedium = #5C5D64</text>
+    <rect x="80" y="831" width="100" height="30" rx="3" ry="3" fill="#232327" stroke="#777" stroke-width="0.6"/>
+    <text x="195" y="851" font-family="DejaVu Sans Mono, monospace" font-size="19">grayDark = #232327</text><text x="80" y="900" font-family="DejaVu Sans, Arial, sans-serif" font-size="32" font-weight="bold">Blues</text>
+    <rect x="80" y="935" width="100" height="30" rx="3" ry="3" fill="#223450" stroke="#777" stroke-width="0.6"/>
+    <text x="195" y="955" font-family="DejaVu Sans Mono, monospace" font-size="19">navyDark = #223450</text>
+    <rect x="80" y="987" width="100" height="30" rx="3" ry="3" fill="#5F769B" stroke="#777" stroke-width="0.6"/>
+    <text x="195" y="1007" font-family="DejaVu Sans Mono, monospace" font-size="19">blueSlate = #5F769B</text>
+    <rect x="80" y="1039" width="100" height="30" rx="3" ry="3" fill="#345D95" stroke="#777" stroke-width="0.6"/>
+    <text x="195" y="1059" font-family="DejaVu Sans Mono, monospace" font-size="19">blueDeep = #345D95</text>
+    <rect x="80" y="1091" width="100" height="30" rx="3" ry="3" fill="#5C86B9" stroke="#777" stroke-width="0.6"/>
+    <text x="195" y="1111" font-family="DejaVu Sans Mono, monospace" font-size="19">blueSteel = #5C86B9</text>
+    <rect x="80" y="1143" width="100" height="30" rx="3" ry="3" fill="#6390C2" stroke="#777" stroke-width="0.6"/>
+    <text x="195" y="1163" font-family="DejaVu Sans Mono, monospace" font-size="19">blueMedium = #6390C2</text>
+    <rect x="80" y="1195" width="100" height="30" rx="3" ry="3" fill="#B4D2EA" stroke="#777" stroke-width="0.6"/>
+    <text x="195" y="1215" font-family="DejaVu Sans Mono, monospace" font-size="19">blueLight = #B4D2EA</text><text x="560" y="640" font-family="DejaVu Sans, Arial, sans-serif" font-size="32" font-weight="bold">Greens</text>
+    <rect x="560" y="675" width="100" height="30" rx="3" ry="3" fill="#70AE61" stroke="#777" stroke-width="0.6"/>
+    <text x="675" y="695" font-family="DejaVu Sans Mono, monospace" font-size="19">greenMain = #70AE61</text>
+    <rect x="560" y="727" width="100" height="30" rx="3" ry="3" fill="#ACCDA1" stroke="#777" stroke-width="0.6"/>
+    <text x="675" y="747" font-family="DejaVu Sans Mono, monospace" font-size="19">greenLight = #ACCDA1</text><text x="560" y="800" font-family="DejaVu Sans, Arial, sans-serif" font-size="32" font-weight="bold">Yellows and oranges</text>
+    <rect x="560" y="835" width="100" height="30" rx="3" ry="3" fill="#F9DC8C" stroke="#777" stroke-width="0.6"/>
+    <text x="675" y="855" font-family="DejaVu Sans Mono, monospace" font-size="19">yellowPale = #F9DC8C</text>
+    <rect x="560" y="887" width="100" height="30" rx="3" ry="3" fill="#F7D375" stroke="#777" stroke-width="0.6"/>
+    <text x="675" y="907" font-family="DejaVu Sans Mono, monospace" font-size="19">yellowWarm = #F7D375</text>
+    <rect x="560" y="939" width="100" height="30" rx="3" ry="3" fill="#DEA52C" stroke="#777" stroke-width="0.6"/>
+    <text x="675" y="959" font-family="DejaVu Sans Mono, monospace" font-size="19">amberMain = #DEA52C</text>
+    <rect x="560" y="991" width="100" height="30" rx="3" ry="3" fill="#E8995A" stroke="#777" stroke-width="0.6"/>
+    <text x="675" y="1011" font-family="DejaVu Sans Mono, monospace" font-size="19">orangeMain = #E8995A</text>
+    <rect x="560" y="1043" width="100" height="30" rx="3" ry="3" fill="#D8902C" stroke="#777" stroke-width="0.6"/>
+    <text x="675" y="1063" font-family="DejaVu Sans Mono, monospace" font-size="19">orangeDark = #D8902C</text>
+    <rect x="560" y="1095" width="100" height="30" rx="3" ry="3" fill="#D86A50" stroke="#777" stroke-width="0.6"/>
+    <text x="675" y="1115" font-family="DejaVu Sans Mono, monospace" font-size="19">redOrange = #D86A50</text>
+    <rect x="560" y="1147" width="100" height="30" rx="3" ry="3" fill="#9B592E" stroke="#777" stroke-width="0.6"/>
+    <text x="675" y="1167" font-family="DejaVu Sans Mono, monospace" font-size="19">brownOrange = #9B592E</text><text x="560" y="1230" font-family="DejaVu Sans, Arial, sans-serif" font-size="32" font-weight="bold">Lavenders</text>
+    <rect x="560" y="1265" width="100" height="30" rx="3" ry="3" fill="#C7BCDA" stroke="#777" stroke-width="0.6"/>
+    <text x="675" y="1285" font-family="DejaVu Sans Mono, monospace" font-size="19">lavenderLight = #C7BCDA</text>
+    <rect x="560" y="1317" width="100" height="30" rx="3" ry="3" fill="#AAAFC9" stroke="#777" stroke-width="0.6"/>
+    <text x="675" y="1337" font-family="DejaVu Sans Mono, monospace" font-size="19">lavenderMuted = #AAAFC9</text>
+    <rect x="60" y="1450" width="130" height="34" rx="3" ry="3" fill="#F6F5F8" stroke="#777" stroke-width="0.6"/>
+    <text x="125" y="1472" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="black">#F6F5F8</text>
+    <rect x="220" y="1450" width="130" height="34" rx="3" ry="3" fill="#9D9DA3" stroke="#777" stroke-width="0.6"/>
+    <text x="285" y="1472" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="black">#9D9DA3</text>
+    <rect x="380" y="1450" width="130" height="34" rx="3" ry="3" fill="#5C5D64" stroke="#777" stroke-width="0.6"/>
+    <text x="445" y="1472" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="white">#5C5D64</text>
+    <rect x="540" y="1450" width="130" height="34" rx="3" ry="3" fill="#232327" stroke="#777" stroke-width="0.6"/>
+    <text x="605" y="1472" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="white">#232327</text>
+    <rect x="700" y="1450" width="130" height="34" rx="3" ry="3" fill="#223450" stroke="#777" stroke-width="0.6"/>
+    <text x="765" y="1472" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="white">#223450</text>
+    <rect x="60" y="1502" width="130" height="34" rx="3" ry="3" fill="#5F769B" stroke="#777" stroke-width="0.6"/>
+    <text x="125" y="1524" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="white">#5F769B</text>
+    <rect x="220" y="1502" width="130" height="34" rx="3" ry="3" fill="#345D95" stroke="#777" stroke-width="0.6"/>
+    <text x="285" y="1524" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="white">#345D95</text>
+    <rect x="380" y="1502" width="130" height="34" rx="3" ry="3" fill="#5C86B9" stroke="#777" stroke-width="0.6"/>
+    <text x="445" y="1524" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="white">#5C86B9</text>
+    <rect x="540" y="1502" width="130" height="34" rx="3" ry="3" fill="#6390C2" stroke="#777" stroke-width="0.6"/>
+    <text x="605" y="1524" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="white">#6390C2</text>
+    <rect x="700" y="1502" width="130" height="34" rx="3" ry="3" fill="#B4D2EA" stroke="#777" stroke-width="0.6"/>
+    <text x="765" y="1524" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="black">#B4D2EA</text>
+    <rect x="60" y="1554" width="130" height="34" rx="3" ry="3" fill="#70AE61" stroke="#777" stroke-width="0.6"/>
+    <text x="125" y="1576" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="white">#70AE61</text>
+    <rect x="220" y="1554" width="130" height="34" rx="3" ry="3" fill="#ACCDA1" stroke="#777" stroke-width="0.6"/>
+    <text x="285" y="1576" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="black">#ACCDA1</text>
+    <rect x="380" y="1554" width="130" height="34" rx="3" ry="3" fill="#F9DC8C" stroke="#777" stroke-width="0.6"/>
+    <text x="445" y="1576" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="black">#F9DC8C</text>
+    <rect x="540" y="1554" width="130" height="34" rx="3" ry="3" fill="#F7D375" stroke="#777" stroke-width="0.6"/>
+    <text x="605" y="1576" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="black">#F7D375</text>
+    <rect x="700" y="1554" width="130" height="34" rx="3" ry="3" fill="#DEA52C" stroke="#777" stroke-width="0.6"/>
+    <text x="765" y="1576" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="black">#DEA52C</text>
+    <rect x="60" y="1606" width="130" height="34" rx="3" ry="3" fill="#E8995A" stroke="#777" stroke-width="0.6"/>
+    <text x="125" y="1628" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="black">#E8995A</text>
+    <rect x="220" y="1606" width="130" height="34" rx="3" ry="3" fill="#D8902C" stroke="#777" stroke-width="0.6"/>
+    <text x="285" y="1628" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="black">#D8902C</text>
+    <rect x="380" y="1606" width="130" height="34" rx="3" ry="3" fill="#D86A50" stroke="#777" stroke-width="0.6"/>
+    <text x="445" y="1628" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="white">#D86A50</text>
+    <rect x="540" y="1606" width="130" height="34" rx="3" ry="3" fill="#9B592E" stroke="#777" stroke-width="0.6"/>
+    <text x="605" y="1628" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="white">#9B592E</text>
+    <rect x="700" y="1606" width="130" height="34" rx="3" ry="3" fill="#C7BCDA" stroke="#777" stroke-width="0.6"/>
+    <text x="765" y="1628" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="black">#C7BCDA</text>
+    <rect x="380" y="1658" width="130" height="34" rx="3" ry="3" fill="#AAAFC9" stroke="#777" stroke-width="0.6"/>
+    <text x="445" y="1680" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="black">#AAAFC9</text></svg>

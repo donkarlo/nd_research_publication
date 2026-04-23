@@ -1,0 +1,160 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+%for tags, comma separated \semtag{tag1, tag2}
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kinds/semtag/semtag.tex}
+
+% for links, just type \seehere
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+\title{}
+\date{}
+
+\begin{document}
+    \maketitle
+    
+    
+    \section{Evaluation Procedure for Temporal Discrepancy Localization}
+        
+        \subsection{Step 1: Train the forecasting model}
+            Train the time-series forecasting model using data from the normal scenario.
+        
+        \subsection{Step 2: Estimate the error distribution on normal data}
+            Run the trained model on the seen (normal) scenario and compute the distribution of prediction errors.
+        
+        \subsection{Step 3: Compute the discrepancy signal}
+            For the evaluation scenario, compute the discrepancy between the prediction and the observed signal.
+            
+            \[
+                e_t = |y_t - \hat{y}_t|
+            \]
+            
+            If the signal contains multiple features:
+            
+            \[
+                e_t = \frac{1}{F}\sum_{f=1}^{F} |y_{t,f} - \hat{y}_{t,f}|
+            \]
+            
+            The resulting sequence
+            
+            \[
+                e_1, e_2, \dots, e_T
+            \]
+            
+            represents the discrepancy time series.
+        
+        \subsection{Step 4: Smooth the discrepancy signal}
+            To reduce noise, apply a temporal smoothing window:
+            
+            \[
+                \tilde{e}_t =
+                \frac{1}{W}
+                \sum_{i=t-W+1}^{t} e_i
+            \]
+        
+        \subsection{Step 5: Define the expected unseen interval}
+            Define the contiguous time interval where the scenario differs from the training data:
+            
+            \[
+                I_{\text{novel}} = [t_a, t_b]
+            \]
+            
+            The remaining time steps form the normal interval:
+            
+            \[
+                I_{\text{normal}} =
+                [1,T] \setminus I_{\text{novel}}
+            \]
+        
+        \subsection{Step 6: Compute the mean discrepancy in each interval}
+            
+            \[
+                \mu_{\text{novel}} =
+                \frac{1}{|I_{\text{novel}}|}
+                \sum_{t \in I_{\text{novel}}} e_t
+            \]
+            
+            \[
+                \mu_{\text{normal}} =
+                \frac{1}{|I_{\text{normal}}|}
+                \sum_{t \in I_{\text{normal}}} e_t
+            \]
+        
+        \subsection{Step 7: Compute the discrepancy ratio}
+            
+            \[
+                R =
+                \frac{\mu_{\text{novel}}}{\mu_{\text{normal}}}
+            \]
+            
+            If \(R\) is significantly larger than \(1\), the model error is concentrated within the unseen interval.
+        
+        \subsection{Step 8: Identify the temporal location of the largest discrepancy}
+            
+            \[
+                t_{\max} =
+                \arg\max_{t} e_t
+            \]
+            
+            Ideally, \(t_{\max}\) should lie inside or near \(I_{\text{novel}}\).
+        
+        \subsection{Step 9: Define an error threshold from the training scenario}
+            
+            \[
+                \theta =
+                \mu_{\text{train error}}
+                +
+                3\sigma_{\text{train error}}
+            \]
+            
+            For each time step:
+            
+            \[
+                e_t > \theta
+            \]
+            
+            indicates a high discrepancy.
+        
+        \subsection{Step 10: Evaluate temporal localization performance}
+            
+            Compute the fraction of time steps above the threshold inside and outside the unseen interval:
+            
+            \[
+                recall_{\text{interval}} =
+                \frac{
+                    \#\{t \in I_{\text{novel}} : e_t > \theta\}
+                }{
+                    |I_{\text{novel}}|
+                }
+            \]
+            
+            \[
+                false\ positive\ rate =
+                \frac{
+                    \#\{t \in I_{\text{normal}} : e_t > \theta\}
+                }{
+                    |I_{\text{normal}}|
+                }
+            \]
+            
+            A successful forecasting model should produce high discrepancy within the unseen interval while maintaining low discrepancy elsewhere.
+    % \bibliographystyle{plain}
+    % \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}
