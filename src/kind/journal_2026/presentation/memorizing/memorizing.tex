@@ -1,0 +1,27 @@
+\begin{frame}{Memorizing}
+    Model Predictive Control
+    
+    The route is given by set of set-points to the leader and the follower receives the set points via a ROS message and calculates by given rules where it should be in that scenario.
+    
+    \section{The controller}
+    
+    Both drones use MPC to reach their next set-point
+    
+    Feedback system from a feedback that is formed of resource\_gain and goal\_gain
+    
+    \section{Goal}
+    A composite goal must be given to the planning that should include:
+    
+    Keep suprise poise as low as possible in controller cost function.
+    
+    \section{Plan}
+    
+    \textbf{Action}
+    
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{mpc_cost_function}
+    \end{figure}
+
+\end{frame}

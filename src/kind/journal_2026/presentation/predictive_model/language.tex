@@ -1,0 +1,18 @@
+\begin{frame}{Predictive brain - Language}
+    \begin{itemize}
+        \item Fused sensory data with autoencoders
+        \item Phonems: The smallest clusters
+        \begin{itemize}
+            \item Consonant (DBSCAN clustering on 0th derivitive)
+            \item vowel (DBSCAN clustering on 2nd derivitive)
+        \end{itemize}
+        \item Words (DBSCAN clustering on sliding windows Dynamic Time Wrapping applied on sequences of phonems)
+        \item Sentences (similar to words and applied on words to build )
+    \end{itemize}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{language_hierarchy.png}
+    \end{figure}
+
+\end{frame}
