@@ -12,6 +12,8 @@
 \usepackage[most]{tcolorbox}
 \usepackage{xparse}
 \usepackage{natbib}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 
 \usetikzlibrary{graphs,graphdrawing}
 \usegdlibrary{layered}
@@ -31,18 +33,30 @@
 \begin{document}
     
     \frame{\titlepage}
+    \input{self_awareness/self_awareness}
+    \input{components}
+    % Anatomy - body
+    \input{anatomy/anatomy}
+    \input{anatomy/body/body}
+    \input{anatomy/body/nervous_system}
     
-    \input{self_awareness}
-    \input{predictive_model/predictive_model_building}
+    % Anatomy - mind
+    \input{anatomy/mind/mind}
+    \input{anatomy/mind/cognition/cognition}
+    \input{anatomy/mind/cognition/meta_cognition}
+    \input{anatomy/mind/cognition/process}
+    \input{anatomy/mind/cognition/memory}
+    \input{anatomy/mind/cognition/event_specific_episodic_memory_knowledge}
+    % Execution and memorizing
+    \input{perception_action_memorizing_loop/perception_action_memorizing_loop}
+    \input{perception_action_memorizing_loop/suprise_redction_action_for_homeostatis_goal}
     \input{previous_approach}
-    \input{robot_anatomy}
-    \input{perception}
-    \input{planning}
-    \input{preprocessing/preprocessing}
-    \input{event_specific_episodic_memory_knowledge}
-    \input{suprise_redction_action_for_homeostatis_goal}
+    \input{predictive_model/predictive_model_building}
+    % Novelty detection
+    \input{novelty_detection/novelty_detection_prediction}
     \input{novelty_detection/novelty_detection}
-    \input{human_uavs_environment}
+    \input{preprocessing/preprocessing}
+    \input{perception_action_memorizing_loop/human_uavs_environment}
     \input{code_struture}
     
     

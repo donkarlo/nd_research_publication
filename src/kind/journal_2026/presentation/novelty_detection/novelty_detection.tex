@@ -1,17 +1,34 @@
-\begin{frame}{Novelty detection (Online testing)}
-    anomaly = novelty or oulier or abnormal
+\begin{frame}{Novelty detection}
+    Discrepancy
+    \begin{itemize}
+        \item \textbf{Anomaly}: Short time over the threshold
+        \item \textbf{Novelty}: Continuously hi anomaly
+        \item \textbf{Outlier}: Statistically away from the observation distribution but yet a valid reading
+    \end{itemize}
     
-    anomaly = short time over the threshold
+    \textbf{Anomaly} is the Mahalanobis distance between the prediction and the preprocessed, fused observation.
     
-    novelty = continousely hi anomaly
     
-    outlier = statistically away from the observation distribution but yet a valid reading
-    
-    As previous paper PK is used for find the consonant in which the
-    
-    TODO: if the anomaly signal is above the threshold but not yet a novelty
-    
-    Use PF to understand in which consonant, and vowel it is and use the transformer to continousely know where in each of those clusters the robot is for each sensor modality
-    
-    KF constant speed from previous paper is replaced with transformers
+    \section{Threshold}
+        \begin{enumerate}
+            \item Breaking an event-specific-knowledge sensory data into periods
+            \item Split the periods into train-test
+            \item take $\mu + n \times \sigma$ anomaly values as the threshold
+        \end{enumerate}
+        
+        \begin{algorithm}[H]
+		\caption{Novelty Detection from Sensor Sequences}
+        \begin{algorithmic}[1]
+			\Require Preprocessed sensor sequence $X = \{x_1, x_2, \dots, x_T\}$
+            \Require Trained predictive model $f_{\theta}$
+            \Ensure Novelty threshold $\tau = \{y_1, y_2, \dots, y_T\}$
+            \Ensure Novelty scalar value
+            
+            
+            $Y = \{y_1, y_2, \dots, y_T\}$
+            \State \Return $Y$
+        \end{algorithmic}
+        \end{algorithm}
+
+
 \end{frame}
