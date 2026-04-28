@@ -1,0 +1,617 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+\usepackage{tikz}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+\title{Kalman Correction of an Uncertainty-Aware Transformer Prediction with Constant Velocity}
+\date{}
+
+\begin{document}
+	\maketitle
+	
+	\section{State, Velocity, and Observation}
+		
+		Assume that the robot state at time \(t\) is represented by a position vector
+		
+		\[
+			x_t
+			\in
+			\mathbb{R}^{F}.
+		\]
+		
+		Assume also that a constant velocity vector is available:
+		
+		\[
+			v
+			\in
+			\mathbb{R}^{F}.
+		\]
+		
+		Let \(\Delta t\) be the time interval between two consecutive observations. A simple constant-velocity prediction is
+		
+		\[
+			\hat{x}_{t+1}^{\mathrm{vel}}
+			=
+			x_t
+			+
+			v\Delta t.
+		\]
+		
+		This prediction can be interpreted as a simple physical prior. Its uncertainty is represented by a covariance matrix
+		
+		\[
+			P_{t+1}^{\mathrm{vel}}
+			=
+			Q_{\mathrm{vel}},
+		\]
+		
+		where \(Q_{\mathrm{vel}}\) represents the uncertainty of the constant-velocity assumption.
+	
+	\section{Uncertainty-Aware Transformer Prediction}
+		
+		The Transformer receives a sequence of previous states,
+		
+		\[
+			X_{t-L+1:t}
+			=
+			\left[
+				x_{t-L+1},
+				x_{t-L+2},
+				\ldots,
+				x_t
+			\right],
+		\]
+		
+		where \(L\) is the input sequence length.
+		
+		Assume that the Transformer is uncertainty-aware and predicts Gaussian parameters for the next state:
+		
+		\[
+			f_{\theta}
+			\left(
+				X_{t-L+1:t}
+			\right)
+			=
+			\left[
+				\mu_{t+1}^{\mathrm{tr}},
+				\log \sigma_{t+1}^{2,\mathrm{tr}}
+			\right],
+		\]
+		
+		where \(f_{\theta}\) is the trained Transformer model, \(\mu_{t+1}^{\mathrm{tr}}\) is the predicted mean, and \(\log \sigma_{t+1}^{2,\mathrm{tr}}\) is the predicted log-variance.
+		
+		The Transformer mean is used as the learned prediction:
+		
+		\[
+			\hat{x}_{t+1}^{\mathrm{tr}}
+			=
+			\mu_{t+1}^{\mathrm{tr}}.
+		\]
+		
+		The Transformer variance is recovered from the predicted log-variance:
+		
+		\[
+			\sigma_{t+1}^{2,\mathrm{tr}}
+			=
+			\exp
+			\left(
+				\log \sigma_{t+1}^{2,\mathrm{tr}}
+			\right).
+		\]
+		
+		If the Transformer predicts independent uncertainty for each state dimension, then its covariance matrix can be written as
+		
+		\[
+			P_{t+1}^{\mathrm{tr}}
+			=
+			\mathrm{diag}
+			\left(
+				\sigma_{t+1}^{2,\mathrm{tr}}
+			\right).
+		\]
+		
+		Thus, the Transformer prediction can be interpreted as
+		
+		\[
+			x_{t+1}^{\mathrm{tr}}
+			\sim
+			\mathcal{N}
+			\left(
+				\mu_{t+1}^{\mathrm{tr}},
+				P_{t+1}^{\mathrm{tr}}
+			\right).
+		\]
+	
+	\section{Constant-Velocity Prediction as a Gaussian Prior}
+		
+		The constant-velocity prediction can also be represented as a Gaussian estimate:
+		
+		\[
+			x_{t+1}^{\mathrm{vel}}
+			\sim
+			\mathcal{N}
+			\left(
+				x_t
+				+
+				v\Delta t,
+				P_{t+1}^{\mathrm{vel}}
+			\right).
+		\]
+		
+		Here, the mean is
+		
+		\[
+			\mu_{t+1}^{\mathrm{vel}}
+			=
+			x_t
+			+
+			v\Delta t,
+		\]
+		
+		and the covariance is
+		
+		\[
+			P_{t+1}^{\mathrm{vel}}
+			=
+			Q_{\mathrm{vel}}.
+		\]
+	
+	\section{Covariance-Based Fusion of Transformer and Velocity Predictions}
+		
+		The Transformer prediction and the constant-velocity prediction can be fused before the observation update. Since both predictions are represented as Gaussian estimates, a covariance-based fusion can be used.
+		
+		The fused prior covariance is
+		
+		\[
+			P_{t+1}^{-}
+			=
+			\left[
+				\left(
+					P_{t+1}^{\mathrm{tr}}
+				\right)^{-1}
+				+
+				\left(
+					P_{t+1}^{\mathrm{vel}}
+				\right)^{-1}
+			\right]^{-1}.
+		\]
+		
+		The fused prior mean is
+		
+		\[
+			\hat{x}_{t+1}^{-}
+			=
+			P_{t+1}^{-}
+			\left[
+				\left(
+					P_{t+1}^{\mathrm{tr}}
+				\right)^{-1}
+				\mu_{t+1}^{\mathrm{tr}}
+				+
+				\left(
+					P_{t+1}^{\mathrm{vel}}
+				\right)^{-1}
+				\left(
+					x_t
+					+
+					v\Delta t
+				\right)
+			\right].
+		\]
+		
+		This means that the prediction with lower uncertainty receives more weight. If the Transformer covariance is small, the fused prior moves closer to the Transformer prediction. If the velocity covariance is small, the fused prior moves closer to the constant-velocity prediction.
+	
+	\section{Observation Model}
+		
+		Assume that a new observation is received at time \(t+1\):
+		
+		\[
+			z_{t+1}
+			\in
+			\mathbb{R}^{M}.
+		\]
+		
+		The observation model is
+		
+		\[
+			z_{t+1}
+			=
+			Hx_{t+1}
+			+
+			r_{t+1},
+		\]
+		
+		where \(H\) maps the state space to the observation space, and \(r_{t+1}\) is the observation noise:
+		
+		\[
+			r_{t+1}
+			\sim
+			\mathcal{N}
+			\left(
+				0,
+				R
+			\right).
+		\]
+		
+		Here, \(R\) is the observation noise covariance matrix.
+	
+	\section{Kalman Correction}
+		
+		The innovation, or observation residual, is the difference between the new observation and the predicted observation:
+		
+		\[
+			e_{t+1}
+			=
+			z_{t+1}
+			-
+			H\hat{x}_{t+1}^{-}.
+		\]
+		
+		The innovation covariance is
+		
+		\[
+			S_{t+1}
+			=
+			HP_{t+1}^{-}H^{\top}
+			+
+			R.
+		\]
+		
+		The Kalman gain is
+		
+		\[
+			K_{t+1}
+			=
+			P_{t+1}^{-}
+			H^{\top}
+			S_{t+1}^{-1}.
+		\]
+		
+		Equivalently,
+		
+		\[
+			K_{t+1}
+			=
+			P_{t+1}^{-}
+			H^{\top}
+			\left(
+				HP_{t+1}^{-}H^{\top}
+				+
+				R
+			\right)^{-1}.
+		\]
+		
+		The corrected state estimate is
+		
+		\[
+			\hat{x}_{t+1}
+			=
+			\hat{x}_{t+1}^{-}
+			+
+			K_{t+1}
+			e_{t+1}.
+		\]
+		
+		Substituting the innovation term gives
+		
+		\[
+			\hat{x}_{t+1}
+			=
+			\hat{x}_{t+1}^{-}
+			+
+			K_{t+1}
+			\left(
+				z_{t+1}
+				-
+				H\hat{x}_{t+1}^{-}
+			\right).
+		\]
+		
+		The posterior covariance is updated as
+		
+		\[
+			P_{t+1}
+			=
+			\left(
+				I
+				-
+				K_{t+1}H
+			\right)
+			P_{t+1}^{-}.
+		\]
+	
+	\section{Complete Transformer-Velocity-Kalman Estimate}
+		
+		The complete estimate is obtained in two stages. First, the uncertainty-aware Transformer prediction and the constant-velocity prediction are fused into a prior estimate. Second, the prior estimate is corrected using the new observation.
+		
+		The fused prior covariance is
+		
+		\[
+			P_{t+1}^{-}
+			=
+			\left[
+				\left(
+					P_{t+1}^{\mathrm{tr}}
+				\right)^{-1}
+				+
+				\left(
+					P_{t+1}^{\mathrm{vel}}
+				\right)^{-1}
+			\right]^{-1}.
+		\]
+		
+		The fused prior mean is
+		
+		\[
+			\hat{x}_{t+1}^{-}
+			=
+			P_{t+1}^{-}
+			\left[
+				\left(
+					P_{t+1}^{\mathrm{tr}}
+				\right)^{-1}
+				\mu_{t+1}^{\mathrm{tr}}
+				+
+				\left(
+					P_{t+1}^{\mathrm{vel}}
+				\right)^{-1}
+				\left(
+					x_t
+					+
+					v\Delta t
+				\right)
+			\right].
+		\]
+		
+		The final corrected estimate is
+		
+		\[
+			\hat{x}_{t+1}
+			=
+			\hat{x}_{t+1}^{-}
+			+
+			K_{t+1}
+			\left(
+				z_{t+1}
+				-
+				H\hat{x}_{t+1}^{-}
+			\right).
+		\]
+		
+		By substituting the fused prior mean, the full expression becomes
+		
+		\[
+			\hat{x}_{t+1}
+			=
+			P_{t+1}^{-}
+			\left[
+				\left(
+					P_{t+1}^{\mathrm{tr}}
+				\right)^{-1}
+				\mu_{t+1}^{\mathrm{tr}}
+				+
+				\left(
+					P_{t+1}^{\mathrm{vel}}
+				\right)^{-1}
+				\left(
+					x_t
+					+
+					v\Delta t
+				\right)
+			\right]
+			+
+			K_{t+1}
+			\left[
+				z_{t+1}
+				-
+				H
+				P_{t+1}^{-}
+				\left[
+					\left(
+						P_{t+1}^{\mathrm{tr}}
+					\right)^{-1}
+					\mu_{t+1}^{\mathrm{tr}}
+					+
+					\left(
+						P_{t+1}^{\mathrm{vel}}
+					\right)^{-1}
+					\left(
+						x_t
+						+
+						v\Delta t
+					\right)
+				\right]
+			\right].
+		\]
+		
+		This equation combines three sources of information: the learned temporal prediction from the Transformer, the physical prediction from constant velocity, and the new observation.
+	
+	\section{Direct Position Observation}
+		
+		If the observation directly measures the state, then
+		
+		\[
+			H
+			=
+			I.
+		\]
+		
+		In this case, the observation model becomes
+		
+		\[
+			z_{t+1}
+			=
+			x_{t+1}
+			+
+			r_{t+1}.
+		\]
+		
+		The Kalman gain becomes
+		
+		\[
+			K_{t+1}
+			=
+			P_{t+1}^{-}
+			\left(
+				P_{t+1}^{-}
+				+
+				R
+			\right)^{-1}.
+		\]
+		
+		The corrected estimate becomes
+		
+		\[
+			\hat{x}_{t+1}
+			=
+			\hat{x}_{t+1}^{-}
+			+
+			K_{t+1}
+			\left(
+				z_{t+1}
+				-
+				\hat{x}_{t+1}^{-}
+			\right).
+		\]
+		
+		Substituting the fused prior gives
+		
+		\[
+			\hat{x}_{t+1}
+			=
+			P_{t+1}^{-}
+			\left[
+				\left(
+					P_{t+1}^{\mathrm{tr}}
+				\right)^{-1}
+				\mu_{t+1}^{\mathrm{tr}}
+				+
+				\left(
+					P_{t+1}^{\mathrm{vel}}
+				\right)^{-1}
+				\left(
+					x_t
+					+
+					v\Delta t
+				\right)
+			\right]
+			+
+			K_{t+1}
+			\left[
+				z_{t+1}
+				-
+				P_{t+1}^{-}
+				\left[
+					\left(
+						P_{t+1}^{\mathrm{tr}}
+					\right)^{-1}
+					\mu_{t+1}^{\mathrm{tr}}
+					+
+					\left(
+						P_{t+1}^{\mathrm{vel}}
+					\right)^{-1}
+					\left(
+						x_t
+						+
+						v\Delta t
+					\right)
+				\right]
+			\right].
+		\]
+	
+	\section{Simplified Weighted Fusion}
+		
+		A simpler alternative is to fuse the Transformer prediction and the constant-velocity prediction using a scalar weight \(\alpha\):
+		
+		\[
+			\hat{x}_{t+1}^{-}
+			=
+			\alpha
+			\mu_{t+1}^{\mathrm{tr}}
+			+
+			\left(
+				1-\alpha
+			\right)
+			\left(
+				x_t
+				+
+				v\Delta t
+			\right),
+		\]
+		
+		where
+		
+		\[
+			0
+			\leq
+			\alpha
+			\leq
+			1.
+		\]
+		
+		This form is easier to implement, but it does not fully use the Transformer uncertainty. The covariance-based fusion is more consistent with the uncertainty-aware Transformer because it uses \(P_{t+1}^{\mathrm{tr}}\) directly.
+	
+	\section{Interpretation}
+		
+		The uncertainty-aware Transformer predicts both a mean and a variance:
+		
+		\[
+			f_{\theta}
+			\left(
+				X_{t-L+1:t}
+			\right)
+			=
+			\left[
+				\mu_{t+1}^{\mathrm{tr}},
+				\log \sigma_{t+1}^{2,\mathrm{tr}}
+			\right].
+		\]
+		
+		The mean \(\mu_{t+1}^{\mathrm{tr}}\) gives the learned prediction, while the covariance \(P_{t+1}^{\mathrm{tr}}\) represents the Transformer's uncertainty.
+		
+		The constant-velocity model gives a physical prediction:
+		
+		\[
+			x_t
+			+
+			v\Delta t.
+		\]
+		
+		The covariance-based fusion combines the learned Transformer prediction and the physical velocity prediction according to their uncertainties.
+		
+		The new observation
+		
+		\[
+			z_{t+1}
+		\]
+		
+		then corrects the fused prior estimate through the Kalman update.
+		
+		If the observation noise covariance \(R\) is small, the Kalman gain becomes larger and the final estimate moves closer to the observation. If the fused prior covariance \(P_{t+1}^{-}\) is small, the Kalman gain becomes smaller and the final estimate remains closer to the Transformer-velocity prior.
+	
+%	\bibliographystyle{plainnat}
+%	\bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}

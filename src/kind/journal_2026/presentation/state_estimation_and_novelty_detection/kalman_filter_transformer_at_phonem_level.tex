@@ -1,0 +1,81 @@
+\begin{frame}{Kalman filter at phenoms}
+    \[
+        \begin{aligned}
+        (\mu^{\mathrm{tr}}_{t},\Sigma^{\mathrm{tr}}_{t})
+            &=
+            f_{\theta}(X_{t-L:t-1})
+            &&
+            \begin{array}{l}
+                \mu^{\mathrm{tr}}_{t}: \text{Transformer mean prediction} \\
+                \Sigma^{\mathrm{tr}}_{t}: \text{Transformer prediction covariance}
+            \end{array}
+            \\[8pt]
+            \mu^{\mathrm{vel}}_{t}
+            &=
+            x_{t-1}
+            +
+            v\Delta t
+            &&
+            \begin{array}{l}
+                x_{t-1}: \text{previous state} \\
+                v: \text{constant velocity} \\
+                \Delta t: \text{time interval}
+            \end{array}
+            \\[8pt]
+            \Sigma^{-}_{t}
+            &=
+            \left[
+                (\Sigma^{\mathrm{tr}}_{t})^{-1}
+                +
+                (\Sigma^{\mathrm{vel}}_{t})^{-1}
+            \right]^{-1}
+            &&
+            \begin{array}{l}
+                \Sigma^{-}_{t}: \text{fused prior covariance} \\
+                \Sigma^{\mathrm{vel}}_{t}: \text{velocity-model covariance}
+            \end{array}
+            \\[8pt]
+            \hat{x}^{-}_{t}
+            &=
+            \Sigma^{-}_{t}
+            \left[
+                (\Sigma^{\mathrm{tr}}_{t})^{-1}\mu^{\mathrm{tr}}_{t}
+                +
+                (\Sigma^{\mathrm{vel}}_{t})^{-1}\mu^{\mathrm{vel}}_{t}
+            \right]
+            &&
+            \hat{x}^{-}_{t}: \text{fused prior estimate}
+            \\[8pt]
+            K_{t}
+            &=
+            \Sigma^{-}_{t}H^{\top}
+            \left(
+                H\Sigma^{-}_{t}H^{\top}
+                +
+                R
+            \right)^{-1}
+            &&
+            \begin{array}{l}
+                K_{t}: \text{Kalman gain} \\
+                H: \text{observation matrix} \\
+                R: \text{observation noise covariance}
+            \end{array}
+            \\[8pt]
+            \hat{x}_{t}
+            &=
+            \hat{x}^{-}_{t}
+            +
+            K_{t}
+            \left(
+                z_{t}
+                -
+                H\hat{x}^{-}_{t}
+            \right)
+            &&
+            \begin{array}{l}
+                \hat{x}_{t}: \text{corrected estimate} \\
+                z_{t}: \text{new observation}
+            \end{array}
+        \end{aligned}
+    \]
+\end{frame}
