@@ -1,0 +1,92 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+\title{Discrete State Estimation with a Transformer-Guided Particle Filter}
+\date{}
+
+\begin{document}
+    \maketitle
+    \cite{chopin-2001-sequential-inference-and-state-number-determination-for-discrete-state-space-models-through-particle-filtering}
+    \[
+        \begin{aligned}
+            s_t
+            &\in
+            \{1,\ldots,K\},
+            \qquad
+            q_{\theta}(s_t \mid o_{1:t-1})
+            =
+            \mathrm{Transformer}(o_{1:t-1}),
+            \\[4pt]
+            s_t^{(i)}
+            &\sim
+            q_{\theta}(s_t \mid o_{1:t-1}),
+            \qquad
+            \tilde{w}_t^{(i)}
+            =
+            w_{t-1}^{(i)}
+            \frac{
+                p(o_t \mid s_t^{(i)})
+                p(s_t^{(i)} \mid s_{t-1}^{(i)})
+            }{
+                q_{\theta}(s_t^{(i)} \mid o_{1:t-1})
+            },
+            \\[4pt]
+            w_t^{(i)}
+            &=
+            \frac{
+                \tilde{w}_t^{(i)}
+            }{
+                \sum_{j=1}^{N}\tilde{w}_t^{(j)}
+            },
+            \qquad
+            \hat{s}_t
+            =
+            \arg\max_{k}
+            \sum_{i=1}^{N}
+            w_t^{(i)}
+            \mathbf{1}
+            \left(
+                s_t^{(i)}=k
+            \right).
+        \end{aligned}
+    \]
+    
+    \[
+        \begin{array}{ll}
+            s_t & \text{current discrete state (location cell/region)}, \\
+            o_{1:t-1} & \text{old observations}, \\
+            o_t & \text{new observation}, \\
+            q_{\theta}(s_t \mid o_{1:t-1}) & \text{Transformer-based proposal distribution}, \\
+            p(s_t \mid s_{t-1}) & \text{state transition model}, \\
+            p(o_t \mid s_t) & \text{observation likelihood}, \\
+            w_t^{(i)} & \text{particle weight}, \\
+            \hat{s}_t & \text{estimated current location/state}.
+        \end{array}
+    \]
+%    \bibliographystyle{plainnat}
+%    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}
