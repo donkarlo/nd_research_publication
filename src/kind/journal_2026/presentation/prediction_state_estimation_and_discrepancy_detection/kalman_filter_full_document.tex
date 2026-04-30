@@ -1,8 +1,38 @@
-\begin{frame}{Kalman filter at phenoms}
-    How Kalman filter uses both the 1^{th} derivative and Gaussian transformer learned for inside the the 0th derivative class
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+\title{}
+\date{}
+
+\begin{document}
+    \maketitle
     \[
         \begin{aligned}
-        (\mu^{\mathrm{tr}}_{t},\Sigma^{\mathrm{tr}}_{t})
+            (\mu^{\mathrm{tr}}_{t},\Sigma^{\mathrm{tr}}_{t})
             &=
             f_{\theta}(X_{t-L:t-1})
             &&
@@ -79,4 +109,6 @@
             \end{array}
         \end{aligned}
     \]
-\end{frame}
+    \bibliographystyle{plainnat}
+    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}
