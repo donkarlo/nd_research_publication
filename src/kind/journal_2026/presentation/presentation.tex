@@ -1,4 +1,4 @@
-\documentclass[a4paper]{beamer}
+\documentclass{beamer}
 
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb}
@@ -33,43 +33,63 @@
 \begin{document}
     
     \frame{\titlepage}
-    \input{self_awareness/self_awareness}
-    \input{components}
+    \input{contents}
     
     
-    % Anatomy - body
+    % Anatomy
+    
+    %% body
     \input{anatomy/anatomy}
     \input{anatomy/body/body}
-    \input{anatomy/body/nervous_system}
+    \input{anatomy/body/nervous_system/nervous_system}
+    \input{anatomy/body/nervous_system/action_potential/action_potential}
     
-    % Anatomy - body_mind
+    %% Anatomy - mind
     \input{anatomy/mind/mind}
     \input{anatomy/mind/cognition/cognition}
-    \input{anatomy/mind/cognition/meta_cognition}
-    \input{anatomy/mind/cognition/process}
-    \input{anatomy/mind/cognition/memory}
-    \input{anatomy/mind/cognition/event_specific_episodic_memory_knowledge}
+    \input{anatomy/mind/cognition/object_level/process}
+    \input{anatomy/mind/cognition/memory/memory}
+    \input{anatomy/mind/cognition/memory/event_specific_episodic_memory_knowledge}
+    \input{anatomy/mind/cognition/meta_cognition/meta_cognition}
+    \input{anatomy/mind/cognition/meta_cognition/self_awareness/self_awareness}
     
-    % Building predictive model
+    
+    % Control with Pose as set points to memorize
+    \input{control_with_pose_as_set_point/control}
+    
+    % Building (Learning) predictive model
     \input{building_predictive_model/building_predictive_model}
-    \input{building_predictive_model/language/language}
+    \input{building_predictive_model/default_mode_network}
     \input{building_predictive_model/transformers}
     
-    %% Building predictive model - Language
-    \input{building_predictive_model/}
+    %% Building predictive model with internal language
+    \input{building_predictive_model/building_predictive_model}
     
     %% Building predictive model for MRS with language
     
     
-    % Novelty detection
-    \input{novelty_detection/novelty_detection_prediction}
-    \input{novelty_detection/novelty_detection}
+    % Discrepancy detection
+    \input{prediction_state_estimation_and_discrepancy_detection/discrepancy_detection/discrepancy_detection}
+    
+    %% State estimation
+    
+    %% remebering with Particle filter
+    
+    \input{prediction_state_estimation_and_discrepancy_detection/remebering_with_particle_filter}
+    
+    
+    %% final refinement with Kalman filter
+    
+    % Dorsal attention network. Online testing. Control for suprise reduction
+    \input{dorsal_ventral_attention_mode/dorsal_ventral_attention_mode}
+    
+    % pre processing
     \input{preprocessing/preprocessing}
+    \input{preprocessing/one_to_many_relationship_discovery}
+    
+    % experiments
     \input{experiment_set/human_uavs_environment}
     
-    % Control
-    \input{control_with_suprise_poise_as_set_point/perception_action_memorizing_loop}
-    \input{control_with_suprise_poise_as_set_point/suprise_redction_action_for_homeostatis_goal}
     
     % code
     \input{code_struture}

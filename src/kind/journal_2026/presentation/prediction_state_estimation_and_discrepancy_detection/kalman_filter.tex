@@ -1,38 +1,18 @@
-\documentclass[a4paper]{article}
-
-\usepackage{graphicx}
-\usepackage{amsmath,amssymb}
-\usepackage{minted}
-\usepackage{multirow}
-\usepackage{float}
-\usepackage{todonotes}
-\usepackage{forest}
-\usepackage{xstring}
-\usepackage{xcolor}
-\usepackage[most]{tcolorbox}
-\usepackage{xparse}
-\usepackage{natbib}
-
-\usetikzlibrary{graphs,graphdrawing}
-\usegdlibrary{layered}
-
-% for external graphviz
-\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
-
-% for tags
-\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
-
-% for links
-\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
-
-\title{}
-\date{}
-
-\begin{document}
+\begin{frame}{Kalman filter}
+    Kalamn filter is a Bayesian filter that updates the internal prediction with a new observation.
+    
+    There are many evidences that many mamls perform Kalman filtering for state estimation \cite{wolpert-2007-probabilistic-models-in-human-sensorimotor-control}
+    
+    The question is, from where the prediction is comming:
+    
+    In previous paper, it was from the mean of the velocities in the class.
+    
+    In this work, it comes from the mean of the velocities in vowel class right before the current 0th derivative cluster
+    
     \maketitle
     \[
         \begin{aligned}
-            (\mu^{\mathrm{tr}}_{t},\Sigma^{\mathrm{tr}}_{t})
+        (\mu^{\mathrm{tr}}_{t},\Sigma^{\mathrm{tr}}_{t})
             &=
             f_{\theta}(X_{t-L:t-1})
             &&
@@ -111,4 +91,4 @@
     \]
     \bibliographystyle{plainnat}
     \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
-\end{document}
+\end{frame}
