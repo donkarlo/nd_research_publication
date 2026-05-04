@@ -1,0 +1,63 @@
+\begin{frame}[allowframebreaks]{Discrete State Estimation with a Transformer-Guided Particle Filter}
+    \section{In human}
+        Many papers including \cite{fox-2010-learning-in-a-unitary-coherent-hippocampus} consider hippocampus (the part in brain which is responsible for remebering) as a unitary coherent particle filter combining associative memory and spatial navigation.
+        
+        \section{In discrete state space}
+        Inspired from \cite{chopin-2001-sequential-inference-and-state-number-determination-for-discrete-state-space-models-through-particle-filtering} for PF in discrete state space.
+        \[
+            \begin{aligned}
+                s_t
+                &\in
+                \{1,\ldots,K\},
+                \qquad
+                q_{\theta}(s_t \mid o_{1:t-1})
+                =
+                \mathrm{Transformer}(o_{1:t-1}),
+                \\[4pt]
+                s_t^{(i)}
+                &\sim
+                q_{\theta}(s_t \mid o_{1:t-1}),
+                \qquad
+                \tilde{w}_t^{(i)}
+                =
+                w_{t-1}^{(i)}
+                \frac{
+                    p(o_t \mid s_t^{(i)})
+                    p(s_t^{(i)} \mid s_{t-1}^{(i)})
+                }{
+                    q_{\theta}(s_t^{(i)} \mid o_{1:t-1})
+                },
+                \\[4pt]
+                w_t^{(i)}
+                &=
+                \frac{
+                    \tilde{w}_t^{(i)}
+                }{
+                    \sum_{j=1}^{N}\tilde{w}_t^{(j)}
+                },
+                \qquad
+                \hat{s}_t
+                =
+                \arg\max_{k}
+                \sum_{i=1}^{N}
+                w_t^{(i)}
+                \mathbf{1}
+                \left(
+                    s_t^{(i)}=k
+                \right).
+            \end{aligned}
+        \]
+        
+        \[
+            \begin{array}{ll}
+                s_t & \text{current discrete state (location cell/region)}, \\
+                o_{1:t-1} & \text{old observations}, \\
+                o_t & \text{new observation}, \\
+                q_{\theta}(s_t \mid o_{1:t-1}) & \text{Transformer-based proposal distribution}, \\
+                p(s_t \mid s_{t-1}) & \text{state transition model}, \\
+                p(o_t \mid s_t) & \text{observation likelihood}, \\
+                w_t^{(i)} & \text{particle weight}, \\
+                \hat{s}_t & \text{estimated current location/state}.
+            \end{array}
+        \]
+\end{frame}
