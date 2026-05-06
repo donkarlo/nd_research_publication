@@ -1,0 +1,86 @@
+\begin{frame}{Language}
+    After the language is built
+    
+    \cite{rueda-2021-a-novel-wave-decomposition-for-oscillatory-signals} suggests using the superposition of two Frequency Modulated M\"obius (FMM) waves to represent two action potential waves.
+    
+    \begin{equation}
+        \begin{aligned}
+            V(t)
+            =
+            M
+            &+
+            A_1
+            \cos
+            \Biggl[
+                \beta_1
+                +
+                2
+                \arctan
+                \Biggl(
+                \omega_1
+                \tan
+                \Bigl(
+                \frac{t-\alpha_1}{2}
+                \Bigr)
+                \Biggr)
+                \Biggr]
+            \\
+            &+
+            A_2
+            \cos
+            \Biggl[
+                \beta_2
+                +
+                2
+                \arctan
+                \Biggl(
+                \omega_2
+                \tan
+                \Bigl(
+                \frac{t-\alpha_2}{2}
+                \Bigr)
+                \Biggr)
+                \Biggr]
+        \end{aligned}
+    \end{equation}
+    
+    
+    \section{Estimating one wave parameters}
+        But the decoders have only learned to map one wave parameters so we should estimate the parameters of a single wave from the above somation using \textbf{derivative-free global optimization followed by local nonlinear least-squares refinement} to find the parameters on the left side of this equation
+        \[
+            \begin{aligned}
+                &M
+                +
+                A\cos\left(
+                         \beta
+                         +
+                         2\arctan\left(
+                                     \omega\tan\left(\frac{t-\alpha}{2}\right)
+                    \right)
+                \right)
+                \\
+                &=
+                \\
+                &M_1
+                +
+                A_1\cos\left(
+                           \beta_1
+                    +
+                    2\arctan\left(
+                                \omega_1\tan\left(\frac{t-\alpha_1}{2}\right)
+                    \right)
+                \right)
+                \\
+                &+
+                M_2
+                +
+                A_2\cos\left(
+                           \beta_2
+                    +
+                    2\arctan\left(
+                                \omega_2\tan\left(\frac{t-\alpha_2}{2}\right)
+                    \right)
+                \right)
+            \end{aligned}
+        \]
+\end{frame}
