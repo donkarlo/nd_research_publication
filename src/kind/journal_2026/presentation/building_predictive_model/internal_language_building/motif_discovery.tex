@@ -1,0 +1,22 @@
+\begin{frame}[allowframebreaks]{Motif discovery}
+    \textbf{Matrix-Profile-based Motif Discovery \cite{vanonsem-2023-variable-length-motif-discovery-in-time-series-data}}
+    \begin{algorithm}[H]
+	\caption{Event-Driven Variable-Length Motif Discovery}
+    \begin{algorithmic}[1]
+        \State Input time series \(T\), window size \(w\), threshold \(t\)
+        \State Compute scale-aware distance matrix \(M\)
+        \State Convert \(M\) to binary event matrix \(M_{\mathrm{bin}}\)
+        \State Rank diagonals of \(M_{\mathrm{bin}}\) by number of events
+        \For{each ranked diagonal}
+            \For{each event on the diagonal}
+                \State Enlarge the event into a motif candidate
+                \State Validate candidate using the distance threshold
+                \State Find all occurrences of the accepted motif
+                \State Add motif and its occurrences to output
+                \State Exclude found occurrences from \(M_{\mathrm{bin}}\)
+            \EndFor
+        \EndFor
+        \State Return unique motifs with grouped occurrences
+    \end{algorithmic}
+    \end{algorithm}
+\end{frame}

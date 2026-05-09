@@ -36,6 +36,35 @@
 \usetikzlibrary{graphs,graphdrawing}
 \usegdlibrary{layered}
 
+% to make all small
+\usepackage{etoolbox}
+
+\makeatletter
+\let\OriginalDisplayMathOpen\[
+                                \let\OriginalDisplayMathClose\]
+
+\renewcommand{\[}{\begingroup\small\OriginalDisplayMathOpen}
+\renewcommand{\]}{\OriginalDisplayMathClose\endgroup}
+\makeatother
+
+\BeforeBeginEnvironment{equation}{\begingroup\small}
+\AfterEndEnvironment{equation}{\endgroup}
+
+\BeforeBeginEnvironment{equation*}{\begingroup\small}
+\AfterEndEnvironment{equation*}{\endgroup}
+
+\BeforeBeginEnvironment{align}{\begingroup\small}
+\AfterEndEnvironment{align}{\endgroup}
+
+\BeforeBeginEnvironment{align*}{\begingroup\small}
+\AfterEndEnvironment{align*}{\endgroup}
+
+\BeforeBeginEnvironment{gather}{\begingroup\small}
+\AfterEndEnvironment{gather}{\endgroup}
+
+\BeforeBeginEnvironment{gather*}{\begingroup\small}
+\AfterEndEnvironment{gather*}{\endgroup}
+
 % for external graphviz
 \input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
 
@@ -45,7 +74,7 @@
 % for links
 \input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
 
-\title{Thesis summary}
+\title{Developed solution for self-awareness in multi robot systems}
 \date{}
 
 \begin{document}

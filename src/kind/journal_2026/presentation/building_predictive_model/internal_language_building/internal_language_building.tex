@@ -1,8 +1,16 @@
 \section{}
     \begin{frame}[allowframebreaks]{Predictive brain - Internal language}
         \begin{itemize}
-            \item relation with self-awareness \cite{fernyhough-2023-inner-speech-as-language-process-and-cognitive-tool, molnar-szakacs-2013-self-processing-and-the-default-mode-network-interactions-with-the-mirror-neuron-system}
-            \item Activates during brain's Default Mode Network \cite{menon-2023-20-years-of-the-default-mode-network-a-review-and-synthesis}
+            \item relation with self-awareness \cite{fernyhough-2023-inner-speech-as-language-process-and-cognitive-tool} presents inner speech as an internal language process and cognitive tool involved in planning, attention, memory, emotion regulation, self-reflection, and abstract thinking and
+            \item Activates during brain's Default Mode Network \cite{menon-2023-20-years-of-the-default-mode-network-a-review-and-synthesis, molnar-szakacs-2013-self-processing-and-the-default-mode-network-interactions-with-the-mirror-neuron-system}
+            \item Language can be considered a component of self-awareness because it is one of the cognitive processes through which knowledge is represented. Cognition deals with the acquisition, organization, and use of knowledge. Language enables knowledge to be encoded along semantic and temporal dimensions, allowing experiences, concepts, and relations to be structured. Meta-cognition, in turn, is the ability to evaluate and modify cognitive processes, including language itself. Therefore, the evolution of self-awareness depends on language, because language provides a representational medium through which cognitive states can be inspected, evaluated, and revised.
+        \end{itemize}
+        
+        If we want to build a language-like system, we should have:
+        \begin{itemize}
+            \item \textbf{Paradigmatic axis:} replaceable components that can occupy the same position and produce different meanings \cite{saussure-1966-course-in-general-linguistics}.
+            \item \textbf{Syntagmatic axis:} ordered sequences of the aforementioned components that build more complex expressions \cite{saussure-1966-course-in-general-linguistics}.
+            \item \textbf{Statistical extension:} a model that estimates the plausibility or conventionality of a sequence based on previous usage patterns \cite{mickus-2024-language-models-and-the-paradigmatic-axisself}.
         \end{itemize}
         
         \begin{itemize}
@@ -18,7 +26,7 @@
         
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.9\textwidth]{building_predictive_model/internal_language_building/internal_language_building.png}
+            \includegraphics[width=0.8\textwidth]{building_predictive_model/internal_language_building/internal_language_building.png}
         \end{figure}
     
     \end{frame}
@@ -26,4 +34,10 @@
     \subsection{}
         \input{building_predictive_model/internal_language_building/default_mode_network}
         \input{building_predictive_model/internal_language_building/dbscan_clustering}
+        \input{building_predictive_model/internal_language_building/motif_discovery}
+        \input{building_predictive_model/internal_language_building/phonem}
+        \input{building_predictive_model/internal_language_building/word_level}
+        \input{building_predictive_model/internal_language_building/sentence_level}
         \input{building_predictive_model/internal_language_building/transformer/transformer}
+        \input{building_predictive_model/internal_language_building/self_evaluation}
+        \input{building_predictive_model/internal_language_building/tolerence_value_extraction}
