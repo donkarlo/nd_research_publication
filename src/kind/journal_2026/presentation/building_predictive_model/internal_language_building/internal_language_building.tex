@@ -18,7 +18,7 @@
             \item Phonems: The smallest clusters
             \begin{itemize}
                 \item Consonant (DBSCAN clustering on 0th derivitive)
-                \item vowel (DBSCAN clustering on 2nd derivitive)
+                \item vowel (DBSCAN clustering on 1st derivitive)
             \end{itemize}
             \item Words (DBSCAN clustering on sliding windows Dynamic Time Wrapping applied on sequences of phonems)
             \item Sentences (similar to words and applied on words to build )
@@ -33,7 +33,10 @@
     
     \subsection{}
         \input{building_predictive_model/internal_language_building/default_mode_network}
-        \input{building_predictive_model/internal_language_building/dbscan_clustering}
+        \input{building_predictive_model/internal_language_building/clustering}
+        \input{building_predictive_model/internal_language_building/clustering_lidar_zero_derivative_with_single_sample}
+        \input{building_predictive_model/internal_language_building/clustering_lidar_zero_derivative_with_multiple_samples}
+        \input{building_predictive_model/internal_language_building/clustering_lidar_zero_derivative_with_centroid}
         \input{building_predictive_model/internal_language_building/motif_discovery}
         \input{building_predictive_model/internal_language_building/phonem}
         \input{building_predictive_model/internal_language_building/word_level}
