@@ -1,9 +1,11 @@
 \section{}
     \begin{frame}[allowframebreaks]{Predictive brain - Internal language}
         \begin{itemize}
-            \item relation with self-awareness \cite{fernyhough-2023-inner-speech-as-language-process-and-cognitive-tool} presents inner speech as an internal language process and cognitive tool involved in planning, attention, memory, emotion regulation, self-reflection, and abstract thinking and
-            \item Activates during brain's Default Mode Network \cite{menon-2023-20-years-of-the-default-mode-network-a-review-and-synthesis, molnar-szakacs-2013-self-processing-and-the-default-mode-network-interactions-with-the-mirror-neuron-system}
-            \item Language can be considered a component of self-awareness because it is one of the cognitive processes through which knowledge is represented. Cognition deals with the acquisition, organization, and use of knowledge. Language enables knowledge to be encoded along semantic and temporal dimensions, allowing experiences, concepts, and relations to be structured. Meta-cognition, in turn, is the ability to evaluate and modify cognitive processes, including language itself. Therefore, the evolution of self-awareness depends on language, because language provides a representational medium through which cognitive states can be inspected, evaluated, and revised.
+            \item relation with self-awareness  presents inner speech as an internal language process and cognitive tool involved in planning, attention, memory, emotion regulation, self-reflection, and abstract thinking and
+            \item Event specific knowledge review for language building activates during brain's Default Mode Network \cite{menon-2023-20-years-of-the-default-mode-network-a-review-and-synthesis, molnar-szakacs-2013-self-processing-and-the-default-mode-network-interactions-with-the-mirror-neuron-system}
+            \item Language is a component of self-awareness because it is one of the cognitive processes through which knowledge is represented.
+            \item Language enables knowledge to be encoded along semantic and temporal dimensions, allowing experiences, concepts, and relations to be structured.
+            \item Meta-cognition, in turn, is the ability to evaluate and modify cognitive processes, including language itself. Therefore, the evolution of self-awareness depends on language \cite{fernyhough-2023-inner-speech-as-language-process-and-cognitive-tool}.
         \end{itemize}
         
         If we want to build a language-like system, we should have:
@@ -17,10 +19,10 @@
             \item Fused sensory data with autoencoders
             \item Phonems: The smallest clusters
             \begin{itemize}
-                \item Consonant (DBSCAN clustering on 0th derivitive)
-                \item vowel (DBSCAN clustering on 1st derivitive)
+                \item Consonant (Clustering on 0th derivitive)
+                \item vowel (Clustering on 1st derivitive)
             \end{itemize}
-            \item Words (DBSCAN clustering on sliding windows Dynamic Time Wrapping applied on sequences of phonems)
+            \item Words (Clustering on motives discovered on sequences of phonems)
             \item Sentences (similar to words and applied on words to build )
         \end{itemize}
         
@@ -32,13 +34,12 @@
     \end{frame}
     
     \subsection{}
+        \input{building_predictive_model/internal_language_building/training_the_autoencoder}
         \input{building_predictive_model/internal_language_building/default_mode_network}
-        \input{building_predictive_model/internal_language_building/clustering}
-        \input{building_predictive_model/internal_language_building/clustering_lidar_zero_derivative_with_single_sample}
-        \input{building_predictive_model/internal_language_building/clustering_lidar_zero_derivative_with_multiple_samples}
-        \input{building_predictive_model/internal_language_building/clustering_lidar_zero_derivative_with_centroid}
+        \input{building_predictive_model/internal_language_building/neural_coding/neural_coding}
+        \input{building_predictive_model/internal_language_building/from_stimulus_to_trace/from_stimulus_to_trace}
+        \input{building_predictive_model/internal_language_building/clustering/clustering}
         \input{building_predictive_model/internal_language_building/motif_discovery}
-        \input{building_predictive_model/internal_language_building/phonem}
         \input{building_predictive_model/internal_language_building/word_level}
         \input{building_predictive_model/internal_language_building/sentence_level}
         \input{building_predictive_model/internal_language_building/transformer/transformer}
