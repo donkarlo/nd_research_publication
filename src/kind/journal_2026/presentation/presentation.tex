@@ -65,6 +65,19 @@
 \BeforeBeginEnvironment{gather*}{\begingroup\small}
 \AfterEndEnvironment{gather*}{\endgroup}
 
+% for important text
+\newcommand{\importantphrase}[1]{%
+    \begingroup
+    \setlength{\fboxsep}{2pt}%
+    \colorbox{yellow!25}{\strut #1}%
+    \endgroup
+}
+
+
+
+
+
+
 % for external graphviz
 \input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
 
