@@ -1,0 +1,32 @@
+
+\section{}
+\begin{frame}[allowframebreaks]{Predictive brain - Transformers as predictors for Klaman filter}
+    Since different segment composition of language form different meanings, LSTMs (and consequently RNNs) can not catch local dependencies. A multi attention predictor is needed. The transformers \cite{vaswani-2017-attention-is-all-you-need}
+    
+    Its application here is to replace the constant speed predictor
+    
+    
+    
+    \begin{itemize}
+        \item At lowest level in each cell, it holds an AP wave represented by FMM
+        \item Training
+        \begin{itemize}
+            \item Deep learning as an autocorrelation to find periods
+        \end{itemize}
+        \item Sliding windows to train the transformer
+        \item Period sampling with auto corrlation for training and validating the transformer
+        \item Noise as uncertainty in transformer
+    
+    \end{itemize}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{building_predictive_model/internal_language_building/transformer/transformer.png}
+    \end{figure}
+    
+    \section{Previous}
+    Transition matrix
+\end{frame}
+    \subsection{}
+    \input{building_predictive_model/internal_language_building/transformer/gaussian_transformer}
+    \input{building_predictive_model/internal_language_building/transformer/gaussian_transformer_loss_and_uncertainty_meaning}
+    

@@ -1,0 +1,27 @@
+\begin{frame}[allowframebreaks]{Clustering LiDAR's \(0^{\mathrm{th}}\) Derivative -- Centroid}
+    \begin{itemize}
+        \item The centroid will be later as a new origin for GPS
+        \item Number of the clusters are determined by penalized average silhouette width (ASW) \cite{deng-2024-on-estimation-and-order-selection-for-multivariate-extremes-via-clustering, rousseeuw-1987-silhouettes-a-graphical-aid-to-the-interpretation-and-validation-of-cluster-analysis}
+    \end{itemize}
+    
+    \begin{algorithm}[H]
+    \caption{Penalized ASW Order Selection}
+    \begin{algorithmic}[1]
+        \State Choose candidate orders \(k \in \{1,\dots,k_{\max}\}\) and small penalty values \(t \in T\).
+        \For{each \(k\)}
+            \State Cluster the sample \(W\) and obtain centers \(A_k^\ast\) and clusters \(C_1,\dots,C_k\).
+            \State Compute \(a(w)\) and \(b(w)\) for each \(w \in W\).
+            \State Compute the simplified ASW score \(\bar{s}(k)\).
+            \State Compute the penalized score \(S_t(k)\).
+        \EndFor
+        \State Select \(k^\ast\) from the maximum or turning point of \(S_t(k)\).
+    \end{algorithmic}
+    \end{algorithm}
+    
+    \framebreak
+    
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.9\textwidth]{/home/donkarlo/Dropbox/repo/nd_research_publication/src/kind/presentation/building_predictive_model/internal_language_building/clustering/clustering_lidar_zero_derivative_with_centroid.png}
+    \end{figure}
+\end{frame}

@@ -1,0 +1,74 @@
+\section{}
+    \begin{frame}[allowframebreaks]{Vector-Valued Sensor Composition}
+        
+        Composition and decomposition is based on orthoganal spaces for each sensor
+        \begin{block}{Why composing sensors}
+            \begin{itemize}
+                \item is what other bilogical agents do (small, touch etc are compose together)
+                \item computationally less expensive
+            \end{itemize}
+        \end{block}
+        
+        
+        \begin{block}{Why?}
+            \begin{itemize}
+                \item The result is also an FMM (a unified way from sensation to anomaly represenation)
+                \item No need to trained a transformer for each sensor (first fuse , then train, then decompose)
+            \end{itemize}
+            
+        \end{block}
+        
+        \small
+        
+        Each sensor reading is encoded into an FMM parameter vector:
+        
+        \begin{equation}
+            \theta_t^i
+            =
+            (M_t^i,A_t^i,\alpha_t^i,\beta_t^i,\omega_t^i),
+            \qquad
+            i=1,\ldots,n
+        \end{equation}
+        
+        Each parameter vector generates one sensor-specific FMM wave:
+        
+        \begin{equation}
+            w_t^i(s)
+            =
+            \mathrm{FMM}(s;\theta_t^i),
+            \qquad
+            s \in [0,2\pi]
+        \end{equation}
+        
+        The sensor-specific waves are composed on orthonormal sensor axes:
+        
+        \begin{equation}
+            \mathbf{U}_t(s)
+            =
+            \sum_{i=1}^{n}
+            w_t^i(s)\mathbf{e}_i,
+            \qquad
+            \mathbf{e}_i^{\top}\mathbf{e}_j
+            =
+            \delta_{ij}
+        \end{equation}
+        
+        Therefore, the composed representation is a vector-valued wave:
+        
+        \begin{equation}
+            \mathbf{U}_t(s)
+            =
+            \begin{bmatrix}
+                w_t^1(s) \\
+                w_t^2(s) \\
+                \vdots \\
+                w_t^n(s)
+            \end{bmatrix}
+        \end{equation}
+        
+        \[
+            \text{Composition preserves sensor identity inside one shared temporal representation.}
+        \]
+    
+    
+    \end{frame}

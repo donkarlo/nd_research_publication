@@ -1,0 +1,56 @@
+\begin{frame}[allowframebreaks]{Wasserstein distance}
+    Why wasserstein?
+    \begin{itemize}
+        \item When the two distributions are points (their covariance matrix is very close to 0), then Wasserstein gives a value very close to Euclidean distance
+        \item when one is a distribution and the other is a point, it still produces a value
+        \item It is a metric, so unlike Kullbackleibler, distance(A,B) = distance(B,A)
+    \end{itemize}
+    \[
+        P_1
+        =
+        \mathcal{N}
+        \left(
+            \mu_1,
+            \Sigma_1
+        \right)
+        \qquad
+        P_2
+        =
+        \mathcal{N}
+        \left(
+            \mu_2,
+            \Sigma_2
+        \right)
+    \]
+    
+    \[
+        W_2^2
+        \left(
+            P_1,
+            P_2
+        \right)
+        =
+        \sqrt{
+            \left\lVert
+                \mu_1 - \mu_2
+            \right\rVert_2^2
+            +
+            \operatorname{Tr}
+            \left(
+                \Sigma_1
+            +
+                \Sigma_2
+            -
+            2
+                \left(
+                    \Sigma_2^{1/2}
+                    \Sigma_1
+                    \Sigma_2^{1/2}
+                \right)^{1/2}
+            \right)}
+    \]
+    
+    
+    \section{Interpretation}
+        If we consider teh two gaussian ditributions as two mass piles, how much effort does it take to move one pile to the other.
+\end{frame}
