@@ -1,0 +1,13 @@
+# This contains the information and instructions for the paper that I am trying to develop in yaml format.
+goal: |
+  The goal is to propose a model to form a language from sensory data points to phoenem up to words and sentences and so on from an experience. The sensory conduction must be inspired from human nervous system. in which each sensor is a sensory receptor and then in diverging neural circuits derived from each sensor the evidences in form a of probability amounts devided between desired states as IPSP or EPSP graded potentials gradually decrease or decrease .
+  
+  
+  
+  
+  This language must be such that when a drone experiences  something that it has not experienced so far, then it should detect it as a novelty. 
+  
+
+general explanation: null
+clustering: null
+novelty detection: null
