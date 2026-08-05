@@ -11,19 +11,59 @@
     \maketitle
     
     
+    \section{Architecture}
+        components
+        \begin{itemize}
+            \item Sensory neuron
+            \item discrete state neuron (with what precision do we want the states at lowest level)
+            \item
+        \end{itemize}
     
-    \section{Embodied Cognitive Architecture}
     
-    Using one of the already stored ``memory>longterm>episodic>autobiographical>Event specific knowledges`` to learn the temporal dependency between different modalities of an ``event specific knowledge`` and then compare it to the event it is experiencing at present time to detect any source that raises suprise in the agent. There are three suprise sources.
-    Anomaly, outlier and novelty. Eventhough the framework we will introduce is capable of detectiong all, but we insiste on novelty detection.
+    \section{Offline training}
+        The sensory induction and perception is inspired from human nervous system in which each sensor plays the role of a sensory receptor and then in diverging neural circuits derived from each sensor, the sensor readings are converted to probability particles (= similar to neurotransmitters molcules that carry predetermined electrical loads in synapse clefts) to be equally devided between desired states as IPSP or EPSP graded potentials that gradually increase or decrease the state nuerion potential until that state neuron spikes to create an action potential.
+        
+        State neuron is a state in state space that we make an anlogy of it with neuron because similar to a neuron that receives neurotransmitters through its ion gates to convert them to graded IPSP or EPSP potentials, it converts a sensor reading to the positive or negative probability-like values to increase or decrease the probability up to the point that it reaches the threshold (similar to a neuron spike when its voltage reache -70v) and spikes and produces an action potential in two directions. One along the time axis in similar level and one along abstraction axis.
+        In abstraction level the a pattern simllar to converging neural circuits is followed to reach a the highest abstraction.
+        
+        
+        This language must be such that when a drone experiences something that it has not experienced in previous experiences then it should detect it as a from which it builds language.
+        
+        So we devide the experiment in two phases. In offline training phase, one robot(in this case a UAV equiped with LIDAR, GPS, IMU) is requested by human agent to use its autopilot to reach a set of trajectory points to gather sensory data from which temporal models and abstraction models using the aforementioned method inspired human nervous system is build.
+        
+        these items are inputs of the model in this phase
+        \begin{itemize}
+            \item Different modality of sensors
+        \end{itemize}
+        
+        These items must be learned from these sensory data
+        \begin{itemize}
+            \item A probabilistic model based on Transformers for each level to predict sequences (This could be regarded as a seuential circuit)
+            \item A probabilistic model for abstraction levels that maps a state neuron to the more abstract concepts by clustering
+            \item A variational auto encoder
+            \item with what frequencey a sensory neuron should spike according to a stimuli
+            \item Probabilistic dependency between different sensory modality (Spatial summation of graded potentials)
+            \item Learning temporal summation distribution of graded potentials derived from multiple spikes
+        \end{itemize}
+        
+        In online testing phase
+        
+        Temporal and Spatial summation
     
-    If all what an agent knows about the environment is shown by
-    [[
-        P(t)
-    ]]
     
-    \section{A short introduction to Transformers}
-    TRansformer is a deep learning method that tries to take into considerration what other past status where more involved in asgent's current state. It uses embedding to learn Q, K and V.
-    this mechanism is called attention.
-    The embedding is a simple additional layer. It adds position to also learn the precedence.
+    \section{Online testing phase}
+        The goal of this section is to detect novelty from noise and build new language parts from it.
+        the inputs to the language model built in online learning are
+        
+        \paragraph{Inputs as sensory neurons}
+            \begin{itemize}
+                \item Transformer prediction (A grand mother neural circuit )
+                \item Kalman filter (A grand mother neural circuit )
+                \item Particle filter (A grand mother neural circuit )
+                \item IMU
+                \item LIDAR
+            \end{itemize}
+        
+        \paragraph{Data flow}
+
 \end{document}
