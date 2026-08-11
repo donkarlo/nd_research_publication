@@ -36,14 +36,26 @@
             \item Different modality of sensors
         \end{itemize}
         
+        Tasks by order in this phase
+        \begin{enumerate}
+            \item Accumelating the sensory data
+            \item fusing different sensory modalities with variational autoencoders
+            \item creating the the clusters for different levels
+            \begin{itemize}
+                \item here each sensory data already exists for sure in one of the clusters so we can find the parameters from here after
+            \end{itemize}
+            \item Learning FMM for refractoring period for each state neuron at both concept axis and time axis
+        \end{enumerate}
+        
         These items must be learned from these sensory data
         \begin{itemize}
-            \item A probabilistic model based on Transformers for each level to predict sequences (This could be regarded as a seuential circuit)
+            \item A probabilistic model based on Transformers for each level to predict sequences (This could be regarded as a sequential circuit). This probabilistic model will perform as grand modther neuron
             \item A probabilistic model for abstraction levels that maps a state neuron to the more abstract concepts by clustering
-            \item A variational auto encoder
+            \item A variational auto encoder to fuse all information together to assign an IPSP or EPSP value
             \item with what frequencey a sensory neuron should spike according to a stimuli
             \item Probabilistic dependency between different sensory modality (Spatial summation of graded potentials)
             \item Learning temporal summation distribution of graded potentials derived from multiple spikes
+            \item The action potential refractoring period after spiking. During this time what ever evidences arrive as neuro transmitters they can not open state neuron channels. Because the agen was already in this state and it is unlikely that the system returns back to it after leaving it.
         \end{itemize}
         
         In online testing phase
