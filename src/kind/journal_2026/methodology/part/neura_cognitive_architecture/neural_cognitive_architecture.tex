@@ -1,0 +1,67 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+\title{Cognitive architecture}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+    \maketitle
+    
+    
+    \section{Neurons}
+        
+        \paragraph{Neuron types}
+            \begin{itemize}
+                \item Transformer
+                \item KF
+                \item PF
+                \item Sensory modalities
+                \item Language
+            \end{itemize}
+            
+    
+    
+    \section{Neural Cognitive Architecture}\label{neural_cognitive_architecture}
+    
+    \subsection{Neuron level}
+        \begin{itemize}
+            \item Sensory neuron
+            \item discrete state neuron (with what precision do we want the states at lowest level)
+            \item Diverging neural circuit(To simulate time)
+            \item Converging neural circuit(To simulate hierarchy of concepts such as corner is a part of the corridor)
+            \item Temporal summation happens in one neural pathway for example from a sensory neuron to a state neuron when ,multiple spikes in a short amount of time are fired which is called ``spike train``
+            \item Spatioal summation is connection from different sensory modalities to one state sensor.
+        \end{itemize}
+        
+        When both spatially and temporally enough evidences are accumlated then a spike is fired and during the refractoring period another spike is not possible to be released. Each spike releases the same evidance to all connecting state neurons at next level or time slot. the evidences move from bottom (smallest classes) to topest (biggest class) and from left to right as time goes on.
+        
+        
+        
+        \bibliographystyle{plainnat}
+        \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}

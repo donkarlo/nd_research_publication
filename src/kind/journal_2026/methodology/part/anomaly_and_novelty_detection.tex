@@ -1,0 +1,53 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+\title{Anomally and novelty detection}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+    \maketitle
+    Novelty is the continous presitance of neural responces of populations of neurons
+    
+    The main question that the agent tries to answer here is can I rebuild what has happened to me with the language components that I have or is the time to introduce a new component(Phonem, word, ...)
+    
+    The goal of this section is to detect novelty from noise and build new language parts from it.
+    the inputs to the language model built in online learning are
+    
+    \paragraph{Inputs as sensory neurons}
+        \begin{itemize}
+            \item Transformer prediction (A grand mother neural circuit )
+            \item Kalman filter (A grand mother neural circuit )
+            \item Particle filter (A grand mother neural circuit )
+            \item IMU
+            \item LIDAR
+        \end{itemize}
+    
+    \paragraph{Data flow}
+        \bibliographystyle{plainnat}
+        \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}
