@@ -25,7 +25,7 @@
 % for links
 \input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
 
-\title{Neural encoding}
+\title{Neural encoder training}
 \date{}
 \author{Mohammad Rahmani}
 
@@ -36,7 +36,7 @@
     \section{Neural encoding}
         
         \subsection{Training the neural decoding}
-            in this section we discuss how to train the cognitive architecture we discussed in  such that given a stimuli we learn both the temporal and hierarachical patter
+            in this section we discuss how to train the cognitive architecture we discussed in such that given a stimuli we learn both the temporal and hierarachical patter
             
             
             The sensory induction and perception is inspired from human nervous system in which each sensor plays the role of a sensory receptor and then in diverging neural circuits derived from each sensor, the sensor readings are converted to probability particles (= similar to neurotransmitters molcules that carry predetermined electrical loads in synapse clefts) to be equally devided between desired states as IPSP or EPSP graded potentials that gradually increase or decrease the state nuerion potential until that state neuron spikes to create an action potential.
@@ -48,38 +48,41 @@
             This language must be such that when a drone experiences something that it has not experienced in previous experiences then it should detect it as a from which it builds language.
             
             So we devide the experiment in two phases. In offline training phase, one robot(in this case a UAV equiped with LIDAR, GPS, IMU) is requested by human agent to use its autopilot to reach a set of trajectory points to gather sensory data from which temporal models and abstraction models using the aforementioned method inspired human nervous system is build.
-            
-            these items are inputs of the model in this phase
+    
+    
+    \section{these items are inputs of the model in this phase}
+        \begin{itemize}
+            \item Different modality of sensors
+        \end{itemize}
+    
+    
+    \section{Tasks by order in this phase}
+        \begin{enumerate}
+            \item Accumelating the sensory data
+            \item fusing different sensory modalities with variational autoencoders
+            \item creating the the clusters for different levels
             \begin{itemize}
-                \item Different modality of sensors
+                \item here each sensory data already exists for sure in one of the clusters so we can find the parameters from here after
             \end{itemize}
-            
-            Tasks by order in this phase
-            \begin{enumerate}
-                \item Accumelating the sensory data
-                \item fusing different sensory modalities with variational autoencoders
-                \item creating the the clusters for different levels
-                \begin{itemize}
-                    \item here each sensory data already exists for sure in one of the clusters so we can find the parameters from here after
-                \end{itemize}
-                \item Learning FMM psrameters for refractoring period for each state neuron at both concept axis and time axis
-            \end{enumerate}
-            
-            These items must be learned from these sensory data
-            \begin{itemize}
-                \item A probabilistic model based on Transformers for each level to predict sequences (This could be regarded as a sequential circuit). This probabilistic model will perform as grand modther neuron
-                \item A probabilistic model for abstraction levels that maps a state neuron to the more abstract concepts by clustering
-                \item A variational auto encoder to fuse all information together to assign an IPSP or EPSP value
-                \item with what frequencey a sensory neuron should spike according to a stimuli
-                \item Probabilistic dependency between different sensory modality (Spatial summation of graded potentials)
-                \item Learning temporal summation distribution of graded potentials derived from multiple spikes
-                \item The action potential refractoring period after spiking. During this time what ever evidences arrive as neuro transmitters they can not open state neuron channels. Because the agen was already in this state and it is unlikely that the system returns back to it after leaving it.
-            \end{itemize}
-        
-        \subsection{Language}
-            at word level the second derivitave is vowel and the 0th derivative is consum
-            
-            yat sentence level we will continually have verb->object, object here is a class derived from clustering phases. verb is equal to vowel in word level and Object is the consum
-            \bibliographystyle{plainnat}
-            \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+            \item Learning FMM psrameters for refractoring period for each state neuron at both concept axis and time axis
+        \end{enumerate}
+    
+    
+    \section{These items must be learned from these sensory data}
+        \begin{itemize}
+            \item A probabilistic model based on Transformers for each level to predict sequences (This could be regarded as a sequential circuit). This probabilistic model will perform as grand modther neuron
+            \item A probabilistic model for abstraction levels that maps a state neuron to the more abstract concepts by clustering
+            \item A variational auto encoder to fuse all information together to assign an IPSP or EPSP value
+            \item with what frequencey a sensory neuron should spike according to a stimuli
+            \item Probabilistic dependency between different sensory modality (Spatial summation of graded potentials)
+            \item Learning temporal summation distribution of graded potentials derived from multiple spikes
+            \item The action potential refractoring period after spiking. During this time what ever evidences arrive as neuro transmitters they can not open state neuron channels. Because the agen was already in this state and it is unlikely that the system returns back to it after leaving it.
+            \item the firing rate for both intensity and intensity change neurons
+            \item learning the resting potential value (in some biological neurons it is -50)
+            \item learning firing tolerance (in some biological neurons it is -50)
+            \item learning deplarization time period and maximum value
+            \item learning repolarization time period and maximum value
+        \end{itemize}
+        \bibliographystyle{plainnat}
+        \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}

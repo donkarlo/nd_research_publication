@@ -30,20 +30,33 @@
 \author{Mohammad Rahmani}
 
 \begin{document}
-    \maketitle
+    The architecture is formed of a set of neurons in the form of probabilistic graphical models
+    
+    
+    \section{Architecture of a neuron}
+        A neuron is formed of
+        \begin{itemize}
+            \item Soma/Cell body (evidence potential weighting center)
+            \item Axons and their terminals (output)
+            \item Dendrites (inputs)
+        \end{itemize}
     
     
     \section{Neurons}
         
         \paragraph{Neuron types}
             \begin{itemize}
+                \item Sensory modalities. each sensor modality is devided to two set of sensors similar to afferent SA/RA or sustained/tranient RGC in retina
+                \begin{itemize}
+                    \item intensity sensor
+                    \item intensity change sensor
+                \end{itemize}
+                \item State neurons
                 \item Transformer
                 \item KF
                 \item PF
-                \item Sensory modalities
                 \item Language
             \end{itemize}
-            
     
     
     \section{Neural Cognitive Architecture}\label{neural_cognitive_architecture}
@@ -61,6 +74,7 @@
         When both spatially and temporally enough evidences are accumlated then a spike is fired and during the refractoring period another spike is not possible to be released. Each spike releases the same evidance to all connecting state neurons at next level or time slot. the evidences move from bottom (smallest classes) to topest (biggest class) and from left to right as time goes on.
         
         
+        \input{language}
         
         \bibliographystyle{plainnat}
         \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
