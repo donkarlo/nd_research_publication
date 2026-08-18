@@ -31,31 +31,31 @@
 
 \begin{document}
     \maketitle
-    
-    
+
+
     \section{Neural encoding}
-        
+
         \subsection{Training the neural decoding}
             in this section we discuss how to train the cognitive architecture we discussed in such that given a stimuli we learn both the temporal and hierarachical patter
-            
-            
+
+
             The sensory induction and perception is inspired from human nervous system in which each sensor plays the role of a sensory receptor and then in diverging neural circuits derived from each sensor, the sensor readings are converted to probability particles (= similar to neurotransmitters molcules that carry predetermined electrical loads in synapse clefts) to be equally devided between desired states as IPSP or EPSP graded potentials that gradually increase or decrease the state nuerion potential until that state neuron spikes to create an action potential.
-            
+
             State neuron is a state in state space that we make an anlogy of it with neuron because similar to a neuron that receives neurotransmitters through its ion gates to convert them to graded IPSP or EPSP potentials, it converts a sensor reading to the positive or negative probability-like values to increase or decrease the probability up to the point that it reaches the threshold (similar to a neuron spike when its voltage reache -70v) and spikes and produces an action potential in two directions. One along the time axis in similar level and one along abstraction axis.
             In abstraction level the a pattern simllar to converging neural circuits is followed to reach a the highest abstraction.
-            
-            
+
+
             This language must be such that when a drone experiences something that it has not experienced in previous experiences then it should detect it as a from which it builds language.
-            
+
             So we devide the experiment in two phases. In offline training phase, one robot(in this case a UAV equiped with LIDAR, GPS, IMU) is requested by human agent to use its autopilot to reach a set of trajectory points to gather sensory data from which temporal models and abstraction models using the aforementioned method inspired human nervous system is build.
-    
-    
+
+
     \section{these items are inputs of the model in this phase}
         \begin{itemize}
             \item Different modality of sensors
         \end{itemize}
-    
-    
+
+
     \section{Tasks by order in this phase}
         \begin{enumerate}
             \item Accumelating the sensory data
@@ -66,8 +66,8 @@
             \end{itemize}
             \item Learning FMM psrameters for refractoring period for each state neuron at both concept axis and time axis
         \end{enumerate}
-    
-    
+
+
     \section{These items must be learned from these sensory data}
         \begin{itemize}
             \item A probabilistic model based on Transformers for each level to predict sequences (This could be regarded as a sequential circuit). This probabilistic model will perform as grand modther neuron
@@ -78,29 +78,29 @@
             \item Learning temporal summation distribution of graded potentials derived from multiple spikes
             \item Action potential parameters (and parameters for FMM)
             \begin{itemize}
-                
+
                 \item Depolarization period
                 \begin{itemize}
                     \item The time required after the neuron starts firing to obtain sufficient confidence that the agent is, with the highest probability, in the represented state.
                     \item learning peak of action potential depolarization. This paremeter show what is the maximum possible certainty this state neuron could have reached in all trainings.
                 \end{itemize}
-                
+
                 \item Repolarization period
                 \begin{itemize}
                     \item The time required to obtain sufficient confidence that the agent has either remained in the same state with approximately constant intensity or transitioned to a different state.
                     \item learning firing tolerance (in some biological neurons it is -70). This parameter will tell us at what point we are sure that the agent is in that state so that the state neuron spikes.
                 \end{itemize}
-                
+
                 \item Refractory period
                 \begin{itemize}
                     \item The time period during which the neuron is not allowed to fire again, even if the accumulated EPSPs are sufficient to overcome the IPSPs and cross the firing threshold.
                     \item learning the resting membrane potential value (in some biological neurons it is -50). It is the average amount of evidences/potentials(IPSP, EPSP) that the state neuron has while the agent is not in that state. It will represent prior or base line evidence that usually exist in teh state neuron
                 \end{itemize}
-            
+
             \end{itemize}
             \item the firing rate for both intensity and intensity change neurons
-        
-        
+
+
         \end{itemize}
         \bibliographystyle{plainnat}
         \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}

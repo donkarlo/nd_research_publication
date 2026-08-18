@@ -30,6 +30,7 @@
 \author{Mohammad Rahmani}
 
 \begin{document}
+    \label{neural_cognitive_architecture}
     The architecture is formed of a set of neurons in the form of probabilistic graphical models
     
     
@@ -37,39 +38,58 @@
         A neuron is formed of
         \begin{itemize}
             \item Soma/Cell body (evidence potential weighting center)
+            \begin{itemize}
+                \item Membrane potential
+                \begin{itemize}
+                    \item Action potential (Simulated with ``Frequency modulated ``)
+                    \begin{itemize}
+                        \item depolarization
+                        \item repolarzation
+                        \item refractory period
+                    \end{itemize}
+                    \item Wave form simulation wit ``Frequency-Modulated M\"obius (FMM)`` (These parameters must be trained in training phase)
+                    \begin{itemize}
+                        \item M
+                        \item A
+                        \item $\alpha$
+                        \item \beta
+                        \item \omega
+                    \end{itemize}
+                    \item Graded potential
+                    \begin{itemize}
+                        \item IPSP (to decrease the evidence potential)
+                        \item EPSP (to increase the evidence potential)
+                    \end{itemize}
+                
+                \end{itemize}
+            
+            \end{itemize}
             \item Axons and their terminals (output)
             \item Dendrites (inputs)
         \end{itemize}
     
     
-    \section{Neurons}
-        
-        \paragraph{Neuron types}
-            \begin{itemize}
-                \item Sensory modalities. each sensor modality is devided to two set of sensors similar to afferent SA/RA or sustained/tranient RGC in retina
-                \begin{itemize}
-                    \item intensity sensor
-                    \item intensity change sensor
-                \end{itemize}
-                \item State neurons
-                \item Transformer
-                \item KF
-                \item PF
-                \item Language
-            \end{itemize}
-    
-    
-    \section{Neural Cognitive Architecture}\label{neural_cognitive_architecture}
-    
-    \subsection{Neuron level}
+    \section{Neuron types}
         \begin{itemize}
-            
-            \item Sensory neuron
-            \item discrete state neuron (with what precision do we want the states at lowest level)
+            \item Sensory modalities. each sensor modality is devided to two set of sensors similar to afferent SA/RA or sustained/tranient RGC in retina
+            \begin{itemize}
+                \item intensity sensor (measure the value of sensor, similar to RAA/SAA or SRG/TRG)
+                \item intensity change sensor (measures how fast the sensor values are changing)
+            \end{itemize}
+            \item State neurons
+            \item Transformer
+            \item KF (Grandmother neuron)
+            \item PF (Grandmother neuron)
+            \item Language
+        \end{itemize}
+    
+    
+    \section{Neural circuits}
+        \begin{itemize}
             \item Diverging neural circuit(To simulate time)
             \item Converging neural circuit(To simulate hierarchy of concepts such as corner is a part of the corridor)
-            \item Temporal summation happens in one neural pathway for example from a sensory neuron to a state neuron when ,multiple spikes in a short amount of time are fired which is called ``spike train``
-            \item Spatioal summation is connection from different sensory modalities to one state sensor.
+        
+        
         \end{itemize}
         
         When both spatially and temporally enough evidences are accumlated then a spike is fired and during the refractoring period another spike is not possible to be released. Each spike releases the same evidance to all connecting state neurons at next level or time slot. the evidences move from bottom (smallest classes) to topest (biggest class) and from left to right as time goes on.
