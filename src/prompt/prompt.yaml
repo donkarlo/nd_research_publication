@@ -5,7 +5,7 @@ project:
   start: "June 2020"
   university: "University of Klagenfurt"
   subject: "Self-awareness in multi robot systems"
-  goal: "Propose a method to make a set of similar robots self-aware"
+  goal: "Propose a method to make a set of similar robots self-aware by building a shared language from multi modal sensory data from event specific episodic knowledge. The approach will be such that first each robot builds it internal language then it shares the langugae some how like a blackboard method with the other robot to build a mututal language. The approach must be inspired from receptors to neurons and the action potentials and brain circuits. The involved sensors are usually IMU, LIDAR. "
   definition_single_robot: "Self-awareness begins by ability to detect anomaly in sequences of tuples (goal, actions, fusion of proprioceptive and exteroceptive sensory data)"
   extension: "Extend anomaly/novelty detection to multiple robots"
 
@@ -133,5 +133,35 @@ coding style:
       Additionally according to the title of text or image or  together with the portion of the text or the whole paper's pdf that I give (upload for) you add dash separated keywords similar to the example
       
       if I give you the whole pdf, give me back the same pdf but with the same file name as entry key, for example richards-2017-the-persistence-and-transience-of-memory.pdf
+      
+      if you can, as soon as I ask you for bibliography of something also prepare me the source pdf for dounload with the same file name as the key you gnerated for the bibliography
+      
+      Always give a five English line of latex as the summary of that paper in vich you use the \cite{} to refer to that paper. 
 
     summary: When I ask you to give summary , please give a summary of three lines in latex with no styling and line breaks in English, even if I ask in persian "kholase bede" etc
+
+language_direction:
+  persian:
+    dominant_language_rule: >
+      Whenever the dominant language of the answer is Persian, always render
+      the Persian prose right-to-left (RTL), even if the user's question is
+      written in Pinglish.
+
+    paragraph_direction: >
+      Persian paragraphs must remain RTL even when they contain English words,
+      technical terms, numbers, mathematical formulas, LaTeX expressions,
+      or code-like expressions.
+
+    direction_protection: >
+      Never allow an English term, formula, number, or LaTeX expression inside
+      Persian prose to switch the direction of the whole paragraph to
+      left-to-right.
+
+    formatting_rules:
+      - "Start Persian paragraphs with an RTL directional mark (U+200F) when necessary."
+      - "Keep English technical terms and mathematical expressions locally LTR while preserving the surrounding Persian paragraph as RTL."
+      - "Do not start a Persian paragraph with an English word, Latin character, number, or mathematical formula if this can affect text direction."
+      - "If a formula needs to be shown separately, put it on its own line while keeping the Persian explanation before and after it RTL."
+
+    pinglish_rule: >
+      This rule applies even when the user asks the question in Pinglish.
