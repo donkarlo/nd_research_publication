@@ -31,28 +31,29 @@
 
 \begin{document}
     \maketitle
+    \label{methodology_neural_encoder_tarining}
+
+    %TODO add neural encoding citations
+    According to above definition 
+    
+    
+    in this section we discuss how to train the cognitive architecture we discussed in such that given a stimuli we learn both the temporal and hierarachical patter
 
 
-    \section{Neural encoding}
+    The sensory induction and perception is inspired from human nervous system in which each sensor plays the role of a sensory receptor and then in diverging neural circuits derived from each sensor, the sensor readings are converted to probability particles (= similar to neurotransmitters molcules that carry predetermined electrical loads in synapse clefts) to be equally devided between desired states as IPSP or EPSP graded potentials that gradually increase or decrease the state nuerion potential until that state neuron spikes to create an action potential.
 
-        \subsection{Training the neural decoding}
-            in this section we discuss how to train the cognitive architecture we discussed in such that given a stimuli we learn both the temporal and hierarachical patter
-
-
-            The sensory induction and perception is inspired from human nervous system in which each sensor plays the role of a sensory receptor and then in diverging neural circuits derived from each sensor, the sensor readings are converted to probability particles (= similar to neurotransmitters molcules that carry predetermined electrical loads in synapse clefts) to be equally devided between desired states as IPSP or EPSP graded potentials that gradually increase or decrease the state nuerion potential until that state neuron spikes to create an action potential.
-
-            State neuron is a state in state space that we make an anlogy of it with neuron because similar to a neuron that receives neurotransmitters through its ion gates to convert them to graded IPSP or EPSP potentials, it converts a sensor reading to the positive or negative probability-like values to increase or decrease the probability up to the point that it reaches the threshold (similar to a neuron spike when its voltage reache -70v) and spikes and produces an action potential in two directions. One along the time axis in similar level and one along abstraction axis.
-            In abstraction level the a pattern simllar to converging neural circuits is followed to reach a the highest abstraction.
+    State neuron is a state in state space that we make an anlogy of it with neuron because similar to a neuron that receives neurotransmitters through its ion gates to convert them to graded IPSP or EPSP potentials, it converts a sensor reading to the positive or negative probability-like values to increase or decrease the probability up to the point that it reaches the threshold (similar to a neuron spike when its voltage reache -70v) and spikes and produces an action potential in two directions. One along the time axis in similar level and one along abstraction axis.
+    In abstraction level the a pattern simllar to converging neural circuits is followed to reach a the highest abstraction.
 
 
-            This language must be such that when a drone experiences something that it has not experienced in previous experiences then it should detect it as a from which it builds language.
+    This language must be such that when a drone experiences something that it has not experienced in previous experiences then it should detect it as a from which it builds language.
 
-            So we devide the experiment in two phases. In offline training phase, one robot(in this case a UAV equiped with LIDAR, GPS, IMU) is requested by human agent to use its autopilot to reach a set of trajectory points to gather sensory data from which temporal models and abstraction models using the aforementioned method inspired human nervous system is build.
+    So we devide the experiment in two phases. In offline training phase, one robot(in this case a UAV equiped with LIDAR, GPS, IMU) is requested by human agent to use its autopilot to reach a set of trajectory points to gather sensory data from which temporal models and abstraction models using the aforementioned method inspired human nervous system is build.
 
 
-    \section{these items are inputs of the model in this phase}
+    \section{Inputs for encoding training}
         \begin{itemize}
-            \item Different modality of sensors
+            \item Different sensor modalities
         \end{itemize}
 
 
@@ -69,6 +70,7 @@
 
 
     \section{These items must be learned from these sensory data}
+    All the parameters mentioned in in Arc
         \begin{itemize}
             \item A probabilistic model based on Transformers for each level to predict sequences (This could be regarded as a sequential circuit). This probabilistic model will perform as grand modther neuron
             \item A probabilistic model for abstraction levels that maps a state neuron to the more abstract concepts by clustering
@@ -98,7 +100,7 @@
                 \end{itemize}
 
             \end{itemize}
-            \item the firing rate for both intensity and intensity change neurons
+            \item The firing rate for both intensity and intensity change neurons
 
 
         \end{itemize}

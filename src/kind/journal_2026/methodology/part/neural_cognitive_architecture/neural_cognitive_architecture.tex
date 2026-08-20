@@ -30,11 +30,14 @@
 \author{Mohammad Rahmani}
 
 \begin{document}
+
     \label{neural_cognitive_architecture}
-    The architecture is formed of a set of neurons in the form of probabilistic graphical models
-    
-    
-    \section{Architecture of a neuron}
+
+    The architecture should be considered as a brain formed of neurons and formulated as probabilistic graphical model.
+
+    Each neuron recieves a set of evidences to weight them according to what it has learning in learning by demonstration phase that will be decribed in \ref{methodology_neural_encoder_tarining} and will finally make decision to either a spike or not. If it does the an action potential will release evidences between the next vertical or horizantal neuron layers to that weighting and spiking goes on such that finally the brain decides at each vertical state, what is the probablity distribution.
+
+    \section{\textbf{Architecture of a neuron}}
         A neuron is formed of
         \begin{itemize}
             \item Soma/Cell body (evidence potential weighting center)
@@ -45,31 +48,25 @@
                     \begin{itemize}
                         \item depolarization
                         \item repolarzation
-                        \item refractory period
-                    \end{itemize}
-                    \item Wave form simulation wit ``Frequency-Modulated M\"obius (FMM)`` (These parameters must be trained in training phase)
-                    \begin{itemize}
+                        \item refractory period Wave form simulation wit ``Frequency-Modulated Möbius (FMM)`` (These parameters must be trained in training phase)
                         \item M
                         \item A
                         \item $\alpha$
-                        \item \beta
-                        \item \omega
+                        \item $\beta$
+                        \item $\omega$
                     \end{itemize}
                     \item Graded potential
                     \begin{itemize}
                         \item IPSP (to decrease the evidence potential)
                         \item EPSP (to increase the evidence potential)
                     \end{itemize}
-                
                 \end{itemize}
-            
             \end{itemize}
             \item Axons and their terminals (output)
             \item Dendrites (inputs)
         \end{itemize}
-    
-    
-    \section{Neuron types}
+
+    \section{\textbf{Neuron types}}
         \begin{itemize}
             \item Sensory modalities. each sensor modality is devided to two set of sensors similar to afferent SA/RA or sustained/tranient RGC in retina
             \begin{itemize}
@@ -77,26 +74,17 @@
                 \item intensity change sensor (measures how fast the sensor values are changing)
             \end{itemize}
             \item State neurons
-            \item Transformer
-            \item KF (Grandmother neuron)
-            \item PF (Grandmother neuron)
+            \item Transformer (Grandmother bfor timewise prediction)
+            \item Kalmman filter (Grandmother neuron, diverging neural circuit to propgate among the time axis in all abstraction levels. Kalman filter works with intensity change neuron)
+            \item Particle filter (Grandmother neuron, converging neural circuit upward in the abstraction hierarchy axis, particle filter works with change internsity sensory neuron)
             \item Language
         \end{itemize}
-    
-    
-    \section{Neural circuits}
-        \begin{itemize}
-            \item Diverging neural circuit(To simulate time)
-            \item Converging neural circuit(To simulate hierarchy of concepts such as corner is a part of the corridor)
-        
-        
-        \end{itemize}
-        
+
         When both spatially and temporally enough evidences are accumlated then a spike is fired and during the refractoring period another spike is not possible to be released. Each spike releases the same evidance to all connecting state neurons at next level or time slot. the evidences move from bottom (smallest classes) to topest (biggest class) and from left to right as time goes on.
-        
-        
+
         \input{language}
-        
+
         \bibliographystyle{plainnat}
         \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+
 \end{document}
