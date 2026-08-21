@@ -30,13 +30,16 @@
 \author{Mohammad Rahmani}
 
 \begin{document}
-
+	
     \label{neural_cognitive_architecture}
 
     The architecture should be considered as a brain formed of neurons and formulated as probabilistic graphical model.
 
     Each neuron recieves a set of evidences to weight them according to what it has learning in learning by demonstration phase that will be decribed in \ref{methodology_neural_encoder_tarining} and will finally make decision to either a spike or not. If it does the an action potential will release evidences between the next vertical or horizantal neuron layers to that weighting and spiking goes on such that finally the brain decides at each vertical state, what is the probablity distribution.
-
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{graphic.png}
+    \end{figure}
     \section{\textbf{Architecture of a neuron}}
         A neuron is formed of
         \begin{itemize}

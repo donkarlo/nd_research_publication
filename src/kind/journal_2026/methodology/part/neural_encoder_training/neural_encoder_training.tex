@@ -34,9 +34,9 @@
     \label{methodology_neural_encoder_tarining}
 
     %TODO add neural encoding citations
-    According to above definition 
-    
-    
+    According to above definition
+
+
     in this section we discuss how to train the cognitive architecture we discussed in such that given a stimuli we learn both the temporal and hierarachical patter
 
 
@@ -49,8 +49,6 @@
     This language must be such that when a drone experiences something that it has not experienced in previous experiences then it should detect it as a from which it builds language.
 
     So we devide the experiment in two phases. In offline training phase, one robot(in this case a UAV equiped with LIDAR, GPS, IMU) is requested by human agent to use its autopilot to reach a set of trajectory points to gather sensory data from which temporal models and abstraction models using the aforementioned method inspired human nervous system is build.
-
-
     \section{Inputs for encoding training}
         \begin{itemize}
             \item Different sensor modalities
@@ -70,7 +68,7 @@
 
 
     \section{These items must be learned from these sensory data}
-    All the parameters mentioned in in Arc
+        All the parameters mentioned in in Arc
         \begin{itemize}
             \item A probabilistic model based on Transformers for each level to predict sequences (This could be regarded as a sequential circuit). This probabilistic model will perform as grand modther neuron
             \item A probabilistic model for abstraction levels that maps a state neuron to the more abstract concepts by clustering
@@ -101,9 +99,15 @@
 
             \end{itemize}
             \item The firing rate for both intensity and intensity change neurons
-
-
         \end{itemize}
+    \section{Data flow}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{graphic.png}
+        \end{figure}
+
+
         \bibliographystyle{plainnat}
         \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}
