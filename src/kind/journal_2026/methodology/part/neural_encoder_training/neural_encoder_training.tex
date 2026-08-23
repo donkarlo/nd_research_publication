@@ -12,102 +12,166 @@
 \usepackage[most]{tcolorbox}
 \usepackage{xparse}
 \usepackage{natbib}
+\usepackage{tikz}
 
 \usetikzlibrary{graphs,graphdrawing}
 \usegdlibrary{layered}
 
 % for external graphviz
+
 \input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
 
 % for tags
+
 \input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
 
 % for links
+
 \input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
 
 \title{Neural encoder training}
+
 \date{}
+
 \author{Mohammad Rahmani}
 
 \begin{document}
-    \maketitle
-    \label{methodology_neural_encoder_tarining}
 
-    %TODO add neural encoding citations
-    According to above definition
+   \maketitle
 
+   \label{methodology_neural_encoder_tarining}
 
-    in this section we discuss how to train the cognitive architecture we discussed in such that given a stimuli we learn both the temporal and hierarachical patter
+   %TODO add neural encoding citations
 
+   According to above definition
 
-    The sensory induction and perception is inspired from human nervous system in which each sensor plays the role of a sensory receptor and then in diverging neural circuits derived from each sensor, the sensor readings are converted to probability particles (= similar to neurotransmitters molcules that carry predetermined electrical loads in synapse clefts) to be equally devided between desired states as IPSP or EPSP graded potentials that gradually increase or decrease the state nuerion potential until that state neuron spikes to create an action potential.
+   in this section we discuss how to train the cognitive architecture we discussed in such that given a stimuli we learn both the temporal and hierarachical patter
 
-    State neuron is a state in state space that we make an anlogy of it with neuron because similar to a neuron that receives neurotransmitters through its ion gates to convert them to graded IPSP or EPSP potentials, it converts a sensor reading to the positive or negative probability-like values to increase or decrease the probability up to the point that it reaches the threshold (similar to a neuron spike when its voltage reache -70v) and spikes and produces an action potential in two directions. One along the time axis in similar level and one along abstraction axis.
-    In abstraction level the a pattern simllar to converging neural circuits is followed to reach a the highest abstraction.
+   The sensory induction and perception is inspired from human nervous system in which each sensor plays the role of a sensory receptor and then in diverging neural circuits derived from each sensor, the sensor readings are converted to probability particles (= similar to neurotransmitters molcules that carry predetermined electrical loads in synapse clefts) to be equally devided between desired states as IPSP or EPSP graded potentials that gradually increase or decrease the state nuerion potential until that state neuron spikes to create an action potential.
 
+   State neuron is a state in state space that we make an anlogy of it with neuron because similar to a neuron that receives neurotransmitters through its ion gates to convert them to graded IPSP or EPSP potentials, it converts a sensor reading to the positive or negative probability-like values to increase or decrease the probability up to the point that it reaches the threshold (similar to a neuron spike when its voltage reache -70v) and spikes and produces an action potential in two directions. One along the time axis in similar level and one along abstraction axis.
 
-    This language must be such that when a drone experiences something that it has not experienced in previous experiences then it should detect it as a from which it builds language.
+   In abstraction level the a pattern simllar to converging neural circuits is followed to reach a the highest abstraction.
 
-    So we devide the experiment in two phases. In offline training phase, one robot(in this case a UAV equiped with LIDAR, GPS, IMU) is requested by human agent to use its autopilot to reach a set of trajectory points to gather sensory data from which temporal models and abstraction models using the aforementioned method inspired human nervous system is build.
-    \section{Inputs for encoding training}
-        \begin{itemize}
-            \item Different sensor modalities
-        \end{itemize}
+   This language must be such that when a drone experiences something that it has not experienced in previous experiences then it should detect it as a from which it builds language.
 
+   So we devide the experiment in two phases. In offline training phase, one robot(in this case a UAV equiped with LIDAR, GPS, IMU) is requested by human agent to use its autopilot to reach a set of trajectory points to gather sensory data from which temporal models and abstraction models using the aforementioned method inspired human nervous system is build.
 
-    \section{Tasks by order in this phase}
-        \begin{enumerate}
-            \item Accumelating the sensory data
-            \item fusing different sensory modalities with variational autoencoders
-            \item creating the the clusters for different levels
+   \section{Inputs for encoding training}
+
+      \begin{itemize}
+
+         \item Different sensor modalities
+
+      \end{itemize}
+
+   \section{Tasks by order in this phase}
+
+      \begin{enumerate}
+
+         \item Accumelating the sensory data
+
+         \item fusing different sensory modalities with variational autoencoders
+
+         \item creating the the clusters for different levels
+
+         \begin{itemize}
+
+            \item here each sensory data already exists for sure in one of the clusters so we can find the parameters from here after
+
+         \end{itemize}
+
+         \item Learning FMM psrameters for refractoring period for each state neuron at both concept axis and time axis
+
+      \end{enumerate}
+
+   \section{These items must be learned from these sensory data}
+
+      All the parameters mentioned in in Arc
+
+      \begin{itemize}
+
+         \item A probabilistic model based on Transformers for each level to predict sequences (This could be regarded as a sequential circuit). This probabilistic model will perform as grand modther neuron
+
+         \item A probabilistic model for abstraction levels that maps a state neuron to the more abstract concepts by clustering
+
+         \item A variational auto encoder to fuse all information together to assign an IPSP or EPSP value
+
+         \item with what frequencey a sensory neuron should spike according to a stimuli
+
+         \item Probabilistic dependency between different sensory modality (Spatial summation of graded potentials)
+
+         \item Learning temporal summation distribution of graded potentials derived from multiple spikes
+
+         \item Action potential parameters (and parameters for FMM)
+
+         \begin{itemize}
+
+            \item Depolarization period
+
             \begin{itemize}
-                \item here each sensory data already exists for sure in one of the clusters so we can find the parameters from here after
+
+               \item The time required after the neuron starts firing to obtain sufficient confidence that the agent is, with the highest probability, in the represented state.
+
+               \item learning peak of action potential depolarization. This paremeter show what is the maximum possible certainty this state neuron could have reached in all trainings.
+
             \end{itemize}
-            \item Learning FMM psrameters for refractoring period for each state neuron at both concept axis and time axis
-        \end{enumerate}
 
+            \item Repolarization period
 
-    \section{These items must be learned from these sensory data}
-        All the parameters mentioned in in Arc
-        \begin{itemize}
-            \item A probabilistic model based on Transformers for each level to predict sequences (This could be regarded as a sequential circuit). This probabilistic model will perform as grand modther neuron
-            \item A probabilistic model for abstraction levels that maps a state neuron to the more abstract concepts by clustering
-            \item A variational auto encoder to fuse all information together to assign an IPSP or EPSP value
-            \item with what frequencey a sensory neuron should spike according to a stimuli
-            \item Probabilistic dependency between different sensory modality (Spatial summation of graded potentials)
-            \item Learning temporal summation distribution of graded potentials derived from multiple spikes
-            \item Action potential parameters (and parameters for FMM)
             \begin{itemize}
 
-                \item Depolarization period
-                \begin{itemize}
-                    \item The time required after the neuron starts firing to obtain sufficient confidence that the agent is, with the highest probability, in the represented state.
-                    \item learning peak of action potential depolarization. This paremeter show what is the maximum possible certainty this state neuron could have reached in all trainings.
-                \end{itemize}
+               \item The time required to obtain sufficient confidence that the agent has either remained in the same state with approximately constant intensity or transitioned to a different state.
 
-                \item Repolarization period
-                \begin{itemize}
-                    \item The time required to obtain sufficient confidence that the agent has either remained in the same state with approximately constant intensity or transitioned to a different state.
-                    \item learning firing tolerance (in some biological neurons it is -70). This parameter will tell us at what point we are sure that the agent is in that state so that the state neuron spikes.
-                \end{itemize}
-
-                \item Refractory period
-                \begin{itemize}
-                    \item The time period during which the neuron is not allowed to fire again, even if the accumulated EPSPs are sufficient to overcome the IPSPs and cross the firing threshold.
-                    \item learning the resting membrane potential value (in some biological neurons it is -50). It is the average amount of evidences/potentials(IPSP, EPSP) that the state neuron has while the agent is not in that state. It will represent prior or base line evidence that usually exist in teh state neuron
-                \end{itemize}
+               \item learning firing tolerance (in some biological neurons it is -70). This parameter will tell us at what point we are sure that the agent is in that state so that the state neuron spikes.
 
             \end{itemize}
-            \item The firing rate for both intensity and intensity change neurons
-        \end{itemize}
-    \section{Data flow}
 
-        \begin{figure}[H]
+            \item Refractory period
+
+            \begin{itemize}
+
+               \item The time period during which the neuron is not allowed to fire again, even if the accumulated EPSPs are sufficient to overcome the IPSPs and cross the firing threshold.
+
+               \item learning the resting membrane potential value (in some biological neurons it is -50). It is the average amount of evidences/potentials(IPSP, EPSP) that the state neuron has while the agent is not in that state. It will represent prior or base line evidence that usually exist in teh state neuron
+
+            \end{itemize}
+
+         \end{itemize}
+
+         \item The firing rate for both intensity and intensity change neurons
+
+      \end{itemize}
+
+   \section{Grand mother neurons that are used only in training phase}
+      All the following method
+      \subsection{Clustering}
+         Clusters data based on similarity of sensory data
+         Based on DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
+
+      \subsection{Motif discovery (to dicover periods/cycles)}
+
+         To discover the periodic data. As we will see in the experiment section a drone that circules a rectangualar corridor makes many periodic sensory data that motif discovery is used for it. Then a method is needed to find the cycles in sensory data.
+
+         This research uses Matrix-Profile-based  method for this \href{/home/donkarlo/Dropbox/repo/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/matrix_profile_based/matrix_profiled_based.tex}{here}.
+
+         This method doesnt need training.
+
+      \subsection{Probabilistic sequence likelihood probabilistic\_sequence\_likelihood.tex}
+
+         We should train a model such that when a a sub sequence is given to it, it tells us how much it is probable that the given sub sequence is sampled from a true training-similar sequences by which the model was trained.
+
+
+         \begin{figure}[H]
+
             \centering
-            \includegraphics[width=0.9\textwidth]{graphic.png}
-        \end{figure}
 
+            \includegraphics[width=0.9\textwidth]{neurons}
 
-        \bibliographystyle{plainnat}
-        \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+         \end{figure}
+
+         \bibliographystyle{plainnat}
+
+         \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+
 \end{document}
