@@ -88,7 +88,10 @@
    \section{These items must be learned from these sensory data}
 
       All the parameters mentioned in in Arc
-
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{learning_item.png}
+      \end{figure}
       \begin{itemize}
 
          \item A probabilistic model based on Transformers for each level to predict sequences (This could be regarded as a sequential circuit). This probabilistic model will perform as grand modther neuron
@@ -123,7 +126,7 @@
 
                \item The time required to obtain sufficient confidence that the agent has either remained in the same state with approximately constant intensity or transitioned to a different state.
 
-               \item learning firing tolerance (in some biological neurons it is -70). This parameter will tell us at what point we are sure that the agent is in that state so that the state neuron spikes.
+               \item learning firing tolerance (in some biological neurons.png it is -70). This parameter will tell us at what point we are sure that the agent is in that state so that the state neuron spikes.
 
             \end{itemize}
 
@@ -133,17 +136,17 @@
 
                \item The time period during which the neuron is not allowed to fire again, even if the accumulated EPSPs are sufficient to overcome the IPSPs and cross the firing threshold.
 
-               \item learning the resting membrane potential value (in some biological neurons it is -50). It is the average amount of evidences/potentials(IPSP, EPSP) that the state neuron has while the agent is not in that state. It will represent prior or base line evidence that usually exist in teh state neuron
+               \item learning the resting membrane potential value (in some biological neurons.png it is -50). It is the average amount of evidences/potentials(IPSP, EPSP) that the state neuron has while the agent is not in that state. It will represent prior or base line evidence that usually exist in teh state neuron
 
             \end{itemize}
 
          \end{itemize}
 
-         \item The firing rate for both intensity and intensity change neurons
+         \item The firing rate for both intensity and intensity change neurons.png
 
       \end{itemize}
 
-   \section{Grand mother neurons that are used only in training phase}
+   \section{Grand mother neurons.png that are used only in training phase}
       All the following method
       \subsection{Clustering}
          Clusters data based on similarity of sensory data
@@ -166,10 +169,10 @@
 
             \centering
 
-            \includegraphics[width=0.9\textwidth]{neurons}
+            \includegraphics[width=0.7\textwidth]{neurons.png}
 
          \end{figure}
-
+ 
          \bibliographystyle{plainnat}
 
          \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}

@@ -5,13 +5,15 @@
 \usepackage{minted}
 \usepackage{multirow}
 \usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 \usepackage{todonotes}
 \usepackage{forest}
 \usepackage{xstring}
 \usepackage{xcolor}
 \usepackage[most]{tcolorbox}
 \usepackage{xparse}
-a\usepackage{natbib}
+\usepackage{natbib}
 
 \usetikzlibrary{graphs,graphdrawing}
 \usegdlibrary{layered}
@@ -30,15 +32,11 @@ a\usepackage{natbib}
 \author{Mohammad Rahmani}
 
 \begin{document}
-   \maketitle
+\maketitle
 
-   \input{part/neural_cognitive_architecture/neural_cognitive_architecture} % architecture of neurons connections from sensory neurons to brain neuronos
-   \input{part/neural_encoder_training/neural_encoder_training} %previously training
-   \input{part/anomaly_and_novelty_detection/anomaly_and_novelty_detection} % previously testing
+   \section{What should be shared betwen robots}
+   Variational auto encoder
 
-
-
-
-   \bibliographystyle{plainnat}
-   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\bibliographystyle{plainnat}
+\bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}
