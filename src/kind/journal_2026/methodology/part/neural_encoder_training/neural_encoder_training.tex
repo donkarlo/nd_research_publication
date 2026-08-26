@@ -69,7 +69,8 @@
 
       \begin{enumerate}
 
-         \item Accumelating the sensory data
+         \item Accumelating the sensory data from Robot Operating System
+         \item training variational autoencoders to to break each sensory data into components action potential populations
 
          \item fusing different sensory modalities with variational autoencoders
 
@@ -116,7 +117,7 @@
 
                \item The time required after the neuron starts firing to obtain sufficient confidence that the agent is, with the highest probability, in the represented state.
 
-               \item learning peak of action potential depolarization. This paremeter show what is the maximum possible certainty this state neuron could have reached in all trainings.
+               \item learning peak of action potential depolarization. This paremeter show what is the maximum possible certainty this state neuron could have reached in all trainings the highest is 1 and the lowest is zero even though
 
             \end{itemize}
 
@@ -130,13 +131,13 @@
 
             \end{itemize}
 
-            \item Refractory period
+            \item Refractory period (During which even if enough evidence exists for another spike, the neuron cant spike). We must pay attention to the factwith each spike the whole evidences are evacuated and the system returns back to its resting potenmtial
 
             \begin{itemize}
 
                \item The time period during which the neuron is not allowed to fire again, even if the accumulated EPSPs are sufficient to overcome the IPSPs and cross the firing threshold.
 
-               \item learning the resting membrane potential value (in some biological neurons.png it is -50). It is the average amount of evidences/potentials(IPSP, EPSP) that the state neuron has while the agent is not in that state. It will represent prior or base line evidence that usually exist in teh state neuron
+               \item learning the resting membrane potential value (in some biological neurons.png it is -50). It is the average amount of evidences/potentials(IPSP, EPSP) that the state neuron has while the agent is not in that state. It will represent prior or base line evidence that usually exist in the state neuron
 
             \end{itemize}
 
@@ -146,9 +147,9 @@
 
       \end{itemize}
 
-   \section{Grand mother neurons.png that are used only in training phase}
+   \section{Grand mother neurons that are used only in training phase}
       All the following method
-      \subsection{Clustering}
+      \subsection{Clustering neurons}
          Clusters data based on similarity of sensory data
          Based on DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
 
@@ -172,7 +173,7 @@
             \includegraphics[width=0.7\textwidth]{neurons.png}
 
          \end{figure}
- 
+
          \bibliographystyle{plainnat}
 
          \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}

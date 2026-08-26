@@ -31,30 +31,45 @@
 
 \begin{document}
 
-    \maketitle
-    Novelty is the continous presitance of neural responses of populations of neurons
+   \maketitle
+   Novelty is the continous presitance of neural responses of populations of neurons
 
-    The main question that the agent tries to answer here is can I rebuild what has happened to me with the language components that I have or is the time to introduce a new component(Phonem, word, ...)
+   The main question that the agent tries to answer here is can I rebuild what has happened to me with the language components that I have or is the time to introduce a new component(Phonem, word, ...)
 
-    The goal of this section is to detect novelty from noisy data and build new language parts from it. the inputs to the language model built in online learning are
+   The goal of this section is to detect novelty from noisy data and build new language parts from it. the inputs to the language model built in online learning are
 
-    \section {Observation and evidence flow}
-        \begin{itemize}
-            \item Sensor modality intensity values
-            \item Sensor modality intensity change value
-            \item Kalman filter at lowest level
-            \item Particle filter at each level
-        \end{itemize}
+   Neurons which are specifically activated
+   \begin{itemize}
+      \item State neurons (results of clustering in training)
+      \item Transformer (Grandmother neuron for timewise prediction). There is a trained transformer for each state level
+      \item Kalmman filter (Grandmother neuron, diverging neural circuit to propgate among the time axis in all abstraction levels. Kalman filter works with intensity change neuron)
+      \item Particle filter (Grandmother neuron, converging neural circuit upward in the abstraction hierarchy axis, particle filter works with change internsity sensory neuron)
+      \item Language
+   \end{itemize}
 
-    \section{Evidence data flow}
-        (intensity sensory neuron, intensity change sensory neuron) -> (particle filter, klaman filter, transformer) -> ((lower level class-> higher level class), (max state at t-1 -> max state at t))
-        
-        \begin{figure}[H]
-           \centering
-           \includegraphics[width=0.9\textwidth]{data_flow.png}
-        \end{figure}
+   \section {Observation and evidence flow}
+      \begin{itemize}
+         \item Sensor modality intensity values
+         \item Sensor modality intensity change value
+         \item Kalman filter at lowest level
+         \item Particle filter at each level
+      \end{itemize}
 
-        \bibliographystyle{plainnat}
-        \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+   \section{Evidence data flow}
+      \subsection{At time axis:}
+
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{data_flow_time_axis.png}
+         \end{figure}
+
+      \subsection{At concept level}
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{data_flow_semantic_axis.png}
+         \end{figure}
+
+         \bibliographystyle{plainnat}
+         \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 
 \end{document}

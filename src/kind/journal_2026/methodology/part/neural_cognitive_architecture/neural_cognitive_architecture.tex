@@ -31,63 +31,110 @@
 
 \begin{document}
 
-    \label{neural_cognitive_architecture}
+   \label{neural_cognitive_architecture}
 
-    The architecture should be considered as a brain formed of neurons and formulated as probabilistic graphical model.
+   The architecture should be considered as a brain formed of neurons and formulated as probabilistic graphical model.
 
-    Each neuron recieves a set of evidences to weight them according to what it has learning in learning by demonstration phase that will be decribed in \ref{methodology_neural_encoder_tarining} and will finally make decision to either a spike or not. If it does the an action potential will release evidences between the next vertical or horizantal neuron layers to that weighting and spiking goes on such that finally the brain decides at each vertical state, what is the probablity distribution.
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.9\textwidth]{graphic.png}
-    \end{figure}
-    \section{\textbf{Architecture of a neuron}}
-        A neuron is formed of
-        \begin{itemize}
-            \item Soma/Cell body (evidence potential weighting center)
+
+
+   Each neuron recieves a set of evidences to weight them according to what it has learning in learning by demonstration phase that will be decribed in \ref{methodology_neural_encoder_tarining} and will finally make decision to either a spike or not. If it does the an action potential will release evidences between the next vertical or horizantal neuron layers to that weighting and spiking goes on such that finally the brain decides at each vertical state, what is the probablity distribution.
+
+   During training and anomaly detection (using) specific neurons might appear that are just activated only in those phases.
+
+   In this section we just explain the sahred architercture between the two aformentioned phases. But before, alittle explanation about neuron and its spiking mechanism.
+
+
+
+   \section{\textbf{Anatomy of a neuron}}
+      A neuron is formed of
+      \begin{itemize}
+         \item Soma/Cell body (evidence potential weighting center)
+         \begin{itemize}
+            \item Membrane potential
             \begin{itemize}
-                \item Membrane potential
-                \begin{itemize}
-                    \item Action potential (Simulated with ``Frequency modulated ``)
-                    \begin{itemize}
-                        \item depolarization
-                        \item repolarzation
-                        \item refractory period Wave form simulation wit ``Frequency-Modulated Möbius (FMM)`` (These parameters must be trained in training phase)
-                        \item M
-                        \item A
-                        \item $\alpha$
-                        \item $\beta$
-                        \item $\omega$
-                    \end{itemize}
-                    \item Graded potential
-                    \begin{itemize}
-                        \item IPSP (to decrease the evidence potential)
-                        \item EPSP (to increase the evidence potential)
-                    \end{itemize}
-                \end{itemize}
-            \end{itemize}
-            \item Axons and their terminals (output)
-            \item Dendrites (inputs)
-        \end{itemize}
 
-    \section{\textbf{Neuron types}}
-        \begin{itemize}
-            \item Sensory modalities. each sensor modality is devided to two set of sensors similar to afferent SA/RA or sustained/tranient RGC in retina
+               \item Graded potential
+               \begin{itemize}
+                  \item IPSP (to decrease the evidence potential)
+                  \item EPSP (to increase the evidence potential)
+               \end{itemize}
+            \end{itemize}
+         \end{itemize}
+         \item Axons and their terminals (output)
+         \item Dendrites (inputs)
+      \end{itemize}
+
+      \subsection{Anatomy of action potentials}
+         \begin{itemize}
+            \item depolarization
             \begin{itemize}
-                \item intensity sensor (measure the value of sensor, similar to RAA/SAA or SRG/TRG)
-                \item intensity change sensor (measures how fast the sensor values are changing)
+               \item domain
+               \item period
             \end{itemize}
-            \item State neurons
-            \item Transformer (Grandmother bfor timewise prediction)
-            \item Kalmman filter (Grandmother neuron, diverging neural circuit to propgate among the time axis in all abstraction levels. Kalman filter works with intensity change neuron)
-            \item Particle filter (Grandmother neuron, converging neural circuit upward in the abstraction hierarchy axis, particle filter works with change internsity sensory neuron)
-            \item Language
-        \end{itemize}
+            \item repolarzation
+            \item refractory period
+         \end{itemize}
+         \subsubsection{Simulation with ``Frequency-Modulated Möbius (FMM)``}
 
-        When both spatially and temporally enough evidences are accumlated then a spike is fired and during the refractoring period another spike is not possible to be released. Each spike releases the same evidance to all connecting state neurons at next level or time slot. the evidences move from bottom (smallest classes) to topest (biggest class) and from left to right as time goes on.
+            \href{nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/part/action_potential/wave_form/kind/frequency_modulated_mobius/frequency_modulated_mobius.tex}{see here}
+            \begin{equation}
+               X(t)
+               =
+               M
+               +
+               A
+               \cos
+               \Biggl[
+               \beta
+               +
+               2
+               \arctan
+               \Biggl(
+               \omega
+               \tan
+               \Bigl(
+               \frac{t-\alpha}{2}
+               \Bigr)
+               \Biggr)
+               \Biggr]
+            \end{equation}
+            \begin{itemize}
+               \item M
+               \item A
+               \item $\alpha$
+               \item $\beta$
+               \item $\omega$
+            \end{itemize}
+            \begin{figure}[H]
+               \centering
+               \includegraphics[width=0.9\textwidth]{action_potential_anatomy.png}
+            \end{figure}
+   \section{\textbf{Neuron types}}
+      \begin{itemize}
+         \item Sensory modalities. each sensor modality is devided to two set of sensors similar to afferent SA/RA or sustained/tranient RGC in retina
+         \begin{itemize}
+            \item intensity sensor (measure the value of sensor, similar to RAA/SAA or SRG/TRG)
+            \item intensity change sensor (measures how fast the sensor values are changing)
+         \end{itemize}
 
-        \input{language}
+      \end{itemize}
 
-        \bibliographystyle{plainnat}
-        \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+   \section{Neuron potential reception types}
+      \subsection{Spatial}
+         is potential reception of a single neuron from the axon of multiple different neurons
+      \subsection{temporal}
+         is the the reception of multiple potentials from theaxon of teh same neuron
+      \subsection{Application}
+         When both spatially and temporally enough evidences are accumlated then a spike is fired and during the refractoring period another spike is not possible to be released. Each spike releases the same evidance to all connecting state neurons at next level or time slot. the evidences move from bottom (smallest classes) to topest (biggest class) and from left to right as time goes on.
+
+   \section{Neuron circuit types}
+      \subsection{Converging}
+      \subsection{Diverging}
+
+   \section{Language}
+      \input{language}
+
+      \bibliographystyle{plainnat}
+      \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 
 \end{document}
