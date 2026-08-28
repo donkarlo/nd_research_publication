@@ -17,13 +17,13 @@
 \usegdlibrary{layered}
 
 % for external graphviz
-\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
 
 % for tags
-\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
 
 % for links
-\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
 
 \title{Cognitive architecture}
 \date{}
@@ -35,34 +35,36 @@
 
    The architecture should be considered as a brain formed of neurons and formulated as probabilistic graphical model.
 
-
-
    Each neuron recieves a set of evidences to weight them according to what it has learning in learning by demonstration phase that will be decribed in \ref{methodology_neural_encoder_tarining} and will finally make decision to either a spike or not. If it does the an action potential will release evidences between the next vertical or horizantal neuron layers to that weighting and spiking goes on such that finally the brain decides at each vertical state, what is the probablity distribution.
 
    During training and anomaly detection (using) specific neurons might appear that are just activated only in those phases.
 
    In this section we just explain the sahred architercture between the two aformentioned phases. But before, alittle explanation about neuron and its spiking mechanism.
 
-
-
-   \section{\textbf{Anatomy of a neuron}}
+   \section{Anatomy of a neuron}
       A neuron is formed of
       \begin{itemize}
          \item Soma/Cell body (evidence potential weighting center)
          \begin{itemize}
             \item Membrane potential
             \begin{itemize}
-
                \item Graded potential
-               \begin{itemize}
-                  \item IPSP (to decrease the evidence potential)
-                  \item EPSP (to increase the evidence potential)
-               \end{itemize}
+
             \end{itemize}
          \end{itemize}
          \item Axons and their terminals (output)
          \item Dendrites (inputs)
       \end{itemize}
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{neuron.png}
+      \end{figure}
+
+      \subsection{Graded potentials}
+         \begin{itemize}
+            \item IPSP (to decrease the evidence potential)
+            \item EPSP (to increase the evidence potential)
+         \end{itemize}
 
       \subsection{Anatomy of action potentials}
          \begin{itemize}
@@ -109,14 +111,13 @@
                \centering
                \includegraphics[width=0.9\textwidth]{action_potential_anatomy.png}
             \end{figure}
-   \section{\textbf{Neuron types}}
+   \section{Neuron types}
       \begin{itemize}
          \item Sensory modalities. each sensor modality is devided to two set of sensors similar to afferent SA/RA or sustained/tranient RGC in retina
          \begin{itemize}
             \item intensity sensor (measure the value of sensor, similar to RAA/SAA or SRG/TRG)
             \item intensity change sensor (measures how fast the sensor values are changing)
          \end{itemize}
-
       \end{itemize}
 
    \section{Neuron potential reception types}
@@ -129,7 +130,9 @@
 
    \section{Neuron circuit types}
       \subsection{Converging}
+         As in human body that from sensory receptors to brain the neurons  paths cionverge to each other. In this model also from lower  levels of neurons such as sensors to higher levels such as language components.
       \subsection{Diverging}
+         This one spreads along the time access and a sensor neuron spike will activate at least 0 to one neurons at each level.
 
    \section{Language}
       \input{language}

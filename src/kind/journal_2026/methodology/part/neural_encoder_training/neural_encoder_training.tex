@@ -19,15 +19,15 @@
 
 % for external graphviz
 
-\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
 
 % for tags
 
-\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
 
 % for links
 
-\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
 
 \title{Neural encoder training}
 
@@ -57,6 +57,12 @@
 
    So we devide the experiment in two phases. In offline training phase, one robot(in this case a UAV equiped with LIDAR, GPS, IMU) is requested by human agent to use its autopilot to reach a set of trajectory points to gather sensory data from which temporal models and abstraction models using the aforementioned method inspired human nervous system is build.
 
+   \section{Training Autoencoders, from ROS to potentials}
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{training_autoencoder.png}
+      \end{figure}
+
    \section{Inputs for encoding training}
 
       \begin{itemize}
@@ -78,7 +84,7 @@
 
          \begin{itemize}
 
-            \item here each sensory data already exists for sure in one of the clusters so we can find the parameters from here after
+            \item here each sensory data already exists for sure in one of the clusters so wae can find the parameters from here after
 
          \end{itemize}
 
@@ -88,7 +94,7 @@
 
    \section{These items must be learned from these sensory data}
 
-      All the parameters mentioned in in Arc
+      All the parameters mentioned in in Arcitecture
       \begin{figure}[H]
          \centering
          \includegraphics[width=0.9\textwidth]{learning_item.png}

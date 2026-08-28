@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "image_name": "neuron.png",
+  "source_name": "neural_cognitive_architecture.tex",
+  "canvas_width": 1600,
+  "canvas_height": 1000,
+  "drawing_data_base64": "d3Jk8AEACAAyFA0AAAAAFQAAAAAdAAAAACUAAAAAOg4IABD//////////38YAEIQRz49TPjHTzesXNqLK+4XhA==",
+  "background_image_base64": "",
+  "web_strokes": [],
+  "pencil": {
+    "width": 6,
+    "color": "#1F1F1F"
+  },
+  "image_objects": []
+}
