@@ -49,7 +49,6 @@
             \item Membrane potential
             \begin{itemize}
                \item Graded potential
-
             \end{itemize}
          \end{itemize}
          \item Axons and their terminals (output)
@@ -67,6 +66,7 @@
          \end{itemize}
 
       \subsection{Anatomy of action potentials}
+         The decision to spike or not is one of the most basic but fundimental decisions made in human body. \iffalse I remeber there was a paper mentioning this \fi. Later we will see that this research extends this dichothomy to complexer language abstractions. 
          \begin{itemize}
             \item depolarization
             \begin{itemize}
@@ -112,14 +112,26 @@
                \includegraphics[width=0.9\textwidth]{action_potential_anatomy.png}
             \end{figure}
    \section{Neuron types}
-      \begin{itemize}
-         \item Sensory modalities. each sensor modality is devided to two set of sensors similar to afferent SA/RA or sustained/tranient RGC in retina
+      \subsection{Sensory - receptors}
+         In human body sometimes the sensory neuron and receptor are the same and sometimes they are separated. In this research the sake of simplicity both are taken the same even though in human body a  sensory receptor responsiblity is to convert a stimulus to electrical pulses and then pass them to a sesnory neuron to generate action potentials, this research considers these two stages happen in one neuron.
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{sensory_transduction.png}
+         \end{figure}
+         Sensory modalities. each sensor modality is devided to two set of sensors similar to afferent SA/RA or sustained/tranient RGC in retina
          \begin{itemize}
             \item intensity sensor (measure the value of sensor, similar to RAA/SAA or SRG/TRG)
             \item intensity change sensor (measures how fast the sensor values are changing)
          \end{itemize}
-      \end{itemize}
 
+   \section{Sensory pathways}
+      \href{nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/pathway/pathway.tex}{Sensory pathways}
+      The sensory neurons axons in human body reach spinal cord neurons and then they are sent to neurons in the cortex brain layer.
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{sensory_pathways.png}
+      \end{figure}
+      The state neurons in this research can be considered as the neurons in the brain's cortex as such sensory neurons are directly connected to the calculation system of the architecture. 
    \section{Neuron potential reception types}
       \subsection{Spatial}
          is potential reception of a single neuron from the axon of multiple different neurons
@@ -127,7 +139,7 @@
          is the the reception of multiple potentials from theaxon of teh same neuron
       \subsection{Application}
          When both spatially and temporally enough evidences are accumlated then a spike is fired and during the refractoring period another spike is not possible to be released. Each spike releases the same evidance to all connecting state neurons at next level or time slot. the evidences move from bottom (smallest classes) to topest (biggest class) and from left to right as time goes on.
-
+   \section{Sensory pathways}
    \section{Neuron circuit types}
       \subsection{Converging}
          As in human body that from sensory receptors to brain the neurons  paths cionverge to each other. In this model also from lower  levels of neurons such as sensors to higher levels such as language components.
