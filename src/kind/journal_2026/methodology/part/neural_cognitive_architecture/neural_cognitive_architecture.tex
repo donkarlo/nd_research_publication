@@ -66,7 +66,7 @@
          \end{itemize}
 
       \subsection{Anatomy of action potentials}
-         The decision to spike or not is one of the most basic but fundimental decisions made in human body. \iffalse I remeber there was a paper mentioning this \fi. Later we will see that this research extends this dichothomy to complexer language abstractions. 
+         The decision to spike or not is one of the most basic but fundimental decisions made in human body. \iffalse I remeber there was a paper mentioning this \fi. Later we will see that this research extends this dichothomy to complexer language abstractions.
          \begin{itemize}
             \item depolarization
             \begin{itemize}
@@ -111,6 +111,7 @@
                \centering
                \includegraphics[width=0.9\textwidth]{action_potential_anatomy.png}
             \end{figure}
+
    \section{Neuron types}
       \subsection{Sensory - receptors}
          In human body sometimes the sensory neuron and receptor are the same and sometimes they are separated. In this research the sake of simplicity both are taken the same even though in human body a  sensory receptor responsiblity is to convert a stimulus to electrical pulses and then pass them to a sesnory neuron to generate action potentials, this research considers these two stages happen in one neuron.
@@ -118,6 +119,12 @@
             \centering
             \includegraphics[width=0.9\textwidth]{sensory_transduction.png}
          \end{figure}
+         The following image shows how a receptory cell makes graded potentials in human body.
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{receptor_cell_graded_potentials.png}
+         \end{figure}
+
          Sensory modalities. each sensor modality is devided to two set of sensors similar to afferent SA/RA or sustained/tranient RGC in retina
          \begin{itemize}
             \item intensity sensor (measure the value of sensor, similar to RAA/SAA or SRG/TRG)
@@ -131,7 +138,7 @@
          \centering
          \includegraphics[width=0.9\textwidth]{sensory_pathways.png}
       \end{figure}
-      The state neurons in this research can be considered as the neurons in the brain's cortex as such sensory neurons are directly connected to the calculation system of the architecture. 
+      The state neurons in this research can be considered as the neurons in the brain's cortex as such sensory neurons are directly connected to the calculation system of the architecture.
    \section{Neuron potential reception types}
       \subsection{Spatial}
          is potential reception of a single neuron from the axon of multiple different neurons
@@ -145,11 +152,23 @@
          As in human body that from sensory receptors to brain the neurons  paths cionverge to each other. In this model also from lower  levels of neurons such as sensors to higher levels such as language components.
       \subsection{Diverging}
          This one spreads along the time access and a sensor neuron spike will activate at least 0 to one neurons at each level.
+   \section{Neural coding}
+      What ever difference in neural activity that make the carried information different
+      \href{/repo/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/part/action_potential/coding/part/encoding/encoding.tex}{Neural encoding}
 
-   \section{Language}
-      \input{language}
+      In this research, this encoding is simulated by variational autoencoder and in training section the applied method will be explained
 
-      \bibliographystyle{plainnat}
-      \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+      \subsection{Population coding}
+         \cite{shimazaki-2025-neural-coding-foundational-concepts-statistical-formulations-and-recent-advances} emphasizes that neural information is often represented at population level where
+
+         \begin{itemize}
+            \item firing rate (in sensory neurons, more firing rate, usually is the result of more sensory intensity change and higher value)
+            \item correlations between neurons (can be considered simalar to sensure fusion)
+         \end{itemize}
+
+         \input{language}
+
+         \bibliographystyle{plainnat}
+         \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 
 \end{document}
