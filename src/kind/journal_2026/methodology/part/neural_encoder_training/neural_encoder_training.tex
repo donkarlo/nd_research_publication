@@ -116,38 +116,14 @@
          \item Action potential parameters (and parameters for FMM)
 
          \begin{itemize}
-
-            \item Depolarization period
-
-            \begin{itemize}
-
-               \item The time required after the neuron starts firing to obtain sufficient confidence that the agent is, with the highest probability, in the represented state.
-
-               \item learning peak of action potential depolarization. This paremeter show what is the maximum possible certainty this state neuron could have reached in all trainings the highest is 1 and the lowest is zero even though
-
-            \end{itemize}
-
-            \item Repolarization period
-
-            \begin{itemize}
-
-               \item The time required to obtain sufficient confidence that the agent has either remained in the same state with approximately constant intensity or transitioned to a different state.
-
-               \item learning firing tolerance (in some biological neurons.png it is -70). This parameter will tell us at what point we are sure that the agent is in that state so that the state neuron spikes.
-
-            \end{itemize}
-
-            \item Refractory period (During which even if enough evidence exists for another spike, the neuron cant spike). We must pay attention to the factwith each spike the whole evidences are evacuated and the system returns back to its resting potenmtial
-
-            \begin{itemize}
-
-               \item The time period during which the neuron is not allowed to fire again, even if the accumulated EPSPs are sufficient to overcome the IPSPs and cross the firing threshold.
-
-               \item learning the resting membrane potential value (in some biological neurons.png it is -50). It is the average amount of evidences/potentials(IPSP, EPSP) that the state neuron has while the agent is not in that state. It will represent prior or base line evidence that usually exist in the state neuron
-
-            \end{itemize}
-
+            \item Maixmum potential or amplitutue or A in FMM
+            \item spiking threshold
+            \item Depolrization time period
+            \item repolarization time period
+            \item refractory time period
          \end{itemize}
+
+         \item each EPSP and IPSP value
 
          \item The firing rate for both intensity and intensity change neurons.png
 
