@@ -49,6 +49,7 @@
 \begin{document}
 
    \label{neural_cognitive_architecture}
+   In this section the proposed architecture, together with it's analogy to biological humna nervous system is explained.
 
    The architecture should be considered as a brain formed of neurons and formulated as probabilistic graphical model.
 
@@ -63,25 +64,15 @@
       A neuron is formed of
 
       \begin{itemize}
-
          \item Soma/Cell body (evidence potential weighting center)
-
          \begin{itemize}
-
             \item Membrane potential
-
             \begin{itemize}
-
                \item Graded potential
-
             \end{itemize}
-
          \end{itemize}
-
          \item Axons and their terminals (output)
-
          \item Dendrites (inputs)
-
       \end{itemize}
 
       \begin{figure}[H]
@@ -95,49 +86,32 @@
       \subsection{Graded potentials}
 
          \begin{itemize}
-
             \item IPSP (to decrease the evidence potential)
-
             \item EPSP (to increase the evidence potential)
-
          \end{itemize}
 
       \subsection{Anatomy of action potentials}
 
-         The decision to spike or not is one of the most basic but fundimental decisions made in human body. \iffalse I remeber there was a paper mentioning this \fi. Later we will see that this research extends this dichothomy to complexer language abstractions.
+         The decision to spike or not is one of the most basic but fundimental decisions made in human body. \iffalse I remeber there was a paper mentioning this \fi. Later we will see that this research extends this dichothomy to complexer language abstractions. In this research the shape ofa ction potential as well as it's temporal firing pattern carries information. This happens also bilogically since the action-potential waveform is not identical across neuronal types; sensory-neuron subtypes can exhibit characteristic differences in action-potential duration, overshoot, repolarization profile, and aterhyperpolarization \cite{korner-2022-functional-subgroups-of-rat-and-human-sensory-neurons-a-systematic-review-of-electrophysiological-properties}.
 
          \begin{itemize}
-
             \item \textbf{Depolarization period}
-
             \begin{itemize}
-
                \item The time required after the neuron starts firing to obtain sufficient confidence that the agent is, with the highest probability, in the represented state.
-
                \item learning peak of action potential depolarization. This paremeter show what is the maximum possible certainty this state neuron could have reached in all trainings the highest is 1 and the lowest is zero even though
-
             \end{itemize}
-
             \item \textbf{Repolarization period}
-
             \begin{itemize}
-
                \item The time required to obtain sufficient confidence that the agent has either remained in the same state with approximately constant intensity or transitioned to a different state.
-
                \item learning firing tolerance (in some biological neurons.png it is -70). This parameter will tell us at what point we are sure that the agent is in that state so that the state neuron spikes.
-
             \end{itemize}
-
             \item \textbf{Refractory period} (During which even if enough evidence exists for another spike, the neuron cant spike). We must pay attention to the factwith each spike the whole evidences are evacuated and the system returns back to its resting potenmtial
-
             \begin{itemize}
-
                \item The time period during which the neuron is not allowed to fire again, even if the accumulated EPSPs are sufficient to overcome the IPSPs and cross the firing threshold.
-
-               \item learning the resting membrane potential value (in some biological neurons.png it is -50). It is the average amount of evidences/potentials(IPSP, EPSP) that the state neuron has while the agent is not in that state. It will represent prior or base line evidence that usually exist in the state neuron
-
+               \item \textbf{Refractory duration:} the time interval after a spike during which the state neuron is not allowed to fire again, even if sufficient evidence is accumulated.
+s               \item \textbf{Refractory depth:} the strength of the post-spike inhibition or reset applied to the neuron's evidence potential. A larger refractory depth requires stronger subsequent evidence before the neuron can reach the firing threshold again.
             \end{itemize}
-
+            \item \textbf{The resting membrane potential:} value (in some biological neurons.png it is -50). It is the average amount of evidences/potentials(IPSP, EPSP) that the state neuron has while the agent is not in that state. It will represent prior or base line evidence that usually exist in the state neuron
          \end{itemize}
 
          \subsubsection{Simulation with ``Frequency-Modulated Möbius (FMM)``}
@@ -167,17 +141,11 @@
             \end{equation}
 
             \begin{itemize}
-
                \item M
-
                \item A
-
                \item $\alpha$
-
                \item $\beta$
-
                \item $\omega$
-
             \end{itemize}
 
             \begin{figure}[H]
@@ -201,87 +169,13 @@
             \includegraphics[width=0.9\textwidth]{sensory_transduction.png}
 
          \end{figure}
-
-         The following image shows how a receptory cell makes graded potentials in human body.
-
-         \begin{figure}[H]
-
-            \centering
-
-            \includegraphics[width=0.9\textwidth]{receptor_cell_graded_potentials.png}
-
-         \end{figure}
-
-         Sensory modalities. each sensor modality is devided to two set of sensors similar to afferent SA/RA or sustained/tranient RGC in retina
-
-         \begin{itemize}
-
-            \item intensity sensor (measure the value of sensor, similar to RAA/SAA or SRG/TRG)
-
-            \item intensity change sensor (measures how fast the sensor values are changing)
-
-         \end{itemize}
-
-   \section{Sensory pathways}
-
-      \href{nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/pathway/pathway.tex}{Sensory pathways}
-
-      The sensory neurons axons in human body reach spinal cord neurons and then they are sent to neurons in the cortex brain layer.
-
-      \begin{figure}[H]
-
-         \centering
-
-         \includegraphics[width=0.9\textwidth]{sensory_pathways.png}
-
-      \end{figure}
-
-      The state neurons in this research can be considered as the neurons in the brain's cortex as such sensory neurons are directly connected to the calculation system of the architecture.
-
-   \section{Neuron potential reception types}
-
-      \subsection{Spatial}
-
-         is potential reception of a single neuron from the axon of multiple different neurons
-
-      \subsection{temporal}
-
-         is the the reception of multiple potentials from theaxon of teh same neuron
-
-      \subsection{Application}
-
-         When both spatially and temporally enough evidences are accumlated then a spike is fired and during the refractoring period another spike is not possible to be released. Each spike releases the same evidance to all connecting state neurons at next level or time slot. the evidences move from bottom (smallest classes) to topest (biggest class) and from left to right as time goes on.
-
-   \section{Sensory pathways}
-
-   \section{Neuron circuit types}
-
-      \subsection{Converging}
-
-         As in human body that from sensory receptors to brain the neurons paths cionverge to each other. In this model also from lower levels of neurons such as sensors to higher levels such as language components.
-
-      \subsection{Diverging}
-
-         This one spreads along the time access and a sensor neuron spike will activate at least 0 to one neurons at each level.
-
-   \section{Neural coding}
-
-      What ever difference in neural activity that make the carried information different
-
-      \href{/repo/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/part/action_potential/coding/part/encoding/encoding.tex}{Neural encoding}
-
-      In this research, this encoding is simulated by variational autoencoder and in training section the applied method will be explained
-
       \subsection{Population coding}
 
          \cite{shimazaki-2025-neural-coding-foundational-concepts-statistical-formulations-and-recent-advances} emphasizes that neural information is often represented at population level where
 
          \begin{itemize}
-
             \item firing rate (in sensory neurons, more firing rate, usually is the result of more sensory intensity change and higher value)
-
             \item correlations between neurons (can be considered simalar to sensure fusion)
-
          \end{itemize}
 
          \input{language}
