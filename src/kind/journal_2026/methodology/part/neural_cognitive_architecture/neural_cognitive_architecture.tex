@@ -49,15 +49,31 @@
 \begin{document}
 
    \label{neural_cognitive_architecture}
-   In this section the proposed architecture, together with it's analogy to biological humna nervous system is explained.
+   In this section the proposed architecture, together with it's analogy to biological human nervous system is explained.
 
-   The architecture should be considered as a brain formed of neurons and formulated as probabilistic graphical model.
+   \section{Agent’s architecture tree} The architecture is devided into the following sections
+      \begin{itemize}
+         \item Body
+         \item Mind
+      \end{itemize}
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{agent_anatonomical_tree.png}
+      \end{figure}
 
-   Each neuron recieves a set of evidences to weight them according to what it has learning in learning by demonstration phase that will be decribed in \ref{methodology_neural_encoder_tarining} and will finally make decision to either a spike or not. If it does the an action potential will release evidences between the next vertical or horizantal neuron layers to that weighting and spiking goes on such that finally the brain decides at each vertical state, what is the probablity distribution.
+   \section{Architecture onthology}
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{agent_onthology.png}
+      \end{figure}
+   \section{Nervous system}
+      The architecture should be considered as a brain formed of neurons and formulated as probabilistic graphical models .
 
-   During training and anomaly detection (using) specific neurons might appear that are just activated only in those phases.
+      Each neuron recieves a set of evidences to weight them according to what it has learning in learning by demonstration phase that will be decribed in \ref{methodology_neural_encoder_tarining} and will finally make decision to either a spike or not. If it does the an action potential will release evidences between the next vertical or horizantal neuron layers to that weighting and spiking goes on such that finally the brain decides at each vertical state, what is the probablity distribution.
 
-   In this section we just explain the sahred architercture between the two aformentioned phases. But before, alittle explanation about neuron and its spiking mechanism.
+      During training and anomaly detection (using) specific neurons might appear that are just activated only in those phases.
+
+      In this section we just explain the sahred architercture between the two aformentioned phases. But before, alittle explanation about neuron and its spiking mechanism.
 
    \section{Anatomy of a neuron}
 
@@ -109,7 +125,7 @@
             \begin{itemize}
                \item The time period during which the neuron is not allowed to fire again, even if the accumulated EPSPs are sufficient to overcome the IPSPs and cross the firing threshold.
                \item \textbf{Refractory duration:} the time interval after a spike during which the state neuron is not allowed to fire again, even if sufficient evidence is accumulated.
-              \item \textbf{Refractory depth:} the strength of the post-spike inhibition or reset applied to the neuron's evidence potential. A larger refractory depth requires stronger subsequent evidence before the neuron can reach the firing threshold again.
+               \item \textbf{Refractory depth:} the strength of the post-spike inhibition or reset applied to the neuron's evidence potential. A larger refractory depth requires stronger subsequent evidence before the neuron can reach the firing threshold again.
             \end{itemize}
             \item \textbf{The resting membrane potential:} value (in some biological neurons.png it is -50). It is the average amount of evidences/potentials(IPSP, EPSP) that the state neuron has while the agent is not in that state. It will represent prior or base line evidence that usually exist in the state neuron
          \end{itemize}
@@ -178,7 +194,7 @@
             \item correlations between neurons (can be considered simalar to sensure fusion)
          \end{itemize}
 
-         \input{language}
+         \input{mind/language}
 
          \bibliographystyle{plainnat}
 
