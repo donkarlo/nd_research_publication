@@ -1,36 +1,83 @@
 \documentclass[a4paper]{article}
 
 \usepackage{graphicx}
+
 \usepackage{amsmath,amssymb}
+
 \usepackage{minted}
+
 \usepackage{multirow}
+
 \usepackage{float}
+
+\usepackage{algorithm}
+
+\usepackage{algpseudocode}
+
 \usepackage{todonotes}
+
 \usepackage{forest}
+
 \usepackage{xstring}
+
 \usepackage{xcolor}
+
 \usepackage[most]{tcolorbox}
+
 \usepackage{xparse}
+
 \usepackage{natbib}
 
+\usepackage{adjustbox}
+
 \usetikzlibrary{graphs,graphdrawing}
+
 \usegdlibrary{layered}
 
 % for external graphviz
+
 \input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
 
 % for tags
+
 \input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
 
 % for links
+
 \input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
 
+% for nested lists and sections
+
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
 \title{}
+
 \date{}
 
+\author{Mohammad Rahmani}
+
 \begin{document}
-    \maketitle
-    
-    %\bibliographystyle{plainnat}
-    %\bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+
+	\maketitle
+
+	for the composition tree
+
+	\href{/nd_robotic_ai_learning_project/src/robot/anatomy/anatomy.tex}{see here}
+
+	\noindent
+	\makebox[\textwidth][c]{%
+		\begin{adjustbox}{
+			max width=0.94\paperwidth,
+			max height=0.75\textheight,
+			keepaspectratio
+		}
+			\input{/nd_robotic_ai_learning_project/src/robot/anatomy/anatomy.tex}
+		\end{adjustbox}%
+	}
+	\include{part/mind/mind.tex}
+
+	\bibliographystyle{plainnat}
+
+	\bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+
 \end{document}

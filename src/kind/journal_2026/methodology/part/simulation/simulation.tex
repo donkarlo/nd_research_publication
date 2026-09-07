@@ -5,6 +5,8 @@
 \usepackage{minted}
 \usepackage{multirow}
 \usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 \usepackage{todonotes}
 \usepackage{forest}
 \usepackage{xstring}
@@ -25,31 +27,20 @@
 % for links
 \input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
 
-\title{}
+% for nested lists and sections
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+\title{Software simulation architecture}
 \date{}
 \author{Mohammad Rahmani}
 
 \begin{document}
    \maketitle
 
-   This research expands the the decision to spike or not in a neuron to a language in which the agent can say to itself \"I am aware\" which solely using the language is a form of self-awareness by making distinctions between \"I\" and
-
-
-
-   There are three phases
-   \begin{figure}[H]
-      \centering
-      \includegraphics[width=0.9\textwidth]{phases.png}
-   \end{figure}
-
-   \input{part/neural_cognitive_architecture/neural_cognitive_architecture} % architecture of neurons connections from sensory neurons to brain neuronos
-   \input{part/neural_encoder_training/neural_encoder_training} %previously training
-   \input{part/preprocessing/preprocessing} %previously training
-   \input{part/anomaly_and_novelty_detection/anomaly_and_novelty_detection} % previously testing
-   \input{part/simulation/simulation.tex} % previously testing
-
-
-
+   The aformentioned architceture is simulated using a composite pattern with almost similar onthology in form of heiearchical files each of which include a class. 
+   
+   So a robot is being build by its mind and body and teh body and teh mind devide as were mentioned in the beginning of this section and each sub limb is put in an nested folder. Shared limbs are in shared folder in the parent directory and consituents are in part folder as different variations of a limb are in kind folder. 
+   
 
    \bibliographystyle{plainnat}
    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}

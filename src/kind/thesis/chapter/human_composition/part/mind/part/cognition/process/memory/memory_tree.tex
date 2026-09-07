@@ -1,0 +1,85 @@
+\begin{forest}
+for tree={
+edge={<-},
+align=center,
+draw,
+rounded corners=1pt,
+font=\sffamily\scriptsize,
+inner xsep=3pt,
+inner ysep=2pt,
+minimum height=6mm,
+text width=18mm,
+l sep=10mm,
+s sep=4mm
+}
+[Memory,fill=red!45,text width=16mm
+[Explicit,fill=blue!25,text width=14mm
+[Long-term,fill=blue!25,text width=16mm
+[Episodic,fill=blue!25,text width=14mm
+[Autobiographical,fill=blue!25,text width=19mm
+[Event-specific\\knowledge,fill=blue!25,text width=20mm
+[Dataset,fill=orange!55,text width=14mm
+[Normal\\scenario,fill=orange!55,text width=16mm]
+[Follow\\scenario,fill=orange!55,text width=16mm]
+[Next-to\\scenario,fill=orange!55,text width=16mm]
+]
+[Plans,fill=orange!55,text width=12mm]
+[Actions,fill=orange!55,text width=14mm]
+[Goal,fill=orange!55,text width=12mm]
+]
+[Lifetime,fill=blue!25,text width=14mm]
+[General\\events,fill=blue!25,text width=16mm]
+]
+[Plan,fill=orange!55,text width=12mm
+[Action\\types,fill=orange!55,text width=15mm]
+[Goal\\types,fill=orange!55,text width=14mm]
+[Action\\pose\\space,fill=orange!55,text width=18mm]
+[Action\\production,fill=orange!55,text width=18mm]
+]
+[Sensors,fill=orange!55,text width=14mm
+[Lidar\\ranges,fill=orange!55,text width=16mm]
+[GPS,fill=orange!55,text width=10mm]
+[IMU,fill=orange!55,text width=10mm]
+[Battery,fill=orange!55,text width=14mm]
+]
+]
+[Semantic,fill=blue!25,text width=15mm]
+]
+[Short-term,fill=blue!25,text width=16mm
+[Holding\\sliding window\\sensory data,fill=orange!55,text width=22mm]
+[Goal\\composite,fill=orange!55,text width=16mm]
+[Running\\plan,fill=orange!55,text width=15mm]
+[Action\\composite,fill=orange!55,text width=17mm]
+]
+[Item,fill=blue!25,text width=12mm
+[Knowing,fill=blue!25,text width=14mm
+[Familiarity,fill=blue!25,text width=16mm]
+]
+]
+]
+[Implicit,fill=blue!25,text width=14mm
+[Skills,fill=blue!25,text width=13mm
+[Architecture,fill=orange!55,text width=16mm]
+[Training config,fill=orange!55,text width=17mm]
+]
+[Repetition\\priming,fill=blue!25,text width=18mm
+[Robotic lab,fill=orange!55,text width=15mm]
+[Sequence-to-\\sequence\\models,fill=orange!55,text width=22mm]
+]
+]
+[Action,fill=red!45,text width=14mm
+[Segregation,fill=green!35,text width=17mm
+[Auto\\correlation,fill=orange!55,text width=18mm]
+[Split,fill=orange!55,text width=10mm]
+[Clustering,fill=orange!55,text width=16mm]
+[Feature\\slice,fill=orange!55,text width=16mm]
+[By\\stimulus,fill=orange!55,text width=14mm]
+[Stimulus-\\dependent\\thought,fill=orange!55,text width=22mm]
+]
+[Remembering,fill=green!35,text width=18mm
+[Mind\\wandering,fill=orange!55,text width=17mm]
+[Default\\brain\\network,fill=orange!55,text width=20mm]
+]
+]
+]
+\end{forest}

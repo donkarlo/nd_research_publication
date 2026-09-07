@@ -5,6 +5,8 @@
 \usepackage{minted}
 \usepackage{multirow}
 \usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 \usepackage{todonotes}
 \usepackage{forest}
 \usepackage{xstring}
@@ -25,19 +27,18 @@
 % for links
 \input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
 
-\title{Thesis}
+% for nested lists and sections
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+\title{}
 \date{}
+\author{Mohammad Rahmani}
 
 \begin{document}
-    \maketitle
+   \maketitle
 
-    \include{introduction/introduction}
-    \include{motivation/motivation}
-    \include{chapter/chapter}
-    
+   \input{part/body/body.tex}
 
-    \include{experiments/experiments}
-
-    \bibliographystyle{plainnat}
-    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+   \bibliographystyle{plainnat}
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}
