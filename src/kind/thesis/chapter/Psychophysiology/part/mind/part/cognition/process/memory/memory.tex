@@ -10,10 +10,6 @@
 
 \usepackage{float}
 
-\usepackage{algorithm}
-
-\usepackage{algpseudocode}
-
 \usepackage{todonotes}
 
 \usepackage{forest}
@@ -40,30 +36,21 @@
 
 % for tags
 
-\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
 
 % for links
 
 \input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
 
-% for nested lists and sections
-
-\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
-
-\title{}
+\title{Memory arcihtecture}
 
 \date{}
-
-\author{Mohammad Rahmani}
 
 \begin{document}
 
 	\maketitle
 
-	for the composition tree
-
-	\href{/nd_robotic_ai_learning_project/src/robot/anatomy/anatomy.tex}{see here}
-
+\include{part/episodic/event_specific_knowledge/event_specific_knowledge.tex}
 	\noindent
 	\makebox[\textwidth][c]{%
 		\begin{adjustbox}{
@@ -71,13 +58,14 @@
 			max height=0.75\textheight,
 			keepaspectratio
 		}
-			\input{/nd_robotic_ai_learning_project/src/robot/anatomy/anatomy.tex}
+			\input{memory_tree}
 		\end{adjustbox}%
 	}
-	\include{part/mind/mind.tex}
+	
+	\input{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/memory/part/memorizing/part/explicity/explicit/long_term/part/episodic/autobigraphical/part/event_specific_knowledge/event_specific_knowledge.tex}
 
-	\bibliographystyle{plainnat}
+	%\bibliographystyle{plainnat}
 
-	\bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+	%\bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 
 \end{document}

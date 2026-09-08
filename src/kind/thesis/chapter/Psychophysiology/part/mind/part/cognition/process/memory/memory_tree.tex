@@ -1,0 +1,252 @@
+\definecolor{diagramroot}{RGB}{244,95,116}
+\definecolor{diagrammajor}{RGB}{255,140,161}
+\definecolor{diagramconcept}{RGB}{180,210,234}
+\definecolor{diagramprocess}{RGB}{172,205,161}
+\definecolor{diagramsystem}{RGB}{249,220,140}
+\definecolor{diagramdetail}{RGB}{255,178,85}
+
+\forestset{
+    diagram node/.style={
+        draw=black,
+        rounded corners=1pt,
+        align=center,
+        font=\sffamily\tiny,
+        inner xsep=2.5pt,
+        inner ysep=2pt,
+        minimum height=5mm,
+        text width=18mm
+    },
+    root node/.style={
+        diagram node,
+        fill=diagramroot,
+        text=white,
+        font=\sffamily\tiny\bfseries
+    },
+    major node/.style={
+        diagram node,
+        fill=diagrammajor
+    },
+    concept node/.style={
+        diagram node,
+        fill=diagramconcept
+    },
+    process node/.style={
+        diagram node,
+        fill=diagramprocess
+    },
+    system node/.style={
+        diagram node,
+        fill=diagramsystem
+    },
+    detail node/.style={
+        diagram node,
+        fill=diagramdetail
+    },
+    note node/.style={
+        diagram node,
+        fill=white,
+        text width=32mm,
+        font=\sffamily\tiny
+    }
+}
+
+\begin{forest}
+    for tree={
+        grow=south,
+        parent anchor=south,
+        child anchor=north,
+        edge={->},
+        l sep=7mm,
+        s sep=3mm
+    },
+    [
+        {memory},
+        root node,
+        name=n100,
+        afterthought={
+            \draw[->] (n90) to[bend left=10] (n97);
+            \draw[->] (n200) to[bend left=10] (n201);
+        }
+        [
+            {explicit},
+            concept node,
+            name=n79
+            [
+                {long term},
+                concept node,
+                name=n80
+                [
+                    {episodic},
+                    concept node,
+                    name=n89
+                    [
+                        {Autobiographic},
+                        concept node,
+                        name=n150
+                        [
+                            {Event\\specific\\knowledge},
+                            concept node,
+                            name=n115
+                            [
+                                {oldest},
+                                detail node,
+                                name=n117
+                                [
+                                    {Normal\\scenario},
+                                    detail node,
+                                    name=n107
+                                    [
+                                        {Plans},
+                                        detail node,
+                                        name=n126
+                                    ]
+                                    [
+                                        {Actions},
+                                        detail node,
+                                        name=n125
+                                    ]
+                                    [
+                                        {Goal},
+                                        detail node,
+                                        name=n105
+                                    ]
+                                    [
+                                        {sensors},
+                                        detail node,
+                                        name=n109
+                                        [
+                                            {Lidar\\ranges},
+                                            detail node,
+                                            name=n111
+                                        ]
+                                        [
+                                            {GPS},
+                                            detail node,
+                                            name=n113
+                                        ]
+                                        [
+                                            {IMU},
+                                            detail node,
+                                            name=n209
+                                        ]
+                                        [
+                                            {Battery},
+                                            detail node,
+                                            name=n210
+                                        ]
+                                    ]
+                                ]
+                                [
+                                    {follow\\scenario},
+                                    detail node,
+                                    name=n108
+                                ]
+                                [
+                                    {next-to\\scenario},
+                                    detail node,
+                                    name=n244
+                                ]
+                            ]
+                        ]
+                        [
+                            {In semantic\\memory},
+                            note node,
+                            name=n189,
+                            edge={->,dashed}
+                        ]
+                        [
+                            {lifetime},
+                            concept node,
+                            name=n146
+                        ]
+                        [
+                            {General events},
+                            concept node,
+                            name=n144
+                        ]
+                    ]
+                ]
+                [
+                    {semantic},
+                    concept node,
+                    name=n90
+                    [
+                        {Plan},
+                        detail node,
+                        name=n194
+                        [
+                            {Action\\types},
+                            detail node,
+                            name=n241
+                        ]
+                        [
+                            {Goal\\types},
+                            detail node,
+                            name=n240
+                        ]
+                    ]
+                    [
+                        {Action\\types},
+                        detail node,
+                        name=n192
+                        [
+                            {Suprise\\poise},
+                            detail node,
+                            name=n195
+                        ]
+                    ]
+                    [
+                        {Goal\\types},
+                        detail node,
+                        name=n140
+                        [
+                            {Suprise\\reduction},
+                            detail node,
+                            name=n142
+                        ]
+                    ]
+                ]
+                [
+                    {item\\memory},
+                    concept node,
+                    name=n95
+                    [
+                        {knowing},
+                        concept node,
+                        name=n97
+                        [
+                            {Familiarity},
+                            concept node,
+                            name=n103
+                        ]
+                    ]
+                ]
+            ]
+            [
+                {Short\\term},
+                concept node,
+                name=n101
+                [
+                    {Holding\\sliding window\\sensory data},
+                    detail node,
+                    name=n226
+                ]
+                [
+                    {Running\\plan},
+                    detail node,
+                    name=n198
+                    [
+                        {Goal\\composite},
+                        detail node,
+                        name=n200
+                    ]
+                    [
+                        {Action\\composite},
+                        detail node,
+                        name=n201
+                    ]
+                ]
+            ]
+        ]
+    ]
+\end{forest}
