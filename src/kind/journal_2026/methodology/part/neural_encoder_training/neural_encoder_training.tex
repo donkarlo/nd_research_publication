@@ -40,8 +40,6 @@
    \maketitle
 
    \label{methodology_neural_encoder_tarining}
-   
-   
 
    %TODO add neural encoding citations
 
@@ -59,9 +57,39 @@
 
    So we devide the experiment in two phases. In offline training phase, one robot(in this case a UAV equiped with LIDAR, GPS, IMU) is requested by human agent to use its autopilot to reach a set of trajectory points to gather sensory data from which temporal models and abstraction models using the aforementioned method inspired human nervous system is build.
    \section{Steps}
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{training_steps.png}
+      \end{figure}
       \subsection{Period detection with auto regression}
-      If an exeprience is repeated multiple time
-      \subsection{time series clustering or motif detection}
+         If an exeprience is repeated multiple time
+      \subsection{Motif discovery (to dicover periods/cycles)}
+
+         To discover the periodic data. As we will see in the experiment section a drone that circules a rectangualar corridor makes many periodic sensory data that motif discovery is used for it. Then a method is needed to find the cycles in sensory data.
+
+         This research uses Matrix-Profile-based  method for this \href{/home/donkarlo/Dropbox/repo/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/matrix_profile_based/matrix_profiled_based.tex}{here}.
+
+         This method doesn't need training.
+         \textbf{Matrix-Profile-based Motif Discovery \cite{vanonsem-2023-variable-length-motif-discovery-in-time-series-data}}
+         \begin{algorithm}[H]
+            \caption{Event-Driven Variable-Length Motif Discovery}
+            \begin{algorithmic}[1]
+               \State Input time series \(T\), window size \(w\), threshold \(t\)
+               \State Compute scale-aware distance matrix \(M\)
+               \State Convert \(M\) to binary event matrix \(M_{\mathrm{bin}}\)
+               \State Rank diagonals of \(M_{\mathrm{bin}}\) by number Weightof events
+               \For{each ranked diagonal}
+               \For{each event on the diagonal}
+               \State Enlarge the event into a motif candidate
+               \State Validate candidate using the distance threshold
+               \State Find all occurrences of the accepted motif
+               \State Add motif and its occurrences to output
+               \State Exclude found occurrences from \(M_{\mathrm{bin}}\)
+               \EndFor
+               \EndFor
+               \State Return unique motifs with grouped occurrences
+            \end{algorithmic}
+         \end{algorithm}
 
    \section{Training Autoencoders, from ROS to potentials}
       \begin{figure}[H]
@@ -101,10 +129,6 @@
    \section{These items must be learned from these sensory data}
 
       All the parameters mentioned in in Arcitecture
-      \begin{figure}[H]
-         \centering
-         \includegraphics[width=0.9\textwidth]{learning_item.png}
-      \end{figure}
       \begin{itemize}
 
          \item A probabilistic model based on Transformers for each level to predict sequences (This could be regarded as a sequential circuit). This probabilistic model will perform as grand modther neuron
@@ -141,26 +165,7 @@
          Clusters data based on similarity of sensory data
          Based on DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
 
-      \subsection{Motif discovery (to dicover periods/cycles)}
 
-         To discover the periodic data. As we will see in the experiment section a drone that circules a rectangualar corridor makes many periodic sensory data that motif discovery is used for it. Then a method is needed to find the cycles in sensory data.
-
-         This research uses Matrix-Profile-based  method for this \href{/home/donkarlo/Dropbox/repo/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/matrix_profile_based/matrix_profiled_based.tex}{here}.
-
-         This method doesnt need training.
-
-      \subsection{Probabilistic sequence likelihood probabilistic\_sequence\_likelihood.tex}
-
-         We should train a model such that when a a sub sequence is given to it, it tells us how much it is probable that the given sub sequence is sampled from a true training-similar sequences by which the model was trained.
-
-
-         \begin{figure}[H]
-
-            \centering
-
-            \includegraphics[width=0.7\textwidth]{neurons.png}
-
-         \end{figure}
 
          \bibliographystyle{plainnat}
 
