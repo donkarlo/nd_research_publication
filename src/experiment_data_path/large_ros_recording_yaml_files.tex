@@ -1,0 +1,78 @@
+\documentclass[a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+\geometry{margin=2.5cm}
+
+\title{Large ROS Recording YAML Files}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+These files are large YAML dumps associated with ROS recordings, mainly containing GPS/odometry and RPLidar data from the UAV experiments.
+
+\section{Normal Scenario}
+
+\begin{itemize}
+    \item \textbf{GPS + LiDAR, both UAVs}
+
+    \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/normal-scenario/uav1-gps-lidar-uav2-gps-lidar.yaml}}
+
+    Size: 3,538,377,514 bytes $\approx$ 3.30 GiB.
+
+    \item \textbf{Two LiDARs}
+
+    \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/normal-scenario/rplidar/twoLidars.yaml}}
+
+    Size: 1,798,675,105 bytes $\approx$ 1.68 GiB.
+\end{itemize}
+
+\section{Follow Scenario}
+
+\begin{itemize}
+    \item \textbf{GPS + LiDAR, both UAVs}
+
+    \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/follow-scenario/uav1-gps-lidar-uav2-gps-lidar.yaml}}
+
+    Size: 3,539,686,192 bytes $\approx$ 3.30 GiB.
+
+    \item \textbf{Two LiDARs}
+
+    \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/follow-scenario/lidar/twoLidars.yaml}}
+
+    Size: 1,609,409,606 bytes $\approx$ 1.50 GiB.
+
+    \item \textbf{One LiDAR round}
+
+    \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/follow-scenario/lidar/oneRound.yaml}}
+
+    Size: 162,543,418 bytes $\approx$ 155 MiB.
+\end{itemize}
+
+\section{ROS Topics}
+
+The combined GPS--LiDAR recording contains ROS messages from topics such as:
+
+\begin{itemize}
+    \item \texttt{/uav1/odometry/odom\_gps}
+    \item \texttt{/uav1/rplidar/scan}
+    \item \texttt{/uav2/odometry/odom\_gps}
+    \item \texttt{/uav2/rplidar/scan}
+\end{itemize}
+
+The corresponding large \texttt{.bag} recordings also exist beside the YAML files for the normal and follow scenarios.
+
+\section{Next-To Scenario}
+
+The folder
+
+\texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/next-to-scenario}}
+
+exists, but no YAML file larger than 100 MB was found there. The currently visible data in that scenario are mainly GPS text files and the ROS topic-recording script \texttt{topicsRecord.sh}.
+
+\end{document}

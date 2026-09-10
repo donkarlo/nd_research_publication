@@ -31,31 +31,33 @@
 % for nested lists and sections
 \input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
 
-\title{Autonomous control}
+\title{Code implementation}
 \date{}
 \author{Mohammad Rahmani}
 
 \begin{document}
    \maketitle
-   At any abstraction sequence  during the training the system has learned what actions for what exteroceptive situations it has. And these learned actions with a controller can be used to reduce the Wasserstein distance between the desired state the current state. it can choose between the right second derivative to give to autopilot for execution at any level of the hierarchy from the top (most abstract) when teh distance is large to butom when the small.
-   
-   For example in the scenarios presnted in this research, at a mid abtraction level the system has learned go north, west, east and south. This is the leaned language for one robot. 
-   
-   \begin{figure}[H]
-      \centering
-      \includegraphics[width=0.9\textwidth]{controller.png}
-   \end{figure}   
-    
-   \begin{figure}[H]
-      \centering
-      \includegraphics[width=0.9\textwidth]{feedback.png}
-   \end{figure}   
-   
-   \section{Cost function}
-   The cost function in model predictive controller (MPC)
-        \[
-            J = \sum_{k=0}^{N-1} \left[ \left( x_k - x_k^{\mathrm{ref}} \right)^T Q \left( x_k - x_k^{\mathrm{ref}} \right) + u_k^T R u_k \right]
-        \]
+   \section{Modules}
+   \textbf{nd\_social\_mind}
+   \seeherefooter{https://github.com/donkarlo/nd_sociomind_project}
+   \textbf{nd\_robotic\_ai}
+   \seeherefooter{https://github.com/donkarlo/nd_robotic_ai_project}
+   \textbf{nd\_math}
+   \seeherefooter{https://github.com/donkarlo/nd_math_project}
+   \textbf{nd\_datascience}
+   \seeherefooter{https://github.com/donkarlo/nd_datascience_project}
+   \textbf{nd\_physics}
+   \seeherefooter{https://github.com/donkarlo/nd_physics_project}
+   \textbf{nd\_utility}
+   \seeherefooter{https://github.com/donkarlo/nd_utility_project}
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{modules_relation.png}
+      \end{figure}
+      
+      \section{Multi robot system}
+      Multi robot system is also implemented inside  
+
    \bibliographystyle{plainnat}
    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}

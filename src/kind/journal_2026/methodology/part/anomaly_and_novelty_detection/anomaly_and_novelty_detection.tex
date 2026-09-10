@@ -68,9 +68,39 @@
             \centering
             \includegraphics[width=0.9\textwidth]{data_flow_semantic_axis.png}
          \end{figure}
-   \section{Distance metric}
-      Gaussian wasserstein \href{/nd_math_learning_project/src/probability/distribution/discrepency/kind/distance/kind/wasserstein/gaussian/gaussian.tex}{click here}
+   \section{Discrepency detection}
+      Discrepancy
+      \begin{itemize}
+         \item \textbf{Anomaly}: Short time over the threshold
+         \item \textbf{Novelty}: Continuously hi anomaly
+         \item \textbf{Outlier}: Statistically away from the observation distribution but yet a valid reading
+      \end{itemize}
 
+      \textbf{Anomaly} is the Mahalanobis distance between the prediction and the preprocessed, fused observation.
+
+
+   \section{Threshold}
+      \begin{enumerate}
+         \item Breaking an event-specific-knowledge sensory data into periods
+         \item Split the periods into train-test
+         \item take $\mu + n \times \sigma$ anomaly values as the threshold
+      \end{enumerate}
+
+      \begin{algorithm}[H]
+         \caption{Novelty Detection from Sensor Sequences}
+         \begin{algorithmic}[1]
+            \Require Preprocessed sensor sequence $X = \{x_1, x_2, \dots, x_T\}$
+            \Require Trained predictive model $f_{\theta}$
+            \Ensure Novelty threshold $\tau = \{y_1, y_2, \dots, y_T\}$
+            \Ensure Novelty scalar value
+
+
+            $Y = \{y_1, y_2, \dots, y_T\}$
+            \State \Return $Y$
+         \end{algorithmic}
+      \end{algorithm}
+
+      Reason to use wasserstein distance
       \begin{itemize}
          \item When the two distributions are points (their covariance matrix is very close to 0), then Wasserstein gives a value very close to Euclidean distance
          \item when one is a distribution and the other is a point, it still produces a value
@@ -122,12 +152,10 @@
       \]
 
 
-      \subsection{Interpretation}
-         If we consider teh two gaussian ditributions as two mass piles, how much effort does it take to move one pile to the other.
-         
-   
+   \section{Interpretation}
+      If we consider the two gaussian ditributions as two mass piles, how much effort does it take to move one pile to the other.
 
-         \bibliographystyle{plainnat}
-         \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+      \bibliographystyle{plainnat}
+      \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 
 \end{document}
