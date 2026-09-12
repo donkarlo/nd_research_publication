@@ -38,26 +38,56 @@
 \begin{document}
    \maketitle
    \section{Modules}
-   \textbf{nd\_social\_mind}
-   \seeherefooter{https://github.com/donkarlo/nd_sociomind_project}
-   \textbf{nd\_robotic\_ai}
-   \seeherefooter{https://github.com/donkarlo/nd_robotic_ai_project}
-   \textbf{nd\_math}
-   \seeherefooter{https://github.com/donkarlo/nd_math_project}
-   \textbf{nd\_datascience}
-   \seeherefooter{https://github.com/donkarlo/nd_datascience_project}
-   \textbf{nd\_physics}
-   \seeherefooter{https://github.com/donkarlo/nd_physics_project}
-   \textbf{nd\_utility}
-   \seeherefooter{https://github.com/donkarlo/nd_utility_project}
+      \subsection{nd\_social\_mind}
+
+         \seeherefooter{https://github.com/donkarlo/nd\_sociomind\_project}
+
+
+      \subsection{nd\_robotic\_ai}
+
+         \seeherefooter{https://github.com/donkarlo/nd\_robotic\_ai\_project}
+
+
+      \subsection{nd\_math}
+
+         \seeherefooter{https://github.com/donkarlo/nd\_math\_project}
+
+
+      \subsection{nd\_datascience}
+
+         \seeherefooter{https://github.com/donkarlo/nd\_datascience\_project}
+
+
+      \subsection{nd\_physics}
+
+         \seeherefooter{https://github.com/donkarlo/nd\_physics\_project}
+
+
+      \subsection{nd\_utility}
+
+         \seeherefooter{https://github.com/donkarlo/nd\_utility\_project}
+      \subsection{Module relations}
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{modules_relation.png}
+         \end{figure}
+   \section{Robot composition}
+      Using the same onthology described in methodology. That is composition design pattern is used to build a  robot.
+      \subsection{Quadcopter}
+         For example a quadcodcopter is composed of
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{quadcopter.png}
+         \end{figure}
+   \section{Multi robot system}
+      Multi robot system is also implemented using composition design pattern. Such that each group can have subgroups. For example in this research two drnoes which were guided by a human agent is implemented as show in Figure ~\ref{multi_robot_system_code}
+      Each group must have a relationship whic inforces the laws of that relationship. As soon as a robot is defined ina group, a role must be assigned to it.
       \begin{figure}[H]
          \centering
-         \includegraphics[width=0.9\textwidth]{modules_relation.png}
+         \includegraphics[width=0.9\textwidth]{multi_robot_system_code.png}
+         \label{multi_robot_system_code}
       \end{figure}
-      
-      \section{Multi robot system}
-      Multi robot system is also implemented inside  
 
-   \bibliographystyle{plainnat}
-   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+      \bibliographystyle{plainnat}
+      \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}

@@ -32,14 +32,25 @@
 \author{Mohammad Rahmani}
 
 \begin{document}
-\maketitle
+   \maketitle
 
    \section{What should be shared betwen robots}
-   Variational auto encoder
-   
-   \section{Examplary learned language}
-   In the experiments section we will see an exmplary excepted langugae would contain words such as \"keep disatnce\" or \"move closer\"
+      Variational auto encoder
 
-\bibliographystyle{plainnat}
-\bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+   \section{Examplary learned language}
+      In the experiments section we will see an exmplary excepted langugae would contain words such as ``keep disatnce`` or ``move closer``
+      \subsection{Sharing}
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{mrs_communication.png}
+            \caption{Mrs mutual language building}
+         \end{figure}
+
+      \subsection{Blackboard}
+         As in natural language, it is not possible to share the sensory data points. So on teh blackboard only sequences of phonems with a predefined sliding window length can be writetn.
+         
+
+
+         \bibliographystyle{plainnat}
+         \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}
