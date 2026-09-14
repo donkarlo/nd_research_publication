@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "image_name": "normal_scenraio_specification.png",
+  "source_name": "normal.tex",
+  "canvas_width": 760,
+  "canvas_height": 980,
+  "drawing_data_base64": "",
+  "background_image_base64": "",
+  "background_is_authoritative": false,
+  "web_strokes": [],
+  "pencil": {
+    "width": 6.0,
+    "color": "#202020"
+  }
+}

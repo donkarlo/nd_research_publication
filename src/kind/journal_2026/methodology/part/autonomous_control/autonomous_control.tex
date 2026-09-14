@@ -42,7 +42,7 @@
    For example in the scenarios presnted in this research, at a mid abtraction level the system has learned go north, west, east and south. This is the leaned language for one robot.
 
    \begin{figure}[H]
-      \centering3
+      \centering
       \includegraphics[width=0.9\textwidth]{controller.png}
    \end{figure}
 
@@ -50,22 +50,106 @@
       \centering
       \includegraphics[width=0.9\textwidth]{feedback.png}
    \end{figure}
-
-   \section{Cost function}
-      The cost function in model predictive controller (MPC)
-
-      for specfications \seeherefooter{https://github.com/donkarlo/nd_robotic_ai_learning_project/blob/main/src/control_theory/kind/model_predictive_control/model_predictive_control.tex}
-
-      \begin{figure}[H]
-         \centering
-         \includegraphics[width=0.9\textwidth]{cost_function}
-      \end{figure}
+   \section{Control}
+      Model-predictiv control which is used in this research is responsible for minimizing the cost function which is described in the next subsection.
+      \subsection{Cost function}
 
 
-      \begin{figure}[H]
-         \centering
-         \includegraphics[width=0.9\textwidth]{autonomous_using_cost_function.png}
-      \end{figure}
+         for specfications \seeherefooter{https://github.com/donkarlo/nd_robotic_ai_learning_project/blob/main/src/control_theory/kind/model_predictive_control/model_predictive_control.tex}
+
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{cost_function.png}
+         \end{figure}
+
+
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{autonomous_using_cost_function.png}
+         \end{figure}
+   \section{Planning}
+      \href{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/planning.tex}{click here}
+   \section{Perception-Action cycle}
+      \href{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/perception_action_cycle.tex}{click here}
+
+   \section{Minimizing free energy through suprise reduction in active inference}
+      At each abstract level the system tries to minimize free energy through suprise reduction \citep{friston-2010-the-free-energy-principle-a-unified-brain-theory}. \cite{weissglass-2019-greatest-surprise-reduction-semantics-an-information-theoretic-solution-to-misrepresentation-and-disjunction} is suggesting simmilar approach.
+
+      This minimization is applied at each abstract level.
+
+      \[
+      J_{\mathrm{FE}}
+      =
+      \sum_{k=0}^{N-1}
+      \left[
+      \underbrace{
+      \mathbf{w}_k^{T} Q_{\mathrm{W}} \mathbf{w}_k
+      }_{\text{distributional surprise / free-energy surrogate}}
+      +
+      \underbrace{
+      u_k^{T} R u_k
+      }_{\text{control effort}}
+      \right],
+      \]
+
+      where
+
+      \[
+      \mathbf{w}_k
+      =
+      W_2
+      \left(
+      p(x_k),
+      p(x_k^{\mathrm{ref}})
+      \right)
+      \frac{
+      \mu_k^{\mathrm{ref}}-\mu_k
+      }{
+      \left\|
+      \mu_k^{\mathrm{ref}}-\mu_k
+      \right\|
+      },
+      \]
+
+      and, for Gaussian state distributions,
+
+      \[
+      \begin{aligned}
+         W_2^2
+         \left(
+         \mathcal{N}(\mu_k,\Sigma_k),
+         \mathcal{N}(\mu_k^{\mathrm{ref}},\Sigma_k^{\mathrm{ref}})
+         \right)
+         &=
+         \left\|
+         \mu_k-\mu_k^{\mathrm{ref}}
+         \right\|_2^2
+         \\
+         &\quad+
+         \operatorname{Tr}
+         \left(
+         \Sigma_k+\Sigma_k^{\mathbb{}rm{ref}}
+         -
+         2
+         \left(
+         (\Sigma_k^{\mathrm{ref}})^{1/2}
+         \Sigma_k
+         (\Sigma_k^{\mathrm{ref}})^{1/2}
+         \right)^{1/2}
+         \right).
+      \end{aligned}
+      \]
+
+      The deterministic tracking error is replaced by a directed Wasserstein vector measuring the discrepancy between the predicted and preferred state distributions.
+
+      The magnitude of $\mathbf{w}_k$ represents the Wasserstein discrepancy, while its direction points from the current state distribution toward the preferred one.
+
+      The term $\mathbf{w}_k^{T}Q_{\mathrm{W}}\mathbf{w}_k$ can therefore be interpreted as a distributional surprise or prediction-error cost.
+
+      Minimizing $J_{\mathrm{FE}}$ selects control actions that simultaneously reduce this distributional discrepancy and avoid excessive control effort.
+
+      Thus, the objective provides a free-energy-inspired control formulation, although the Wasserstein term should be regarded as a surrogate for, rather than the canonical variational free energy.
+
 
       \bibliographystyle{plainnat}
       \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}

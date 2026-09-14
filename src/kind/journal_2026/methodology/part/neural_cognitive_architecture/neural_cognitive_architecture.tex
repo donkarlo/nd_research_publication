@@ -69,6 +69,9 @@
                \centering
                \includegraphics[width=0.9\textwidth]{memory.png}
             \end{figure}
+            In this research the agents after the guide learning is able to remeber all sensory data through its event specific memory \cite{pillemer-2001-momentous-events-and-the-life-story}.
+
+            This is a biological analogy for mental time travel \href{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/mental_time_travel.tex}{click here} to rememeber the past chronologycally
 
    \section{Architecture onthology}
       \begin{figure}[H]
@@ -122,7 +125,7 @@
 
       \subsection{Anatomy of action potentials}
 
-         The decision to spike or not is one of the most basic but fundimental decisions made in human body. \iffalse I remeber there was a paper mentioning this \fi. Later we will see that this research extends this dichothomy to complexer language abstractions. In this research the shape ofa ction potential as well as it's temporal firing pattern carries information. This happens also bilogically since the action-potential waveform is not identical across neuronal types; sensory-neuron subtypes can exhibit characteristic differences in action-potential duration, overshoot, repolarization profile, and aterhyperpolarization \cite{korner-2022-functional-subgroups-of-rat-and-human-sensory-neurons-a-systematic-review-of-electrophysiological-properties}.
+         The decision to spike or not is one of the most basic but fundimental decisions made in human body. \iffalse I remember there was a paper mentioning this \fi. Later we will see that this research extends this dichothomy to complexer language abstractions. In this research the shape ofa ction potential as well as it's temporal firing pattern carries information. This happens also bilogically since the action-potential waveform is not identical across neuronal types; sensory-neuron subtypes can exhibit characteristic differences in action-potential duration, overshoot, repolarization profile, and aterhyperpolarization \cite{korner-2022-functional-subgroups-of-rat-and-human-sensory-neurons-a-systematic-review-of-electrophysiological-properties}.
 
          \begin{itemize}
             \item \textbf{Depolarization period}
@@ -171,11 +174,31 @@
             \end{equation}
 
             \begin{itemize}
-               \item M
-               \item A
-               \item $\alpha$
-               \item $\beta$
-               \item $\omega$
+               \item $X(t)$ is the value of the FMM wave at time $t$.
+
+               \item $M$ is the baseline parameter. Bound: $M \in \mathbb{R}$.
+               It controls the vertical shift of the FMM signal without changing
+               the waveform shape, phase, or temporal deformation.
+
+               \item $t$ is time. Bound: $t \in [0, 2\pi)$.
+
+               \item $A$ is the amplitude parameter. Bound: $A \geq 0$.
+               It controls the vertical scale of the waveform.
+
+               \item $\alpha$ is the location parameter. Bound:
+               $\alpha \in [0, 2\pi)$. It controls the horizontal position of
+               the waveform on the time axis.
+
+               \item $\beta$ is the phase parameter. Bound:
+               $\beta \in [0, 2\pi)$. It controls the internal phase of the wave.
+               Together with $\alpha$ and $\omega$, it determines the temporal
+               position of the maximum and minimum points of the waveform.
+
+               \item $\omega$ is the shape parameter. Bound:
+               $\omega \in (0, 1]$. It controls the sharpness, skewness, and
+               temporal deformation of the waveform. When $\omega$ is close to
+               zero, the waveform becomes more spike-like; when $\omega$ is close
+               to one, the waveform becomes more similar to a sinusoidal wave.
             \end{itemize}
 
             \begin{figure}[H]
@@ -208,17 +231,27 @@
             \item correlations between neurons (can be considered simalar to sensure fusion)
          \end{itemize}
 
-   
-   \include{/nd_research_publication/src/kind/journal_2026/methodology/part/neural_cognitive_architecture/language.tex}
-   
+
+         \include{/nd_research_publication/src/kind/journal_2026/methodology/part/neural_cognitive_architecture/language.tex}
+
    \section{Neural circuits and the whole architecture together}
-   
+
       \begin{figure}[H]
          \centering
          \includegraphics[width=0.9\textwidth]{neural_circuits.png}
-      \end{figure}   
-      \bibliographystyle{plainnat}
+      \end{figure}
+   \section{Different types of potential summation in a destination neuron}
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{temporal_and_spacial_summation.png}
+      \end{figure}
+            \paragraph{Spatial summation}
+               Summation of potentials comming from different neurons
+            \paragraph{Temporal summation}
+               summation of teh potentials from one spike train.
 
-      \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+               \bibliographystyle{plainnat}
+
+               \bibliography{/nd_shared_research/bibliography/bibliography.bib}
 
 \end{document}
