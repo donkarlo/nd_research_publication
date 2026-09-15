@@ -1,0 +1,10 @@
+% nd_mind_mirror_canvas: 760x980
+\usetikzlibrary{arrows.meta}
+\begin{tikzpicture}
+
+    \node[rectangle, minimum width=3.046cm, minimum height=1.194cm, draw={rgb,255:red,0;green,0;blue,0}, fill={rgb,255:red,255;green,171;blue,1}, text={rgb,255:red,0;green,0;blue,0}, line width=1pt] (ndNode1) at (3.125,9.487) {Test};
+    \node[draw={rgb,255:red,0;green,0;blue,0}, fill={rgb,255:red,255;green,171;blue,1}, text={rgb,255:red,0;green,0;blue,0}, line width=1pt, rectangle, minimum width=2.664cm, minimum height=0.866cm] (ndNode2) at (5.375,7.127) {Iran};
+    
+    \draw[draw={rgb,255:red,0;green,0;blue,0}, line width=1.5pt, dashed, -{Latex[open]}] (ndNode1) -- node[midway, fill=white, inner sep=1pt, text={rgb,255:red,0;green,0;blue,0}] {test} (ndNode2);
+    \draw[draw={rgb,255:red,0;green,0;blue,0}, line width=1pt, -{Latex}] (ndNode1) .. controls (4.394,9.195) and (5.386,8.522) .. (ndNode2);
+\end{tikzpicture}
