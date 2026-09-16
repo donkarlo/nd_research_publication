@@ -1,0 +1,85 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+\usepackage{adjustbox}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+% for nested lists and sections
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+\title{}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+   \maketitle
+   \begin{table}[H]
+      \centering
+      \small
+      \setlength{\tabcolsep}{4pt}
+      \begin{tabular}{p{0.25\textwidth} p{0.18\textwidth} p{0.47\textwidth}}
+         \hline
+         \textbf{Concept} & \textbf{Variable name} & \textbf{Description} \\
+         \hline
+
+         Depolarization period
+         & $T_{\mathrm{dep}}$
+         & Duration of the depolarization period. \\
+
+         Maximum learned certainty
+         & $C_{\max}$
+         & Maximum confidence that the state neuron can reach. \\
+
+         Repolarization period
+         & $T_{\mathrm{rep}}$
+         & Duration of the repolarization period. \\
+
+         Firing threshold
+         & $\theta_{\mathrm{fire}}$
+         & Evidence threshold above which the state neuron generates a spike. \\
+
+         Refractory period
+         & $T_{\mathrm{ref}}$
+         & Duration after a spike during which another spike is not allowed. \\
+
+         Refractory depth
+         & $D_{\mathrm{ref}}$
+         & Strength of the post-spike inhibition or reset. \\
+
+         Resting membrane potential
+         & $V_{\mathrm{rest}}$
+         & Baseline evidence potential when the represented state is not active. \\
+
+         \hline
+      \end{tabular}
+      \caption{Action-potential-related parameters of a state neuron.}
+      \label{tab:state-neuron-action-potential-parameters}
+   \end{table}
+
+   \bibliographystyle{plainnat}
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}

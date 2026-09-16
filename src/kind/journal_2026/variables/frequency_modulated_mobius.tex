@@ -1,0 +1,110 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+\usepackage{adjustbox}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+% for nested lists and sections
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+\title{}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+   \maketitle
+   \begin{table}[H]
+
+      \centering
+
+      \small
+
+      \setlength{\tabcolsep}{4pt}
+
+      \begin{tabular}{p{0.25\textwidth} p{0.18\textwidth} p{0.47\textwidth}}
+
+         \hline
+
+         \textbf{Concept} & \textbf{Variable name} & \textbf{Description} \\
+
+         \hline
+
+         FMM wave value
+
+         & $X(t)$
+
+         & Value of the FMM wave at time $t$. \\
+
+         Baseline parameter
+
+         & $M$
+
+         & Bound: $M \in \mathbb{R}$. It controls the vertical shift of the FMM signal without changing the waveform shape, phase, or temporal deformation. \\
+
+         Time
+
+         & $t$
+
+         & Bound: $t \in [0, 2\pi)$. \\
+
+         Amplitude parameter
+
+         & $A$
+
+         & Bound: $A \geq 0$. It controls the vertical scale of the waveform. \\
+
+         Location parameter
+
+         & $\alpha$
+
+         & Bound: $\alpha \in [0, 2\pi)$. It controls the horizontal position of the waveform on the time axis. \\
+
+         Phase parameter
+
+         & $\beta$
+
+         & Bound: $\beta \in [0, 2\pi)$. It controls the internal phase of the wave. Together with $\alpha$ and $\omega$, it determines the temporal position of the maximum and minimum points of the waveform. \\
+
+         Shape parameter
+
+         & $\omega$
+
+         & Bound: $\omega \in (0, 1]$. It controls the sharpness, skewness, and temporal deformation of the waveform. When $\omega$ is close to zero, the waveform becomes more spike-like; when $\omega$ is close to one, the waveform becomes more similar to a sinusoidal wave. \\
+
+         \hline
+
+      \end{tabular}
+
+      \caption{FMM wave parameters.}
+
+      \label{tab:fmm-wave-parameters}
+
+   \end{table}
+
+   \bibliographystyle{plainnat}
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}

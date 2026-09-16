@@ -5,6 +5,8 @@
 \usepackage{minted}
 \usepackage{multirow}
 \usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 \usepackage{todonotes}
 \usepackage{forest}
 \usepackage{xstring}
@@ -12,6 +14,7 @@
 \usepackage[most]{tcolorbox}
 \usepackage{xparse}
 \usepackage{natbib}
+\usepackage{adjustbox}
 
 \usetikzlibrary{graphs,graphdrawing}
 \usegdlibrary{layered}
@@ -25,20 +28,19 @@
 % for links
 \input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
 
-\title{Self-awareness in Multi Robot Systems}
+% for nested lists and sections
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+\title{}
 \date{}
 \author{Mohammad Rahmani}
 
 \begin{document}
    \maketitle
-   \input{variables/variables}
-   \input{abstract/abstract}
-   \input{introduction/introduction}
-   \input{related_work/related_work}
-   \input{methodology/methodology}
-   \input{experiments/experiments}
-   \input{results/results}
-   \input{conclusion/conclusion}
+   \include{/nd_research_publication/src/kind/journal_2026/variables/neuron.tex}
+   \include{/nd_research_publication/src/kind/journal_2026/variables/action_potential_wave_parameters.tex}
+   \include{/nd_research_publication/src/kind/journal_2026/variables/frequency_modulated_mobius.tex}
+
    \bibliographystyle{plainnat}
    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}

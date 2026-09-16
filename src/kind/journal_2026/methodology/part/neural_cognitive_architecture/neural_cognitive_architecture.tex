@@ -126,6 +126,53 @@
       \subsection{Anatomy of action potentials}
 
          The decision to spike or not is one of the most basic but fundimental decisions made in human body. \iffalse I remember there was a paper mentioning this \fi. Later we will see that this research extends this dichothomy to complexer language abstractions. In this research the shape ofa ction potential as well as it's temporal firing pattern carries information. This happens also bilogically since the action-potential waveform is not identical across neuronal types; sensory-neuron subtypes can exhibit characteristic differences in action-potential duration, overshoot, repolarization profile, and aterhyperpolarization \cite{korner-2022-functional-subgroups-of-rat-and-human-sensory-neurons-a-systematic-review-of-electrophysiological-properties}.
+         \begin{figure}[H]
+
+            \centering
+
+            \includegraphics[width=0.9\textwidth]{action_potential_anatomy.png}
+
+         \end{figure}
+      \subsection{Converting evidence probability distributions to EPSP and IPSP}
+         Let $X$ denote the agent state and $x_i$ the state represented by neuron $i$. Given sensory observation $z$, define
+
+         \[
+         p_i = P(X = x_i \mid z).
+         \]
+
+         The signed evidence for neuron $i$ is obtained using the log-odds transformation
+
+         \[
+         L_i
+         =
+         \log\left(
+         \frac{P(X = x_i \mid z)}
+         {1-P(X = x_i \mid z)}
+         \right).
+         \]
+
+         The excitatory and inhibitory postsynaptic potentials are then
+
+         \[
+         \mathrm{EPSP}_i
+         =
+         \max(0,L_i),
+         \qquad
+         \mathrm{IPSP}_i
+         =
+         \min(0,L_i).
+         \]
+
+         Equivalently,
+
+         \[
+         L_i
+         \begin{cases}
+            >0, & P(X=x_i\mid z) > 0.5,\\[2mm]
+            =0, & P(X=x_i\mid z) = 0.5,\\[2mm]
+            <0, & P(X=x_i\mid z) < 0.5.
+         \end{cases}
+         \]
 
          \begin{itemize}
             \item \textbf{Depolarization period}
@@ -201,14 +248,6 @@
                to one, the waveform becomes more similar to a sinusoidal wave.
             \end{itemize}
 
-            \begin{figure}[H]
-
-               \centering
-
-               \includegraphics[width=0.9\textwidth]{action_potential_anatomy.png}
-
-            \end{figure}
-
    \section{Neuron types}
 
       \subsection{Sensory - receptors}
@@ -222,23 +261,12 @@
             \includegraphics[width=0.9\textwidth]{sensory_transduction.png}
 
          \end{figure}
-      \subsection{Population coding}
-
-         \cite{shimazaki-2025-neural-coding-foundational-concepts-statistical-formulations-and-recent-advances} emphasizes that neural information is often represented at population level where
-
-         \begin{itemize}
-            \item firing rate (in sensory neurons, more firing rate, usually is the result of more sensory intensity change and higher value)
-            \item correlations between neurons (can be considered simalar to sensure fusion)
-         \end{itemize}
-
-         \include{/nd_research_publication/src/kind/journal_2026/methodology/part/neural_cognitive_architecture/language.tex}
-
-   \section{Neural circuits and the whole architecture together}
-
-      \begin{figure}[H]
-         \centering
-         \includegraphics[width=0.9\textwidth]{neural_circuits.png}
-      \end{figure}
+         \subsubsection{Intensity rate and Intensity rate change neurons}
+            In most cases two types of sensory neurons work together. One fires continousely as long as the stimulus exist and it fires more when teh intensiy of the stimulus increases. The other fires more when the change rate of the stimulis increases. For exampel in vision cells sustained retinal ganglion cell fires more when the intensity of the light increases and transient retinal ganglion cells fires more when the rate change of light intensity increases.
+            \begin{figure}[H]
+               \centering
+               \includegraphics[width=0.9\textwidth]{intensity_and_intensity_rate_change.png}
+            \end{figure}
    \section{Different types of potential summation in a destination neuron}
       \begin{figure}[H]
          \centering
@@ -248,6 +276,26 @@
                Summation of potentials comming from different neurons
             \paragraph{Temporal summation}
                summation of teh potentials from one spike train.
+      \subsection{Population coding}
+
+         \cite{shimazaki-2025-neural-coding-foundational-concepts-statistical-formulations-and-recent-advances} emphasizes that neural information is often represented at population level where
+
+         \begin{itemize}
+            \item firing rate
+            \item temporal structure
+            \item correlations between neurons
+         \end{itemize}
+         jointly affect how accurately stimuli can be encoded and decoded.
+
+         \include{/nd_research_publication/src/kind/journal_2026/methodology/part/neural_cognitive_architecture/language.tex}
+
+   \section{Neural circuits and the whole architecture together}
+
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{neural_circuits.png}
+      \end{figure}
+
    \section{Large scale brain networks}
       \begin{figure}[H]
          \centering

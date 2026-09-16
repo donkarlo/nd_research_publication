@@ -1,0 +1,85 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+\usepackage{adjustbox}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+% for nested lists and sections
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+\title{}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+   \maketitle
+   \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.9\textwidth]{neuron.png}
+   \end{figure}
+   Let $X$ denote the agent state and $x_i$ the state represented by neuron $i$. Given sensory observation $z$, define
+
+   \[
+   p_i = P(X = x_i \mid z).
+   \]
+
+   The signed evidence for neuron $i$ is obtained using the log-odds transformation
+
+   \[
+   L_i
+   =
+   \log\left(
+   \frac{P(X = x_i \mid z)}
+   {1-P(X = x_i \mid z)}
+   \right).
+   \]
+
+   The excitatory and inhibitory postsynaptic potentials are then
+
+   \[
+   \mathrm{EPSP}_i
+   =
+   \max(0,L_i),
+   \qquad
+   \mathrm{IPSP}_i
+   =
+   \min(0,L_i).
+   \]
+
+   Equivalently,
+
+   \[
+   L_i
+   \begin{cases}
+      >0, & P(X=x_i\mid z) > 0.5,\\[2mm]
+      =0, & P(X=x_i\mid z) = 0.5,\\[2mm]
+      <0, & P(X=x_i\mid z) < 0.5.
+   \end{cases}
+   \]
+   \bibliographystyle{plainnat}
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}
