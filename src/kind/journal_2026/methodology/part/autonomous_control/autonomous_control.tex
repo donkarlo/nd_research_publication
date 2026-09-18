@@ -54,14 +54,12 @@
       Model-predictiv control which is used in this research is responsible for minimizing the cost function which is described in the next subsection.
       \subsection{Cost function}
 
-
-         for specfications \seeherefooter{https://github.com/donkarlo/nd_robotic_ai_learning_project/blob/main/src/control_theory/kind/model_predictive_control/model_predictive_control.tex}
+         for specfications \seeherefooter{/nd_robotic_ai_learning_project/blob/main/src/control_theory/kind/model_predictive_control/model_predictive_control.tex}
 
          \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{cost_function.png}
          \end{figure}
-
 
          \begin{figure}[H]
             \centering
@@ -71,9 +69,20 @@
       \href{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/planning.tex}{click here}
    \section{Perception-Action cycle}
       \href{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/perception_action_cycle.tex}{click here}
+      \cite{fuster-2004-upper-processing-stages-of-the-perception-action-cycle} argues that perception and action form a continuous functional cycle rather than separate processing stages. Higher cortical areas integrate perceptual information with goals, memory, and behavioral context to guide actions. The consequences of actions generate new sensory information, thereby closing and continuously updating the perception--action cycle.
+
+
+      \cite{khilkevich-2024-brain-wide-dynamics-linking-sensation-to-action-during-decision-making}  shows that, after learning, sensory evidence is integrated across many brain regions in mice rather than in a single specialized area. The integrated evidence drives movement-preparatory activity, and this preparatory activity is distinct from the neural dynamics that execute the movement. Overall, the study argues that the transformation from sensation to action is brain-wide, parallel, and shaped by learning.
+      \subsection{Proposed model}
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{language_perception_action.png}
+         \end{figure}
 
    \section{Minimizing free energy through suprise reduction in active inference}
-      At each abstract level the system tries to minimize free energy through suprise reduction \citep{friston-2010-the-free-energy-principle-a-unified-brain-theory}. \cite{weissglass-2019-greatest-surprise-reduction-semantics-an-information-theoretic-solution-to-misrepresentation-and-disjunction} is suggesting simmilar approach.
+      Gaussian Wasserstein distance was integrated into the active inference framework as the discrepancy measure between predicted and preferred Gaussian state distributions. The resulting directed Wasserstein discrepancy was used to quantify both the magnitude and direction of prediction error, allowing action selection to reduce this discrepancy during the perception--action cycle.
+
+      At each abstract level the system tries to minimize free energy through suprise reduction \cite{friston-2010-the-free-energy-principle-a-unified-brain-theory}. \cite{weissglass-2019-greatest-surprise-reduction-semantics-an-information-theoretic-solution-to-misrepresentation-and-disjunction} is suggesting simmilar approach.
 
       This minimization is applied at each abstract level.
 
@@ -149,7 +158,6 @@
       Minimizing $J_{\mathrm{FE}}$ selects control actions that simultaneously reduce this distributional discrepancy and avoid excessive control effort.
 
       Thus, the objective provides a free-energy-inspired control formulation, although the Wasserstein term should be regarded as a surrogate for, rather than the canonical variational free energy.
-
 
       \bibliographystyle{plainnat}
       \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}

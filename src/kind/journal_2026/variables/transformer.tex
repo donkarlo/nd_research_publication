@@ -1,0 +1,141 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+\usepackage{adjustbox}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+% for nested lists and sections
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+
+\title{Gaussian transformer}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+   \maketitle
+   \begin{table}[H]
+
+      \centering
+
+      \small
+
+      \setlength{\tabcolsep}{4pt}
+
+      \begin{tabular}{p{0.25\textwidth} p{0.18\textwidth} p{0.47\textwidth}}
+
+         \hline
+
+         \textbf{Concept} & \textbf{Variable name} & \textbf{Description} \\
+
+         \hline
+
+         Forecasting model
+         & $f_{\theta}$
+         & Gaussian Transformer that maps an input time-series window to the parameters of future Gaussian distributions. \\
+
+         Model parameters
+         & $\theta$
+         & Trainable parameters of the forecasting model. \\
+
+         Input horizon
+         & $T_{\mathrm{in}}$
+         & Number of time steps contained in the input window. \\
+
+         Output horizon
+         & $T_{\mathrm{out}}$
+         & Number of future time steps predicted by the model. \\
+
+         Number of input features
+         & $F_{\mathrm{in}}$
+         & Number of features contained in each input time step. \\
+
+         Number of output features
+         & $F_{\mathrm{out}}$
+         & Number of features predicted at each future time step. \\
+
+         Predicted Gaussian parameters
+         & $\hat{Y}_{\mathrm{params}}$
+         & Model output containing the predicted mean and log-variance. \\
+
+         Predicted mean
+         & $\mu$
+         & Expected future value predicted by the model. \\
+
+         Predicted log-variance
+         & $\log \sigma^2$
+         & Logarithm of the predicted variance. Predicting log-variance allows the variance to be recovered as a positive value. \\
+
+         Predicted variance
+         & $\sigma^2$
+         & Predictive uncertainty, obtained as $\sigma^2=\exp(\log\sigma^2)$. \\
+
+         Predicted standard deviation
+         & $\sigma$
+         & Square root of the predicted variance and used to construct the prediction interval. \\
+
+         Target value
+         & $y_{b,t,j}$
+         & Observed target value for batch item $b$, output time step $t$, and output feature $j$. \\
+
+         Batch index
+         & $b$
+         & Index of a sample within the batch. \\
+
+         Output time-step index
+         & $t$
+         & Index of a time step within the prediction horizon. \\
+
+         Output feature index
+         & $j$
+         & Index of a predicted output feature. \\
+
+         Batch size
+         & $B$
+         & Number of samples processed simultaneously during training. \\
+
+         Gaussian distribution
+         & $\mathcal{N}$
+         & Normal distribution used to represent the predictive distribution of each future value. \\
+
+         Loss function
+         & $\mathcal{L}$
+         & Gaussian negative log-likelihood used to train both the predicted mean and predictive uncertainty. \\
+
+         \hline
+
+      \end{tabular}
+
+      \caption{Variables used in the Gaussian Transformer probabilistic forecasting formulation.}
+
+      \label{tab:gaussian-transformer-variables}
+
+   \end{table}
+   \bibliographystyle{plainnat}
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}

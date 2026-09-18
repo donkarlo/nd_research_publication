@@ -136,43 +136,122 @@
 
          \end{figure}
       \subsection{Converting evidence probability distributions to EPSP and IPSP}
-         Let $X$ denote the agent state and $x_i$ the state represented by neuron $i$. Given sensory observation $z$, define
+         Let
 
          \[
-         p_i = P(X = x_i \mid z).
+         X_{i,\ell}^{(d)}
          \]
 
-         The signed evidence for neuron $i$ is obtained using the log-odds transformation
+         denote state neuron $i$ at abstraction level $\ell$, where
 
          \[
-         L_i
+         \ell \in
+         \{
+         \mathrm{point},
+         \mathrm{phoneme},
+         \mathrm{word},
+         \mathrm{sentence},
+         \mathrm{final\ concept}
+         \},
+         \qquad
+         d \in \{0,2\}.
+         \]
+
+         Here, $d=0$ denotes an intensity-encoding neuron, whereas $d=2$
+         denotes an intensity-change-rate-encoding neuron.
+
+         Let
+
+         \[
+         S_j^{(d)}
+         \]
+
+         denote sensory/receptor neuron $j$, and let
+
+         \[
+         Z_j
+         \]
+
+         denote its observation.
+
+         The probability that the state represented by neuron
+         $X_{i,\ell}^{(d)}$ is present, given observation $Z_j$, is
+
+         \[
+         p_{i,\ell,j}^{(d)}
          =
-         \log\left(
-         \frac{P(X = x_i \mid z)}
-         {1-P(X = x_i \mid z)}
+         P\left(
+         X_{i,\ell}^{(d)} = 1
+         \mid
+         Z_j
          \right).
          \]
 
-         The excitatory and inhibitory postsynaptic potentials are then
+         The corresponding signed evidence is obtained through the log-odds
+         transformation
 
          \[
-         \mathrm{EPSP}_i
+         L_{i,\ell,j}^{(d)}
          =
-         \max(0,L_i),
-         \qquad
-         \mathrm{IPSP}_i
-         =
-         \min(0,L_i).
+         \log
+         \left(
+         \frac{
+         P\left(
+         X_{i,\ell}^{(d)} = 1
+         \mid
+         Z_j
+         \right)
+         }{
+         1-
+         P\left(
+         X_{i,\ell}^{(d)} = 1
+         \mid
+         Z_j
+         \right)
+         }
+         \right).
          \]
 
-         Equivalently,
+         The excitatory and inhibitory contributions are then
 
          \[
-         L_i
+         \mathrm{EPSP}_{i,\ell,j}^{(d)}
+         =
+         \max
+         \left(
+         0,
+         L_{i,\ell,j}^{(d)}
+         \right),
+         \]
+
+         \[
+         \mathrm{IPSP}_{i,\ell,j}^{(d)}
+         =
+         \min
+         \left(
+         0,
+         L_{i,\ell,j}^{(d)}
+         \right).
+         \]
+
+         Therefore,
+
+         \[
+         L_{i,\ell,j}^{(d)}
          \begin{cases}
-            >0, & P(X=x_i\mid z) > 0.5,\\[2mm]
-            =0, & P(X=x_i\mid z) = 0.5,\\[2mm]
-            <0, & P(X=x_i\mid z) < 0.5.
+            >0,
+            &
+            P\left(X_{i,\ell}^{(d)}=1\mid Z_j\right)>0.5,
+            \\[2mm]
+
+            =0,
+            &
+            P\left(X_{i,\ell}^{(d)}=1\mid Z_j\right)=0.5,
+            \\[2mm]
+
+            <0,
+            &
+            P\left(X_{i,\ell}^{(d)}=1\mid Z_j\right)<0.5.
          \end{cases}
          \]
 
@@ -303,18 +382,130 @@
                \centering
                \includegraphics[width=0.9\textwidth]{neural_pool.png}
             \end{figure}
-            \sbusubsection{Grandmother neurons}
+         \subsubsection{Grandmother neurons}
             A grandmother cell is a hypothetical neuron that represents a complex but specific concept, object, or individual \cite{gross-2002-genealogy-of-the-grandmother-cell, quiroga-2005-invariant-visual-representation-by-single-neurons-in-the-human-brain}. In this research all mathematical approaches for which no neural represenation exists, a grand mother cell is used
             \paragraph{Bayesian brain}
-            To see bayesian brain theories \href{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/central/brain/theory/kind/bayesian/bayesian.tex}{click here}
+               To see bayesian brain theories \href{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/central/brain/theory/kind/bayesian/bayesian.tex}{click here}
                \subparagraph{Kalamn filter}
-                  is used in this research as in the litrature it soem traces of it i sshown to be practiecd in brain               \cite{wolpert-2007-probabilistic-models-in-human-sensorimotor-control}
-                  used in discrepency detection phase
+                  \cite{kalman-1960-a-new-approach-to-linear-filtering-and-prediction-problems}
+                  is used in this research as in the litrature it  is shown to be practiecd in brain               \cite{wolpert-2007-probabilistic-models-in-human-sensorimotor-control}. It fuses latest Gaussian observation (derived from intensiy rat esensor) with Gaussian prediction . This research uses it for fuisng Gaussian transformer  in section \ref{guassian_tranfsomrer} together with agent's velcioty derived from second derivative (intensity change rate sensor) to make predictions along time. 
+                  
                \subparagraph{Particle filter}
-                  \cite{kutschireiter-2017-nonlinear-bayesian-filtering-and-learning-a-neuronal-dynamics-for-perception}
-                  used in dicrepency detection phase
-            \paragraph{Gaussian transformer}
-               Used in training
+               \seeherefooter{}
+                  \cite{arulampalam-2002-a-tutorial-on-particle-filters-for-online-nonlinear-non-gaussian-bayesian-tracking} describes the particle filter as a sequential Monte Carlo method that represents a probability distribution by a finite set of weighted samples called particles. In this research it is used to assign a Gaussian distribution at each level at any asbtract level.  
+                  
+                  Particle filter is shown by researchers such as 
+                  \cite{kutschireiter-2017-nonlinear-bayesian-filtering-and-learning-a-neuronal-dynamics-for-perception} to be used in human brain for state estimation. 
+                  
+                  
+            \paragraph{Gaussian transformer} \label{guassian_tranfsomrer}
+            \seeherefooter{
+            /nd_datascience_learning_project/src/machine_learning/model/architecture/neural_network/kind/deep_learning/kind/transformer/kind/uncertainty/uncertainty.tex}
+               A multi attention head gaussian tarnsofrmer is used in this research to amke predictions.
+
+               A multi attention predictor is needed. The transformers \cite{vaswani-2017-attention-is-all-you-need}
+
+               Its application here is to replace the constant speed predictor
+
+
+
+               \begin{itemize}
+                  \item At lowest level in each cell, it holds an AP wave represented by FMM
+                  \item Training
+                  \begin{itemize}
+                     \item Deep learning as an autocorrelation to find periods
+                  \end{itemize}
+                  \item Sliding windows to train the transformer
+                  \item Period sampling with auto corrlation for training and validating the transformer
+                  \item Noise as uncertainty in transformer
+
+               \end{itemize}
+               \subparagraph{Gaussian Transformer}
+                  The model receives a past time-series window and predicts a future window with uncertainty.
+
+
+
+                  \[
+                  f_{\theta}:
+                  \mathbb{R}^{T_{\mathrm{in}} \times F_{\mathrm{in}}}
+                  \rightarrow
+                  \mathbb{R}^{T_{\mathrm{out}} \times 2F_{\mathrm{out}}}
+                  \]
+
+
+
+                  For each future time step and feature, it predicts two values:
+
+                  \[
+                  \hat{Y}_{\mathrm{params}}
+                  =
+                  [
+                  \mu,
+                  \log \sigma^2
+                  ]
+                  \]
+
+
+
+                  \[
+                  y_{b,t,j}
+                  \sim
+                  \mathcal{N}
+                  (
+                  \mu_{b,t,j},
+                  \sigma^2_{b,t,j}
+                  )
+                  \]
+
+
+
+                  \begin{itemize}
+                     \item \(\mu\): expected future value
+                     \item \(\sigma^2 = \exp(\log \sigma^2)\): predictive uncertainty
+                  \end{itemize}
+               \subparagraph{Loss function for gaussian transformer to interpret uncertainty}
+                  The model is trained with Gaussian negative log-likelihood:
+
+                  \[
+                  \mathcal{L}
+                  =
+                  \frac{1}{BT_{\mathrm{out}}}
+                  \sum_{b=1}^{B}
+                  \sum_{t=1}^{T_{\mathrm{out}}}
+                  \sum_{j=1}^{F_{\mathrm{out}}}
+                  \frac{1}{2}
+                  \left[
+                  \log \sigma^2_{b,t,j}
+                  +
+                  (y_{b,t,j}-\mu_{b,t,j})^2
+                  \exp
+                  (
+                  -\log \sigma^2_{b,t,j}
+                  )
+                  \right]
+                  \]
+
+
+
+                  Approximate 95 percent prediction interval:
+
+                  \[
+                  y_{b,t,j}
+                  \in
+                  [
+                  \mu_{b,t,j}
+                  -
+                  1.96\sigma_{b,t,j},
+                  \mu_{b,t,j}
+                  +
+                  1.96\sigma_{b,t,j}
+                  ]
+                  \]
+
+
+
+                  Small variance means high confidence. Large variance means high uncertainty.
+
             \paragraph{language components}
                formed during training and is used in novelty detection and autonomous control
       \subsection{Large scale brain networks}
