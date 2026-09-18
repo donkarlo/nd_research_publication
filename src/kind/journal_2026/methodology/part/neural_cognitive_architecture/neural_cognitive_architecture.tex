@@ -83,6 +83,8 @@
 
          An engram refers to a unit of cognitive information encoded in a physical medium. It is hypothesized to represent the mechanism through which memories are preserved as biophysical or biochemical modifications in the brain or other biological tissues following external stimulation \cite{josselyn-2020-memory-engrams-recalling-the-past-and-imagining-the-future,sakaguchi-2012-catching-the-engram-strategies-to-examine-the-memory-trace}.
 
+         In this research trace is considered as a labeled data points or attribute-value data point or linguistically equivalent to featurde-structure \cite{kay-1984-functional-unification-grammar, kasper-1986-a-logical-semantics-for-feature-structures} \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/language/theory/universal_grammar/part/feature_structure/feature_structure.tex}
+
    \section{Nervous system}
       The architecture should be considered as a brain formed of neurons and formulated as probabilistic graphical models .
 
@@ -261,57 +263,77 @@
             \includegraphics[width=0.9\textwidth]{sensory_transduction.png}
 
          \end{figure}
+   \section{Neural population}
+      \subsection{Neural circuits}
+         A neural circuit consists of interconnected neurons whose synaptic interactions enable them to perform a particular function. Individual neural circuits can also interact with other circuits, forming larger-scale networks across the brain. \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/population/kind/network/shared/circuit/circuit.tex}
          \subsubsection{Intensity rate and Intensity rate change neurons}
             In most cases two types of sensory neurons work together. One fires continousely as long as the stimulus exist and it fires more when teh intensiy of the stimulus increases. The other fires more when the change rate of the stimulis increases. For exampel in vision cells sustained retinal ganglion cell fires more when the intensity of the light increases and transient retinal ganglion cells fires more when the rate change of light intensity increases.
             \begin{figure}[H]
                \centering
                \includegraphics[width=0.9\textwidth]{intensity_and_intensity_rate_change.png}
             \end{figure}
-   \section{Different types of potential summation in a destination neuron}
-      \begin{figure}[H]
-         \centering
-         \includegraphics[width=0.9\textwidth]{temporal_and_spacial_summation.png}
-      \end{figure}
+
+
+         \subsubsection{Different types of potential summation in a destination neuron}
+            \begin{figure}[H]
+               \centering
+               \includegraphics[width=0.9\textwidth]{temporal_and_spacial_summation.png}
+            \end{figure}
             \paragraph{Spatial summation}
                Summation of potentials comming from different neurons
             \paragraph{Temporal summation}
-               summation of teh potentials from one spike train.
-      \subsection{Population coding}
+               summation of the potentials from one spike train.
 
-         \cite{shimazaki-2025-neural-coding-foundational-concepts-statistical-formulations-and-recent-advances} emphasizes that neural information is often represented at population level where
 
-         \begin{itemize}
-            \item firing rate
-            \item temporal structure
-            \item correlations between neurons
-         \end{itemize}
-         jointly affect how accurately stimuli can be encoded and decoded.
+      \subsection{Neural pool and the whole architecture together}
+         Neuronal pools are groups of interconnected neurons organized to receive, integrate, and transmit neural signals in characteristic ways \cite{brainkart-2017-transmission-and-processing-of-signals-in-neuronal-pools}
+         \subsubsection{Population coding}
 
-         \include{/nd_research_publication/src/kind/journal_2026/methodology/part/neural_cognitive_architecture/language.tex}
+            \cite{shimazaki-2025-neural-coding-foundational-concepts-statistical-formulations-and-recent-advances} emphasizes that neural information is often represented at population level where
 
-   \section{Neural circuits and the whole architecture together}
+            \begin{itemize}
+               \item firing rate
+               \item temporal structure
+               \item correlations between neurons
+            \end{itemize}
+            jointly affect how accurately stimuli can be encoded and decoded.
 
-      \begin{figure}[H]
-         \centering
-         \includegraphics[width=0.9\textwidth]{neural_circuits.png}
-      \end{figure}
+            \include{/nd_research_publication/src/kind/journal_2026/methodology/part/neural_cognitive_architecture/language.tex}
+            \begin{figure}[H]
+               \centering
+               \includegraphics[width=0.9\textwidth]{neural_pool.png}
+            \end{figure}
+            \sbusubsection{Grandmother neurons}
+            A grandmother cell is a hypothetical neuron that represents a complex but specific concept, object, or individual \cite{gross-2002-genealogy-of-the-grandmother-cell, quiroga-2005-invariant-visual-representation-by-single-neurons-in-the-human-brain}. In this research all mathematical approaches for which no neural represenation exists, a grand mother cell is used
+            \paragraph{Bayesian brain}
+            To see bayesian brain theories \href{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/central/brain/theory/kind/bayesian/bayesian.tex}{click here}
+               \subparagraph{Kalamn filter}
+                  is used in this research as in the litrature it soem traces of it i sshown to be practiecd in brain               \cite{wolpert-2007-probabilistic-models-in-human-sensorimotor-control}
+                  used in discrepency detection phase
+               \subparagraph{Particle filter}
+                  \cite{kutschireiter-2017-nonlinear-bayesian-filtering-and-learning-a-neuronal-dynamics-for-perception}
+                  used in dicrepency detection phase
+            \paragraph{Gaussian transformer}
+               Used in training
+            \paragraph{language components}
+               formed during training and is used in novelty detection and autonomous control
+      \subsection{Large scale brain networks}
+         This research doesn't discuss or implement large scale brain networks. It will just argue wherever necessary, that the appraoch taken to build the computational MRS SA biloggically makes sense. That's why just a short introduction to three most important of them is brought here.
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{large_scale_barin_networks.png}
+         \end{figure}
+         \subsubsection{Default mode/mind wandering}
+            The default mode network is primarily active during internally directed cognition, such as mind wandering, autobiographical memory, and self-referential thought  \cite{mason-2007-wandering-minds-the-default-network-and-stimulus-independent-thought}.
 
-   \section{Large scale brain networks}
-      \begin{figure}[H]
-         \centering
-         \includegraphics[width=0.9\textwidth]{large_scale_barin_networks.png}
-      \end{figure}
-      \subsection{Default mode/mind wandering}
-         The default mode network is primarily active during internally directed cognition, such as mind wandering, autobiographical memory, and self-referential thought  \cite{mason-2007-wandering-minds-the-default-network-and-stimulus-independent-thought}.
+         \subsubsection{Dorsal attention}
+            The dorsal attention network supports voluntary, goal-directed (top-down) attention by selecting and maintaining focus on task-relevant information \cite{corbetta-2002-control-of-goal-directed-and-stimulus-driven-attention-in-the-brain, vossel-2014-dorsal-and-ventral-attention-systems, corbetta-2008-the-reorienting-system-of-the-human-brain-from-environment-to-theory-of-mind}.
 
-      \subsection{Dorsal attention}
-         The dorsal attention network supports voluntary, goal-directed (top-down) attention by selecting and maintaining focus on task-relevant information \cite{corbetta-2002-control-of-goal-directed-and-stimulus-driven-attention-in-the-brain, vossel-2014-dorsal-and-ventral-attention-systems, corbetta-2008-the-reorienting-system-of-the-human-brain-from-environment-to-theory-of-mind}.
+         \subsubsection{Ventral attention}
+            The ventral attention network detects salient or unexpected stimuli and reorients attention toward them in a stimulus-driven (bottom-up) manner \cite{scalf-2014-trial-history-effects-in-the-ventral-attentional-network}.
 
-      \subsection{Ventral attention}
-         The ventral attention network detects salient or unexpected stimuli and reorients attention toward them in a stimulus-driven (bottom-up) manner \citep{scalf-2014-trial-history-effects-in-the-ventral-attentional-network}.
+            \bibliographystyle{plainnat}
 
-         \bibliographystyle{plainnat}
-
-         \bibliography{/nd_shared_research/bibliography/bibliography.bib}
+            \bibliography{/nd_shared_research/bibliography/bibliography.bib}
 
 \end{document}
