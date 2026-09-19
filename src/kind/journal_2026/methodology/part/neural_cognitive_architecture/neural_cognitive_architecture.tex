@@ -62,6 +62,66 @@
                \includegraphics[width=0.9\textwidth]{physiopsycology.png}
             \end{figure}
       \subsection{Mind}
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{mind_without_memory.png}
+         \end{figure}
+            \paragraph{Language} is a cognitive process that maps structured forms to meaning and meaning back to structured forms, independently of whether those forms are spoken, written, or signed \cite{matchin-2020-the-cortical-organization-of-syntax                                                                                                                                                                                                                                                         } \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/language/language.tex}.
+            \paragraph{Thinking} is the ability to change model structure such as changing the number of layres in a deep learning method \cite{markman-2001-thinking}
+            
+               \begin{figure}[H]
+                  \centering
+                  \includegraphics[width=0.9\textwidth]{thinking.png}
+               \end{figure}
+
+               \subparagraph{Decision making}
+                  \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/decision_making/decision_making.tex}
+                  \cite{gold-2007-the-neural-basis-of-decision-making} argues decision making is the cognitive process of deliberating over available information and committing to a choice.
+
+                  In this research happens during autonomous navigtaion while trying to minimise suprise level.
+
+               \subparagraph{Planning}
+                  \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/planning.tex}
+
+                  \cite{mattar-2026-planning-in-the-brain-its-not-what-you-think-it-is} defines planning as the cognitive process of using internal simulations of possible future actions and states to guide behavior and learning.
+
+                  In this resaerch happens during mostly durnig autonmous navigation through minimiznig suprise
+               \subparagraph{Concept formation}
+                  \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/concept_formation/concept_formation.tex}
+                  \cite{sloutsky-2019-categories-concepts-and-conceptual-development}
+                  describes concept formation as a cognitive process through which experience or language gives rise to conceptual categories that can subsequently be organized and used in higher-level cognition.
+
+
+                  In this researhc happens durnig clusttering and novelty detction
+               \subparagraph{Problem solving}
+                  \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/problem_solving/problem_solving.tex}
+
+                  \cite{mayer-2013-problem-solving} describes problem solving as a cognitive processing directed toward achieving a goal when the method for reaching that goal is not initially known.
+
+                  In this research this ability is based on choosing the actions to minimise suprise.
+
+               \subparagraph{Reasnoing}
+                  \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/reasoning/reasoning.tex}
+
+                  \cite{johnson-laird-2010-mental-models-and-human-reasoning} argues that reasoning is the cognitive process of representing possibilities consistent with available information and deriving conclusions from those representations.
+
+            \paragraph{Learning}
+               \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/learning/learning.tex}
+               \cite{de-houwer-2013-what-is-learning-on-the-nature-and-merits-of-a-functional-definition-of-learning}
+               Learning is the process of adaptation resulting from regularities in an organism's experience with its environment.
+
+               Int hi sresearch learning happens in any optimization of model parameters such as weights of deep learnign methods such as variational auto encoders or transformers.
+            \paragraph{Perception}
+               \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/perception/perception.tex}
+               \cite{shin-2026-the-neural-code-of-perceptual-inference} defines perception as a process of inference in which incoming sensory evidence is interpreted based on prior expectations about the sensory world.
+
+               This charactersitic in this research realized by forming structured, attribute-value data that in this research is called trace or engram adn then continues to the abstraction needed for language building and using it instate estimation. 
+            \paragraph{Attention}
+               \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/attention/attention.tex}
+               \cite{chun-2011-a-taxonomy-of-external-and-internal-attention}
+               Attention is the cognitive process of selecting, modulating, and sustaining focus on information that is most relevant for behavior.
+
+               Attention in this reasearch is used by multi-head attention-based transformers to learn local seuqential patterns  in sequences.
          \subsubsection{Memory}
             We can regard memory as neural property. But in this research for teh ease method proof it will fall udner one of mind cognitive processes and we will build a language for Event specific knoweldge memory. Here is a taxonomy of how we regard memory:
 
@@ -388,19 +448,19 @@
                To see bayesian brain theories \href{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/central/brain/theory/kind/bayesian/bayesian.tex}{click here}
                \subparagraph{Kalamn filter}
                   \cite{kalman-1960-a-new-approach-to-linear-filtering-and-prediction-problems}
-                  is used in this research as in the litrature it  is shown to be practiecd in brain               \cite{wolpert-2007-probabilistic-models-in-human-sensorimotor-control}. It fuses latest Gaussian observation (derived from intensiy rat esensor) with Gaussian prediction . This research uses it for fuisng Gaussian transformer  in section \ref{guassian_tranfsomrer} together with agent's velcioty derived from second derivative (intensity change rate sensor) to make predictions along time. 
-                  
+                  is used in this research as in the litrature it  is shown to be practiecd in brain               \cite{wolpert-2007-probabilistic-models-in-human-sensorimotor-control}. It fuses latest Gaussian observation (derived from intensiy rat esensor) with Gaussian prediction . This research uses it for fuisng Gaussian transformer  in section \ref{guassian_tranfsomrer} together with agent's velcioty derived from second derivative (intensity change rate sensor) to make predictions along time.
+
                \subparagraph{Particle filter}
-               \seeherefooter{}
-                  \cite{arulampalam-2002-a-tutorial-on-particle-filters-for-online-nonlinear-non-gaussian-bayesian-tracking} describes the particle filter as a sequential Monte Carlo method that represents a probability distribution by a finite set of weighted samples called particles. In this research it is used to assign a Gaussian distribution at each level at any asbtract level.  
-                  
-                  Particle filter is shown by researchers such as 
-                  \cite{kutschireiter-2017-nonlinear-bayesian-filtering-and-learning-a-neuronal-dynamics-for-perception} to be used in human brain for state estimation. 
-                  
-                  
+                  \seeherefooter{}
+                  \cite{arulampalam-2002-a-tutorial-on-particle-filters-for-online-nonlinear-non-gaussian-bayesian-tracking} describes the particle filter as a sequential Monte Carlo method that represents a probability distribution by a finite set of weighted samples called particles. In this research it is used to assign a Gaussian distribution at each level at any asbtract level.
+
+                  Particle filter is shown by researchers such as
+                  \cite{kutschireiter-2017-nonlinear-bayesian-filtering-and-learning-a-neuronal-dynamics-for-perception} to be used in human brain for state estimation.
+
+
             \paragraph{Gaussian transformer} \label{guassian_tranfsomrer}
-            \seeherefooter{
-            /nd_datascience_learning_project/src/machine_learning/model/architecture/neural_network/kind/deep_learning/kind/transformer/kind/uncertainty/uncertainty.tex}
+               \seeherefooter{
+               /nd_datascience_learning_project/src/machine_learning/model/architecture/neural_network/kind/deep_learning/kind/transformer/kind/uncertainty/uncertainty.tex}
                A multi attention head gaussian tarnsofrmer is used in this research to amke predictions.
 
                A multi attention predictor is needed. The transformers \cite{vaswani-2017-attention-is-all-you-need}
