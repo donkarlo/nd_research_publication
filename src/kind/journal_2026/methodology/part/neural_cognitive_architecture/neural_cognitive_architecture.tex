@@ -53,7 +53,7 @@
 
    \section{Agent’s architecture tree} The architecture is devided into the following sections
 
-      For a full agent architecture \href{/nd_robotic_ai_learning_project/src/robot/part/psychophysiology_map.tex}{see here}
+      For a full agent architecture \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/psychophysiology_map.tex}
       \subsection{Body}
          \subsubsection{Nervous system}
 
@@ -68,7 +68,7 @@
          \end{figure}
             \paragraph{Language} is a cognitive process that maps structured forms to meaning and meaning back to structured forms, independently of whether those forms are spoken, written, or signed \cite{matchin-2020-the-cortical-organization-of-syntax                                                                                                                                                                                                                                                         } \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/language/language.tex}.
             \paragraph{Thinking} is the ability to change model structure such as changing the number of layres in a deep learning method \cite{markman-2001-thinking}
-            
+
                \begin{figure}[H]
                   \centering
                   \includegraphics[width=0.9\textwidth]{thinking.png}
@@ -115,7 +115,7 @@
                \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/perception/perception.tex}
                \cite{shin-2026-the-neural-code-of-perceptual-inference} defines perception as a process of inference in which incoming sensory evidence is interpreted based on prior expectations about the sensory world.
 
-               This charactersitic in this research realized by forming structured, attribute-value data that in this research is called trace or engram adn then continues to the abstraction needed for language building and using it instate estimation. 
+               This charactersitic in this research realized by forming structured, attribute-value data that in this research is called trace or engram adn then continues to the abstraction needed for language building and using it instate estimation.
             \paragraph{Attention}
                \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/attention/attention.tex}
                \cite{chun-2011-a-taxonomy-of-external-and-internal-attention}
@@ -131,7 +131,7 @@
             \end{figure}
             In this research the agents after the guide learning is able to remeber all sensory data through its event specific memory \cite{pillemer-2001-momentous-events-and-the-life-story}.
 
-            This is a biological analogy for mental time travel \href{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/mental_time_travel.tex}{click here} to rememeber the past chronologycally
+            This is a biological analogy for mental time travel \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/mental_time_travel.tex} to rememeber the past chronologycally
 
    \section{Architecture onthology}
       \begin{figure}[H]
@@ -196,122 +196,43 @@
 
          \end{figure}
       \subsection{Converting evidence probability distributions to EPSP and IPSP}
-         Let
+         Let $X$ denote the agent state and $x_i$ the state represented by neuron $i$. Given sensory observation $z$, define
 
          \[
-         X_{i,\ell}^{(d)}
+         p_i = P(X = x_i \mid z).
          \]
 
-         denote state neuron $i$ at abstraction level $\ell$, where
+         The signed evidence for neuron $i$ is obtained using the log-odds transformation
 
          \[
-         \ell \in
-         \{
-         \mathrm{point},
-         \mathrm{phoneme},
-         \mathrm{word},
-         \mathrm{sentence},
-         \mathrm{final\ concept}
-         \},
+         L_i
+         =
+         \log\left(
+         \frac{P(X = x_i \mid z)}
+         {1-P(X = x_i \mid z)}
+         \right).
+         \]
+
+         The excitatory and inhibitory postsynaptic potentials are then
+
+         \[
+         \mathrm{e}_i
+         =
+         \max(0,L_i),
          \qquad
-         d \in \{0,2\}.
-         \]
-
-         Here, $d=0$ denotes an intensity-encoding neuron, whereas $d=2$
-         denotes an intensity-change-rate-encoding neuron.
-
-         Let
-
-         \[
-         S_j^{(d)}
-         \]
-
-         denote sensory/receptor neuron $j$, and let
-
-         \[
-         Z_j
-         \]
-
-         denote its observation.
-
-         The probability that the state represented by neuron
-         $X_{i,\ell}^{(d)}$ is present, given observation $Z_j$, is
-
-         \[
-         p_{i,\ell,j}^{(d)}
+         \mathrm{IPSP}_i
          =
-         P\left(
-         X_{i,\ell}^{(d)} = 1
-         \mid
-         Z_j
-         \right).
+         \min(0,L_i).
          \]
 
-         The corresponding signed evidence is obtained through the log-odds
-         transformation
+         Equivalently,
 
          \[
-         L_{i,\ell,j}^{(d)}
-         =
-         \log
-         \left(
-         \frac{
-         P\left(
-         X_{i,\ell}^{(d)} = 1
-         \mid
-         Z_j
-         \right)
-         }{
-         1-
-         P\left(
-         X_{i,\ell}^{(d)} = 1
-         \mid
-         Z_j
-         \right)
-         }
-         \right).
-         \]
-
-         The excitatory and inhibitory contributions are then
-
-         \[
-         \mathrm{EPSP}_{i,\ell,j}^{(d)}
-         =
-         \max
-         \left(
-         0,
-         L_{i,\ell,j}^{(d)}
-         \right),
-         \]
-
-         \[
-         \mathrm{IPSP}_{i,\ell,j}^{(d)}
-         =
-         \min
-         \left(
-         0,
-         L_{i,\ell,j}^{(d)}
-         \right).
-         \]
-
-         Therefore,
-
-         \[
-         L_{i,\ell,j}^{(d)}
+         L_i
          \begin{cases}
-            >0,
-            &
-            P\left(X_{i,\ell}^{(d)}=1\mid Z_j\right)>0.5,
-            \\[2mm]
-
-            =0,
-            &
-            P\left(X_{i,\ell}^{(d)}=1\mid Z_j\right)=0.5,
-            \\[2mm]
-
-            <0,
-            &
-            P\left(X_{i,\ell}^{(d)}=1\mid Z_j\right)<0.5.
+            >0, & P(X=x_i\mid z) > 0.5,\\[2mm]
+            =0, & P(X=x_i\mid z) = 0.5,\\[2mm]
+            <0, & P(X=x_i\mid z) < 0.5.
          \end{cases}
          \]
 
@@ -337,7 +258,7 @@
 
          \subsubsection{Simulation with ``Frequency-Modulated Möbius (FMM)``}
 
-            \href{nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/part/action_potential/wave_form/kind/frequency_modulated_mobius/frequency_modulated_mobius.tex}{see here}
+            \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/part/action_potential/wave_form/kind/frequency_modulated_mobius/frequency_modulated_mobius.tex}
 
             \begin{equation}
                X(t)
@@ -380,7 +301,7 @@
                \item $\beta$ is the phase parameter. Bound:
                $\beta \in [0, 2\pi)$. It controls the internal phase of the wave.
                Together with $\alpha$ and $\omega$, it determines the temporal
-               position of the maximum and minimum points of the waveform.
+               s               position of the maximum and minimum points of the waveform.
 
                \item $\omega$ is the shape parameter. Bound:
                $\omega \in (0, 1]$. It controls the sharpness, skewness, and
@@ -388,6 +309,10 @@
                zero, the waveform becomes more spike-like; when $\omega$ is close
                to one, the waveform becomes more similar to a sinusoidal wave.
             \end{itemize}
+      \subsection{Spike trains}
+         \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/part/action_potential/train.tex}
+         Spike traines are temporal sequence of action potentials generated by a neuron is called its ``spike train``. The the denser a neuron spikes in a determined time interval, the higher the value for that sensor is.
+         \cite{vandrongelen-2007-spike-train-analysis}
 
    \section{Neuron types}
 
@@ -405,7 +330,7 @@
    \section{Neural population}
       \subsection{Neural circuits}
          A neural circuit consists of interconnected neurons whose synaptic interactions enable them to perform a particular function. Individual neural circuits can also interact with other circuits, forming larger-scale networks across the brain. \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/population/kind/network/shared/circuit/circuit.tex}
-         \subsubsection{Intensity rate and Intensity rate change neurons}
+         \subsubsection{Intensity rate and Intensity change rate neurons}
             In most cases two types of sensory neurons work together. One fires continousely as long as the stimulus exist and it fires more when teh intensiy of the stimulus increases. The other fires more when the change rate of the stimulis increases. For exampel in vision cells sustained retinal ganglion cell fires more when the intensity of the light increases and transient retinal ganglion cells fires more when the rate change of light intensity increases.
             \begin{figure}[H]
                \centering

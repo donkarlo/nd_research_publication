@@ -12,67 +12,86 @@
 
 \begin{document}
 
-\maketitle
+   \maketitle
 
-These files are large YAML dumps associated with ROS recordings, mainly containing GPS/odometry and RPLidar data from the UAV experiments.
+   These files are large YAML dumps associated with ROS recordings, mainly containing GPS/odometry and RPLidar data from the UAV experiments.
 
-\section{Normal Scenario}
+   \section{Normal Scenario}
 
-\begin{itemize}
-    \item \textbf{GPS + LiDAR, both UAVs}
+      \begin{itemize}
+         \item Sensor data
+         \begin{itemize}
+            \item \textbf{GPS + LiDAR, both UAVs}
 
-    \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/normal-scenario/uav1-gps-lidar-uav2-gps-lidar.yaml}}
+            \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/normal-scenario/uav1-gps-lidar-uav2-gps-lidar.yaml}}
 
-    Size: 3,538,377,514 bytes $\approx$ 3.30 GiB.
+            Size: 3,538,377,514 bytes $\approx$ 3.30 GiB.
 
-    \item \textbf{Two LiDARs}
+            \item \textbf{Two LiDARs}
 
-    \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/normal-scenario/rplidar/twoLidars.yaml}}
+            \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/normal-scenario/rplidar/twoLidars.yaml}}
 
-    Size: 1,798,675,105 bytes $\approx$ 1.68 GiB.
-\end{itemize}
+            Size: 1,798,675,105 bytes $\approx$ 1.68 GiB.
+         \end{itemize}
+         \item World
+         \begin{itemize}
+            \item
+         \end{itemize}
 
-\section{Follow Scenario}
 
-\begin{itemize}
-    \item \textbf{GPS + LiDAR, both UAVs}
+      \end{itemize}
 
-    \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/follow-scenario/uav1-gps-lidar-uav2-gps-lidar.yaml}}
+   \section{Follow Scenario}
 
-    Size: 3,539,686,192 bytes $\approx$ 3.30 GiB.
+      \begin{itemize}
+         \item Sensory data from ROS
+         \begin{itemize}
 
-    \item \textbf{Two LiDARs}
 
-    \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/follow-scenario/lidar/twoLidars.yaml}}
+            \item \textbf{GPS + LiDAR, both UAVs}
 
-    Size: 1,609,409,606 bytes $\approx$ 1.50 GiB.
+            \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/follow-scenario/uav1-gps-lidar-uav2-gps-lidar.yaml}}
 
-    \item \textbf{One LiDAR round}
+            Size: 3,539,686,192 bytes $\approx$ 3.30 GiB.
 
-    \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/follow-scenario/lidar/oneRound.yaml}}
+            \item \textbf{Two LiDARs}
 
-    Size: 162,543,418 bytes $\approx$ 155 MiB.
-\end{itemize}
+            \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/follow-scenario/lidar/twoLidars.yaml}}
 
-\section{ROS Topics}
+            Size: 1,609,409,606 bytes $\approx$ 1.50 GiB.
 
-The combined GPS--LiDAR recording contains ROS messages from topics such as:
+            \item \textbf{One LiDAR round}
 
-\begin{itemize}
-    \item \texttt{/uav1/odometry/odom\_gps}
-    \item \texttt{/uav1/rplidar/scan}
-    \item \texttt{/uav2/odometry/odom\_gps}
-    \item \texttt{/uav2/rplidar/scan}
-\end{itemize}
+            \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/follow-scenario/lidar/oneRound.yaml}}
 
-The corresponding large \texttt{.bag} recordings also exist beside the YAML files for the normal and follow scenarios.
+            Size: 162,543,418 bytes $\approx$ 155 MiB.
+         \end{itemize}
+         \item Gazebo world
+         \begin{itemize}
+            \item /projs/research/artificial-intelligence/self-awareness/selfaware-drones/rosws/worlds/inner-squares-follow.world
+         \end{itemize}
 
-\section{Next-To Scenario}
+      \end{itemize}
 
-The folder
+   \section{ROS Topics}
 
-\texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/next-to-scenario}}
+      The combined GPS--LiDAR recording contains ROS messages from topics such as:
 
-exists, but no YAML file larger than 100 MB was found there. The currently visible data in that scenario are mainly GPS text files and the ROS topic-recording script \texttt{topicsRecord.sh}.
+      \begin{itemize}
+         \item \texttt{/uav1/odometry/odom\_gps}
+         \item \texttt{/uav1/rplidar/scan}
+         \item \texttt{/uav2/odometry/odom\_gps}
+         \item \texttt{/uav2/rplidar/scan}
+      \end{itemize}
+
+      The corresponding large \texttt{.bag} recordings also exist beside the YAML files for the normal and follow scenarios.
+
+   \section{Next-To Scenario}
+
+      The folder
+
+      \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/next-to-scenario}}
+
+      exists, but no YAML file larger than 100 MB was found there. The currently visible data in that scenario are mainly GPS text files and the ROS topic-recording script \texttt{topicsRecord.sh}.
 
 \end{document}

@@ -36,7 +36,9 @@
 \author{Mohammad Rahmani}
 
 \begin{document}
+
    \maketitle
+
    \begin{table}[H]
       \centering
       \small
@@ -45,41 +47,23 @@
          \hline
          \textbf{Concept} & \textbf{Variable name} & \textbf{Description} \\
          \hline
-
-         Depolarization period
-         & $T_{\mathrm{dep}}$
-         & Duration of the depolarization period. \\
-
-         Maximum learned certainty
-         & $C_{\max}$
-         & Maximum confidence that the state neuron can reach. \\
-
-         Repolarization period
-         & $T_{\mathrm{rep}}$
-         & Duration of the repolarization period. \\
-
-         Firing threshold
-         & $\theta_{\mathrm{fire}}$
-         & Evidence threshold above which the state neuron generates a spike. \\
-
-         Refractory period
-         & $T_{\mathrm{ref}}$
-         & Duration after a spike during which another spike is not allowed. \\
-
-         Refractory depth
-         & $D_{\mathrm{ref}}$
-         & Strength of the post-spike inhibition or reset. \\
-
-         Resting membrane potential
-         & $V_{\mathrm{rest}}$
-         & Baseline evidence potential when the represented state is not active. \\
-
+         Depolarization period & $t_{\mathrm{d}}$ & Duration of the depolarization period. \\
+         Maximum learned certainty & $c_{\max}$ & Maximum confidence that the state neuron can reach. \\
+         Repolarization period & $t_{\mathrm{r}}$ & Duration of the repolarization period. \\
+         Firing threshold & $\theta_{\mathrm{f}}$ & Evidence threshold above which the state neuron generates a spike. \\
+         Refractory period & $t_{\mathrm{f}}$ & Duration after a spike during which another spike is not allowed. \\
+         Refractory depth & $d_{\mathrm{f}}$ & Strength of the post-spike inhibition or reset. \\
+         Resting membrane potential & $v_{\mathrm{r}}$ & Baseline evidence potential when the represented state is not active. \\
+         EPSP & $e^+$ &  negative evidence\\
+         IPSP & $e^+$ &  \\
          \hline
       \end{tabular}
       \caption{Action-potential-related parameters of a state neuron.}
       \label{tab:state-neuron-action-potential-parameters}
    \end{table}
 
+
    \bibliographystyle{plainnat}
    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+
 \end{document}

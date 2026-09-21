@@ -37,49 +37,59 @@
 
 \begin{document}
    \maketitle
-   \begin{figure}[H]
-      \centering
-      \includegraphics[width=0.9\textwidth]{neuron.png}
-   \end{figure}
-   Let $X$ denote the agent state and $x_i$ the state represented by neuron $i$. Given sensory observation $z$, define
+   \begin{table}[H]
 
-   \[
-   p_i = P(X = x_i \mid z).
-   \]
+   \centering
 
-   The signed evidence for neuron $i$ is obtained using the log-odds transformation
+   \small
 
-   \[
-   L_i
-   =
-   \log\left(
-   \frac{P(X = x_i \mid z)}
-   {1-P(X = x_i \mid z)}
-   \right).
-   \]
+   \setlength{\tabcolsep}{4pt}
 
-   The excitatory and inhibitory postsynaptic potentials are then
+   \begin{tabular}{p{0.25\textwidth} p{0.18\textwidth} p{0.47\textwidth}}
 
-   \[
-   \mathrm{EPSP}_i
-   =
-   \max(0,L_i),
-   \qquad
-   \mathrm{IPSP}_i
-   =
-   \min(0,L_i).
-   \]
+      \hline
 
-   Equivalently,
+      \textbf{Concept} & \textbf{Variable name} & \textbf{Description} \\
 
-   \[
-   L_i
-   \begin{cases}
-      >0, & P(X=x_i\mid z) > 0.5,\\[2mm]
-      =0, & P(X=x_i\mid z) = 0.5,\\[2mm]
-      <0, & P(X=x_i\mid z) < 0.5.
-   \end{cases}
-   \]
+      \hline
+
+      State neuron
+      & $X_{i,\ell}^{(d)}$
+      & State neuron identified by neuron index $i$, representation level $\ell$, and degree $d$. \\
+
+      Neuron identifier
+      & $i$
+      & Identifier of an individual neuron. \\
+
+      Representation level
+      & $\ell$
+      & Level at which the state neuron represents information, where $\ell \in L$. \\
+
+      Representation levels
+      & $L$
+      & Set of representation levels: $L=\{\text{point},\text{phoneme},\text{word},\text{sentence},\text{final concept}\}$. \\
+
+      Degree
+      & $d$
+      & Determines the represented state quantity. For $d=0$, the neuron represents intensity; for $d=2$, it represents the intensity change rate. \\
+
+      Sensory receptor neuron
+      & $S_{i}^{(d)}$
+      & Sensory receptor neuron identified by neuron index $i$ and degree $d$. \\
+
+      Observation neuron
+      & $Z_{i}^{(d)}$
+      & Observation neuron identified by neuron index $i$. \\
+
+      \hline
+
+   \end{tabular}
+
+   \caption{Notation for state neurons, sensory receptor neurons, and observation neurons.}
+
+   \label{tab:neuron-state-observation-notation}
+
+\end{table}
    \bibliographystyle{plainnat}
    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}
