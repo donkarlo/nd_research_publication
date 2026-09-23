@@ -37,6 +37,11 @@
 
 \begin{document}
    \maketitle
+   \section{Data flow}
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{dat_flow_schema.jpg}
+      \end{figure}
    At any abstraction sequence  during the training the system has learned what actions for what exteroceptive situations it has. And these learned actions with a controller can be used to reduce the Wasserstein distance between the desired state the current state. it can choose between the right second derivative to give to autopilot for execution at any level of the hierarchy from the top (most abstract) when teh distance is large to butom when the small.
 
    For example in the scenarios presnted in this research, at a mid abtraction level the system has learned go north, west, east and south. This is the leaned language for one robot.
@@ -71,22 +76,22 @@
    
       
       In this research planning is from top to bottom, that is first  a group of sentences form the concept of turning around the perimeter of a corridor. 
-         \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.9\textwidth]{goal_tree_as_a_plan.png}
-         \end{figure}
+        \begin{figure}[H]
+           \centering
+           \includegraphics[width=0.9\textwidth]{plan_as_tree.png}
+        \end{figure}
          
          \section{Planning}
       \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/planning.tex}
       \cite{mattar-2026-planning-in-the-brain-its-not-what-you-think-it-is}
       Planning is the cognitive process of using internal simulations of possible future actions and states to guide behavior and learning.
       
+      In this research planning is based on breaking anomaly vector at each level to anomaly vectors in lower level. 
       
-      \subsection{Definition}
-      In this research a plan 
-      
-      
-      \subsection{Approach}
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{planning_by_breaking.png}
+      \end{figure}
       
 
    \section{Perception-Action cycle}

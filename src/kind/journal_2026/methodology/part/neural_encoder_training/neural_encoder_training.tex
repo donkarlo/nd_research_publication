@@ -61,13 +61,20 @@
          \centering
          \includegraphics[width=0.9\textwidth]{training_steps.png}
       \end{figure}
-      \subsection{Period detection with auto regression}
-         If an exeprience is repeated multiple time
-      \subsection{Motif discovery (to dicover periods/cycles)}
-
+      \subsection{Clustreing}
+      Using density-based clustering method 
+      
+      \subsection{Period detection with autocorrelation}
+         \seeherefooter{/nd_datascience_learning_project/src/signal_processing/auto_correlation/fast_fourier_transform.tex}
+         The Fast Fourier Transform (FFT) is an autocorrolation method that efficiently converts a time-domain signal into its frequency components, allowing periodicity to be detected by identifying dominant frequencies corresponding to repeating patterns \cite{berberidis-2002-on-the-discovery-of-weak-periodicities-in-large-time-series}.
+         
+      \subsection{Motif discovery (to cluster timeseries)}
+      In this research Matrix-Profile-based is used to cluster phonems to build words and to higher levels. This is explained in language section .  
+      
+         \seeherefooter{/home/donkarlo/Dropbox/repo/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/matrix_profile_based/matrix_profiled_based.tex}
          To discover the periodic data. As we will see in the experiment section a drone that circules a rectangualar corridor makes many periodic sensory data that motif discovery is used for it. Then a method is needed to find the cycles in sensory data.
 
-         This research uses Matrix-Profile-based  method for this \href{/home/donkarlo/Dropbox/repo/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/matrix_profile_based/matrix_profiled_based.tex}{here}.
+         This research uses Matrix-Profile-based  method for this .
 
          This method doesn't need training.
          \textbf{Matrix-Profile-based Motif Discovery \cite{vanonsem-2023-variable-length-motif-discovery-in-time-series-data}}
@@ -92,10 +99,10 @@
          \end{algorithm}
 
    \section{Training Autoencoders, from ROS to potentials}
-   This sections discusses how the structured data or traces from ROS messages are encoded to spike trains represented in FMM parameters using variational auto encoders. 
-   
-   Using VAE for such encoding was used by other researchers too. \cite{shimazaki-2025-neural-coding-foundational-concepts-statistical-formulations-and-recent-advances} Transformation of neural activity to perception and behavior using combining classical concepts with statistical encoding and decoding frameworks.  \cite{granley-2022-hybrid-neural-autoencoders} proposes a Hybrid Neural Autoencoder in which a deep neural encoder learns stimulation patterns that produce desired neural or perceptual responses through a fixed biological forward model. The method is demonstrated for visual neuroprostheses and produces higher-fidelity patient-specific stimuli than conventional encoding strategies. see Figure 5 (bottom left shows for each number a new cluster is formed)
-   
+      This sections discusses how the structured data or traces from ROS messages are encoded to spike trains represented in FMM parameters using variational auto encoders.
+
+      Using VAE for such encoding was used by other researchers too. \cite{shimazaki-2025-neural-coding-foundational-concepts-statistical-formulations-and-recent-advances} Transformation of neural activity to perception and behavior using combining classical concepts with statistical encoding and decoding frameworks.  \cite{granley-2022-hybrid-neural-autoencoders} proposes a Hybrid Neural Autoencoder in which a deep neural encoder learns stimulation patterns that produce desired neural or perceptual responses through a fixed biological forward model. The method is demonstrated for visual neuroprostheses and produces higher-fidelity patient-specific stimuli than conventional encoding strategies. see Figure 5 (bottom left shows for each number a new cluster is formed)
+
       \begin{figure}[H]
          \centering
          \includegraphics[width=1\textwidth]{training_autoencoder.png}
@@ -119,10 +126,10 @@
          \item Noise as uncertainty in transformer
 
       \end{itemize}
-      
+
       \subsection{Gaussain transformer}
          for all details \seeherefooter{/nd_datascience_learning_project/src/machine_learning/model/architecture/neural_network/kind/deep_learning/kind/transformer/kind/uncertainty/uncertainty.tex}
-         
+
          The model receives a past time-series window and predicts a future window with uncertainty.
 
 

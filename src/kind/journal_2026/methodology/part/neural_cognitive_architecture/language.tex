@@ -32,6 +32,8 @@
 \begin{document}
 
    \maketitle
+
+   \label{language}   
    The role of language here is to provide replaceable components that when they are replaced, then we can assess they meaningfulness as measurment for anomaly detection. In other words they tighten the descripency detection conditions.  
    
    You may consider each uttereance of a language as a variable length sequence (and not a time series, because language compenets bear no time indexes unless they are mentioned independently as members of the sequence) of replaceable components which by themselves are formed of othe replaceable components. The function of a linguistic system is to assign a probability to each utterance sequence based on the context in which it occurs.
@@ -67,6 +69,20 @@
       \item each language component such as words etc are grandmother neurons themselves
       \item Each component is the result of DBSN clustering
    \end{itemize}
+   
+   \section{Jargon}
+   Example of words In experiments section
+   \begin{itemize}
+       \item turn from west to east
+       \item turn from east to north
+       \item turn from north to west
+       \item turn from west to south
+       \item go straigt south
+       \item go straigt north
+       \item go straigt west
+       \item go straigt east
+   \end{itemize}
+  
 
    \bibliographystyle{plainnat}
    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}

@@ -12,7 +12,6 @@
 \usepackage[most]{tcolorbox}
 \usepackage{xparse}
 \usepackage{natbib}
-
 \usetikzlibrary{graphs,graphdrawing}
 \usegdlibrary{layered}
 
@@ -136,13 +135,17 @@
          If we consider the two gaussian ditributions as two mass piles, how much effort does it take to move one pile to the other.
 
 
-   \section{Threshold}
+   \section{Threshold calculation} \label{anomaly_calculation}
       \begin{enumerate}
          \item Breaking an event-specific-knowledge sensory data into periods
          \item Split the periods into train-test
          \item take $\mu + n \times \sigma$ anomaly values as the threshold
       \end{enumerate}
 
+   \section{Anomaly detection}
+      Whatever rises more than the computed threshold in section \ref{anomaly_calculation}
+
+   \section{Novelty detection}
       \begin{algorithm}[H]
          \caption{Novelty Detection from Sensor Sequences}
          \begin{algorithmic}[1]
