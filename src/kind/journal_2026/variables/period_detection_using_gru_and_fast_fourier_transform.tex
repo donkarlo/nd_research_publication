@@ -1,0 +1,138 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+\usepackage{adjustbox}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+% for nested lists and sections
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+\title{Auto regression}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+   \maketitle
+
+   \begin{table}[H]
+
+      \centering
+
+      \small
+
+      \setlength{\tabcolsep}{4pt}
+
+      \begin{tabular}{p{0.25\textwidth} p{0.18\textwidth} p{0.47\textwidth}}
+
+         \hline
+
+         \textbf{Concept} & \textbf{Variable name} & \textbf{Description} \\
+
+         \hline
+
+         Spike-train feature vector
+         & $\mathbf{q}_n$
+         & Vector containing the observation-neuron firing rates
+         $r_{Z_i^{(d)}}([t_n,t_{n+1}])$ at discrete time index $n$. \\
+
+         Discrete time index
+         & $n$
+         & Index of a firing-rate observation interval in the spike-train sequence. \\
+
+         GRU input-window length
+         & $W$
+         & Number of consecutive spike-train feature vectors contained in each overlapping input window. \\
+
+         GRU encoder
+         & $\mathcal{E}_{\phi}$
+         & GRU-based encoder that maps an input window of spike-train feature vectors to a latent sequence. \\
+
+         GRU decoder
+         & $\mathcal{D}_{\psi}$
+         & Decoder that reconstructs the original spike-train feature window from its latent representation. \\
+
+         Encoder parameters
+         & $\phi$
+         & Trainable parameters of the GRU encoder. \\
+
+         Decoder parameters
+         & $\psi$
+         & Trainable parameters of the decoder. \\
+
+         Latent dimension
+         & $K$
+         & Number of features contained in each latent representation produced by the GRU encoder. \\
+
+         Latent spike-train representation
+         & $\mathbf{h}_n$
+         & $K$-dimensional latent representation associated with discrete time index $n$, obtained by averaging overlapping GRU encodings. \\
+
+         Latent-feature index
+         & $k$
+         & Index of a component of the latent representation, where $k \in \{1,\ldots,K\}$. \\
+
+         Sequence length
+         & $N_{\mathrm{GRU}}$
+         & Number of latent time steps used for autocorrelation-based period discovery. \\
+
+         Autocorrelation lag
+         & $\tau$
+         & Temporal displacement, measured in discrete time steps, between two latent spike-train representations. \\
+
+         Latent autocorrelation
+         & $\rho_{\mathrm{GRU}}(\tau)$
+         & Multivariate autocorrelation of the GRU latent representation at lag $\tau$, computed efficiently using the Fast Fourier Transform. \\
+
+         Minimum admissible period
+         & $\tau_{\min}$
+         & Smallest autocorrelation lag considered as a possible period. \\
+
+         Estimated period
+         & $\hat{\tau}_{\mathrm{per}}$
+         & First detected local maximum of $\rho_{\mathrm{GRU}}(\tau)$ for $\tau \geq \tau_{\min}$. \\
+
+         Fast Fourier Transform
+         & $\operatorname{FFT}(\cdot)$
+         & Transformation used to compute the latent autocorrelation efficiently in the frequency domain. \\
+
+         Inverse Fast Fourier Transform
+         & $\operatorname{IFFT}(\cdot)$
+         & Inverse transformation used to convert the frequency-domain autocorrelation product back to the lag domain. \\
+
+         \hline
+
+      \end{tabular}
+
+      \caption{Variables used in the GRU-based latent autocorrelation period-discovery method.}
+
+      \label{tab:gru-fft-period-discovery-variables}
+
+   \end{table}
+
+   \bibliographystyle{plainnat}
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}

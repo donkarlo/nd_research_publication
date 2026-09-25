@@ -62,43 +62,215 @@
          \includegraphics[width=0.9\textwidth]{training_steps.png}
       \end{figure}
       \subsection{Clustreing}
-      Using density-based clustering method 
-      
-      \subsection{Period detection with autocorrelation}
+         Using density-based clustering method
+
+      \subsection{Period detection with GRU based latent autocorollation fast fourier transform}
          \seeherefooter{/nd_datascience_learning_project/src/signal_processing/auto_correlation/fast_fourier_transform.tex}
+
+         for implementation \seeherefooter{/repo/nd_datascience_project/src/nd_datascience/machine_learning/model/application/auto_correlation/sequence/period/neural/}
+
          The Fast Fourier Transform (FFT) is an autocorrolation method that efficiently converts a time-domain signal into its frequency components, allowing periodicity to be detected by identifying dominant frequencies corresponding to repeating patterns \cite{berberidis-2002-on-the-discovery-of-weak-periodicities-in-large-time-series}.
-         
-      \subsection{Motif discovery (to cluster timeseries)}
-      In this research Matrix-Profile-based is used to cluster phonems to build words and to higher levels. This is explained in language section .  
-      
-         \seeherefooter{/home/donkarlo/Dropbox/repo/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/matrix_profile_based/matrix_profiled_based.tex}
-         To discover the periodic data. As we will see in the experiment section a drone that circules a rectangualar corridor makes many periodic sensory data that motif discovery is used for it. Then a method is needed to find the cycles in sensory data.
 
-         This research uses Matrix-Profile-based  method for this .
+         A Gated Recurrent Unit (GRU) is a recurrent neural unit that uses reset and update gates to adaptively control how information is forgotten and retained across a sequence \cite{cho-2014-learning-phrase-representations-using-rnn-encoder-decoder-for-statistical-machine-translation}.
 
-         This method doesn't need training.
-         \textbf{Matrix-Profile-based Motif Discovery \cite{vanonsem-2023-variable-length-motif-discovery-in-time-series-data}}
+
+         The proposed period-discovery method first transforms the spike-train activity into a learned latent representation and then applies autocorrelation in the latent space. For each discrete interval, the observation-neuron firing rates are collected into
+
+         \[
+         \mathbf{q}_n
+         =
+         \operatorname{vec}_{i,d\in\{0,1\}}
+         \left(
+         r_{Z_i^{(d)}}([t_n,t_{n+1}])
+         \right),
+         \]
+
+         where $r_{Z_i^{(d)}}([t_n,t_{n+1}])$ is the firing rate of observation neuron $Z_i^{(d)}$ during the corresponding interval.
+
+         Overlapping windows of length $W$ are passed through a GRU autoencoder \cite{cho-2014-learning-phrase-representations-using-rnn-encoder-decoder-for-statistical-machine-translation}. The encoder produces a $K$-dimensional latent sequence
+
+         \[
+         \mathbf{h}_n
+         =
+         \mathcal{E}_{\phi}
+         \left(
+         \mathbf{q}_{n-W+1:n}
+         \right),
+         \]
+
+         while the decoder $\mathcal{D}_{\psi}$ is trained to reconstruct the original window by minimizing
+
+         \[
+         (\phi^{*},\psi^{*})
+         =
+         \arg\min_{\phi,\psi}
+         \sum_n
+         \left\|
+         \mathbf{q}_{n-W+1:n}
+         -
+         \mathcal{D}_{\psi}
+         \left(
+         \mathcal{E}_{\phi}
+         \left(
+         \mathbf{q}_{n-W+1:n}
+         \right)
+         \right)
+         \right\|_2^2 .
+         \]
+
+         After training, overlapping latent representations are averaged to obtain one latent vector $\mathbf{h}_n$ for each time step. The multivariate latent autocorrelation at lag $\tau$ is then
+
+         \[
+         \rho_{\mathrm{GRU}}(\tau)
+         =
+         \frac{1}{n_{\max}-\tau}
+         \sum_{k=1}^{K}
+         \sum_{n=0}^{n_{\max}-\tau-1}
+         h_{n,k}h_{n+\tau,k}.
+         \]
+
+         In the implementation, this autocorrelation is calculated efficiently using the Fast Fourier Transform,
+
+         \[
+         \rho_{\mathrm{GRU}}(\tau)
+         =
+         \frac{1}{n_{\max}-\tau}
+         \sum_{k=1}^{K}
+         \operatorname{IFFT}
+         \left(
+         \operatorname{FFT}(\mathbf{h}_{:,k})
+         \overline{\operatorname{FFT}(\mathbf{h}_{:,k})}
+         \right)_{\tau}.
+         \]
+
+         The estimated period is the first autocorrelation peak after a predefined minimum admissible lag $\tau_{\min}$,
+
+         \[
+         \hat{\tau}_{\mathrm{per}}
+         =
+         \min
+         \left\{
+         \tau \geq \tau_{\min}
+         \mid
+         \tau \text{ is a local maximum of }
+         \rho_{\mathrm{GRU}}(\tau)
+         \right\}.
+         \]
+
+         Thus, the GRU is not used to predict the period directly; it learns a latent representation in which repeated multivariate spike-train patterns can be detected by FFT-based autocorrelation.
+
          \begin{algorithm}[H]
-            \caption{Event-Driven Variable-Length Motif Discovery}
+            \caption{GRU-based latent autocorrelation for period discovery}
             \begin{algorithmic}[1]
-               \State Input time series \(T\), window size \(w\), threshold \(t\)
-               \State Compute scale-aware distance matrix \(M\)
-               \State Convert \(M\) to binary event matrix \(M_{\mathrm{bin}}\)
-               \State Rank diagonals of \(M_{\mathrm{bin}}\) by number Weightof events
-               \For{each ranked diagonal}
-               \For{each event on the diagonal}
-               \State Enlarge the event into a motif candidate
-               \State Validate candidate using the distance threshold
-               \State Find all occurrences of the accepted motif
-               \State Add motif and its occurrences to output
-               \State Exclude found occurrences from \(M_{\mathrm{bin}}\)
-               \EndFor
-               \EndFor
-               \State Return unique motifs with grouped occurrences
+               \State Construct firing-rate vectors $\mathbf{q}_n$ from the observation-neuron spike trains
+               \State Form overlapping windows of length $W$
+               \State Train a GRU autoencoder to reconstruct the input windows
+               \State Encode all windows into latent sequences
+               \State Average overlapping encodings to obtain one latent vector $\mathbf{h}_n$ per time step
+               \State Compute multivariate autocorrelation of $\mathbf{h}_n$ using FFT
+               \State Detect local maxima of $\rho_{\mathrm{GRU}}(\tau)$ for $\tau \geq \tau_{\min}$
+               \State \Return the first detected peak as $\hat{\tau}_{\mathrm{per}}$
             \end{algorithmic}
          \end{algorithm}
 
+
+
+      \subsection{Motif discovery}
+         for general information \seeherefooter{/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/motif_discovery.tex}
+         Here are two wellknown methods are introduced in
+         \cite{guerrini-2025-time-series-motif-discovery-a-comprehensive-evaluation, linardi-2018-matrix-profile-x-valmod-scalable-discovery-of-variable-length-motifs-in-data-series}
+
+         for the specific method used in this research
+         \seeherefooter{/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/gru_autoencoder_based/gru_autoencoder_based.tex}
+         and  \cite{linardi-2018-matrix-profile-x-valmod-scalable-discovery-of-variable-length-motifs-in-data-series}
+
+
+         Motif discovery is performed independently at each representation level.
+
+         For a selected representation level $\ell$, let
+
+         \[
+         \mathbf{s}_{\ell}
+         =
+         \left(
+         s_{\ell,1},
+         s_{\ell,2},
+         \ldots,
+         s_{\ell,N_{\ell}}
+         \right)
+         \]
+
+         denote the ordered spike sequence generated by state neurons belonging to that level.
+
+         A variable-length candidate subsequence is
+
+         \[
+         \mathbf{s}_{\ell}[a:b]
+         =
+         \left(
+         s_{\ell,a},
+         \ldots,
+         s_{\ell,b}
+         \right).
+         \]
+
+         A recurrent subsequence discovered at level $\ell$ is represented by the motif
+
+         \[
+         \mathbf{m}_{k,\ell}.
+         \]
+
+         A candidate subsequence is considered an occurrence of this motif when
+
+         \[
+         \Delta_{\ell}
+         \left(
+         \mathbf{s}_{\ell}[a:b],
+         \mathbf{m}_{k,\ell}
+         \right)
+         \leq
+         \varepsilon_{\ell},
+         \]
+
+         where $\Delta_{\ell}$ is the motif-distance function and
+         $\varepsilon_{\ell}$ is the acceptance threshold used at representation level $\ell$.
+
+         The same procedure is applied independently for every selected representation level,
+
+         \[
+         \ell \in L,
+         \]
+
+         without requiring information from either a lower or a higher representation level.
+
+         \begin{algorithm}[H]
+            \caption{Level-independent motif discovery}
+
+            \begin{algorithmic}[1]
+               \For{each selected representation level $\ell \in L$}
+               \State Collect the spike sequence $\mathbf{s}_{\ell}$
+               \State Generate variable-length candidate subsequences $\mathbf{s}_{\ell}[a:b]$
+               \State Apply motif discovery to the sequence at level $\ell$
+               \State Compare recurrent subsequences using $\Delta_{\ell}$
+               \State Group subsequences satisfying the threshold $\varepsilon_{\ell}$
+               \State Store each discovered recurrent pattern as a motif $\mathbf{m}_{k,\ell}$
+               \EndFor
+
+               \State Return the motifs discovered independently at each representation level
+            \end{algorithmic}
+         \end{algorithm}
+
+
+
+
    \section{Training Autoencoders, from ROS to potentials}
+      This section biologically doesn't exist but it is explained here because the data for testing the framework is derived from Robot Operating system ni form of nested attriubte-value sensory data readings. As such a method is needed to simulate neunoral activity from this type of data. 
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{ros_and_vae.png}
+      \end{figure}
+      
+   
       This sections discusses how the structured data or traces from ROS messages are encoded to spike trains represented in FMM parameters using variational auto encoders.
 
       Using VAE for such encoding was used by other researchers too. \cite{shimazaki-2025-neural-coding-foundational-concepts-statistical-formulations-and-recent-advances} Transformation of neural activity to perception and behavior using combining classical concepts with statistical encoding and decoding frameworks.  \cite{granley-2022-hybrid-neural-autoencoders} proposes a Hybrid Neural Autoencoder in which a deep neural encoder learns stimulation patterns that produce desired neural or perceptual responses through a fixed biological forward model. The method is demonstrated for visual neuroprostheses and produces higher-fidelity patient-specific stimuli than conventional encoding strategies. see Figure 5 (bottom left shows for each number a new cluster is formed)
@@ -281,7 +453,7 @@
          Clusters data based on similarity of sensory data
          Based on DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
 
-
+         \include{language_building.tex}
 
          \bibliographystyle{plainnat}
 
