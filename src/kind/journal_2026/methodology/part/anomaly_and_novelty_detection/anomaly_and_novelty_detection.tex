@@ -37,14 +37,95 @@
 
    The goal of this section is to detect novelty from noisy data and build new language parts from it. the inputs to the language model built in online learning are
 
-   Neurons which are specifically activated
-   \begin{itemize}
-      \item State neurons (results of clustering in training)
-      \item Transformer (Grandmother neuron for timewise prediction). There is a trained transformer for each state level
-      \item Kalmman filter (Grandmother neuron, diverging neural circuit to propgate among the time axis in all abstraction levels. Kalman filter works with intensity change neuron)
-      \item Particle filter (Grandmother neuron, converging neural circuit upward in the abstraction hierarchy axis, particle filter works with change internsity sensory neuron)
-      \item Language
-   \end{itemize}
+   \section{Calculation of graded potentials(EPSPs and IPSPs) in sensory neurnos}
+      Upon presence of a  sensory observation the following process will be used to assign value and sign to grade dpotentials according to their Wassertein distance between the observation and the clsuters learned in training phase
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{ipsp_epsp_determination.png}
+      \end{figure}
+      Let $\mathbf{x}$ denote the current point observation, and let the $k$th learned class $C_k$ contain $N_k$ observations,
+
+      \[
+      C_k
+      =
+      \left\{
+      \mathbf{z}_{k,1},
+      \mathbf{z}_{k,2},
+      \ldots,
+      \mathbf{z}_{k,N_k}
+      \right\},
+      \]
+
+      where $\mathbf{z}_{k,j}$ denotes the $j$th observation belonging to class $C_k$.
+
+      The empirical probability distribution representing class $C_k$ is
+
+      \[
+      \mu_k
+      =
+      \frac{1}{N_k}
+      \sum_{j=1}^{N_k}
+      \delta_{\mathbf{z}_{k,j}},
+      \]
+
+      where $\delta_{\mathbf{z}_{k,j}}$ denotes the Dirac measure concentrated at
+      $\mathbf{z}_{k,j}$. Similarly, the point observation $\mathbf{x}$ is represented by the Dirac measure $\delta_{\mathbf{x}}$.
+
+      The point-to-class $p$-Wasserstein distance is denoted by
+      $d_k(\mathbf{x})$ and is defined as
+
+      \[
+      d_k(\mathbf{x})
+      =
+      W_p\!\left(
+      \delta_{\mathbf{x}},
+      \mu_k
+      \right)
+      =
+      \left(
+      \frac{1}{N_k}
+      \sum_{j=1}^{N_k}
+      \left\|
+      \mathbf{x}
+      -
+      \mathbf{z}_{k,j}
+      \right\|_2^p
+      \right)^{1/p}.
+      \]
+
+      For the second-order Wasserstein distance used in this research,
+
+      \[
+      \boxed{
+      d_k(\mathbf{x})
+      =
+      W_2\!\left(
+      \delta_{\mathbf{x}},
+      \mu_k
+      \right)
+      =
+      \sqrt{
+      \frac{1}{N_k}
+      \sum_{j=1}^{N_k}
+      \left\|
+      \mathbf{x}
+      -
+      \mathbf{z}_{k,j}
+      \right\|_2^2
+      }
+      }.
+      \]
+
+      Therefore, $d_k(\mathbf{x})$ represents the Wasserstein distance between the current point observation $\mathbf{x}$ and the empirical distribution of class $C_k$. In this particular point-to-empirical-distribution case, it is equal to the root mean squared Euclidean distance from $\mathbf{x}$ to all observations belonging to $C_k$.
+
+   \section{Neurons which are specifically activated}
+      \begin{itemize}
+         \item State neurons (results of clustering in training)
+         \item Transformer (Grandmother neuron for timewise prediction). There is a trained transformer for each state level
+         \item Kalmman filter (Grandmother neuron, diverging neural circuit to propgate among the time axis in all abstraction levels. Kalman filter works with intensity change neuron)
+         \item Particle filter (Grandmother neuron, converging neural circuit upward in the abstraction hierarchy axis, particle filter works with change internsity sensory neuron)
+         \item Language
+      \end{itemize}
 
    \section {Observation and evidence flow}
       \begin{itemize}

@@ -206,46 +206,7 @@
             \includegraphics[width=0.9\textwidth]{action_potential_anatomy.png}
 
          \end{figure}
-      \subsection{Converting evidence probability distributions to EPSP and IPSP}
-         Let $X$ denote the agent state and $x_i$ the state represented by neuron $i$. Given sensory observation $z$, define
-
-         \[
-         p_i = P(X = x_i \mid z).
-         \]
-
-         The signed evidence for neuron $i$ is obtained using the log-odds transformation
-
-         \[
-         L_i
-         =
-         \log\left(
-         \frac{P(X = x_i \mid z)}
-         {1-P(X = x_i \mid z)}
-         \right).
-         \]
-
-         The excitatory and inhibitory postsynaptic potentials are then
-
-         \[
-         \mathrm{e}_i
-         =
-         \max(0,L_i),
-         \qquad
-         \mathrm{IPSP}_i
-         =
-         \min(0,L_i).
-         \]
-
-         Equivalently,
-
-         \[
-         L_i
-         \begin{cases}
-            >0, & P(X=x_i\mid z) > 0.5,\\[2mm]
-            =0, & P(X=x_i\mid z) = 0.5,\\[2mm]
-            <0, & P(X=x_i\mid z) < 0.5.
-         \end{cases}
-         \]
+      
 
          \begin{itemize}
             \item \textbf{Depolarization period}

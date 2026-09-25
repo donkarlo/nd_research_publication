@@ -1,0 +1,71 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+\usepackage{adjustbox}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+% for nested lists and sections
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+\title{EPSP IPSP value determination}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+   \maketitle
+
+   \begin{table}[H]
+      \centering
+      \small
+      \setlength{\tabcolsep}{4pt}
+      \begin{adjustbox}{max width=\textwidth}
+      \begin{tabular}{p{0.27\textwidth} p{0.23\textwidth} p{0.50\textwidth}}
+         \hline
+         \textbf{Concept} & \textbf{Variable name} & \textbf{Description} \\
+         \hline
+         Point observation & $\mathbf{x}$ & Current point observation received by the sensory system. \\
+         Class & $C_k$ & The $k$th class learned during training. \\
+         Number of classes & $K$ & Total number of learned classes compared with the observation. \\
+         Number of class observations & $N_k$ & Number of observations belonging to class $C_k$. \\
+         Class observation & $\mathbf{z}_{k,j}$ & The $j$th observed point belonging to class $C_k$. \\
+         Empirical class distribution & $\mu_k$ & Empirical probability distribution representing class $C_k$. \\
+         Dirac measures & $\delta_{\mathbf{x}},\,\delta_{\mathbf{z}_{k,j}}$ & Point-mass probability measures associated with the observation and a class observation. \\
+         Point-to-class distance & $d_k(\mathbf{x})$ & Second-order Wasserstein distance between the point observation and class $C_k$. \\
+         Mean class distance & $\bar d(\mathbf{x})$ & Mean of the point-to-class Wasserstein distances over all $K$ classes. \\
+         Signed graded potential & $\hat e_k(\mathbf{x})$ & Signed evidence obtained by subtracting the class distance from the mean class distance. \\
+         EPSP & $\hat e_k^{+}(\mathbf{x})$ & Positive component of the signed graded potential. \\
+         IPSP & $\hat e_k^{-}(\mathbf{x})$ & Negative component of the signed graded potential. \\
+         \hline
+      \end{tabular}
+      \end{adjustbox}
+      \caption{Variables used to determine EPSP and IPSP values from point-to-class Wasserstein distances.}
+      \label{table_epsp_ipsp_value_determination}
+   \end{table}
+
+   \bibliographystyle{plainnat}
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}

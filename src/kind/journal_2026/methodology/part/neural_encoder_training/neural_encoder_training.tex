@@ -73,7 +73,6 @@
 
          A Gated Recurrent Unit (GRU) is a recurrent neural unit that uses reset and update gates to adaptively control how information is forgotten and retained across a sequence \cite{cho-2014-learning-phrase-representations-using-rnn-encoder-decoder-for-statistical-machine-translation}.
 
-
          The proposed period-discovery method first transforms the spike-train activity into a learned latent representation and then applies autocorrelation in the latent space. For each discrete interval, the observation-neuron firing rates are collected into
 
          \[
@@ -173,8 +172,6 @@
             \end{algorithmic}
          \end{algorithm}
 
-
-
       \subsection{Motif discovery}
          for general information \seeherefooter{/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/motif_discovery.tex}
          Here are two wellknown methods are introduced in
@@ -183,7 +180,6 @@
          for the specific method used in this research
          \seeherefooter{/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/gru_autoencoder_based/gru_autoencoder_based.tex}
          and  \cite{linardi-2018-matrix-profile-x-valmod-scalable-discovery-of-variable-length-motifs-in-data-series}
-
 
          Motif discovery is performed independently at each representation level.
 
@@ -260,32 +256,39 @@
             \end{algorithmic}
          \end{algorithm}
 
-
-
-
    \section{Training Autoencoders, from ROS to potentials}
-      This section biologically doesn't exist but it is explained here because the data for testing the framework is derived from Robot Operating system ni form of nested attriubte-value sensory data readings. As such a method is needed to simulate neunoral activity from this type of data. 
+      This section biologically doesn't exist but it is explained here because the data for testing the framework is derived from Robot Operating system ni form of nested attriubte-value sensory data readings. As such a method is needed to simulate neunoral activity from this type of data.
       \begin{figure}[H]
          \centering
          \includegraphics[width=0.9\textwidth]{ros_and_vae.png}
       \end{figure}
-      
-   
+
       This sections discusses how the structured data or traces from ROS messages are encoded to spike trains represented in FMM parameters using variational auto encoders.
 
       Using VAE for such encoding was used by other researchers too. \cite{shimazaki-2025-neural-coding-foundational-concepts-statistical-formulations-and-recent-advances} Transformation of neural activity to perception and behavior using combining classical concepts with statistical encoding and decoding frameworks.  \cite{granley-2022-hybrid-neural-autoencoders} proposes a Hybrid Neural Autoencoder in which a deep neural encoder learns stimulation patterns that produce desired neural or perceptual responses through a fixed biological forward model. The method is demonstrated for visual neuroprostheses and produces higher-fidelity patient-specific stimuli than conventional encoding strategies. see Figure 5 (bottom left shows for each number a new cluster is formed)
 
-      \begin{figure}[H]
-         \centering
-         \includegraphics[width=1\textwidth]{training_autoencoder.png}
-      \end{figure}
+      \subsection{This research method}
+         It is needed to develop a method that can follow the following rules to train a varational autoencoder
+
+         \begin{itemize}
+            \item The input is ROS yaml files from multiple sensor readings.  S we have multiple attribute-value or structured data readings
+            \begin{itemize}
+               \item from each sensor data we must pretend two esnsors exist.
+               \begin{itemize}
+                  \item A sensor that measures the intensity of the signal
+                  \item Another sensor that measures the change rate of  previous sensor
+               \end{itemize}
+            \end{itemize}
+            \item each of the aforementioned data points (nested attribute -value) should be converted to parameters of a spike train of action potentials using a variational autoencoder. These parameters are mentioned in Table \ref{table_action_potential_parameters} for an Action potential and in Table \ref{table_observation_neuron_spike_count_firing_rate} for a spike train. 
+            \item the ranges for each of the above parameters for each sensors must be in non-confilicting intervals such that I can understand by seeing each value for each parameter, that from wich sensor or chage rate sensor it is derived. For spike train parameters, this rule doesn't apply to spike train perameters. 
+            \item 
+
+         \end{itemize}
 
    \section{Transformers}
       Since different segment composition of language form different meanings, LSTMs (and consequently RNNs) can not catch local dependencies. A multi attention predictor is needed. The transformers \cite{vaswani-2017-attention-is-all-you-need}
 
       Its application here is to replace the constant speed predictor
-
-
 
       \begin{itemize}
          \item At lowest level in each cell, it holds an AP wave represented by FMM
@@ -304,15 +307,12 @@
 
          The model receives a past time-series window and predicts a future window with uncertainty.
 
-
          \[
          f_{\theta}:
          \mathbb{R}^{T_{\mathrm{in}} \times F_{\mathrm{in}}}
          \rightarrow
          \mathbb{R}^{T_{\mathrm{out}} \times 2F_{\mathrm{out}}}
          \]
-
-
 
          For each future time step and feature, it predicts two values:
 
@@ -325,7 +325,6 @@
          ]
          \]
 
-
          \[
          y_{b,t,j}
          \sim
@@ -335,8 +334,6 @@
          \sigma^2_{b,t,j}
          )
          \]
-
-
 
          \begin{itemize}
             \item \(\mu\): expected future value
