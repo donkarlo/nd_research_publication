@@ -61,7 +61,7 @@
          \centering
          \includegraphics[width=0.9\textwidth]{training_steps.png}
       \end{figure}
-      \subsection{Clustreing}
+      \subsection{Clustreing with DBSCAN at action potential spike parameters}
          Using density-based clustering method
 
       \subsection{Period detection with GRU based latent autocorollation fast fourier transform}
@@ -172,7 +172,7 @@
             \end{algorithmic}
          \end{algorithm}
 
-      \subsection{Motif discovery}
+      \subsection{Motif discovery - GRU-autoencoder based}
          for general information \seeherefooter{/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/motif_discovery.tex}
          Here are two wellknown methods are introduced in
          \cite{guerrini-2025-time-series-motif-discovery-a-comprehensive-evaluation, linardi-2018-matrix-profile-x-valmod-scalable-discovery-of-variable-length-motifs-in-data-series}
@@ -281,7 +281,8 @@
             \end{itemize}
             \item each of the aforementioned data points (nested attribute -value) should be converted to parameters of a spike train of action potentials using a variational autoencoder. These parameters are mentioned in Table \ref{table_action_potential_parameters} for an Action potential and in Table \ref{table_observation_neuron_spike_count_firing_rate} for a spike train. 
             \item the ranges for each of the above parameters for each sensors must be in non-confilicting intervals such that I can understand by seeing each value for each parameter, that from wich sensor or chage rate sensor it is derived. For spike train parameters, this rule doesn't apply to spike train perameters. 
-            \item 
+            \item the higher the intensity of a sensor rises the higher the firing rate of the spike train rises. So the intensity value depends on the density of fired spike traines in a determinded time interval
+            \item The higher the sensor value change rate is the the higher the firing rate of the spike train rises.   
 
          \end{itemize}
 
