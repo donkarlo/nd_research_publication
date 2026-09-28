@@ -55,7 +55,7 @@
 
    This language must be such that when a drone experiences something that it has not experienced in previous experiences then it should detect it as a from which it builds language.
 
-   \section{Training Autoencoders, from ROS to action potential and to graded potentials}
+   \section{Training autoencoders, from ROS to action potential and to graded potentials}
       This section biologically doesn't exist but it is explained here because the data for testing the framework is derived from Robot Operating system ni form of nested attriubte-value sensory data readings. As such a method is needed to simulate neunoral activity from this type of data.
       \begin{figure}[H]
          \centering
@@ -67,112 +67,112 @@
       Using VAE for such encoding was used by other researchers too. \cite{shimazaki-2025-neural-coding-foundational-concepts-statistical-formulations-and-recent-advances} Transformation of neural activity to perception and behavior using combining classical concepts with statistical encoding and decoding frameworks.  \cite{granley-2022-hybrid-neural-autoencoders} proposes a Hybrid Neural Autoencoder in which a deep neural encoder learns stimulation patterns that produce desired neural or perceptual responses through a fixed biological forward model. The method is demonstrated for visual neuroprostheses and produces higher-fidelity patient-specific stimuli than conventional encoding strategies. see Figure 5 (bottom left shows for each number a new cluster is formed)
 
       \subsection{This research method}
-         It is needed to develop a method that can follow the following rules to train a varational autoencoder
+         It is needed to develop a method that can follow the following rules to train a variational autoencoder
 
          \begin{itemize}
             \item The input is ROS yaml files from multiple sensor readings.  S we have multiple attribute-value or structured data readings
             \begin{itemize}
-               \item from each sensor data we must pretend two esnsors exist.
+               \item from each sensor data we must pretend two sensors exist.
                \begin{itemize}
                   \item A sensor that measures the intensity of the signal
                   \item Another sensor that measures the change rate of  previous sensor
                \end{itemize}
             \end{itemize}
             \item each of the aforementioned data points (nested attribute -value) should be converted to parameters of a spike train of action potentials using a variational autoencoder. These parameters are mentioned in Table \ref{table_action_potential_parameters} for an Action potential and in Table \ref{table_observation_neuron_spike_count_firing_rate} for a spike train.
-            \item the ranges for each of the above parameters for each sensors must be in non-confilicting intervals such that I can understand by seeing each value for each parameter, that from wich sensor or chage rate sensor it is derived. For spike train parameters, this rule doesn't apply to spike train perameters.
-            \item the higher the intensity of a sensor rises the higher the firing rate of the spike train rises. So the intensity value depends on the density of fired spike traines in a determinded time interval
+            \item the ranges for each of the above parameters for each sensors must be in non-conflicting intervals such that I can understand by seeing each value for each parameter, that from which sensor or change rate sensor it is derived. For spike train parameters, this rule doesn't apply to spike train parameters.
+            \item the higher the intensity of a sensor rises the higher the firing rate of the spike train rises. So the intensity value depends on the density of fired spike trains in a determined time interval
             \item The higher the sensor value change rate is the the higher the firing rate of the spike train rises.
 
          \end{itemize}
 
-         So we devide the experiment in two phases. In training phase, one robot(in this case a UAV equiped with LIDAR, GPS) is requested by human agent to use its autopilot to reach a set of trajectory points to gather sensory data from which temporal models and abstraction models using the aforementioned method inspired human nervous system is build.
-      \subsection{Calculation of graded potentials(EPSPs and IPSPs) in sensory neurnos} \label{graded_potentials_calculations}
-         Upon presence of a  sensory observation the following process will be used to assign value and sign to grade dpotentials according to their Wassertein distance between the observation and the clsuters learned in training phase
-         \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.9\textwidth]{ipsp_epsp_determination.png}
-         \end{figure}
-         Let $\mathbf{x}$ denote the current point observation, and let the $k$th learned class $C_k$ contain $N_k$ observations,
+         So we divide the experiment in two phases. In training phase, one robot(in this case a UAV equipped with LiDAR, GPS) is requested by human agent to use its autopilot to reach a set of trajectory points to gather sensory data from which temporal models and abstraction models using the aforementioned method inspired human nervous system is build.
+   \section{graded potentials(EPSPs and IPSPs) calculation in sensory neurons} \label{graded_potentials_calculations}
+      Upon presence of a  sensory observation the following process will be used to assign value and sign to grade potentials according to their Wasserstein distance between the observation and the clusters learned in training phase
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{ipsp_epsp_determination.png}
+      \end{figure}
+      Let $\mathbf{x}$ denote the current point observation, and let the $k$th learned class $C_k$ contain $N_k$ observations,
 
-         \[
-         C_k
-         =
-         \left\{
-         \mathbf{z}_{k,1},
-         \mathbf{z}_{k,2},
-         \ldots,
-         \mathbf{z}_{k,N_k}
-         \right\},
-         \]
+      \[
+      C_k
+      =
+      \left\{
+      \mathbf{z}_{k,1},
+      \mathbf{z}_{k,2},
+      \ldots,
+      \mathbf{z}_{k,N_k}
+      \right\},
+      \]
 
-         where $\mathbf{z}_{k,j}$ denotes the $j$th observation belonging to class $C_k$.
+      where $\mathbf{z}_{k,j}$ denotes the $j$th observation belonging to class $C_k$.
 
-         The empirical probability distribution representing class $C_k$ is
+      The empirical probability distribution representing class $C_k$ is
 
-         \[
-         \mu_k
-         =
-         \frac{1}{N_k}
-         \sum_{j=1}^{N_k}
-         \delta_{\mathbf{z}_{k,j}},
-         \]
+      \[
+      \mu_k
+      =
+      \frac{1}{N_k}
+      \sum_{j=1}^{N_k}
+      \delta_{\mathbf{z}_{k,j}},
+      \]
 
-         where $\delta_{\mathbf{z}_{k,j}}$ denotes the Dirac measure concentrated at
-         $\mathbf{z}_{k,j}$. Similarly, the point observation $\mathbf{x}$ is represented by the Dirac measure $\delta_{\mathbf{x}}$.
+      where $\delta_{\mathbf{z}_{k,j}}$ denotes the Dirac measure concentrated at
+      $\mathbf{z}_{k,j}$. Similarly, the point observation $\mathbf{x}$ is represented by the Dirac measure $\delta_{\mathbf{x}}$.
 
-         The point-to-class $p$-Wasserstein distance is denoted by
-         $d_k(\mathbf{x})$ and is defined as
+      The point-to-class $p$-Wasserstein distance is denoted by
+      $d_k(\mathbf{x})$ and is defined as
 
-         \[
-         d_k(\mathbf{x})
-         =
-         W_p\!\left(
-         \delta_{\mathbf{x}},
-         \mu_k
-         \right)
-         =
-         \left(
-         \frac{1}{N_k}
-         \sum_{j=1}^{N_k}
-         \left\|
-         \mathbf{x}
-         -
-         \mathbf{z}_{k,j}
-         \right\|_2^p
-         \right)^{1/p}.
-         \]
+      \[
+      d_k(\mathbf{x})
+      =
+      W_p\!\left(
+      \delta_{\mathbf{x}},
+      \mu_k
+      \right)
+      =
+      \left(
+      \frac{1}{N_k}
+      \sum_{j=1}^{N_k}
+      \left\|
+      \mathbf{x}
+      -
+      \mathbf{z}_{k,j}
+      \right\|_2^p
+      \right)^{1/p}.
+      \]
 
-         For the second-order Wasserstein distance used in this research,
+      For the second-order Wasserstein distance used in this research,
 
-         \[
-         \boxed{
-         d_k(\mathbf{x})
-         =
-         W_2\!\left(
-         \delta_{\mathbf{x}},
-         \mu_k
-         \right)
-         =
-         \sqrt{
-         \frac{1}{N_k}
-         \sum_{j=1}^{N_k}
-         \left\|
-         \mathbf{x}
-         -
-         \mathbf{z}_{k,j}
-         \right\|_2^2
-         }
-         }.
-         \]
+      \[
+      \boxed{
+      d_k(\mathbf{x})
+      =
+      W_2\!\left(
+      \delta_{\mathbf{x}},
+      \mu_k
+      \right)
+      =
+      \sqrt{
+      \frac{1}{N_k}
+      \sum_{j=1}^{N_k}
+      \left\|
+      \mathbf{x}
+      -
+      \mathbf{z}_{k,j}
+      \right\|_2^2
+      }
+      }.
+      \]
 
-         Therefore, $d_k(\mathbf{x})$ represents the Wasserstein distance between the current point observation $\mathbf{x}$ and the empirical distribution of class $C_k$. In this particular point-to-empirical-distribution case, it is equal to the root mean squared Euclidean distance from $\mathbf{x}$ to all observations belonging to $C_k$.
+      Therefore, $d_k(\mathbf{x})$ represents the Wasserstein distance between the current point observation $\mathbf{x}$ and the empirical distribution of class $C_k$. In this particular point-to-empirical-distribution case, it is equal to the root mean squared Euclidean distance from $\mathbf{x}$ to all observations belonging to $C_k$.
    \section{Steps}
       \begin{figure}[H]
          \centering
          \includegraphics[width=0.9\textwidth]{training_steps.png}
       \end{figure}
-      \subsection{Clustreing with DBSCAN at action potential spike parameters}
-         For more detailed explenation see \seeherefooter{/nd_datascience_learning_project/src/machine_learning/model/application/clustering/dbscan/dbscan.tex}
+      \subsection{Clustering with DBSCAN at action potential spike parameters}
+         For more detailed explanation see \seeherefooter{/nd_datascience_learning_project/src/machine_learning/model/application/clustering/dbscan/dbscan.tex}
 
          For python implementation \seeherefooter{/nd_datascience_project/src/nd_datascience/machine_learning/model/application/clustering/dbscan/dbscan.py}
 
@@ -181,9 +181,9 @@
          clustering algorithm capable of discovering arbitrarily shaped clusters
          while identifying observations in low-density regions as noise.
 
-         In this research DBSCAN is resposible for clustering the the spike train parameters derived from state neurons.
+         In this research DBSCAN is responsible for clustering the the spike train parameters derived from state neurons.
 
-         DBSCAN is used becauase of the following advantages
+         DBSCAN is used because of the following advantages
 
          \begin{itemize}
             \item DBSCAN does not require the number of clusters to be specified in advance.
@@ -317,11 +317,11 @@
          Here are two wellknown methods are introduced in
          \cite{guerrini-2025-time-series-motif-discovery-a-comprehensive-evaluation, linardi-2018-matrix-profile-x-valmod-scalable-discovery-of-variable-length-motifs-in-data-series}
 
-         for the specific method used in this research
+         for the autoencoder-based motif-discovery approach adapted in this research
          \seeherefooter{/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/gru_autoencoder_based/gru_autoencoder_based.tex}
-         and  \cite{linardi-2018-matrix-profile-x-valmod-scalable-discovery-of-variable-length-motifs-in-data-series}
+         and \cite{bascol-2016-unsupervised-interpretable-pattern-discovery-in-time-series-using-autoencoders}
 
-         Motif discovery is performed independently at each representation level.
+         Motif discovery is performed independently at each representation level. In this research, a GRU autoencoder is used to map variable-length candidate subsequences to fixed-dimensional latent representations. Motifs are then formed by grouping recurrent candidates that are sufficiently close in this latent space.
 
          For a selected representation level $\ell$, let
 
@@ -332,70 +332,84 @@
          s_{\ell,1},
          s_{\ell,2},
          \ldots,
-         s_{\ell,N_{\ell}}
+         s_{\ell,N_{\ell}^{\mathrm{mot}}}
          \right)
          \]
 
          denote the ordered spike sequence generated by state neurons belonging to that level.
 
-         A variable-length candidate sub-sequence is
+         A variable-length candidate subsequence is
 
          \[
-         \mathbf{s}_{\ell}[a:b]
+         \mathbf{s}_{\ell}[u:v]
          =
          \left(
-         s_{\ell,a},
+         s_{\ell,u},
          \ldots,
-         s_{\ell,b}
+         s_{\ell,v}
+         \right),
+         \qquad
+         1 \leq u < v \leq N_{\ell}^{\mathrm{mot}}.
+         \]
+
+         Each candidate is encoded by the level-specific GRU encoder,
+
+         \[
+         \mathbf{g}_{\ell,u:v}
+         =
+         \mathcal{E}^{\mathrm{mot}}_{\eta_{\ell}}
+         \left(
+         \mathbf{s}_{\ell}[u:v]
          \right).
          \]
 
-         A recurrent subsequence discovered at level $\ell$ is represented by the motif
+         The corresponding decoder $\mathcal{D}^{\mathrm{mot}}_{\xi_{\ell}}$ is trained together with the encoder to reconstruct the candidate subsequences. After training, recurrent latent representations are grouped around latent motif prototypes $\mathbf{c}_{\kappa,\ell}$.
+
+         A candidate subsequence is assigned to motif $\kappa$ when
 
          \[
-         \mathbf{m}_{k,\ell}.
-         \]
-
-         A candidate sub-sequence is considered an occurrence of this motif when
-
-         \[
-         \Delta_{\ell}
+         \Delta^{\mathrm{mot}}_{\ell}
          \left(
-         \mathbf{s}_{\ell}[a:b],
-         \mathbf{m}_{k,\ell}
+         \mathbf{g}_{\ell,u:v},
+         \mathbf{c}_{\kappa,\ell}
          \right)
          \leq
-         \varepsilon_{\ell},
+         \varepsilon^{\mathrm{mot}}_{\ell}.
          \]
 
-         where $\Delta_{\ell}$ is the motif-distance function and
-         $\varepsilon_{\ell}$ is the acceptance threshold used at representation level $\ell$.
-
-         The same procedure is applied independently for every selected representation level,
-
-         \[
-         \ell \in L,
-         \]
-
-         without requiring information from either a lower or a higher representation level.
+         The representative subsequence associated with the $\kappa$th accepted recurrent group is denoted by $\mathbf{m}_{\kappa,\ell}$. The same procedure is applied independently for every selected representation level $\ell \in L$, without requiring information from either a lower or a higher representation level.
 
          \begin{algorithm}[H]
-            \caption{Level-independent motif discovery}
+            \caption{GRU-autoencoder-based level-independent motif discovery}
 
             \begin{algorithmic}[1]
                \For{each selected representation level $\ell \in L$}
-               \State Collect the spike sequence $\mathbf{s}_{\ell}$
-               \State Generate variable-length candidate sub-sequences $\mathbf{s}_{\ell}[a:b]$
-               \State Apply motif discovery to the sequence at level $\ell$
-               \State Compare recurrent sub-sequences using $\Delta_{\ell}$
-               \State Group sub-sequences satisfying the threshold $\varepsilon_{\ell}$
-               \State Store each discovered recurrent pattern as a motif $\mathbf{m}_{k,\ell}$
+                  \State Collect the spike sequence $\mathbf{s}_{\ell}$
+                  \State Generate variable-length candidate subsequences $\mathbf{s}_{\ell}[u:v]$
+                  \State Train $\mathcal{E}^{\mathrm{mot}}_{\eta_{\ell}}$ and $\mathcal{D}^{\mathrm{mot}}_{\xi_{\ell}}$ to reconstruct the candidate subsequences
+                  \For{each candidate $\mathbf{s}_{\ell}[u:v]$}
+                     \State $\mathbf{g}_{\ell,u:v} \gets \mathcal{E}^{\mathrm{mot}}_{\eta_{\ell}}\!\left(\mathbf{s}_{\ell}[u:v]\right)$
+                  \EndFor
+                  \State Initialize an empty set of motif groups and latent prototypes
+                  \For{each latent candidate $\mathbf{g}_{\ell,u:v}$}
+                     \If{no latent motif prototype exists}
+                        \State Create the first motif group and initialize its prototype with $\mathbf{g}_{\ell,u:v}$
+                     \Else
+                        \State Find the nearest latent motif prototype $\mathbf{c}_{\kappa,\ell}$ using $\Delta^{\mathrm{mot}}_{\ell}$
+                        \If{$\Delta^{\mathrm{mot}}_{\ell}(\mathbf{g}_{\ell,u:v},\mathbf{c}_{\kappa,\ell}) \leq \varepsilon^{\mathrm{mot}}_{\ell}$}
+                           \State Assign $\mathbf{s}_{\ell}[u:v]$ to motif group $\kappa$ and update $\mathbf{c}_{\kappa,\ell}$
+                        \Else
+                           \State Create a new motif group with $\mathbf{g}_{\ell,u:v}$ as its initial prototype
+                        \EndIf
+                     \EndIf
+                  \EndFor
+                  \State Discard groups that do not contain at least two non-overlapping occurrences
+                  \State For each remaining group, store the subsequence nearest to its prototype as $\mathbf{m}_{\kappa,\ell}$
                \EndFor
-
-               \State Return the motifs discovered independently at each representation level
+               \State \Return the motifs discovered independently at each representation level
             \end{algorithmic}
          \end{algorithm}
-         \subsubsection{At phonem level}
+         \subsubsection{At phoneme level}
             The input to this part is DBSCAN clusters. Motif discovery must find motifs that are composed of vowel (zeroth derivative of parameter of a spike train and) and consonants (Zeroth derivative)
             \begin{figure}[H]
                \centering
@@ -410,7 +424,7 @@
 
 
    \section{Transformers}
-      Since different segment composition of language form different meanings, LSTMs (and consequently RNNs) can not catch local dependencies. A multi attention predictor is needed. The transformers \cite{vaswani-2017-attention-is-all-you-need}
+      Since different segment composition of language form different meanings, LSTM (and consequently RNN) can not catch local dependencies. A multi attention predictor is needed. The transformers \cite{vaswani-2017-attention-is-all-you-need}
 
       Its application here is to replace the constant speed predictor
 
@@ -418,7 +432,7 @@
          \item At lowest level in each cell, it holds an AP wave represented by FMM
          \item Training
          \begin{itemize}
-            \item Deep learning as an autocorrelation to find periods
+            \item Deep learning as an auto-correlation to find periods
          \end{itemize}
          \item Sliding windows to train the transformer
          \item Period sampling with auto corrlation for training and validating the transformer
@@ -426,7 +440,7 @@
 
       \end{itemize}
 
-      \subsection{Gaussain transformer}
+      \subsection{Gaussian transformer}
          for all details \seeherefooter{/nd_datascience_learning_project/src/machine_learning/model/architecture/neural_network/kind/deep_learning/kind/transformer/kind/uncertainty/uncertainty.tex}
 
          The model receives a past time-series window and predicts a future window with uncertainty.
@@ -518,7 +532,7 @@
 
       \begin{enumerate}
 
-         \item Accumelating the sensory data from Robot Operating System
+         \item Accumulating the sensory data from Robot Operating System
          \item training variational autoencoders to to break each sensory data into components action potential populations
 
          \item fusing different sensory modalities with variational autoencoders
@@ -527,26 +541,26 @@
 
          \begin{itemize}
 
-            \item here each sensory data already exists for sure in one of the clusters so wae can find the parameters from here after
+            \item here each sensory data already exists for sure in one of the clusters so the parameters could be calculated from here after
 
          \end{itemize}
 
-         \item Learning FMM psrameters for refractoring period for each state neuron at both concept axis and time axis
+         \item Learning FMM parameters for refractory period for each state neuron at both concept axis and time axis
 
       \end{enumerate}
 
    \section{These items must be learned from these sensory data}
 
-      All the parameters mentioned in in Arcitecture
+      All the parameters mentioned in in architecture
       \begin{itemize}
 
-         \item A probabilistic model based on Transformers for each level to predict sequences (This could be regarded as a sequential circuit). This probabilistic model will perform as grand modther neuron
+         \item A probabilistic model based on Transformers for each level to predict sequences (This could be regarded as a sequential circuit). This probabilistic model will perform as grandmother neuron
 
          \item A probabilistic model for abstraction levels that maps a state neuron to the more abstract concepts by clustering
 
          \item A variational auto encoder to fuse all information together to assign an IPSP or EPSP value
 
-         \item with what frequencey a sensory neuron should spike according to a stimuli
+         \item with what frequency a sensory neuron should spike according to a stimuli
 
          \item Probabilistic dependency between different sensory modality (Spatial summation of graded potentials)
 
@@ -555,9 +569,9 @@
          \item Action potential parameters (and parameters for FMM)
 
          \begin{itemize}
-            \item Maixmum potential or amplitutue or A in FMM
+            \item Maximum potential or amplitutue or A in FMM
             \item spiking threshold
-            \item Depolrization time period
+            \item Depolarization time period
             \item repolarization time period
             \item refractory time period
          \end{itemize}
@@ -574,7 +588,7 @@
          Clusters data based on similarity of sensory data
          Based on DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
 
-         \include{language_building.tex}
+         \include{internal_language_building.tex}
 
          \bibliographystyle{plainnat}
 
