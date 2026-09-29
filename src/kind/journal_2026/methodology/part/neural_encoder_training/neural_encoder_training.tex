@@ -43,34 +43,119 @@
 
    %TODO add neural encoding citations
 
-   Neural encoding training resembels kinematic teaching \cite{ablett-2025-multimodal-and-force-matched-imitation-learning-with-a-see-through-visuotactile-sensor} in which an expert agent teaches another agent how it should coordinate its sensory observations with its motor capabilities.
+   Neural encoding training resembles kinematic teaching \cite{ablett-2025-multimodal-and-force-matched-imitation-learning-with-a-see-through-visuotactile-sensor} in which an expert agent teaches another agent how it should coordinate its sensory observations with its motor capabilities.
 
-   in this section we discuss how to train the cognitive architecture we discussed in such that given a stimuli we learn both the temporal and hierarachical patter
+   in this section we discuss how to train the cognitive architecture we discussed in such that given a stimuli we learn both the temporal and hierarchical patter
 
-   The sensory induction and perception is inspired from human nervous system in which each sensor plays the role of a sensory receptor and then in diverging neural circuits derived from each sensor, the sensor readings are converted to probability particles (= similar to neurotransmitters molcules that carry predetermined electrical loads in synapse clefts) to be equally devided between desired states as IPSP or EPSP graded potentials that gradually increase or decrease the state nuerion potential until that state neuron spikes to create an action potential.
+   The sensory induction and perception is inspired from human nervous system in which each sensor plays the role of a sensory receptor and then in diverging neural circuits derived from each sensor, the sensor readings are converted to probability particles (= similar to neurotransmitters molecules that carry predetermined electrical loads in synapse clefts) to be equally divided between desired states as IPSP or EPSP graded potentials that gradually increase or decrease the state neuron potential until that state neuron spikes to create an action potential.
 
-   State neuron is a state in state space that we make an anlogy of it with neuron because similar to a neuron that receives neurotransmitters through its ion gates to convert them to graded IPSP or EPSP potentials, it converts a sensor reading to the positive or negative probability-like values to increase or decrease the probability up to the point that it reaches the threshold (similar to a neuron spike when its voltage reache -70v) and spikes and produces an action potential in two directions. One along the time axis in similar level and one along abstraction axis.
+   State neuron is a state in state space that we make an analogy of it with neuron because similar to a neuron that receives neurotransmitters through its ion gates to convert them to graded IPSP or EPSP potentials, it converts a sensor reading to the positive or negative probability-like values to increase or decrease the probability up to the point that it reaches the threshold (similar to a neuron spike when its voltage reaches -70v) and spikes and produces an action potential in two directions. One along the time axis in similar level and one along abstraction axis.
 
-   In abstraction level the a pattern simllar to converging neural circuits is followed to reach a the highest abstraction.
+   In abstraction level the a pattern similar to converging neural circuits is followed to reach a the highest abstraction.
 
    This language must be such that when a drone experiences something that it has not experienced in previous experiences then it should detect it as a from which it builds language.
 
-   \section{Training autoencoders, from ROS to action potential and to graded potentials}
-      This section biologically doesn't exist but it is explained here because the data for testing the framework is derived from Robot Operating system ni form of nested attriubte-value sensory data readings. As such a method is needed to simulate neunoral activity from this type of data.
-      \begin{figure}[H]
-         \centering
-         \includegraphics[width=0.9\textwidth]{ros_and_vae.png}
-      \end{figure}
+   \section{Training autoencoders, from ROS to APT and to graded potentials}
+      \subsection{From trace to GP calculation in sensory neurons} \label{graded_potentials_calculations}
+         Upon presence of a  sensory observation the following process will be used to assign value and sign to grade potentials according to their Wasserstein distance between the observation and the clusters learned in training phase
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{ipsp_epsp_determination.png}
+         \end{figure}
+         Let $\mathbf{x}$ denote the current point observation, and let the $k$th learned class $C_k$ contain $N_k$ observations,
 
-      This sections discusses how the structured data or traces from ROS messages are encoded to spike trains represented in FMM parameters using variational auto encoders.
+         \[
+         C_k
+         =
+         \left\{
+         \mathbf{z}_{k,1},
+         \mathbf{z}_{k,2},
+         \ldots,
+         \mathbf{z}_{k,N_k}
+         \right\},
+         \]
 
-      Using VAE for such encoding was used by other researchers too. \cite{shimazaki-2025-neural-coding-foundational-concepts-statistical-formulations-and-recent-advances} Transformation of neural activity to perception and behavior using combining classical concepts with statistical encoding and decoding frameworks.  \cite{granley-2022-hybrid-neural-autoencoders} proposes a Hybrid Neural Autoencoder in which a deep neural encoder learns stimulation patterns that produce desired neural or perceptual responses through a fixed biological forward model. The method is demonstrated for visual neuroprostheses and produces higher-fidelity patient-specific stimuli than conventional encoding strategies. see Figure 5 (bottom left shows for each number a new cluster is formed)
+         where $\mathbf{z}_{k,j}$ denotes the $j$th observation belonging to class $C_k$.
+
+         The empirical probability distribution representing class $C_k$ is
+
+         \[
+         \mu_k
+         =
+         \frac{1}{N_k}
+         \sum_{j=1}^{N_k}
+         \delta_{\mathbf{z}_{k,j}},
+         \]
+
+         where $\delta_{\mathbf{z}_{k,j}}$ denotes the Dirac measure concentrated at
+         $\mathbf{z}_{k,j}$. Similarly, the point observation $\mathbf{x}$ is represented by the Dirac measure $\delta_{\mathbf{x}}$.
+
+         The point-to-class $p$-Wasserstein distance is denoted by
+         $d_k(\mathbf{x})$ and is defined as
+
+         \[
+         d_k(\mathbf{x})
+         =
+         W_p\!\left(
+         \delta_{\mathbf{x}},
+         \mu_k
+         \right)
+         =
+         \left(
+         \frac{1}{N_k}
+         \sum_{j=1}^{N_k}
+         \left\|
+         \mathbf{x}
+         -
+         \mathbf{z}_{k,j}
+         \right\|_2^p
+         \right)^{1/p}.
+         \]
+
+         For the second-order Wasserstein distance used in this research,
+
+         \[
+         \boxed{
+         d_k(\mathbf{x})
+         =
+         W_2\!\left(
+         \delta_{\mathbf{x}},
+         \mu_k
+         \right)
+         =
+         \sqrt{
+         \frac{1}{N_k}
+         \sum_{j=1}^{N_k}
+         \left\|
+         \mathbf{x}
+         -
+         \mathbf{z}_{k,j}
+         \right\|_2^2
+         }
+         }.
+         \]
+
+         Therefore, $d_k(\mathbf{x})$ represents the Wasserstein distance between the current point observation $\mathbf{x}$ ands the empirical distribution of class $C_k$. In this particular point-to-empirical-distribution case, it is equal to the root mean squared Euclidean distance from $\mathbf{x}$ to all observations belonging to $C_k$.
+      \subsection{From ROS traces to GP}
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{ros_conversions.png}
+         \end{figure}
+         This section  doesn't exist biologically but it is explained here because the data for testing the framework is derived from ROS in form of nested attriubte-value sensory data readings. As such a method is needed to simulate neunoral activity from this type of data.
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{ros_and_vae.png}
+         \end{figure}
+
+         This sections discusses how the structured data or traces from ROS messages are encoded to spike trains represented in FMM parameters using variational auto encoders.
+
+         Using VAE for such encoding was used by other researchers too. \cite{shimazaki-2025-neural-coding-foundational-concepts-statistical-formulations-and-recent-advances} Transformation of neural activity to perception and behavior using combining classical concepts with statistical encoding and decoding frameworks.  \cite{granley-2022-hybrid-neural-autoencoders} proposes a Hybrid Neural Autoencoder in which a deep neural encoder learns stimulation patterns that produce desired neural or perceptual responses through a fixed biological forward model. The method is demonstrated for visual neuroprostheses and produces higher-fidelity patient-specific stimuli than conventional encoding strategies. see Figure 5 (bottom left shows for each number a new cluster is formed)
 
       \subsection{This research method}
          It is needed to develop a method that can follow the following rules to train a variational autoencoder
 
          \begin{itemize}
-            \item The input is ROS yaml files from multiple sensor readings.  S we have multiple attribute-value or structured data readings
+            \item The input is ROS yaml files from multiple sensor readings.  We have multiple attribute-value or structured data readings
             \begin{itemize}
                \item from each sensor data we must pretend two sensors exist.
                \begin{itemize}
@@ -86,92 +171,27 @@
          \end{itemize}
 
          So we divide the experiment in two phases. In training phase, one robot(in this case a UAV equipped with LiDAR, GPS) is requested by human agent to use its autopilot to reach a set of trajectory points to gather sensory data from which temporal models and abstraction models using the aforementioned method inspired human nervous system is build.
-   \section{graded potentials(EPSPs and IPSPs) calculation in sensory neurons} \label{graded_potentials_calculations}
-      Upon presence of a  sensory observation the following process will be used to assign value and sign to grade potentials according to their Wasserstein distance between the observation and the clusters learned in training phase
+
+
+   \section{Training the conversion of APT to graded potentials}
+      \todo{This part should be finished}
       \begin{figure}[H]
          \centering
-         \includegraphics[width=0.9\textwidth]{ipsp_epsp_determination.png}
+         \includegraphics[width=0.9\textwidth]{training_conversion_of_apt_to_graded_potentials.png}
       \end{figure}
-      Let $\mathbf{x}$ denote the current point observation, and let the $k$th learned class $C_k$ contain $N_k$ observations,
-
-      \[
-      C_k
-      =
-      \left\{
-      \mathbf{z}_{k,1},
-      \mathbf{z}_{k,2},
-      \ldots,
-      \mathbf{z}_{k,N_k}
-      \right\},
-      \]
-
-      where $\mathbf{z}_{k,j}$ denotes the $j$th observation belonging to class $C_k$.
-
-      The empirical probability distribution representing class $C_k$ is
-
-      \[
-      \mu_k
-      =
-      \frac{1}{N_k}
-      \sum_{j=1}^{N_k}
-      \delta_{\mathbf{z}_{k,j}},
-      \]
-
-      where $\delta_{\mathbf{z}_{k,j}}$ denotes the Dirac measure concentrated at
-      $\mathbf{z}_{k,j}$. Similarly, the point observation $\mathbf{x}$ is represented by the Dirac measure $\delta_{\mathbf{x}}$.
-
-      The point-to-class $p$-Wasserstein distance is denoted by
-      $d_k(\mathbf{x})$ and is defined as
-
-      \[
-      d_k(\mathbf{x})
-      =
-      W_p\!\left(
-      \delta_{\mathbf{x}},
-      \mu_k
-      \right)
-      =
-      \left(
-      \frac{1}{N_k}
-      \sum_{j=1}^{N_k}
-      \left\|
-      \mathbf{x}
-      -
-      \mathbf{z}_{k,j}
-      \right\|_2^p
-      \right)^{1/p}.
-      \]
-
-      For the second-order Wasserstein distance used in this research,
-
-      \[
-      \boxed{
-      d_k(\mathbf{x})
-      =
-      W_2\!\left(
-      \delta_{\mathbf{x}},
-      \mu_k
-      \right)
-      =
-      \sqrt{
-      \frac{1}{N_k}
-      \sum_{j=1}^{N_k}
-      \left\|
-      \mathbf{x}
-      -
-      \mathbf{z}_{k,j}
-      \right\|_2^2
-      }
-      }.
-      \]
-
-      Therefore, $d_k(\mathbf{x})$ represents the Wasserstein distance between the current point observation $\mathbf{x}$ and the empirical distribution of class $C_k$. In this particular point-to-empirical-distribution case, it is equal to the root mean squared Euclidean distance from $\mathbf{x}$ to all observations belonging to $C_k$.
-   \section{Steps}
+   \section{Computing firing threshold for each neuron}
+      \todo{This part should be finished}
+   \section{Training steps}
       \begin{figure}[H]
          \centering
          \includegraphics[width=0.9\textwidth]{training_steps.png}
       \end{figure}
-      \subsection{Clustering with DBSCAN at action potential spike parameters}
+   \section{Internal language building}
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{language_building.png}
+      \end{figure}
+      \subsection{Clustering with DBSCAN at action potential spike parameters - Building phonemes}
          For more detailed explanation see \seeherefooter{/nd_datascience_learning_project/src/machine_learning/model/application/clustering/dbscan/dbscan.tex}
 
          For python implementation \seeherefooter{/nd_datascience_project/src/nd_datascience/machine_learning/model/application/clustering/dbscan/dbscan.py}
@@ -202,115 +222,7 @@
 
 
 
-      \subsection{Period detection with GRU based latent autocorollation fast fourier transform\protect\footnotemark}\footnotetext{This part is only for test-train splitting}
-         \seeherefooter{/nd_datascience_learning_project/src/signal_processing/auto_correlation/fast_fourier_transform.tex}
 
-         for implementation \seeherefooter{/repo/nd_datascience_project/src/nd_datascience/machine_learning/model/application/auto_correlation/sequence/period/neural/}
-
-
-
-         The Fast Fourier Transform (FFT) is an autocorrolation method that efficiently converts a time-domain signal into its frequency components, allowing periodicity to be detected by identifying dominant frequencies corresponding to repeating patterns \cite{berberidis-2002-on-the-discovery-of-weak-periodicities-in-large-time-series}.
-
-         A Gated Recurrent Unit (GRU) is a recurrent neural unit that uses reset and update gates to adaptively control how information is forgotten and retained across a sequence \cite{cho-2014-learning-phrase-representations-using-rnn-encoder-decoder-for-statistical-machine-translation}.
-
-         The proposed period-discovery method first transforms the spike-train activity into a learned latent representation and then applies autocorrelation in the latent space. For each discrete interval, the observation-neuron firing rates are collected into
-
-         \[
-         \mathbf{q}_n
-         =
-         \operatorname{vec}_{i,d\in\{0,1\}}
-         \left(
-         r_{Z_i^{(d)}}([t_n,t_{n+1}])
-         \right),
-         \]
-
-         where $r_{Z_i^{(d)}}([t_n,t_{n+1}])$ is the firing rate of observation neuron $Z_i^{(d)}$ during the corresponding interval.
-
-         Overlapping windows of length $W$ are passed through a GRU autoencoder \cite{cho-2014-learning-phrase-representations-using-rnn-encoder-decoder-for-statistical-machine-translation}. The encoder produces a $K$-dimensional latent sequence
-
-         \[
-         \mathbf{h}_n
-         =
-         \mathcal{E}_{\phi}
-         \left(
-         \mathbf{q}_{n-W+1:n}
-         \right),
-         \]
-
-         while the decoder $\mathcal{D}_{\psi}$ is trained to reconstruct the original window by minimizing
-
-         \[
-         (\phi^{*},\psi^{*})
-         =
-         \arg\min_{\phi,\psi}
-         \sum_n
-         \left\|
-         \mathbf{q}_{n-W+1:n}
-         -
-         \mathcal{D}_{\psi}
-         \left(
-         \mathcal{E}_{\phi}
-         \left(
-         \mathbf{q}_{n-W+1:n}
-         \right)
-         \right)
-         \right\|_2^2 .
-         \]
-
-         After training, overlapping latent representations are averaged to obtain one latent vector $\mathbf{h}_n$ for each time step. The multivariate latent autocorrelation at lag $\tau$ is then
-
-         \[
-         \rho_{\mathrm{GRU}}(\tau)
-         =
-         \frac{1}{n_{\max}-\tau}
-         \sum_{k=1}^{K}
-         \sum_{n=0}^{n_{\max}-\tau-1}
-         h_{n,k}h_{n+\tau,k}.
-         \]
-
-         In the implementation, this autocorrelation is calculated efficiently using the Fast Fourier Transform,
-
-         \[
-         \rho_{\mathrm{GRU}}(\tau)
-         =
-         \frac{1}{n_{\max}-\tau}
-         \sum_{k=1}^{K}
-         \operatorname{IFFT}
-         \left(
-         \operatorname{FFT}(\mathbf{h}_{:,k})
-         \overline{\operatorname{FFT}(\mathbf{h}_{:,k})}
-         \right)_{\tau}.
-         \]
-
-         The estimated period is the first auto-correlation peak after a predefined minimum admissible lag $\tau_{\min}$,
-
-         \[
-         \hat{\tau}_{\mathrm{per}}
-         =
-         \min
-         \left\{
-         \tau \geq \tau_{\min}
-         \mid
-         \tau \text{ is a local maximum of }
-         \rho_{\mathrm{GRU}}(\tau)
-         \right\}.
-         \]
-
-         Thus, the GRU is not used to predict the period directly; it learns a latent representation in which repeated multivariate spike-train patterns can be detected by FFT-based autocorrelation.
-
-         \begin{algorithm}[H]
-            \caption{GRU-based latent autocorrelation for period discovery}
-            \begin{algorithmic}[1]
-               \State Construct firing-rate vectors $\mathbf{q}_n$ from the observation-neuron spike trains
-               \State Form overlapping windows of length $W$
-               \State Train a GRU autoencoder to reconstruct the input windows
-               \State Encode all windows into latent sequences
-               \State Average overlapping encodings to obtain one latent vector $\mathbf{h}_n$ per time step
-               \State Compute multivariate autocorrelation of $\mathbf{h}_n$ using FFT
-               \State Detect local maxima of $\rho_{\mathrm{GRU}}(\tau)$ for $\tau \geq \tau_{\min}$
-               \State \Return the first detected peak as $\hat{\tau}_{\mathrm{per}}$
-            \end{algorithmic}
-         \end{algorithm}
 
       \subsection{Motif discovery - GRU-auto-encoder based}
          for general information \seeherefooter{/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/motif_discovery.tex}
@@ -384,27 +296,27 @@
 
             \begin{algorithmic}[1]
                \For{each selected representation level $\ell \in L$}
-                  \State Collect the spike sequence $\mathbf{s}_{\ell}$
-                  \State Generate variable-length candidate subsequences $\mathbf{s}_{\ell}[u:v]$
-                  \State Train $\mathcal{E}^{\mathrm{mot}}_{\eta_{\ell}}$ and $\mathcal{D}^{\mathrm{mot}}_{\xi_{\ell}}$ to reconstruct the candidate subsequences
-                  \For{each candidate $\mathbf{s}_{\ell}[u:v]$}
-                     \State $\mathbf{g}_{\ell,u:v} \gets \mathcal{E}^{\mathrm{mot}}_{\eta_{\ell}}\!\left(\mathbf{s}_{\ell}[u:v]\right)$
-                  \EndFor
-                  \State Initialize an empty set of motif groups and latent prototypes
-                  \For{each latent candidate $\mathbf{g}_{\ell,u:v}$}
-                     \If{no latent motif prototype exists}
-                        \State Create the first motif group and initialize its prototype with $\mathbf{g}_{\ell,u:v}$
-                     \Else
-                        \State Find the nearest latent motif prototype $\mathbf{c}_{\kappa,\ell}$ using $\Delta^{\mathrm{mot}}_{\ell}$
-                        \If{$\Delta^{\mathrm{mot}}_{\ell}(\mathbf{g}_{\ell,u:v},\mathbf{c}_{\kappa,\ell}) \leq \varepsilon^{\mathrm{mot}}_{\ell}$}
-                           \State Assign $\mathbf{s}_{\ell}[u:v]$ to motif group $\kappa$ and update $\mathbf{c}_{\kappa,\ell}$
-                        \Else
-                           \State Create a new motif group with $\mathbf{g}_{\ell,u:v}$ as its initial prototype
-                        \EndIf
-                     \EndIf
-                  \EndFor
-                  \State Discard groups that do not contain at least two non-overlapping occurrences
-                  \State For each remaining group, store the subsequence nearest to its prototype as $\mathbf{m}_{\kappa,\ell}$
+               \State Collect the spike sequence $\mathbf{s}_{\ell}$
+               \State Generate variable-length candidate subsequences $\mathbf{s}_{\ell}[u:v]$
+               \State Train $\mathcal{E}^{\mathrm{mot}}_{\eta_{\ell}}$ and $\mathcal{D}^{\mathrm{mot}}_{\xi_{\ell}}$ to reconstruct the candidate subsequences
+               \For{each candidate $\mathbf{s}_{\ell}[u:v]$}
+               \State $\mathbf{g}_{\ell,u:v} \gets \mathcal{E}^{\mathrm{mot}}_{\eta_{\ell}}\!\left(\mathbf{s}_{\ell}[u:v]\right)$
+               \EndFor
+               \State Initialize an empty set of motif groups and latent prototypes
+               \For{each latent candidate $\mathbf{g}_{\ell,u:v}$}
+               \If{no latent motif prototype exists}
+               \State Create the first motif group and initialize its prototype with $\mathbf{g}_{\ell,u:v}$
+               \Else
+               \State Find the nearest latent motif prototype $\mathbf{c}_{\kappa,\ell}$ using $\Delta^{\mathrm{mot}}_{\ell}$
+               \If{$\Delta^{\mathrm{mot}}_{\ell}(\mathbf{g}_{\ell,u:v},\mathbf{c}_{\kappa,\ell}) \leq \varepsilon^{\mathrm{mot}}_{\ell}$}
+               \State Assign $\mathbf{s}_{\ell}[u:v]$ to motif group $\kappa$ and update $\mathbf{c}_{\kappa,\ell}$
+               \Else
+               \State Create a new motif group with $\mathbf{g}_{\ell,u:v}$ as its initial prototype
+               \EndIf
+               \EndIf
+               \EndFor
+               \State Discard groups that do not contain at least two non-overlapping occurrences
+               \State For each remaining group, store the subsequence nearest to its prototype as $\mathbf{m}_{\kappa,\ell}$
                \EndFor
                \State \Return the motifs discovered independently at each representation level
             \end{algorithmic}
@@ -421,7 +333,6 @@
                \centering
                \includegraphics[width=0.9\textwidth]{motif_discovery_senetnces.png}
             \end{figure}
-
 
    \section{Transformers}
       Since different segment composition of language form different meanings, LSTM (and consequently RNN) can not catch local dependencies. A multi attention predictor is needed. The transformers \cite{vaswani-2017-attention-is-all-you-need}
@@ -589,9 +500,117 @@
          Based on DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
 
          \include{internal_language_building.tex}
+   \section{Period detection with GRU based latent auto-correlation fast fourier transform\protect\footnotemark}\footnotetext{This part is only for test-train splitting for some experiments for finding the effect of increasing and decfreasing number of periods in framework's performance}
+      \seeherefooter{/nd_datascience_learning_project/src/signal_processing/auto_correlation/fast_fourier_transform.tex}
 
-         \bibliographystyle{plainnat}
+      for implementation \seeherefooter{/repo/nd_datascience_project/src/nd_datascience/machine_learning/model/application/auto_correlation/sequence/period/neural/}
 
-         \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+
+
+      The Fast Fourier Transform (FFT) is an autocorrolation method that efficiently converts a time-domain signal into its frequency components, allowing periodicity to be detected by identifying dominant frequencies corresponding to repeating patterns \cite{berberidis-2002-on-the-discovery-of-weak-periodicities-in-large-time-series}.
+
+      A Gated Recurrent Unit (GRU) is a recurrent neural unit that uses reset and update gates to adaptively control how information is forgotten and retained across a sequence \cite{cho-2014-learning-phrase-representations-using-rnn-encoder-decoder-for-statistical-machine-translation}.
+
+      The proposed period-discovery method first transforms the spike-train activity into a learned latent representation and then applies autocorrelation in the latent space. For each discrete interval, the observation-neuron firing rates are collected into
+
+      \[
+      \mathbf{q}_n
+      =
+      \operatorname{vec}_{i,d\in\{0,1\}}
+      \left(
+      r_{Z_i^{(d)}}([t_n,t_{n+1}])
+      \right),
+      \]
+
+      where $r_{Z_i^{(d)}}([t_n,t_{n+1}])$ is the firing rate of observation neuron $Z_i^{(d)}$ during the corresponding interval.
+
+      Overlapping windows of length $W$ are passed through a GRU autoencoder \cite{cho-2014-learning-phrase-representations-using-rnn-encoder-decoder-for-statistical-machine-translation}. The encoder produces a $K$-dimensional latent sequence
+
+      \[
+      \mathbf{h}_n
+      =
+      \mathcal{E}_{\phi}
+      \left(
+      \mathbf{q}_{n-W+1:n}
+      \right),
+      \]
+
+      while the decoder $\mathcal{D}_{\psi}$ is trained to reconstruct the original window by minimizing
+
+      \[
+      (\phi^{*},\psi^{*})
+      =
+      \arg\min_{\phi,\psi}
+      \sum_n
+      \left\|
+      \mathbf{q}_{n-W+1:n}
+      -
+      \mathcal{D}_{\psi}
+      \left(
+      \mathcal{E}_{\phi}
+      \left(
+      \mathbf{q}_{n-W+1:n}
+      \right)
+      \right)
+      \right\|_2^2 .
+      \]
+
+      After training, overlapping latent representations are averaged to obtain one latent vector $\mathbf{h}_n$ for each time step. The multivariate latent autocorrelation at lag $\tau$ is then
+
+      \[
+      \rho_{\mathrm{GRU}}(\tau)
+      =
+      \frac{1}{n_{\max}-\tau}
+      \sum_{k=1}^{K}
+      \sum_{n=0}^{n_{\max}-\tau-1}
+      h_{n,k}h_{n+\tau,k}.
+      \]
+
+      In the implementation, this autocorrelation is calculated efficiently using the Fast Fourier Transform,
+
+      \[
+      \rho_{\mathrm{GRU}}(\tau)
+      =
+      \frac{1}{n_{\max}-\tau}
+      \sum_{k=1}^{K}
+      \operatorname{IFFT}
+      \left(
+      \operatorname{FFT}(\mathbf{h}_{:,k})
+      \overline{\operatorname{FFT}(\mathbf{h}_{:,k})}
+      \right)_{\tau}.
+      \]
+
+      The estimated period is the first auto-correlation peak after a predefined minimum admissible lag $\tau_{\min}$,
+
+      \[
+      \hat{\tau}_{\mathrm{per}}
+      =
+      \min
+      \left\{
+      \tau \geq \tau_{\min}
+      \mid
+      \tau \text{ is a local maximum of }
+      \rho_{\mathrm{GRU}}(\tau)
+      \right\}.
+      \]
+
+      Thus, the GRU is not used to predict the period directly; it learns a latent representation in which repeated multivariate spike-train patterns can be detected by FFT-based autocorrelation.
+
+      \begin{algorithm}[H]
+         \caption{GRU-based latent autocorrelation for period discovery}
+         \begin{algorithmic}[1]
+            \State Construct firing-rate vectors $\mathbf{q}_n$ from the observation-neuron spike trains
+            \State Form overlapping windows of length $W$
+            \State Train a GRU autoencoder to reconstruct the input windows
+            \State Encode all windows into latent sequences
+            \State Average overlapping encodings to obtain one latent vector $\mathbf{h}_n$ per time step
+            \State Compute multivariate autocorrelation of $\mathbf{h}_n$ using FFT
+            \State Detect local maxima of $\rho_{\mathrm{GRU}}(\tau)$ for $\tau \geq \tau_{\min}$
+            \State \Return the first detected peak as $\hat{\tau}_{\mathrm{per}}$
+         \end{algorithmic}
+      \end{algorithm}
+      \bibliographystyle{plainnat}
+
+      \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 
 \end{document}
