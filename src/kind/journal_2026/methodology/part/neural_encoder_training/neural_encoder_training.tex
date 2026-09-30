@@ -56,6 +56,11 @@
    This language must be such that when a drone experiences something that it has not experienced in previous experiences then it should detect it as a from which it builds language.
 
    \section{Training autoencoders, from ROS to APT and to graded potentials}
+      \subsection{ROS training data flow}
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{ros_training_data_flow.png}
+         \end{figure}
       \subsection{From trace to GP calculation in sensory neurons} \label{graded_potentials_calculations}
          Upon presence of a  sensory observation the following process will be used to assign value and sign to grade potentials according to their Wasserstein distance between the observation and the clusters learned in training phase
          \begin{figure}[H]
@@ -136,7 +141,7 @@
          \]
 
          Therefore, $d_k(\mathbf{x})$ represents the Wasserstein distance between the current point observation $\mathbf{x}$ ands the empirical distribution of class $C_k$. In this particular point-to-empirical-distribution case, it is equal to the root mean squared Euclidean distance from $\mathbf{x}$ to all observations belonging to $C_k$.
-      \subsection{From ROS traces to GP}
+      \subsection{From ROS traces to sensory GP}
          \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{ros_conversions.png}
@@ -172,7 +177,6 @@
 
          So we divide the experiment in two phases. In training phase, one robot(in this case a UAV equipped with LiDAR, GPS) is requested by human agent to use its autopilot to reach a set of trajectory points to gather sensory data from which temporal models and abstraction models using the aforementioned method inspired human nervous system is build.
 
-
    \section{Training the conversion of APT to graded potentials}
       \todo{This part should be finished}
       \begin{figure}[H]
@@ -196,7 +200,6 @@
 
          For python implementation \seeherefooter{/nd_datascience_project/src/nd_datascience/machine_learning/model/application/clustering/dbscan/dbscan.py}
 
-
          \cite{ester-1996-a-density-based-algorithm-for-discovering-clusters-in-large-spatial-databases-with-noise} introduced DBSCAN, a density-based
          clustering algorithm capable of discovering arbitrarily shaped clusters
          while identifying observations in low-density regions as noise.
@@ -217,12 +220,6 @@
             \centering
             \includegraphics[width=0.9\textwidth]{dbscan.png}
          \end{figure}
-
-
-
-
-
-
 
       \subsection{Motif discovery - GRU-auto-encoder based}
          for general information \seeherefooter{/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/motif_discovery.tex}
@@ -499,13 +496,10 @@
          Clusters data based on similarity of sensory data
          Based on DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
 
-         \include{internal_language_building.tex}
    \section{Period detection with GRU based latent auto-correlation fast fourier transform\protect\footnotemark}\footnotetext{This part is only for test-train splitting for some experiments for finding the effect of increasing and decfreasing number of periods in framework's performance}
       \seeherefooter{/nd_datascience_learning_project/src/signal_processing/auto_correlation/fast_fourier_transform.tex}
 
       for implementation \seeherefooter{/repo/nd_datascience_project/src/nd_datascience/machine_learning/model/application/auto_correlation/sequence/period/neural/}
-
-
 
       The Fast Fourier Transform (FFT) is an autocorrolation method that efficiently converts a time-domain signal into its frequency components, allowing periodicity to be detected by identifying dominant frequencies corresponding to repeating patterns \cite{berberidis-2002-on-the-discovery-of-weak-periodicities-in-large-time-series}.
 
