@@ -24,53 +24,41 @@
 % for links
 \input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
 
-\title{Anomally and novelty detection}
+\title{Anomaly and novelty detection}
 \date{}
 \author{Mohammad Rahmani}
 
 \begin{document}
 
    \maketitle
-   Novelty is the continous presitance of neural responses of populations of neurons
+   Novelty is the continuous persistence of neural responses of populations of neurons
 
-   The main question that the agent tries to answer here is can I rebuild what has happened to me with the language components that I have or is the time to introduce a new component(Phonem, word, ...)
+   The main question that the agent tries to answer here is can I rebuild what has happened to me with the language components that I have or is the time to introduce a new component(Phoneme, word, ...)
 
    The goal of this section is to detect novelty from noisy data and build new language parts from it. the inputs to the language model built in online learning are
 
+
+
+
+   \section{Discrepancy detection}
+      \paragraph{Discussed forms of discrepancies in this research}
+      \begin{itemize}
+          \item \textbf{Anomaly:} an observation that violates an expected pattern or regularity.
+          \item \textbf{Novelty:} something not sufficiently represented by the organism's existing model/memory.
+      \end{itemize}
+      
+      \paragraph{Application}
+      \begin{itemize}
+          \item \textbf{Anomaly:} used in Section \ref{autonomous_navigation} in surprise reduction by active inference formulation
+          \item \textbf{Novelty:} used to update the generative model (generative model is a model that can generate sensory observations from hidden states of the world). This causes state space expansion by adding new clusters to different levels of the neural circuit model introduced in Section \ref{neural_cognitive_architecture}
+      \end{itemize}
+      
+      
+      
+      
+      
    
-
-   \section{Neurons which are specifically activated}
-      \begin{itemize}
-         \item State neurons (results of clustering in training)
-         \item Transformer (Grandmother neuron for timewise prediction). There is a trained transformer for each state level
-         \item Kalmman filter (Grandmother neuron, diverging neural circuit to propgate among the time axis in all abstraction levels. Kalman filter works with intensity change neuron)
-         \item Particle filter (Grandmother neuron, converging neural circuit upward in the abstraction hierarchy axis, particle filter works with change internsity sensory neuron)
-         \item Language
-      \end{itemize}
-
-   \section {Observation and evidence flow}
-      \begin{itemize}
-         \item Sensor modality intensity values
-         \item Sensor modality intensity change value
-         \item Kalman filter at lowest level
-         \item Particle filter at each level
-      \end{itemize}
-
-   \section{Evidence data flow}
-      \subsection{At time axis:}
-
-         \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.9\textwidth]{data_flow_time_axis.png}
-         \end{figure}
-
-      \subsection{At concept level}
-         \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.9\textwidth]{data_flow_semantic_axis.png}
-         \end{figure}
-   \section{Discrepency detection}
-      In all phases a statistical distrinbution is being assigned to the state space. In this research directed gaussian Wassersetin distance \cite{dowson-1982-the-frechet-distance-between-multivariate-normal-distributions} or \seeherefooter{/nd_math_learning_project/src/probability/distribution/discrepency/kind/distance/kind/wasserstein/gaussian/gaussian.tex} to measure the sttaistical distance between estimated current state and predicted state.
+      In all phases a statistical distribution is being assigned to the state space. In this research directed gaussian Wasserstein distance \cite{dowson-1982-the-frechet-distance-between-multivariate-normal-distributions} or \seeherefooter{/nd_math_learning_project/src/probability/distribution/discrepency/kind/distance/kind/wasserstein/gaussian/gaussian.tex} to measure the statistical distance between estimated current state and predicted state.
 
 
 
@@ -134,20 +122,22 @@
 
 
       \subsection{Interpretation}
-         If we consider the two gaussian ditributions as two mass piles, how much effort does it take to move one pile to the other.
+         If we consider the two Gaussian distributions as two mass piles, how much effort does it take to move one pile to the other.
 
-
-   \section{Threshold calculation} \label{anomaly_calculation}
-      \begin{enumerate}
-         \item Breaking an event-specific-knowledge sensory data into periods
-         \item Split the periods into train-test
-         \item take $\mu + n \times \sigma$ anomaly values as the threshold
-      \end{enumerate}
+   
 
    \section{Anomaly detection}
       Whatever rises more than the computed threshold in section \ref{anomaly_calculation}
 
+
    \section{Novelty detection}
+      The kind of novelty this research addresses is the one described in \cite{smith-2020-an-active-inference-approach-to-modeling-structure-learning} as ``structure learning through state-space expansion``. This means that a new state neuron at any level necessary should be added in case of novelty detection to improve model's predictions. 
+      
+      Biologically new neurons for learning new phenomena are not added, instead a new circuit is formed in brain. But this circuit formation is beyond the scope of this research. 
+   
+      \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/perception/novelty_detection/novelty_detection.tex}
+      A persistent prediction error that exhibits reproducible temporal structure, while remaining compatible with the organism's viability constraints, provides evidence that the current generative model is incomplete rather than that the observations are merely noise. Such persistent structured errors can therefore drive structure learning or state-space expansion.
+
       \begin{algorithm}[H]
          \caption{Novelty Detection from Sensor Sequences}
          \begin{algorithmic}[1]
@@ -164,7 +154,48 @@
 
 
 
-      \bibliographystyle{plainnat}
-      \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+      \subsection{Generative model updating}
+         When novelty across a continuous set of temporal data is detected using the
+
+
+         \bibliographystyle{plainnat}
+         \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+
+   \section{Neurons which are specifically activated}
+      \begin{itemize}
+         \item State neurons (results of clustering in training)
+         \item Transformer (Grandmother neuron for timewise prediction). There is a trained transformer for each state level
+         \item Kalman filter (Grandmother neuron, diverging neural circuit to propagate among the time axis in all abstraction levels. Kalman filter works with intensity change neuron)
+         \item Particle filter (Grandmother neuron, converging neural circuit upward in the abstraction hierarchy axis, particle filter works with change intensity sensory neuron)
+         \item Language
+      \end{itemize}
+
+   \section {Observation and evidence flow}
+      \begin{itemize}
+         \item Sensor modality intensity values
+         \item Sensor modality intensity change value
+         \item Kalman filter at lowest level
+         \item Particle filter at each level
+      \end{itemize}
+
+   \section{Evidence data flow}
+      \subsection{At time axis:}
+
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{data_flow_time_axis.png}
+         \end{figure}
+
+      \subsection{At concept level}
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{data_flow_semantic_axis.png}
+         \end{figure}
+   \section{Threshold calculation} \label{anomaly_calculation}
+      \begin{enumerate}
+         \item Breaking an event-specific-knowledge sensory data into periods
+         \item Split the periods into train-test
+         \item take $\mu + n \times \sigma$ anomaly values as the threshold
+      \end{enumerate}
 
 \end{document}

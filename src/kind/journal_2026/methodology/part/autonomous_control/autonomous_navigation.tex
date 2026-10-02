@@ -31,20 +31,23 @@
 % for nested lists and sections
 \input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
 
-\title{Autonomous control}
+\title{Autonomous navigation}
 \date{}
 \author{Mohammad Rahmani}
 
 \begin{document}
    \maketitle
+   \label{autonomous_navigation}
+   Autonomous navigation is based on minimising the the anomaly signal. 
+   
    \section{Data flow}
       \begin{figure}[H]
          \centering
          \includegraphics[width=0.9\textwidth]{dat_flow_schema.jpg}
       \end{figure}
-   At any abstraction sequence  during the training the system has learned what actions for what exteroceptive situations it has. And these learned actions with a controller can be used to reduce the Wasserstein distance between the desired state the current state. it can choose between the right second derivative to give to autopilot for execution at any level of the hierarchy from the top (most abstract) when teh distance is large to butom when the small.
+   At any abstraction sequence  during the training the system has learned what actions for what exteroceptive situations it has. And these learned actions with a controller can be used to reduce the Wasserstein distance between the desired state the current state. it can choose between the right second derivative to give to autopilot for execution at any level of the hierarchy from the top (most abstract) when the distance is large to bottom when the small.
 
-   For example in the scenarios presnted in this research, at a mid abtraction level the system has learned go north, west, east and south. This is the leaned language for one robot.
+   For example in the scenarios presented in this research, at a mid abstraction level the system has learned go north, west, east and south. This is the leaned language for one robot.
 
    \begin{figure}[H]
       \centering
@@ -56,10 +59,10 @@
       \includegraphics[width=0.9\textwidth]{feedback.png}
    \end{figure}
    \section{Control}
-      Model-predictiv control which is used in this research is responsible for minimizing the cost function which is described in the next subsection.
+      Model-predictive control which is used in this research is responsible for minimizing the cost function which is described in the next subsection.
       \subsection{Cost function}
 
-         for specfications \seeherefooter{/nd_robotic_ai_learning_project/blob/main/src/control_theory/kind/model_predictive_control/model_predictive_control.tex}
+         for specifications \seeherefooter{/nd_robotic_ai_learning_project/blob/main/src/control_theory/kind/model_predictive_control/model_predictive_control.tex}
 
          \begin{figure}[H]
             \centering
@@ -106,10 +109,10 @@
             \includegraphics[width=0.9\textwidth]{language_perception_action.png}
          \end{figure}
 
-   \section{Minimizing free energy through suprise reduction in active inference}
+   \section{Minimizing free energy through surprise reduction in active inference}
       Gaussian Wasserstein distance was integrated into the active inference framework as the discrepancy measure between predicted and preferred Gaussian state distributions. The resulting directed Wasserstein discrepancy was used to quantify both the magnitude and direction of prediction error, allowing action selection to reduce this discrepancy during the perception--action cycle.
 
-      At each abstract level the system tries to minimize free energy through suprise reduction \cite{friston-2010-the-free-energy-principle-a-unified-brain-theory}. \cite{weissglass-2019-greatest-surprise-reduction-semantics-an-information-theoretic-solution-to-misrepresentation-and-disjunction} is suggesting simmilar approach.
+      At each abstract level the system tries to minimize free energy through surprise reduction \cite{friston-2010-the-free-energy-principle-a-unified-brain-theory}. \cite{weissglass-2019-greatest-surprise-reduction-semantics-an-information-theoretic-solution-to-misrepresentation-and-disjunction} is suggesting similar approach.
 
       This minimization is applied at each abstract level.
 
