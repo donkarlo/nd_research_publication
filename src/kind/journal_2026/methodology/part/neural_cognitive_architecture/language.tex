@@ -33,9 +33,9 @@
 
    \maketitle
 
-   \label{language}   
-   The role of language here is to provide replaceable components that when they are replaced, then we can assess they meaningfulness as measurement for anomaly detection. In other words they tighten the discrepancy detection conditions.  
-   
+   \label{language}
+   The role of language here is to provide replaceable components that when they are replaced, then we can assess they meaningfulness as measurement for anomaly detection. In other words they tighten the discrepancy detection conditions.
+
    You may consider each utterance of a language as a variable length sequence (and not a time series, because language components bear no time indexes unless they are mentioned independently as members of the sequence) of replaceable components which by themselves are formed of other replaceable components. The function of a linguistic system is to assign a probability to each utterance sequence based on the context in which it occurs.
 
    The system this research offers is formed of
@@ -43,7 +43,7 @@
       \centering
       \includegraphics[width=0.9\textwidth]{language_architecture.png}
    \end{figure}
-                                                                                                                                                                                   
+
    Language make it more difficult for the system to recognize a course of events abnormal as it provides us with a tool that it replaces and tries different components of it lower level to find out to what extend it can assign a confidence interval for that the given sequence.
 
    Language come from verb/noun couples and we consider consonant/vowel also as a noun/verb architecture. Even though the human brain finally combines all together in form of the same meaning.
@@ -61,30 +61,63 @@
 
    If the agent can say "I am aware" such that I is the opposite of "other" and awareness is the opposite unawareness. Then we can say this agent is aware of it's awareness or in other words, it is a self aware agent.
 
-   SO the main objective of this paper is to make the agent to make a distinction between him and others and between novel and unfamiliar.
+   So the main objective of this research is to make the agent to make a distinction between him and others(the self part of self-awareness) and between novel and familiarity(awarness part of the self awareness).
 
    In other words The proposed system models a novelty-based component of awareness, particularly the conscious detection of violations of learned global regularities.
 
+
+   The proposed architecture therefore separates the self-awareness problem into two explicit distinctions:
+   \[
+   C_{\mathrm{self}} \neq C_{\mathrm{other}}
+   \]
+   and
+   \[
+   C_{\mathrm{aware}} \neq C_{\mathrm{unaware}}.
+   \]
+
+   The proposition ``I am aware'' can then be interpreted as the combination of a self-representation and a representation of the agent's own awareness state:
+   \[
+   \text{``I am aware''}
+   =
+   \text{self-representation}
+   +
+   \text{representation of awareness}.
+   \]
+
+   From a structural perspective, the process can be summarized as
+   \[
+   \text{sensory data}
+   \rightarrow
+   \text{distinctions}
+   \rightarrow
+   \text{categories}
+   \rightarrow
+   \text{signs}
+   \rightarrow
+   \text{language}.
+   \]
+
+
    \begin{itemize}
       \item each language component such as words etc are grandmother neurons themselves
-      \item Each component is the result of DBSN clustering
+      \item Each component is the result of DBSN clustering at phoneme level and motif discovery from word level
    \end{itemize}
-   
-   \section{Jargon}
-   Example of words In experiments section
-   \begin{itemize}
-       \item turn from west to east
-       \item turn from east to north
-       \item turn from north to west
-       \item turn from west to south
-       \item go straight south
-       \item go straight north
-       \item go straight west
-       \item go straight east
-   \end{itemize}
-  
 
-   \bibliographystyle{plainnat}
-   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+   \section{Jargon}
+      Example of words In experiments section
+      \begin{itemize}
+         \item turn from west to east
+         \item turn from east to north
+         \item turn from north to west
+         \item turn from west to south
+         \item go straight south
+         \item go straight north
+         \item go straight west
+         \item go straight east
+      \end{itemize}
+
+
+         \bibliographystyle{plainnat}
+         \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 
 \end{document}

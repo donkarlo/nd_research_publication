@@ -9,8 +9,8 @@
   "background_is_authoritative": true,
   "web_strokes": [],
   "pencil": {
-    "color": "#834CFD",
-    "width": 10.5
+    "width": 10.5,
+    "color": "#FDCA3B"
   },
   "image_objects": []
 }
