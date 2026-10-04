@@ -43,7 +43,7 @@
                The two drones keep the same distance (Goal, keeping the same distance as much as possible while meeting every point on both  walls) while turning around the square corridor.
                \begin{figure}[H]
                   \centering
-                  \includegraphics[width=0.5\textwidth]{normal.png}
+                  \includegraphics[width=0.9\textwidth]{normal.png}
                \end{figure}
 
    \section{GPS}
@@ -54,15 +54,55 @@
             Here is an example of FMM waves reconstructed bay VAE from UAV1
          \end{figure}
       \subsection{Clustering}
-      Here is the 0th and the second derivative of GPS (the first is wrong and must be modified)
+         Here is the 0th and the second derivative of GPS (the first is wrong and must be modified)
          \begin{figure}[H]
-             \centering
-             \includegraphics[width=0.9\textwidth]{gps_phonem_clustering.png}
+            \centering
+            \includegraphics[width=0.9\textwidth]{gps_phonem_clustering.png}
          \end{figure}
    \section{LiDAR}
+      Even though the simulated RPLIDAR A2 2D LiDAR that is used could scan 15m ahead, in this research in order to avoid distortion that one quad-copter scan the other, the scanned ranges beyond 5m are shortened to 5m. Additionally the the DBSCAN is performed on the points insted of the original distances that the LiDAR produces.
+      For the \(i\)-th LiDAR measurement, let \(r_i\) denote the measured range
+      and \(\theta_i\) the corresponding beam angle. The endpoint of the beam
+      in the LiDAR coordinate frame is
 
-      \subsection{VAE trace encoding}
+      \[
+      \mathbf{p}_i
+      =
+      \begin{bmatrix}
+         x_i\\
+         y_i
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+         r_i\cos(\theta_i)\\
+         r_i\sin(\theta_i)
+      \end{bmatrix}.
+      \]
+
+      Hence, a LiDAR scan consisting of \(N\) range--angle measurements is
+      converted to the point set
+
+      \[
+      \mathcal{P}
+      =
+      \left\{
+      \mathbf{p}_i
+      =
+      \begin{bmatrix}
+         r_i\cos(\theta_i)\\
+         r_i\sin(\theta_i)
+      \end{bmatrix}
+      \;\middle|\;
+      i=1,\ldots,N
+      \right\}.
+      \]
+
       \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{lidar_scan_range.png}
+      \end{figure}
+      \subsection{VAE trace encoding}
+         \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{lidar_encoding.png}
             Here is an example of FMM waves reconstructed bay VAE from UAV1
@@ -77,18 +117,18 @@
             \centering
             \includegraphics[width=0.9\textwidth]{clustering_lidar_zero_derivative_with_centroid.png}
          \end{figure}
-         \subsection{Clustering}
+      \subsection{Clustering}
          Both are for fused LiDAR and GPS
-         \paragraph{Word level}
+            \paragraph{Word level}
                \begin{figure}[H]
                   \centering
                   \includegraphics[width=0.9\textwidth]{word_level.png}
-               \end{figure}         
-         \paragraph{Sentence level}
+               \end{figure}
+            \paragraph{Sentence level}
                \begin{figure}[H]
                   \centering
                   \includegraphics[width=0.9\textwidth]{sentence_level.png}
                \end{figure}
-         \bibliographystyle{plainnat}
-         \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+               \bibliographystyle{plainnat}
+               \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}

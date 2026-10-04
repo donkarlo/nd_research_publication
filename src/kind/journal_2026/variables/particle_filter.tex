@@ -1,44 +1,32 @@
 \documentclass[a4paper]{article}
-
-\usepackage{graphicx}
-\usepackage{amsmath,amssymb}
-\usepackage{minted}
-\usepackage{multirow}
-\usepackage{float}
-\usepackage{algorithm}
-\usepackage{algpseudocode}
-\usepackage{todonotes}
-\usepackage{forest}
-\usepackage{xstring}
-\usepackage{xcolor}
-\usepackage[most]{tcolorbox}
-\usepackage{xparse}
-\usepackage{natbib}
-\usepackage{adjustbox}
-
-\usetikzlibrary{graphs,graphdrawing}
-\usegdlibrary{layered}
-
-% for external graphviz
-\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
-
-% for tags
-\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
-
-% for links
-\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
-
-% for nested lists and sections
-\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
-
+\usepackage{amsmath,amssymb,float}
 \title{Particle filter}
 \date{}
 \author{Mohammad Rahmani}
-
 \begin{document}
-   \maketitle
-
-
-   \bibliographystyle{plainnat}
-   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\maketitle
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{p{0.28\textwidth} p{0.22\textwidth} p{0.42\textwidth}}
+\hline
+\textbf{Concept} & \textbf{Variable name} & \textbf{Description} \\
+\hline
+Previous state estimate & $\hat{\mathbf{x}}_{t-1}$ & Final estimate from the preceding time step and recurrent input to the PF. \\
+Representation level & $\ell$ & Level of the hierarchical representation traversed by the PF. \\
+Class at level $\ell$ & $C_k^{(\ell)}$ & The $k$th learned class at representation level $\ell$. \\
+Class probability & $\pi_{t,k}^{(\ell)}$ & PF probability assigned to class $C_k^{(\ell)}$ at time $t$. \\
+Vowel class & $C_k^{(v)}$ & Learned class of first derivatives of AP-FMM parameters, interpreted as velocity. \\
+Velocity observation & $\mathbf{v}_{k,j}$ & The $j$th learned velocity observation belonging to vowel class $k$. \\
+Vowel empirical distribution & $\mu_k^{(v)}$ & Empirical probability distribution of all velocity observations in vowel class $k$. \\
+PF velocity prediction & $p_{\mathrm{PF}}(\mathbf{v}_t)$ & Class-probability-weighted mixture of vowel empirical distributions. \\
+Motion model & $g(\cdot)$ & Propagates the previous estimate using a sampled/class-conditioned velocity. \\
+PF predicted state & $\mathbf{x}_t^{(k,j)}$ & State obtained by propagating $\hat{\mathbf{x}}_{t-1}$ with velocity observation $\mathbf{v}_{k,j}$. \\
+PF predictive mean & $\boldsymbol{\mu}_t^{\mathrm{PF}}$ & Weighted mean of the PF predicted-state particles. \\
+PF predictive covariance & $\mathbf{P}_t^{\mathrm{PF}}$ & Weighted covariance of the PF predicted-state particles. \\
+\hline
+\end{tabular}
+\caption{Variables used in the particle-filter component of prediction.}
+\label{tab:particle-filter-variables}
+\end{table}
 \end{document}

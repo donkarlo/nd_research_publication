@@ -1,44 +1,31 @@
 \documentclass[a4paper]{article}
-
-\usepackage{graphicx}
-\usepackage{amsmath,amssymb}
-\usepackage{minted}
-\usepackage{multirow}
-\usepackage{float}
-\usepackage{algorithm}
-\usepackage{algpseudocode}
-\usepackage{todonotes}
-\usepackage{forest}
-\usepackage{xstring}
-\usepackage{xcolor}
-\usepackage[most]{tcolorbox}
-\usepackage{xparse}
-\usepackage{natbib}
-\usepackage{adjustbox}
-
-\usetikzlibrary{graphs,graphdrawing}
-\usegdlibrary{layered}
-
-% for external graphviz
-\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
-
-% for tags
-\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
-
-% for links
-\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
-
-% for nested lists and sections
-\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
-
+\usepackage{amsmath,amssymb,float}
 \title{Kalman filter}
 \date{}
 \author{Mohammad Rahmani}
-
 \begin{document}
-   \maketitle
-
-
-   \bibliographystyle{plainnat}
-   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\maketitle
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{p{0.28\textwidth} p{0.22\textwidth} p{0.42\textwidth}}
+\hline
+\textbf{Concept} & \textbf{Variable name} & \textbf{Description} \\
+\hline
+Prior state estimate & $\hat{\mathbf{x}}_t^{-}$ & Mean of the Gaussian prediction supplied to the KF after PF--GTF fusion. \\
+Prior covariance & $\mathbf{P}_t^{-}$ & Covariance of the moment-matched PF--GTF predictive distribution. \\
+Observation & $\mathbf{y}_t$ & Current observation at time $t$, represented in AP-FMM parameter space. \\
+Observation matrix & $\mathbf{H}_t$ & Maps the latent state into the AP-FMM observation space. \\
+Observation noise & $\boldsymbol{\nu}_t$ & Gaussian observation noise. \\
+Observation-noise covariance & $\mathbf{R}_t$ & Covariance of the AP-FMM observation noise. \\
+Innovation covariance & $\mathbf{S}_t$ & Covariance of the difference between the observation and predicted observation. \\
+Kalman gain & $\mathbf{K}_t$ & Weight determining the correction of the prediction by the current observation. \\
+Posterior state estimate & $\hat{\mathbf{x}}_t$ & Final state estimate at time $t$ after the KF correction. \\
+Posterior covariance & $\mathbf{P}_t$ & Uncertainty of the final state estimate after the KF correction. \\
+Identity matrix & $\mathbf{I}$ & Identity matrix used in the posterior covariance update. \\
+\hline
+\end{tabular}
+\caption{Variables used in the Kalman-filter state-estimation component.}
+\label{tab:kalman-filter-variables}
+\end{table}
 \end{document}

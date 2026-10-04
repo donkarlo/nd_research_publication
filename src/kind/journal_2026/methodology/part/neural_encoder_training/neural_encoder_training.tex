@@ -125,7 +125,7 @@
 
          where $\mathbf{z}_{k,j}$ denotes the $j$th observation belonging to class $C_k$.
 
-         The empirical probability distribution representing class $C_k$ is
+         The empirical probability distribution \cite{wasserman-2006-all-of-nonparametric-statistics} \seeherefooter{/nd_math_learning_project/src/probability/distribution/non_parametric/empirical_probability_distribution.tex} representing class $C_k$ is
 
          \[
          \mu_k
@@ -137,6 +137,8 @@
 
          where $\delta_{\mathbf{z}_{k,j}}$ denotes the Dirac measure concentrated at
          $\mathbf{z}_{k,j}$. Similarly, the point observation $\mathbf{x}$ is represented by the Dirac measure $\delta_{\mathbf{x}}$.
+         
+         \paragraph{Reason to use empirical distribution} The empirical distribution is used because it represents the complete set of observations in a class without assuming a specific parametric form for the cluster.
 
          The point-to-class $p$-Wasserstein distance is denoted by
          $d_k(\mathbf{x})$ and is defined as
@@ -183,7 +185,9 @@
          }.
          \]
 
-         Therefore, $d_k(\mathbf{x})$ represents the Wasserstein distance between the current point observation $\mathbf{x}$ and the empirical distribution of class $C_k$. In this particular point-to-empirical-distribution case, it is equal to the root mean squared Euclidean distance from $\mathbf{x}$ to all observations belonging to $C_k$.
+         Therefore, $d_k(\mathbf{x})$ represents the Wasserstein distance between the current point observation $\mathbf{x}$ and the empirical distribution  of class $C_k$. 
+         
+         In this particular point-to-empirical-distribution case, it is equal to the root mean squared Euclidean distance from $\mathbf{x}$ to all observations belonging to $C_k$.
       
 \section{Computing firing threshold for each neuron}
       \todo{This part should be finished}
@@ -498,7 +502,7 @@
          Clusters data based on similarity of sensory data
          Based on DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
 
-   \section{Period detection with GRU based latent auto-correlation fast fourier transform\protect\footnotemark}\footnotetext{This part is only for test-train splitting for some experiments for finding the effect of increasing and decreasing number of periods in framework's performance}
+   \section{Period detection with GRU based latent auto-correlation fast Fourier transform\protect\footnotemark}\footnotetext{This part is only for test-train splitting for some experiments for finding the effect of increasing and decreasing number of periods in framework's performance}
       \seeherefooter{/nd_datascience_learning_project/src/signal_processing/auto_correlation/fast_fourier_transform.tex}
 
       for implementation \seeherefooter{/repo/nd_datascience_project/src/nd_datascience/machine_learning/model/application/auto_correlation/sequence/period/neural/}

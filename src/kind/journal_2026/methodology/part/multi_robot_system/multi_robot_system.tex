@@ -57,11 +57,18 @@
 
       \subsection{This research approach}
          This research  uses a probabilistic approach to make a distinction between self and other by recognizing the words written form other robot on shared blackboard with high anomalies.
+         
+         Each robot sees the last uttered phonemes of the other robots on the shared blackboard and calculates the anomaly value by replacing those phonemes with it's own so that it calculates anomaly  with these replaced phonemes similar to the way discovered in Section \ref{anomaly_and_novelty_detection}
+         
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{self_other_detection.png}
+         \end{figure}         
 
    \section{What should be shared between robots}
 
       \begin{itemize}
-         \item The last uttered phonemes from each robot preferably the same size as 
+         \item The last uttered phonemes from each robot preferably the same size as
       \end{itemize}
 
    \section{Exemplary learned language}

@@ -31,13 +31,204 @@
 % for nested lists and sections
 \input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
 
-\title{Wasserstein}
+\title{Directed Gaussian Wasserstein distance}
 \date{}
 \author{Mohammad Rahmani}
 
 \begin{document}
    \maketitle
 
+   The variables in this document correspond to the directed Gaussian Wasserstein formulation used in autonomous navigation. The Gaussian Wasserstein distance is based on the closed-form distance between multivariate normal distributions \cite{dowson-1982-the-frechet-distance-between-multivariate-normal-distributions}. Direction is added in this research from the displacement between the two Gaussian means.
+
+   \section{Research formulation variables}
+
+   \begin{table}[H]
+      \centering
+      \small
+      \setlength{\tabcolsep}{4pt}
+      \begin{adjustbox}{max width=\textwidth}
+      \begin{tabular}{p{0.28\textwidth} p{0.20\textwidth} p{0.48\textwidth}}
+         \hline
+         \textbf{Concept} & \textbf{Variable name} & \textbf{Description} \\
+         \hline
+
+         Discrete time-step index
+         & $k$
+         & Index of the current perception--action or control step. \\
+
+         Current state
+         & $x_k$
+         & Estimated current state at time step $k$. \\
+
+         Preferred state
+         & $x_k^{\mathrm{ref}}$
+         & Preferred or reference state at time step $k$. \\
+
+         Current state distribution
+         & $p(x_k)$
+         & Probability distribution representing the estimated current state. \\
+
+         Preferred state distribution
+         & $p(x_k^{\mathrm{ref}})$
+         & Probability distribution representing the preferred or reference state. \\
+
+         Current Gaussian mean
+         & $\mu_k$
+         & Mean vector of the current Gaussian state distribution. \\
+
+         Preferred Gaussian mean
+         & $\mu_k^{\mathrm{ref}}$
+         & Mean vector of the preferred Gaussian state distribution. \\
+
+         Current covariance
+         & $\Sigma_k$
+         & Covariance matrix of the current Gaussian state distribution. \\
+
+         Preferred covariance
+         & $\Sigma_k^{\mathrm{ref}}$
+         & Covariance matrix of the preferred Gaussian state distribution. \\
+
+         Gaussian Wasserstein distance
+         & $W_2$
+         & Second-order Wasserstein distance between the current and preferred Gaussian state distributions. It gives the magnitude of the distributional discrepancy. \\
+
+         Squared Gaussian Wasserstein distance
+         & $W_2^2$
+         & Squared Wasserstein distance, equal to the sum of the squared mean-displacement term and the covariance-discrepancy term. \\
+
+         Mean-displacement vector
+         & $\mu_k^{\mathrm{ref}}-\mu_k$
+         & Vector pointing from the current Gaussian mean toward the preferred Gaussian mean. \\
+
+         Mean-displacement norm
+         & $\left\|\mu_k^{\mathrm{ref}}-\mu_k\right\|_2$
+         & Euclidean magnitude of the displacement between the current and preferred means. \\
+
+         Unit direction toward preferred state
+         & $\dfrac{\mu_k^{\mathrm{ref}}-\mu_k}{\left\|\mu_k^{\mathrm{ref}}-\mu_k\right\|_2}$
+         & Unit vector that gives the direction from the current mean toward the preferred mean. \\
+
+         Directed Wasserstein discrepancy
+         & $\mathbf{w}_k$
+         & Wasserstein distance multiplied by the unit mean-displacement direction. Its magnitude is $W_2$ and its direction points toward the preferred state. \\
+
+         Position-level directed Wasserstein discrepancy
+         & $\mathbf{w}_{p,k}$
+         & Directed Wasserstein discrepancy expressed in physical position coordinates and passed to the outer proportional position-control loop. \\
+
+         \hline
+      \end{tabular}
+      \end{adjustbox}
+
+      \caption{Variables used in the directed Gaussian Wasserstein formulation.}
+      \label{tab:directed-gaussian-wasserstein-variables}
+   \end{table}
+
+   \section{Implementation correspondence}
+
+   \begin{table}[H]
+      \centering
+      \small
+      \setlength{\tabcolsep}{4pt}
+      \begin{adjustbox}{max width=\textwidth}
+      \begin{tabular}{p{0.27\textwidth} p{0.22\textwidth} p{0.49\textwidth}}
+         \hline
+         \textbf{Implementation concept} & \textbf{Code variable} & \textbf{Mathematical meaning} \\
+         \hline
+
+         First Gaussian mean
+         & \texttt{first\_mean}
+         & Mean vector of the first Gaussian supplied to the implementation. In \texttt{calculate\_distance\_vector}, it should be the preferred mean when the desired vector direction is current $\rightarrow$ preferred. \\
+
+         Second Gaussian mean
+         & \texttt{second\_mean}
+         & Mean vector of the second Gaussian. It should be the current mean when the desired vector direction is current $\rightarrow$ preferred. \\
+
+         First Gaussian covariance
+         & \texttt{first\_covariance}
+         & Covariance matrix associated with \texttt{first\_mean}. \\
+
+         Second Gaussian covariance
+         & \texttt{second\_covariance}
+         & Covariance matrix associated with \texttt{second\_mean}. \\
+
+         Squared mean discrepancy
+         & \texttt{mean\_distance\_squared}
+         & Squared Euclidean distance between the two Gaussian means. \\
+
+         Squared covariance discrepancy
+         & \texttt{covariance\_distance\_squared}
+         & Covariance contribution to the squared Gaussian Wasserstein distance. \\
+
+         Squared total distance
+         & \texttt{distance\_squared}
+         & Sum of the mean and covariance contributions before taking the square root. \\
+
+         Wasserstein distance
+         & \texttt{distance}
+         & Scalar $W_2$ returned by \texttt{calculate\_distance}. \\
+
+         Direction vector
+         & \texttt{direction}
+         & Difference \texttt{first\_mean - second\_mean}. With preferred mean first and current mean second, this points from current toward preferred. \\
+
+         Direction magnitude
+         & \texttt{direction\_norm}
+         & Euclidean norm of \texttt{direction}. \\
+
+         Unit direction
+         & \texttt{unit\_direction}
+         & Normalized mean-displacement vector, \texttt{direction / direction\_norm}. \\
+
+         Directed distance vector
+         & \texttt{distance\_vector}
+         & Product of scalar Wasserstein distance and unit direction; corresponds to $\mathbf{w}_k$. \\
+
+         Numerical tolerance
+         & \texttt{numerical\_tolerance}
+         & Small positive threshold used to suppress floating-point errors and to detect an undefined mean-based direction when the means are effectively identical. \\
+
+         Eigenvalues
+         & \texttt{eigenvalues}
+         & Eigenvalues used to compute the symmetric square root of a covariance-related matrix. \\
+
+         Eigenvectors
+         & \texttt{eigenvectors}
+         & Eigenvectors used to reconstruct the symmetric matrix square root. \\
+
+         Clipped eigenvalues
+         & \texttt{clipped\_eigenvalues}
+         & Eigenvalues clipped at zero to avoid small negative values caused by numerical error before taking square roots. \\
+
+         Symmetric matrix square root
+         & \texttt{square\_root\_matrix}
+         & Symmetric matrix square root reconstructed from the eigenvectors and square roots of the non-negative eigenvalues. \\
+
+         \hline
+      \end{tabular}
+      \end{adjustbox}
+
+      \caption{Correspondence between the Gaussian Wasserstein implementation and the research notation.}
+      \label{tab:directed-gaussian-wasserstein-implementation-variables}
+   \end{table}
+
+   \paragraph{Direction convention}
+   The implementation defines
+   \[
+      \texttt{direction}
+      =
+      \texttt{first\_mean}
+      -
+      \texttt{second\_mean}.
+   \]
+   Therefore, to obtain the convention used in autonomous navigation,
+   \[
+      \mu_k^{\mathrm{ref}}-\mu_k,
+   \]
+   \texttt{first\_mean} corresponds to $\mu_k^{\mathrm{ref}}$ and \texttt{second\_mean} corresponds to $\mu_k$. The Wasserstein distance itself is symmetric with respect to the two distributions, but this added mean-based direction is order-dependent.
+
+   \paragraph{Undefined direction}
+   If the two means are equal within the numerical tolerance while the covariance matrices are different, $W_2$ can be non-zero although the mean-based direction is undefined. The implementation therefore raises an error in this case instead of assigning an arbitrary direction. If both the mean-based direction and Wasserstein distance are effectively zero, the implementation returns the zero vector.
 
    \bibliographystyle{plainnat}
    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
