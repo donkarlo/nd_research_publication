@@ -32,49 +32,63 @@
 
    \maketitle
    \label{anomaly_and_novelty_detection}
-   Novelty is the continuous persistence of neural responses of populations of neurons
 
-   The main question that the agent tries to answer here is can I rebuild what has happened to me with the language components that I have or is the time to introduce a new component(Phoneme, word, ...)
 
-   The goal of this section is to detect novelty from noisy data and build new language parts from it. the inputs to the language model built in online learning are
+
+
+
+
+   \section{}
+      The main question that the agent tries to answer here is whether it can reconstruct what has happened to it using its existing language components or whether it is time to introduce a new component (phoneme, word, etc.).
+
+      The goal of this section is to detect novelty in noisy data and build new language components from it. The inputs to the language model used during online learning are described in the following sections.
 
 
 
 
    \section{Discrepancy detection}
-      \paragraph{Discussed forms of discrepancies in this research}
-      \begin{itemize}
-          \item \textbf{Anomaly:} an observation that violates an expected pattern or regularity.
-          \item \textbf{Novelty:} something not sufficiently represented by the organism's existing model/memory.
-      \end{itemize}
+            \paragraph{Discussed forms of discrepancies in this research}
+   \section{Anomaly:} An anomaly is an observation that violates an expected pattern or regularity. Anomaly is the difference between the agent's prediction of an evidence value that it expects to observe and the best estimate it can infer from the current evidence observation. Evidence is either provided by a sensory observation or inferred from neuronal activity.
+
+            \paragraph{Application in this research:} It is used in Section \ref{autonomous_navigation} for surprise reduction through an active-inference formulation.
+
+   \section{Novelty:}
+      \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/perception/novelty_detection/novelty_detection.tex}
+      A persistent prediction error that exhibits reproducible temporal structure, while remaining compatible with the organism's viability constraints, provides evidence that the current generative model is incomplete rather than that the observations are merely noise. Such persistent structured errors can therefore drive structure learning or state-space expansion.
       
-      \paragraph{Application}
-      \begin{itemize}
-          \item \textbf{Anomaly:} used in Section \ref{autonomous_navigation} in surprise reduction by active inference formulation
-          \item \textbf{Novelty:} used to update the generative model (generative model is a model that can generate sensory observations from hidden states of the world). This causes state space expansion by adding new clusters to different levels of the neural circuit model introduced in Section \ref{neural_cognitive_architecture}
-      \end{itemize}
+      Additionally, novelty is an episode that is not sufficiently represented by the organism's existing model or memory. Novelty is the continuous persistence of neural responses in populations of neurons.
+      
+      The type of novelty addressed in this research is described in \cite{smith-2020-an-active-inference-approach-to-modeling-structure-learning} as ``structure learning through state-space expansion``. This means that, when novelty is detected, a new state neuron should be added at the necessary level to improve the model's predictions.
+
+      Biologically, new neurons are not added to learn new phenomena; instead, a new circuit is formed in the brain. However, this circuit formation is beyond the scope of this research.
+
       
       
+
+            \paragraph{Application in this research:} It is used to update the generative model (a model that can generate sensory observations from hidden states of the world). This causes state-space expansion by adding new clusters at different levels of the neural-circuit model introduced in Section \ref{neural_cognitive_architecture}.
       
-      
-      
-   
-      In all phases a statistical distribution is being assigned to the state space. In this research directed gaussian Wasserstein distance \cite{dowson-1982-the-frechet-distance-between-multivariate-normal-distributions} or \seeherefooter{/nd_math_learning_project/src/probability/distribution/discrepency/kind/distance/kind/wasserstein/gaussian/gaussian.tex} to measure the statistical distance between estimated current state and predicted state.
-
-
-
-      The term \emph{directed} refers to assigning a direction to the scalar Wasserstein distance using the displacement between the two distribution means.
-      Given the mean difference $\mathbf{d}=\boldsymbol{\mu}_1-\boldsymbol{\mu}_2$, its normalized direction is $\hat{\mathbf{d}}=\mathbf{d}/|\mathbf{d}|_2$.
-      The directed Wasserstein vector is therefore defined as $\mathbf{v}_W=W_2(P,Q)\hat{\mathbf{d}}$, whose magnitude equals the Wasserstein distance while its direction follows the mean displacement.
 
 
 
 
-      \subsection{Reason to use wasserstein distance}
+
+
+               In all phases, a statistical distribution is assigned to the state space. In this research, the directed Gaussian Wasserstein distance \cite{dowson-1982-the-frechet-distance-between-multivariate-normal-distributions} or \seeherefooter{/nd_math_learning_project/src/probability/distribution/discrepency/kind/distance/kind/wasserstein/gaussian/gaussian.tex} is used to measure the statistical distance between the estimated current state and the predicted state.
+
+
+
+               The term \emph{directed} refers to assigning a direction to the scalar Wasserstein distance using the displacement between the two distribution means.
+               Given the mean difference $\mathbf{d}=\boldsymbol{\mu}_1-\boldsymbol{\mu}_2$, its normalized direction is $\hat{\mathbf{d}}=\mathbf{d}/|\mathbf{d}|_2$.
+               The directed Wasserstein vector is therefore defined as $\mathbf{v}_W=W_2(P,Q)\hat{\mathbf{d}}$, whose magnitude equals the Wasserstein distance while its direction follows the mean displacement.
+
+
+
+
+      \subsection{Reason to use Wasserstein distance}
          \begin{itemize}
-            \item When the two distributions are points (their covariance matrix is very close to 0), then Wasserstein gives a value very close to Euclidean distance
-            \item when one is a distribution and the other is a point, it still produces a value
-            \item It is a metric, so unlike Kullbackleibler, distance(A,B) = distance(B,A)
+            \item When the two distributions are points (their covariance matrices are very close to 0), the Wasserstein distance gives a value very close to the Euclidean distance.
+            \item When one is a distribution and the other is a point, it still produces a value.
+            \item It is a metric, so unlike the Kullback--Leibler divergence, distance(A,B) = distance(B,A).
          \end{itemize}
          \[
          P_1
@@ -123,21 +137,16 @@
 
 
       \subsection{Interpretation}
-         If we consider the two Gaussian distributions as two mass piles, how much effort does it take to move one pile to the other.
+         If the two Gaussian distributions are considered as two piles of mass, the distance represents how much effort it takes to move one pile to the other.
 
-   
+
 
    \section{Anomaly detection}
-      Whatever rises more than the computed threshold in section \ref{anomaly_calculation}
+      Any anomaly value that exceeds the threshold computed in Section \ref{anomaly_calculation} is classified as an anomaly.
 
 
    \section{Novelty detection}
-      The kind of novelty this research addresses is the one described in \cite{smith-2020-an-active-inference-approach-to-modeling-structure-learning} as ``structure learning through state-space expansion``. This means that a new state neuron at any level necessary should be added in case of novelty detection to improve model's predictions. 
       
-      Biologically new neurons for learning new phenomena are not added, instead a new circuit is formed in brain. But this circuit formation is beyond the scope of this research. 
-   
-      \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/perception/novelty_detection/novelty_detection.tex}
-      A persistent prediction error that exhibits reproducible temporal structure, while remaining compatible with the organism's viability constraints, provides evidence that the current generative model is incomplete rather than that the observations are merely noise. Such persistent structured errors can therefore drive structure learning or state-space expansion.
 
       \begin{algorithm}[H]
          \caption{Novelty Detection from Sensor Sequences}
@@ -156,47 +165,29 @@
 
 
       \subsection{Generative model updating}
-         When novelty across a continuous set of temporal data is detected using the
+         When novelty across a continuous set of temporal data is detected using the method described above, the generative model is updated.
 
 
-         \bibliographystyle{plainnat}
-         \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+
 
    \section{Neurons which are specifically activated}
       \begin{itemize}
          \item State neurons (results of clustering in training)
-         \item Transformer (Grandmother neuron for timewise prediction). There is a trained transformer for each state level
-         \item Kalman filter (Grandmother neuron, diverging neural circuit to propagate among the time axis in all abstraction levels. Kalman filter works with intensity change neuron)
-         \item Particle filter (Grandmother neuron, converging neural circuit upward in the abstraction hierarchy axis, particle filter works with change intensity sensory neuron)
+         \item Transformer (grandmother neuron for time-wise prediction). There is a trained Transformer for each state level.
+         \item Kalman filter (grandmother neuron, diverging neural circuit that propagates along the time axis at all abstraction levels). The Kalman filter works with the intensity-change neuron.
+         \item Particle filter (grandmother neuron, converging neural circuit that propagates upward along the abstraction-hierarchy axis). The particle filter works with the intensity-change sensory neuron.
          \item Language
       \end{itemize}
 
-   \section {Observation and evidence flow}
-      \begin{itemize}
-         \item Sensor modality intensity values
-         \item Sensor modality intensity change value
-         \item Kalman filter at lowest level
-         \item Particle filter at each level
-      \end{itemize}
-
    \section{Evidence data flow}
-      \subsection{At time axis:}
+      The complete process used in this research is described in the section illustrated in Figure \label{prediction_and_estimation_flow}.
 
-         \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.9\textwidth]{data_flow_time_axis.png}
-         \end{figure}
-
-      \subsection{At concept level}
-         \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.9\textwidth]{data_flow_semantic_axis.png}
-         \end{figure}
    \section{Threshold calculation} \label{anomaly_calculation}
       \begin{enumerate}
-         \item Breaking an event-specific-knowledge sensory data into periods
-         \item Split the periods into train-test
-         \item take $\mu + n \times \sigma$ anomaly values as the threshold
+         \item Breaking event-specific sensory data into periods.
+         \item Splitting the periods into training and test sets.
+         \item Taking $\mu + n \times \sigma$ of the anomaly values as the threshold.
       \end{enumerate}
-
+      \bibliographystyle{plainnat}
+      \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}

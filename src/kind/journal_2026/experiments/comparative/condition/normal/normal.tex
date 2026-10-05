@@ -38,9 +38,9 @@
 \begin{document}
    \maketitle
             \paragraph{Environment}
-               A square corridor like the image below
+               A square corridor, as shown in the image below.
             \paragraph{Maneuver}
-               The two drones keep the same distance (Goal, keeping the same distance as much as possible while meeting every point on both  walls) while turning around the square corridor.
+               The two drones maintain the same distance while moving around the square corridor. The goal is to keep this distance as constant as possible while passing every point along both walls.
                \begin{figure}[H]
                   \centering
                   \includegraphics[width=0.9\textwidth]{normal.png}
@@ -51,16 +51,16 @@
          \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{gps_encoding.png}
-            Here is an example of FMM waves reconstructed bay VAE from UAV1
+            The figure shows an example of FMM waves reconstructed by the VAE from UAV1.
          \end{figure}
       \subsection{Clustering}
-         Here is the 0th and the second derivative of GPS (the first is wrong and must be modified)
+         The figure shows the zeroth and second derivatives of GPS data (the first derivative is incorrect and must be modified).
          \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{gps_phonem_clustering.png}
          \end{figure}
    \section{LiDAR}
-      Even though the simulated RPLIDAR A2 2D LiDAR that is used could scan 15m ahead, in this research in order to avoid distortion that one quad-copter scan the other, the scanned ranges beyond 5m are shortened to 5m. Additionally the the DBSCAN is performed on the points insted of the original distances that the LiDAR produces.
+      Although the simulated RPLIDAR A2 2D LiDAR used in this research can scan up to 15 m ahead, ranges beyond 5 m are truncated to 5 m to avoid distortion caused when one quadcopter scans the other. Additionally, DBSCAN is applied to the points rather than to the original distances produced by the LiDAR.
       For the \(i\)-th LiDAR measurement, let \(r_i\) denote the measured range
       and \(\theta_i\) the corresponding beam angle. The endpoint of the beam
       in the LiDAR coordinate frame is
@@ -105,20 +105,20 @@
          \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{lidar_encoding.png}
-            Here is an example of FMM waves reconstructed bay VAE from UAV1
+            The figure shows an example of FMM waves reconstructed by the VAE from UAV1.
          \end{figure}
          \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{clustering_lidar_zero_derivative_with_multiple_samples.png}
          \end{figure}
 
-         Averaging members of each cluster
+         The members of each cluster are averaged.
          \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{clustering_lidar_zero_derivative_with_centroid.png}
          \end{figure}
       \subsection{Clustering}
-         Both are for fused LiDAR and GPS
+         Both results are for fused LiDAR and GPS data.
             \paragraph{Word level}
                \begin{figure}[H]
                   \centering
@@ -129,6 +129,14 @@
                   \centering
                   \includegraphics[width=0.9\textwidth]{sentence_level.png}
                \end{figure}
-               \bibliographystyle{plainnat}
-               \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+
+   \section{Self-other detection}
+      The method is described in Section \ref{self_other_detection_this_research_approach}.
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{anomaly_comparision.jpg}
+      \end{figure}
+
+      \bibliographystyle{plainnat}
+      \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}

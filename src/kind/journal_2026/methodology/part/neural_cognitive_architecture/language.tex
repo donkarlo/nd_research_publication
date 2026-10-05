@@ -34,21 +34,21 @@
    \maketitle
 
    \label{language}
-   The role of language here is to provide replaceable components that when they are replaced, then we can assess they meaningfulness as measurement for anomaly detection. In other words they tighten the discrepancy detection conditions.
+   The role of language here is to provide replaceable components whose meaningfulness can be assessed when they are substituted, thereby providing a measure for anomaly detection. In other words, they tighten the conditions for discrepancy detection.
 
-   You may consider each utterance of a language as a variable length sequence (and not a time series, because language components bear no time indexes unless they are mentioned independently as members of the sequence) of replaceable components which by themselves are formed of other replaceable components. The function of a linguistic system is to assign a probability to each utterance sequence based on the context in which it occurs.
+   Each utterance of a language can be considered a variable-length sequence (rather than a time series, because language components have no time indices unless they are independently specified as members of the sequence) of replaceable components that are themselves composed of other replaceable components. The function of a linguistic system is to assign a probability to each utterance sequence based on the context in which it occurs.
 
-   The system this research offers is formed of
+   The system proposed in this research is composed of the architecture shown below.
    \begin{figure}[H]
       \centering
       \includegraphics[width=0.9\textwidth]{language_architecture.png}
    \end{figure}
 
-   Language make it more difficult for the system to recognize a course of events abnormal as it provides us with a tool that it replaces and tries different components of it lower level to find out to what extend it can assign a confidence interval for that the given sequence.
+   Language makes it more difficult for the system to classify a course of events as abnormal because it provides a mechanism for replacing and testing different lower-level components to determine the extent to which a confidence interval can be assigned to the given sequence.
 
-   Language come from verb/noun couples and we consider consonant/vowel also as a noun/verb architecture. Even though the human brain finally combines all together in form of the same meaning.
+   Language is considered in terms of verb--noun pairs, and consonant--vowel pairs are also treated as a noun--verb architecture, even though the human brain ultimately combines them into the same meaning.
 
-   For the sake of simplicity we take for languages part a neuron but this is not the real case and for each word in human brain a circuit will be activated. By language we mean Ferdinand de Saussure theory on language that states language is formed of the flowing components.
+   For the sake of simplicity, a neuron is used to represent a language component, although this is not biologically exact and a circuit in the human brain is activated for each word. By language, we mean Ferdinand de Saussure's theory of language, which states that language is formed from the following components.
    \begin{itemize}
       \item \textbf{Syntagmatic axis:} language elements combine in a linear sequence, for example words forming a sentence.
       \item \textbf{Paradigmatic axis:} language elements can replace each other in the same position, changing the meaning or value of the expression.
@@ -57,13 +57,13 @@
    Saussure argues that linguistic signs acquire their value through their differences and relations with other signs within the language system \cite{saussure-1966-course-in-general-linguistics}. Lévi-Strauss extends this structural principle to culture and myth, where meaning is often organized through relational structures and binary oppositions \cite{levi-strauss-1955-the-structural-study-of-myth}.
    Test is here
 
-   The method we propose in this paper sees anomaly and in a higher level novelty detection as a part of stauss opinion by which we consider the dichotomies such as  anomaly vs. normality or novelty/familiarity  or outlier/inlier as sign of agent.
+   The method proposed in this paper considers anomaly detection, and at a higher level novelty detection, as part of Saussure's structural view, in which dichotomies such as anomaly versus normality, novelty versus familiarity, and outlier versus inlier are treated as signs used by the agent.
 
-   If the agent can say "I am aware" such that I is the opposite of "other" and awareness is the opposite unawareness. Then we can say this agent is aware of it's awareness or in other words, it is a self aware agent.
+   If the agent can say "I am aware", where "I" is distinguished from "other" and awareness is distinguished from unawareness, then we can say that this agent is aware of its own awareness; in other words, it is a self-aware agent.
 
-   So the main objective of this research is to make the agent to make a distinction between him and others(the self part of self-awareness) and between novel and familiarity(awarness part of the self awareness).
+   Thus, the main objective of this research is to enable the agent to distinguish between itself and others (the self component of self-awareness) and between novelty and familiarity (the awareness component of self-awareness).
 
-   In other words The proposed system models a novelty-based component of awareness, particularly the conscious detection of violations of learned global regularities.
+   In other words, the proposed system models a novelty-based component of awareness, particularly the conscious detection of violations of learned global regularities.
 
 
    The proposed architecture therefore separates the self-awareness problem into two explicit distinctions:
@@ -99,12 +99,12 @@
 
 
    \begin{itemize}
-      \item each language component such as words etc are grandmother neurons themselves
-      \item Each component is the result of DBSN clustering at phoneme level and motif discovery from word level
+      \item Each language component, such as a word, is itself represented by a grandmother neuron.
+      \item Each component is the result of DBSCAN clustering at the phoneme level and motif discovery from the word level.
    \end{itemize}
 
    \section{Jargon}
-      Example of words In experiments section
+      Examples of words used in the experiments section
       \begin{itemize}
          \item turn from west to east
          \item turn from east to north

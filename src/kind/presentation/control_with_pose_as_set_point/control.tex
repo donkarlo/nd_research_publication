@@ -1,5 +1,5 @@
 \begin{frame}[allowframebreaks]{Control - General explanation}
-    Instead of using GPS set points, give it the language with the goal to keep suprise poise as low as 0.1. No crash with the walls. Numbers will come later.
+    Instead of using GPS set-points, provide the agent with language and the goal of keeping the surprise pose as low as 0.1 while avoiding collisions with the walls. Numerical values will be refined later.
 
 
     Flight controller: PX4 (Software)
@@ -8,19 +8,19 @@
 
 
     \section{Goal (set-point)}
-        A composite goal must be given to the planning that should include:
+        A composite goal must be provided to the planner and should include:
 
-        Keep suprise poise as low as possible in controller cost function.
+        Keep the surprise pose as low as possible in the controller cost function.
 
 
     \section{Cost function}
 
-        The cost function in model predictive controller (MPC)
+        The cost function in the model predictive controller (MPC)
         \[
             J = \sum_{k=0}^{N-1} \left[ \left( x_k - x_k^{\mathrm{ref}} \right)^T Q \left( x_k - x_k^{\mathrm{ref}} \right) + u_k^T R u_k \right]
         \]
 
-         X is Wassetein anomaly vector
+         X is the Wasserstein anomaly vector.
 
         \begin{figure}[H]
             \centering

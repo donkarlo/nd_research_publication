@@ -1,0 +1,75 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+\usepackage{adjustbox}
+
+\usetikzlibrary{graphs}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+% for nested lists and sections
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+\title{}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+   \maketitle
+
+   \section{GitHub Python repositories}
+      \begin{itemize}
+         \item \textbf{Sociomind:} Contains the code that integrates all components required to run the self-awareness framework. \seeherefooter{https://github.com/donkarlo/nd_sociomind_project}
+         \item \textbf{Robotic AI:} Simulates a robot, from ROS bridges to its physical and software components, as a hierarchy of nodes. It provides a biological representation of a robot. \seeherefooter{https://github.com/donkarlo/nd_robotic_ai_project}
+         \item \textbf{Math module:} Includes all object-oriented mathematical code required to handle operations such as linear algebra. \seeherefooter{https://github.com/donkarlo/nd_math_project}
+         \item \textbf{Data science module:} Includes object-oriented implementations of data-science methods such as Transformers. \seeherefooter{https://github.com/donkarlo/nd_datascience_project}
+         \item \textbf{Physics module:} Includes object-oriented implementations for motion, kinematics, and physical entities. For example, position and orientation objects are included in this repository. \seeherefooter{https://github.com/donkarlo/nd_physics_project}
+         \item \textbf{Utility:} Includes functionality shared among the aforementioned modules. \seeherefooter{https://github.com/donkarlo/nd_utility_project}
+         \item \textbf{LaTeX editor:} An editor for handling modular LaTeX repositories. \seeherefooter{https://github.com/donkarlo/nd_mind_mirror_project}
+      \end{itemize}
+
+   \section{Publication repositories}
+      \begin{itemize}
+         \item \textbf{Publications:} Includes all documents and publications. \seeherefooter{https://github.com/donkarlo/nd_research_publication}
+         \begin{itemize}
+            \item \textbf{journal\_2026}: Contains the neural self-awareness framework. \seeherefooter{https://github.com/donkarlo/nd_research_publication/tree/main/src/kind/journal_2026}
+            \item \textbf{thesis}: Contains the thesis. \seeherefooter{https://github.com/donkarlo/nd_research_publication/tree/main/src/kind/thesis}
+            \item \textbf{summer\_presentation:} Contains the outdated presentation from summer 2026. \seeherefooter{https://github.com/donkarlo/nd_research_publication/tree/main/src/kind/presentation}
+            \item \textbf{faiema\_2023:} Contains the accepted paper on self-awareness based on dynamic Bayesian networks. \seeherefooter{https://github.com/donkarlo/nd_research_publication/tree/main/src/kind/faiema-2023}
+            \item \textbf{arw\_2022:} Contains the Austrian workshop paper. \seeherefooter{https://github.com/donkarlo/nd_research_publication/tree/main/src/kind/arw_2022}
+            \item \textbf{Bibliography corpus:} A collection of PDFs of the papers most frequently cited in the thesis and journal\_2026. \seeherefooter{https://www.dropbox.com/scl/fo/tjvsnx10ri4ixsvue3abo/ACcFFUtaNufWr9ALXv_rKLA?rlkey=ai7wwgldv74jd45notfe1inht&st=bzggp5sk&dl=0}
+            \item \textbf{bibliography.bib:} The bibliography file containing all cited references. \seeherefooter{https://www.dropbox.com/scl/fo/rl8uqdhpt5znrwzyeh71q/AJaQ-PV0FSwTH1TGeNQ4W3k?rlkey=hi6e2slmkz4vph2o8kutfno73&st=e0e6jpgp&dl=0}
+         \end{itemize}
+         \item Learning resources
+         \begin{itemize}
+            \item \textbf{Robotic AI learning:} Contains entries about robotics and biology. \seeherefooter{https://github.com/donkarlo/nd_robotic_ai_learning_project}
+            \item \textbf{Data science learning:} Contains entries about data science. \seeherefooter{https://github.com/donkarlo/nd_datascience_learning_project}
+            \item \textbf{Math learning:} Contains entries about mathematics. \seeherefooter{https://github.com/donkarlo/nd_math_project}
+            \item \textbf{Physics learning:} Contains entries about physics. \seeherefooter{https://github.com/donkarlo/nd_physics_learning_project}
+         \end{itemize}
+      \end{itemize}
+
+
+      \bibliographystyle{plainnat}
+      \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}

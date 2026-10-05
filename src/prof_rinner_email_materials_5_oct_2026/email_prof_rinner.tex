@@ -1,0 +1,92 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+\usepackage{adjustbox}
+
+\usetikzlibrary{graphs}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+% for nested lists and sections
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+\title{Email Prof. Rinner}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+   \maketitle
+   
+   Dear Prof. Rinner,
+   
+   I hope everything is going well with you. I apologize for contacting you so late, but I hope that after reviewing the contents of this email, you will find that the delay was worthwhile. I have developed a self-awareness framework that also includes autonomous navigation based on anomaly signals derived from biologically inspired neural activity.
+   
+   \section{Reason for delay}
+      \begin{itemize}
+         \item I decided to develop an autonomous navigation approach.
+         \item In my previous email, I wrote that the prediction error of the new solution I had developed was 40 cm over 32 m. After sending that email, I also tried to calculate anomaly signals, but they did not perform as expected. I therefore had to learn and change many things before I could confirm that the complete system was working properly.
+         \item I had prepared the presentation you requested, and I assumed that because the predictions were much better than before, the anomaly detection would improve in the same way. However, it did not, and I had to modify the neural approach I was using.
+         \item With the experience I gained during this process, I realized that I could not describe precisely what I had done unless I wrote it in complete sentences. I initially intended to write only a few pages, but the document grew to more than 100 pages. It is now much more complete and shows clearly what has been done.
+         \item I wanted to contact you many times, but each time another problem appeared. I preferred to fix everything and prepare a complete document describing the solution before contacting you.
+      \end{itemize}
+
+   \section{What this message contains}
+      Please review the following items in order.
+
+      \begin{itemize}
+         \item The YouTube video shows the application of anomaly signals to autonomous navigation. Please note how the updated model is learned in the follow scenarios: when I drag a robot away from the learned trajectory with the mouse, the directed anomaly signals guide it back toward the trajectory in order to minimize surprise. I hope this video encourages you to read the next document. \seeherefooter{https://youtube.com/shorts/tBbwCvVcCrg?feature=share}
+         \item journal\_2026.pdf: This comprehensive document explains in detail what has been done. The LaTeX source code can be found here \seeherefooter{https://github.com/donkarlo/nd_research_publication/tree/main/src/kind/journal_2026}, together with its development history. The repository for the overall work we have done together is available here \seeherefooter{https://github.com/donkarlo/nd_research_publication/}.
+        
+         \begin{itemize}
+            \item The architecture of the self-awareness solution that I have been developing based on neural spikes.
+            \item The results: I can generate much more detailed results, but for comparison with the previous paper, I encourage you to first review the results presented in the Experiments sections.
+            \item Please do not mind the quality of my hand-drawn diagrams or possible English errors. My focus was on explaining the complete solution. I will read the document several more times and convert the diagrams to TikZ.
+            \item A few parts still need to be completed, but they should not affect your understanding of the document while reading it.
+            \item If you do not have time to read it from the beginning, I suggest starting with the section "Anatomy of a neuron".
+            \item While reading, you may find it helpful to keep an eye on the diagram in psychophysiology\_map.pdf. It shows how I represent the mind and body of an agent in a tree-like architecture.
+
+         \end{itemize}
+         \item knowledge\_base.pdf contains unordered topics that were relevant during the development of journal\_2026.pdf. It is a concatenation of four LaTeX projects from my GitHub repositories: Robotics (which also contains biology and neurology), Math, Data Science, and Physics. Please use it as a knowledge base: when you encounter a term in journal\_2026.pdf that you would like to know more about, press Control + F and search for that term. If you use the editor described later, most sections also contain references to the independent LaTeX files, which you can inspect and compile yourself. Please ignore irrelevant topics and consider this document a notebook containing material that I initially thought might be relevant but that was not necessarily used in the final work.
+         \item phd\_github\_repositories.pdf includes all Git repositories that contribute to the complete self-awareness framework I developed.
+         \item phd\_ros\_resources.pdf includes all data-source paths for ROS bag and YAML files, as well as the Gazebo world.
+         \item old\_presentation.pdf contains solutions that were later modified to address different problems. I included it to show that I worked extensively on that presentation, but I did not send it because I later found that some of the approaches needed to be modified. About half of it is still valid, and a quick review may still be useful. Some parts are unfinished because I decided to stop developing the presentation until I could confirm that the overall solution was valid.
+         \item Most of the PDFs of the papers cited in journal\_2026.pdf are available here \seeherefooter{https://www.dropbox.com/scl/fo/tjvsnx10ri4ixsvue3abo/ACcFFUtaNufWr9ALXv_rKLA?rlkey=ai7wwgldv74jd45notfe1inht&st=bzggp5sk&dl=0}.
+         \item The complete bibliography is available here \seeherefooter{/home/donkarlo/Dropbox/repo/nd_research_publication/src/prof_rinner_email_materials_5_oct_2026/email_prof_rinner.tex}.
+         
+      \end{itemize}
+
+   \section{Editor}
+      I developed this editor so that I can compile hierarchical LaTeX documents. It shows the source code together with rendered images, formulas, tables, and other LaTeX elements. I highly recommend installing it from \seeherefooter{https://github.com/donkarlo/nd_mind_mirror_project}. It also provides a live preview and allows you to jump quickly to the corresponding source by pressing Control + Shift + B. You only need to clone the Git repositories listed in phd\_resources.pdf, place them in one folder, and provide that folder path in the settings. If you are interested, I would be happy to help you install it.
+
+   \section{Email}
+      My email stopped working on August 6, and I became aware of the problem that same day. However, I did not want to contact you until I had finished and tested the complete solution. I contacted the hotline, and they informed me about the issue. I would appreciate it if you could extend the account so that I can continue using PyCharm for some Python development and generate additional results and graphs.
+
+   \section{Meeting}
+      journal\_2026.pdf describes in detail what I have done, and summer\_presentation.pdf, as you requested, contains parts of the work I completed. I would also be happy to prepare a separate document summarizing my work. I think it would be useful if, in an initial meeting, I explained the complete approach I have taken to novelty detection and autonomous navigation in order to realize self-awareness in a multi-robot system. You could then review the material independently, and we could have follow-up meetings afterward.
+      
+   \section{Final words}
+      I have been working extensively on this project, and I would greatly appreciate it if you could read and consider what I have produced. journal\_2026.pdf can certainly be improved, and I am continuously improving it. For the moment, please disregard the hand-drawn diagrams and any remaining English issues.
+
+      \bibliographystyle{plainnat}
+      \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}

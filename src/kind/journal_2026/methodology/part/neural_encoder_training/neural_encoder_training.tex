@@ -45,15 +45,15 @@
 
    Neural encoding training resembles kinematic teaching \cite{ablett-2025-multimodal-and-force-matched-imitation-learning-with-a-see-through-visuotactile-sensor} in which an expert agent teaches another agent how it should coordinate its sensory observations with its motor capabilities.
 
-   in this section we discuss how to train the cognitive architecture we discussed in such that given a stimuli we learn both the temporal and hierarchical patter
+   In this section, we discuss how to train the cognitive architecture described above such that, given a stimulus, both temporal and hierarchical patterns are learned.
 
-   The sensory induction and perception is inspired from human nervous system in which each sensor plays the role of a sensory receptor and then in diverging neural circuits derived from each sensor, the sensor readings are converted to probability particles (= similar to neurotransmitters molecules that carry predetermined electrical loads in synapse clefts) to be equally divided between desired states as IPSP or EPSP graded potentials that gradually increase or decrease the state neuron potential until that state neuron spikes to create an action potential.
+   Sensory induction and perception are inspired by the human nervous system, in which each sensor plays the role of a sensory receptor. In diverging neural circuits derived from each sensor, the sensor readings are converted into probability particles (similar to neurotransmitter molecules that carry predetermined electrical loads in synaptic clefts) and distributed among desired states as IPSP or EPSP graded potentials. These potentials gradually increase or decrease the state-neuron potential until the state neuron spikes and creates an action potential.
 
-   State neuron is a state in state space that we make an analogy of it with neuron because similar to a neuron that receives neurotransmitters through its ion gates to convert them to graded IPSP or EPSP potentials, it converts a sensor reading to the positive or negative probability-like values to increase or decrease the probability up to the point that it reaches the threshold (similar to a neuron spike when its voltage reaches -70v) and spikes and produces an action potential in two directions. One along the time axis in similar level and one along abstraction axis.
+   A state neuron represents a state in the state space and is treated analogously to a biological neuron. Similar to a neuron that receives neurotransmitters through ion gates and converts them into graded IPSP or EPSP potentials, it converts a sensor reading into positive or negative probability-like values that increase or decrease the state probability until the threshold is reached (similar to a neuronal spike when its voltage reaches -70 V). It then spikes and produces an action potential in two directions: one along the time axis at the same level and one along the abstraction axis.
 
-   In abstraction level the a pattern similar to converging neural circuits is followed to reach a the highest abstraction.
+   At the abstraction level, a pattern similar to converging neural circuits is followed to reach the highest level of abstraction.
 
-   This language must be such that when a drone experiences something that it has not experienced in previous experiences then it should detect it as a from which it builds language.
+   This language must allow a drone to detect something that it has not encountered in previous experiences as a novelty from which it can build new language components.
 
    \section{Training autoencoders, from ROS to APT and to graded potentials}
       \subsection{ROS training data flow}
@@ -66,36 +66,36 @@
             \centering
             \includegraphics[width=0.9\textwidth]{ros_conversions.png}
          \end{figure}
-         This section  doesn't exist biologically but it is explained here because the data for testing the framework is derived from ROS in form of nested attribute-value sensory data readings. As such a method is needed to simulate neuronal activity from this type of data.
+         This section does not have a direct biological counterpart, but it is included because the data used to test the framework are derived from ROS in the form of nested attribute--value sensory readings. Therefore, a method is needed to simulate neuronal activity from this type of data.
          \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{ros_and_vae.png}
          \end{figure}
 
-         This sections discusses how the structured data or traces from ROS messages are encoded to spike trains represented in FMM parameters using variational auto encoders.
+         This section discusses how structured data, or traces, from ROS messages are encoded into spike trains represented by FMM parameters using variational autoencoders.
 
-         Using VAE for such encoding was used by other researchers too. \cite{shimazaki-2025-neural-coding-foundational-concepts-statistical-formulations-and-recent-advances} Transformation of neural activity to perception and behavior using combining classical concepts with statistical encoding and decoding frameworks.  \cite{granley-2022-hybrid-neural-autoencoders} proposes a Hybrid Neural Autoencoder in which a deep neural encoder learns stimulation patterns that produce desired neural or perceptual responses through a fixed biological forward model. The method is demonstrated for visual neuroprostheses and produces higher-fidelity patient-specific stimuli than conventional encoding strategies. see Figure 5 (bottom left shows for each number a new cluster is formed)
+         VAEs have also been used for similar encoding by other researchers. \cite{shimazaki-2025-neural-coding-foundational-concepts-statistical-formulations-and-recent-advances} describes the transformation of neural activity into perception and behavior by combining classical concepts with statistical encoding and decoding frameworks.  \cite{granley-2022-hybrid-neural-autoencoders} proposes a Hybrid Neural Autoencoder in which a deep neural encoder learns stimulation patterns that produce desired neural or perceptual responses through a fixed biological forward model. The method is demonstrated for visual neuroprostheses and produces higher-fidelity patient-specific stimuli than conventional encoding strategies. See Figure 5, where the bottom-left panel shows that a new cluster is formed for each number.
 
       \subsection{This research method}
-         It is needed to develop a method that can follow the following rules to train a variational autoencoder
+         A method is needed that follows the following rules for training a variational autoencoder.
 
          \begin{itemize}
-            \item The input is ROS yaml files from multiple sensor readings.  We have multiple attribute-value or structured data readings
+            \item The input consists of ROS YAML files containing multiple sensor readings. These provide multiple attribute--value, or structured-data, readings.
             \begin{itemize}
-               \item from each sensor data we must pretend two sensors exist.
+               \item For the data from each sensor, two virtual sensors are considered.
                \begin{itemize}
                   \item A sensor that measures the intensity of the signal
-                  \item Another sensor that measures the change rate of  previous sensor
+                  \item Another sensor that measures the rate of change of the previous sensor.
                \end{itemize}
             \end{itemize}
-            \item each of the aforementioned data points (nested attribute -value) should be converted to parameters of a spike train of action potentials using a variational autoencoder. These parameters are mentioned in Table \ref{table_action_potential_parameters} for an Action potential and in Table \ref{table_observation_neuron_spike_count_firing_rate} for a spike train.
-            \item the ranges for each of the above parameters for each sensors must be in non-conflicting intervals such that I can understand by seeing each value for each parameter, that from which sensor or change rate sensor it is derived. For spike train parameters, this rule doesn't apply to spike train parameters.
-            \item the higher the intensity of a sensor rises the higher the firing rate of the spike train rises. So the intensity value depends on the density of fired spike trains in a determined time interval
-            \item The higher the sensor value change rate is the the higher the firing rate of the spike train rises.
+            \item Each of the aforementioned data points (nested attribute--value data) should be converted into parameters of a spike train of action potentials using a variational autoencoder. These parameters are listed in Table \ref{table_action_potential_parameters} for an action potential and in Table \ref{table_observation_neuron_spike_count_firing_rate} for a spike train.
+            \item The ranges of the above parameters for each sensor must lie in non-conflicting intervals so that, by observing each parameter value, its originating sensor or change-rate sensor can be identified. This rule does not apply to spike-train parameters.
+            \item The higher the sensor intensity, the higher the firing rate of the spike train. Thus, the intensity value depends on the density of spikes within a given time interval.
+            \item The higher the rate of change of the sensor value, the higher the firing rate of the spike train.
 
          \end{itemize}
 
-         So we divide the experiment in two phases. In training phase, one robot(in this case a UAV equipped with LiDAR, GPS) is requested by human agent to use its autopilot to reach a set of trajectory points to gather sensory data from which temporal models and abstraction models using the aforementioned method inspired human nervous system is build.
+         Therefore, the experiment is divided into two phases. During the training phase, one robot (in this case, a UAV equipped with LiDAR and GPS) is instructed by a human agent to use its autopilot to reach a set of trajectory points and gather sensory data. From these data, temporal and abstraction models are built using the aforementioned method inspired by the human nervous system.
 
    \section{Training the conversion of APT to graded potentials}
       \todo{This part should be finished}
@@ -103,9 +103,9 @@
          \centering
          \includegraphics[width=0.9\textwidth]{training_conversion_of_apt_to_graded_potentials.png}
       \end{figure}
-   
+
 \section{GP training from sensory observation} \label{graded_potentials_calculations}
-         Upon presence of a  sensory observation the following process will be used to assign value and sign to grade potentials according to their Wasserstein distance between the observation and the clusters learned in training phase
+         In the presence of a sensory observation, the following process is used to assign a value and sign to graded potentials according to the Wasserstein distance between the observation and the clusters learned during the training phase.
          \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{ipsp_epsp_determination.png}
@@ -137,7 +137,7 @@
 
          where $\delta_{\mathbf{z}_{k,j}}$ denotes the Dirac measure concentrated at
          $\mathbf{z}_{k,j}$. Similarly, the point observation $\mathbf{x}$ is represented by the Dirac measure $\delta_{\mathbf{x}}$.
-         
+
          \paragraph{Reason to use empirical distribution} The empirical distribution is used because it represents the complete set of observations in a class without assuming a specific parametric form for the cluster.
 
          The point-to-class $p$-Wasserstein distance is denoted by
@@ -185,10 +185,10 @@
          }.
          \]
 
-         Therefore, $d_k(\mathbf{x})$ represents the Wasserstein distance between the current point observation $\mathbf{x}$ and the empirical distribution  of class $C_k$. 
-         
+         Therefore, $d_k(\mathbf{x})$ represents the Wasserstein distance between the current point observation $\mathbf{x}$ and the empirical distribution of class $C_k$.
+
          In this particular point-to-empirical-distribution case, it is equal to the root mean squared Euclidean distance from $\mathbf{x}$ to all observations belonging to $C_k$.
-      
+
 \section{Computing firing threshold for each neuron}
       \todo{This part should be finished}
    \section{Training steps}
@@ -202,17 +202,17 @@
          \includegraphics[width=0.9\textwidth]{language_building.png}
       \end{figure}
       \subsection{Clustering with DBSCAN at action potential spike parameters - Building phonemes}
-         For more detailed explanation see \seeherefooter{/nd_datascience_learning_project/src/machine_learning/model/application/clustering/dbscan/dbscan.tex}
+         For a more detailed explanation, see \seeherefooter{/nd_datascience_learning_project/src/machine_learning/model/application/clustering/dbscan/dbscan.tex}
 
-         For python implementation \seeherefooter{/nd_datascience_project/src/nd_datascience/machine_learning/model/application/clustering/dbscan/dbscan.py}
+         For the Python implementation, see \seeherefooter{/nd_datascience_project/src/nd_datascience/machine_learning/model/application/clustering/dbscan/dbscan.py}
 
          \cite{ester-1996-a-density-based-algorithm-for-discovering-clusters-in-large-spatial-databases-with-noise} introduced DBSCAN, a density-based
          clustering algorithm capable of discovering arbitrarily shaped clusters
          while identifying observations in low-density regions as noise.
 
-         In this research DBSCAN is responsible for clustering the the spike train parameters derived from state neurons.
+         In this research, DBSCAN is responsible for clustering the spike-train parameters derived from state neurons.
 
-         DBSCAN is used because of the following advantages
+         DBSCAN is used because of the following advantages.
 
          \begin{itemize}
             \item DBSCAN does not require the number of clusters to be specified in advance.
@@ -228,13 +228,8 @@
          \end{figure}
 
       \subsection{Motif discovery - GRU-auto-encoder based}
-         for general information \seeherefooter{/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/motif_discovery.tex}
-         Here are two well-known methods are introduced in
-         \cite{guerrini-2025-time-series-motif-discovery-a-comprehensive-evaluation, linardi-2018-matrix-profile-x-valmod-scalable-discovery-of-variable-length-motifs-in-data-series}
-
-         for the autoencoder-based motif-discovery approach adapted in this research
-         \seeherefooter{/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/gru_autoencoder_based/gru_autoencoder_based.tex}
-         and \cite{bascol-2016-unsupervised-interpretable-pattern-discovery-in-time-series-using-autoencoders}
+         For general information, see \seeherefooter{/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/motif_discovery.tex}
+         Two well-known methods are introduced in \cite{guerrini-2025-time-series-motif-discovery-a-comprehensive-evaluation, linardi-2018-matrix-profile-x-valmod-scalable-discovery-of-variable-length-motifs-in-data-series}. For the autoencoder-based motif-discovery approach adapted in this research, see \seeherefooter{/nd_math_learning_project/src/statistics/sequence/timeseries/motif_discovery/gru_autoencoder_based/gru_autoencoder_based.tex} and \cite{bascol-2016-unsupervised-interpretable-pattern-discovery-in-time-series-using-autoencoders}.
 
          Motif discovery is performed independently at each representation level. In this research, a GRU autoencoder is used to map variable-length candidate subsequences to fixed-dimensional latent representations. Motifs are then formed by grouping recurrent candidates that are sufficiently close in this latent space.
 
@@ -325,7 +320,7 @@
             \end{algorithmic}
          \end{algorithm}
          \subsubsection{At phoneme level}
-            The input to this part is DBSCAN clusters. Motif discovery must find motifs that are composed of vowel (zeroth derivative of parameter of a spike train and) and consonants (Zeroth derivative)
+            The input to this part consists of DBSCAN clusters. Motif discovery must find motifs composed of vowels (zeroth derivative of the parameters of a spike train) and consonants (zeroth derivative).
             \begin{figure}[H]
                \centering
                \includegraphics[width=0.9\textwidth]{motif_discovery_phonem_level.png}
@@ -338,24 +333,24 @@
             \end{figure}
 
    \section{Transformers}
-      Since different segment composition of language form different meanings, LSTM (and consequently RNN) can not catch local dependencies. A multi attention predictor is needed. The transformers \cite{vaswani-2017-attention-is-all-you-need}
+      Because different compositions of language segments form different meanings, LSTMs (and consequently RNNs) cannot capture all local dependencies. A multi-head-attention predictor is needed; Transformers provide this mechanism \cite{vaswani-2017-attention-is-all-you-need}.
 
-      Its application here is to replace the constant speed predictor
+      Its application here is to replace the constant-speed predictor.
 
       \begin{itemize}
-         \item At lowest level in each cell, it holds an AP wave represented by FMM
+         \item At the lowest level, each cell holds an AP wave represented by FMM.
          \item Training
          \begin{itemize}
-            \item Deep learning as an auto-correlation to find periods
+            \item Deep learning with autocorrelation to find periods.
          \end{itemize}
-         \item Sliding windows to train the transformer
-         \item Period sampling with auto correlation for training and validating the transformer
-         \item Noise as uncertainty in transformer
+         \item Sliding windows to train the Transformer.
+         \item Period sampling with autocorrelation for training and validating the Transformer.
+         \item Noise as uncertainty in the Transformer.
 
       \end{itemize}
 
-      \subsection{Gaussian transformer}
-         for all details \seeherefooter{/nd_datascience_learning_project/src/machine_learning/model/architecture/neural_network/kind/deep_learning/kind/transformer/kind/uncertainty/uncertainty.tex}
+      \subsection{Gaussian Transformer}
+         For all details, see \seeherefooter{/nd_datascience_learning_project/src/machine_learning/model/architecture/neural_network/kind/deep_learning/kind/transformer/kind/uncertainty/uncertainty.tex}
 
          The model receives a past time-series window and predicts a future window with uncertainty.
 
@@ -414,7 +409,7 @@
             \right]
             \]
 
-            Approximate 95 percent prediction interval:
+            Approximate 95\% prediction interval:
 
             \[
             y_{b,t,j}
@@ -446,66 +441,66 @@
 
       \begin{enumerate}
 
-         \item Accumulating the sensory data from Robot Operating System
-         \item training variational autoencoders to to break each sensory data into components action potential populations
+         \item Accumulating sensory data from the Robot Operating System.
+         \item Training variational autoencoders to decompose each sensory-data stream into component action-potential populations.
 
-         \item fusing different sensory modalities with variational autoencoders
+         \item Fusing different sensory modalities with variational autoencoders.
 
-         \item creating the the clusters for different levels
+         \item Creating clusters for different levels.
 
          \begin{itemize}
 
-            \item here each sensory data already exists for sure in one of the clusters so the parameters could be calculated from here after
+            \item Here, each sensory-data point already belongs to one of the clusters, so the parameters can be calculated from this point onward.
 
          \end{itemize}
 
-         \item Learning FMM parameters for refractory period for each state neuron at both concept axis and time axis
+         \item Learning FMM parameters for the refractory period of each state neuron on both the concept and time axes.
 
       \end{enumerate}
 
    \section{These items must be learned from these sensory data}
 
-      All the parameters mentioned in in architecture
+      All the parameters mentioned in the architecture are learned.
       \begin{itemize}
 
-         \item A probabilistic model based on Transformers for each level to predict sequences (This could be regarded as a sequential circuit). This probabilistic model will perform as grandmother neuron
+         \item A probabilistic model based on Transformers for each level to predict sequences (This could be regarded as a sequential circuit). This probabilistic model will function as a grandmother neuron.
 
          \item A probabilistic model for abstraction levels that maps a state neuron to the more abstract concepts by clustering
 
-         \item A variational auto encoder to fuse all information together to assign an IPSP or EPSP value
+         \item A variational autoencoder to fuse all information and assign an IPSP or EPSP value.
 
-         \item with what frequency a sensory neuron should spike according to a stimuli
+         \item The frequency at which a sensory neuron should spike in response to a stimulus.
 
-         \item Probabilistic dependency between different sensory modality (Spatial summation of graded potentials)
+         \item Probabilistic dependencies between different sensory modalities (spatial summation of graded potentials).
 
-         \item Learning temporal summation distribution of graded potentials derived from multiple spikes
+         \item Learning the temporal-summation distribution of graded potentials derived from multiple spikes.
 
          \item Action potential parameters (and parameters for FMM)
 
          \begin{itemize}
             \item Maximum potential or amplitude or A in FMM
-            \item spiking threshold
+            \item Spiking threshold
             \item Depolarization time period
-            \item repolarization time period
-            \item refractory time period
+            \item Repolarization time period
+            \item Refractory time period
          \end{itemize}
 
-         \item each EPSP and IPSP value
+         \item Each EPSP and IPSP value.
 
-         \item The firing rate for both intensity and intensity change neurons.png
+         \item The firing rate for both intensity and intensity-change neurons.
 
       \end{itemize}
 
-   \section{Grand mother neurons that are used only in training phase}
-      All the following method
+   \section{Grandmother neurons that are used only in the training phase}
+      All of the following methods are used.
       \subsection{Clustering neurons}
-         Clusters data based on similarity of sensory data
-         Based on DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
+         Clusters data based on the similarity of sensory data.
+         This is based on DBSCAN (Density-Based Spatial Clustering of Applications with Noise).
 
-   \section{Period detection with GRU based latent auto-correlation fast Fourier transform\protect\footnotemark}\footnotetext{This part is only for test-train splitting for some experiments for finding the effect of increasing and decreasing number of periods in framework's performance}
+   \section{Period detection with GRU-based latent autocorrelation and the Fast Fourier Transform\protect\footnotemark}\footnotetext{This part is used only for train--test splitting in experiments that investigate the effect of increasing or decreasing the number of periods on the framework's performance.}
       \seeherefooter{/nd_datascience_learning_project/src/signal_processing/auto_correlation/fast_fourier_transform.tex}
 
-      for implementation \seeherefooter{/repo/nd_datascience_project/src/nd_datascience/machine_learning/model/application/auto_correlation/sequence/period/neural/}
+      For the implementation, see \seeherefooter{/repo/nd_datascience_project/src/nd_datascience/machine_learning/model/application/auto_correlation/sequence/period/neural/}
 
       The Fast Fourier Transform (FFT) is an autocorrelation method that efficiently converts a time-domain signal into its frequency components, allowing periodicity to be detected by identifying dominant frequencies corresponding to repeating patterns \cite{berberidis-2002-on-the-discovery-of-weak-periodicities-in-large-time-series}.
 
@@ -580,7 +575,7 @@
       \right)_{\tau}.
       \]
 
-      The estimated period is the first auto-correlation peak after a predefined minimum admissible lag $\tau_{\min}$,
+      The estimated period is the first autocorrelation peak after a predefined minimum admissible lag $\tau_{\min}$,
 
       \[
       \hat{\tau}_{\mathrm{per}}

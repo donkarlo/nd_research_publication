@@ -1,9 +1,9 @@
 \begin{frame}[allowframebreaks]{Wasserstein distance}
-    Why wasserstein?
+    Why Wasserstein?
     \begin{itemize}
-        \item When the two distributions are points (their covariance matrix is very close to 0), then Wasserstein gives a value very close to Euclidean distance
-        \item when one is a distribution and the other is a point, it still produces a value
-        \item It is a metric, so unlike Kullbackleibler, distance(A,B) = distance(B,A)
+        \item When the two distributions are points (their covariance matrices are very close to 0), the Wasserstein distance is very close to the Euclidean distance.
+        \item When one is a distribution and the other is a point, it still produces a value.
+        \item It is a metric, so unlike the Kullback--Leibler divergence, distance(A,B) = distance(B,A).
     \end{itemize}
     \[
         P_1
@@ -52,5 +52,5 @@
     
     
     \section{Interpretation}
-        If we consider the two gaussian ditributions as two mass piles, how much effort does it take to move one pile to the other.
+        If the two Gaussian distributions are considered as two piles of mass, the distance represents how much effort it takes to move one pile to the other.
 \end{frame}

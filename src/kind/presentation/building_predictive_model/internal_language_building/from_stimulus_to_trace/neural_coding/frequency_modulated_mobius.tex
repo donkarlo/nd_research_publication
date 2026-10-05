@@ -2,7 +2,7 @@
     \begin{frame}[allowframebreaks]{Frequency Modulated M\"obius (FMM)}
         
         
-        \cite{rueda-2021-a-novel-wave-decomposition-for-oscillatory-signals} propose a wave decomposition method for oscillatory signals based on Frequency Modulated M\"obius (FMM) waves.
+        \cite{rueda-2021-a-novel-wave-decomposition-for-oscillatory-signals} proposes a wave-decomposition method for oscillatory signals based on Frequency Modulated M\"obius (FMM) waves.
         
         \begin{equation}
             W(t)
@@ -36,15 +36,15 @@
             
             \item $\alpha$ is the location parameter. Bound: $\alpha \in [0, 2\pi)$. It controls the horizontal position of the waveform on the time axis.
             
-            \item $\beta$ is the phase parameter. Bound: $\beta \in [0, 2\pi)$. It controls the phase shift of the waveform. In other words, it determins for example relative to $\alpha$, from where the maximum point of the wave starts
+            \item $\beta$ is the phase parameter. Bound: $\beta \in [0, 2\pi)$. It controls the phase shift of the waveform. In other words, it determines, for example relative to $\alpha$, where the maximum point of the wave begins.
             
-            \item $\omega$ is the shape parameter. Bound: $\omega \in (0, 1]$. It controls the sharpness, skewness, and temporal deformation of the waveform. Originally it is taken in $(0, 1]$ but in \cite{rueda-2021-a-novel-wave-decomposition-for-oscillatory-signals} when it is close to 0, it is more like a spike and when it is near 1 then it is more like a sinus wave.
+            \item $\omega$ is the shape parameter. Bound: $\omega \in (0, 1]$. It controls the sharpness, skewness, and temporal deformation of the waveform. It is defined in $(0, 1]$; in \cite{rueda-2021-a-novel-wave-decomposition-for-oscillatory-signals}, when it is close to 0 the waveform is more spike-like, whereas when it is near 1 it is more sinusoidal.
         \end{itemize}
         
         \alert{Why FMM to represent an action potential oscillatory wave?}\\
-        This research uses variational autoencoders to encode a trace to the latent space of the parameters of an FMM wave but why?
+        This research uses variational autoencoders to encode a trace into the latent space of FMM-wave parameters. Why?
         \begin{itemize}
-            \item Representing different sensory data modality in a unified representation (i.e. both GPS and LIDAR turn into an FMM, each representing an action potential for a stimuli)
+            \item Representing different sensory-data modalities in a unified form (i.e., both GPS and LiDAR are converted into FMM waves, each representing an action potential for a stimulus)
         \end{itemize}
         
     \end{frame}

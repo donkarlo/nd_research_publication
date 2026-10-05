@@ -1,13 +1,13 @@
 \begin{frame}[allowframebreaks]{Kalman filter}
-    Kalamn filter is a Bayesian filter that updates the internal prediction with a new observation.
+    The Kalman filter is a Bayesian filter that updates the internal prediction using a new observation.
     
-    There are many evidences that many mamls perform Kalman filtering for state estimation \cite{wolpert-2007-probabilistic-models-in-human-sensorimotor-control}
+    There is substantial evidence that many mammals perform Kalman-like filtering for state estimation \cite{wolpert-2007-probabilistic-models-in-human-sensorimotor-control}
     
-    The question is, from where the prediction is comming:
+    The question is: where does the prediction come from?
     
-    In previous paper, it was from the mean of the velocities in the class.
+    In the previous paper, it came from the mean velocity of the class.
     
-    In this work, it comes from the mean of the velocities in vowel class right before the current 0th derivative cluster
+    In this work, it comes from the mean velocity of the vowel class immediately preceding the current zeroth-derivative cluster.
     
     \[
         \begin{aligned}

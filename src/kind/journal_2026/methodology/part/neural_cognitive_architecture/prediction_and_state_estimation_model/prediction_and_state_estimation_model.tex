@@ -49,14 +49,14 @@
       where $x_{k-1}$ is the previous state, $u_k$ is the motion or control input, and $x_k$ is the predicted current state.
 
 
-      This research uses the quasi-constant velocities derived from the vowels as described in Section \ref{neural_cognitive_architecture}
+      This research uses the quasi-constant velocities derived from the vowels, as described in Section \ref{neural_cognitive_architecture}.
 
    \section{Grandmother neurons}
       A grandmother cell is a hypothetical neuron that represents a complex but specific concept, object, or individual \cite{gross-2002-genealogy-of-the-grandmother-cell, quiroga-2005-invariant-visual-representation-by-single-neurons-in-the-human-brain}.
 
-      In this research all mathematical approaches for which no neural representation exists, a grand mother cell is used
+      In this research, a grandmother cell is used for all mathematical approaches for which no neural representation exists.
       \subsection{Bayesian brain}
-         To see bayesian brain theories \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/central/brain/theory/kind/bayesian/bayesian.tex}
+         For Bayesian brain theories, see \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/central/brain/theory/kind/bayesian/bayesian.tex}
 
          \subsubsection{Velocity motion model}
 
@@ -92,37 +92,35 @@
 
             This model is useful when linear and angular velocity commands or measurements are directly available.
          \subsubsection{Kalman filter}
-            \cite{kalman-1960-a-new-approach-to-linear-filtering-and-prediction-problems}
-            is used in this research as in the literature it  is shown to be practiced in brain               \cite{wolpert-2007-probabilistic-models-in-human-sensorimotor-control}. It fuses latest Gaussian observation (derived from intensity rat esensor) with Gaussian prediction . This research uses it for fusing Gaussian transformer  in section \ref{guassian_tranfsomrer} together with agent's velocity derived from second derivative (intensity change rate sensor) to make predictions along time.
+            The Kalman filter \cite{kalman-1960-a-new-approach-to-linear-filtering-and-prediction-problems} is used in this research because the literature indicates that similar probabilistic mechanisms are used in the brain \cite{wolpert-2007-probabilistic-models-in-human-sensorimotor-control}. It fuses the latest Gaussian observation (derived from the intensity-rate sensor) with the Gaussian prediction. This research uses it to fuse the Gaussian Transformer in Section \ref{guassian_tranfsomrer} with the agent's velocity derived from the second derivative (intensity-change-rate sensor) to make predictions over time.
 
          \subsubsection{Particle filter}
             \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/perception/state_estimation/slam/kind/particle_filter/particle_filter.tex}
-            \cite{arulampalam-2002-a-tutorial-on-particle-filters-for-online-nonlinear-non-gaussian-bayesian-tracking} describes the particle filter as a sequential Monte Carlo method that represents a probability distribution by a finite set of weighted samples called particles. In this research it is used to assign a Gaussian distribution at each level at any abstract level.
+            \cite{arulampalam-2002-a-tutorial-on-particle-filters-for-online-nonlinear-non-gaussian-bayesian-tracking} describes the particle filter as a sequential Monte Carlo method that represents a probability distribution by a finite set of weighted samples called particles. In this research, it is used to assign a Gaussian distribution at each abstraction level.
 
-            Particle filter is shown by researchers such as
-            \cite{kutschireiter-2017-nonlinear-bayesian-filtering-and-learning-a-neuronal-dynamics-for-perception} to be used in human brain for state estimation.
+            Researchers such as \cite{kutschireiter-2017-nonlinear-bayesian-filtering-and-learning-a-neuronal-dynamics-for-perception} have shown particle-filter-like mechanisms to be used in the human brain for state estimation.
 
 
-         \subsubsection{Gaussian transformer(GTF)} \label{guassian_tranfsomrer}
+         \subsubsection{Gaussian Transformer (GTF)} \label{guassian_tranfsomrer}
             \seeherefooter{
             /nd_datascience_learning_project/src/machine_learning/model/architecture/neural_network/kind/deep_learning/kind/transformer/kind/uncertainty/uncertainty.tex}
-            A multi attention head gaussian transformer is used in this research to make predictions.
+            A multi-head-attention Gaussian Transformer is used in this research to make predictions.
 
-            A multi attention predictor is needed. The transformers \cite{vaswani-2017-attention-is-all-you-need}
+            A multi-head-attention predictor is needed; Transformers provide this mechanism \cite{vaswani-2017-attention-is-all-you-need}.
 
-            Its application here is to replace the constant speed predictor
+            Its application here is to replace the constant-speed predictor.
 
 
 
             \begin{itemize}
-               \item At lowest level in each cell, it holds an AP wave represented by FMM
+               \item At the lowest level, each cell holds an AP wave represented by FMM.
                \item Training
                \begin{itemize}
-                  \item Deep learning as an autocorrelation to find periods
+                  \item Deep learning with autocorrelation to find periods.
                \end{itemize}
-               \item Sliding windows to train the transformer
-               \item Period sampling with auto correlation for training and validating the transformer
-               \item Noise as uncertainty in transformer
+               \item Sliding windows to train the Transformer.
+               \item Period sampling with autocorrelation for training and validating the Transformer.
+               \item Noise as uncertainty in the Transformer.
 
             \end{itemize}
             \paragraph{Gaussian Transformer}
@@ -168,7 +166,7 @@
                   \item \(\mu\): expected future value
                   \item \(\sigma^2 = \exp(\log \sigma^2)\): predictive uncertainty
                \end{itemize}
-            \paragraph{Loss function for gaussian transformer to interpret uncertainty}
+            \paragraph{Loss function for the Gaussian Transformer to represent uncertainty}
                The model is trained with Gaussian negative log-likelihood:
 
                \[
@@ -192,7 +190,7 @@
 
 
 
-               Approximate 95 percent prediction interval:
+               Approximate 95\% prediction interval:
 
                \[
                y_{b,t,j}
@@ -212,9 +210,11 @@
                Small variance means high confidence. Large variance means high uncertainty.
 
    \section{Joint PF--GTF prediction and KF state estimation}
+   \label{}
       \begin{figure}[H]
          \centering
          \includegraphics[width=0.9\textwidth]{prediction_and_state_estimation_model.png}
+         \label{prediction_and_estimation_flow}
       \end{figure}
 
       Let \(\hat{\mathbf{x}}_{t-1}\) denote the state estimate at time \(t-1\). In this architecture, this estimate is the recurrent state input to the particle filter (PF). The state is represented by AP-FMM parameters, and the PF propagates weighted hypotheses through the successive representation levels. At each level \(\ell\), the particles induce probabilities over the learned classes,

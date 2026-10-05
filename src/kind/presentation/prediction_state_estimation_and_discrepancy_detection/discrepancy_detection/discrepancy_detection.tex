@@ -1,10 +1,10 @@
 \section{}
-    \begin{frame}[allowframebreaks]{Discrepency detection}
+    \begin{frame}[allowframebreaks]{Discrepancy detection}
         Discrepancy
         \begin{itemize}
-            \item \textbf{Anomaly}: Short time over the threshold
-            \item \textbf{Novelty}: Continuously hi anomaly
-            \item \textbf{Outlier}: Statistically away from the observation distribution but yet a valid reading
+            \item \textbf{Anomaly}: Short-term value above the threshold
+            \item \textbf{Novelty}: Continuously high anomaly
+            \item \textbf{Outlier}: Statistically distant from the observation distribution but still a valid reading
         \end{itemize}
 
         \textbf{Anomaly} is the Mahalanobis distance between the prediction and the preprocessed, fused observation.
@@ -12,9 +12,9 @@
 
         \section{Threshold}
             \begin{enumerate}
-                \item Breaking an event-specific-knowledge sensory data into periods
-                \item Split the periods into train-test
-                \item take $\mu + n \times \sigma$ anomaly values as the threshold
+                \item Breaking event-specific sensory data into periods
+                \item Split the periods into training and test sets
+                \item Take $\mu + n \times \sigma$ of the anomaly values as the threshold
             \end{enumerate}
 
             \begin{algorithm}[H]

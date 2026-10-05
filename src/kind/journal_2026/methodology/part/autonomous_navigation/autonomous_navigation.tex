@@ -38,10 +38,10 @@
 \begin{document}
    \maketitle
    \label{autonomous_navigation}
-   Autonomous navigation is based on minimizing the the anomaly signal.
+   Autonomous navigation is based on minimizing the anomaly signal.
 
    \section{Definitions}
-      \subsection{Perception-Action cycle}
+      \subsection{Perception--action cycle}
          \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/perception_action_cycle.tex}
          \cite{fuster-2004-upper-processing-stages-of-the-perception-action-cycle} argues that perception and action form a continuous functional cycle rather than separate processing stages. Higher cortical areas integrate perceptual information with goals, memory, and behavioral context to guide actions. The consequences of actions generate new sensory information, thereby closing and continuously updating the perception--action cycle.
 
@@ -54,11 +54,11 @@
       
 
       \subsection{Flight controller unit (FCU)}
-         Flight controller unit (FCU) refers to hardware used to manage the relationship between sensors, actuators and CPU such as Pixhawk.
+         A flight controller unit (FCU) refers to hardware, such as Pixhawk, used to manage the relationship among sensors, actuators, and the CPU.
 
       \subsection{Autopilot}
          \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/platform/flight_controller/autopilot/kind/px4/px4.tex}
-         The software that uses the shared data flowing in the system to generate the right control signals such that the agent can achieve its next goal.
+         An autopilot is software that uses the shared data flowing through the system to generate the appropriate control signals so that the agent can achieve its next goal.
 
       \subsection{Controller}
       \seeherefooter{/nd_robotic_ai_learning_project/src/control_theory/controller/controller.tex}
@@ -85,9 +85,9 @@
             \centering
             \includegraphics[width=0.9\textwidth]{data_flow.png}
          \end{figure}
-         At any abstraction sequence  during the training the system has learned what actions for what exteroceptive situations it has. And these learned actions with a controller can be used to reduce the Wasserstein distance between the desired state the current state. it can choose between the right second derivative to give to autopilot for execution at any level of the hierarchy from the top (most abstract) when the distance is large to bottom when the small.
+         At each abstraction level during training, the system learns which actions are associated with particular exteroceptive situations. These learned actions, together with a controller, can be used to reduce the Wasserstein distance between the desired state and the current state. The system can select the appropriate second derivative to provide to the autopilot for execution at any level of the hierarchy, from the top (most abstract) when the distance is large to the bottom when the distance is small.
 
-         For example in the scenarios presented in this research, at a mid abstraction level the system has learned go north, west, east and south. This is the leaned language for one robot.
+         For example, in the scenarios presented in this research, at an intermediate abstraction level the system has learned the commands go north, go west, go east, and go south. This is the learned language of one robot.
 
 
 
@@ -106,11 +106,11 @@
       \subsection{Plan}
          \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/plan/plan.tex}
 
-         Plan in this research is conceptualized as a goal tree. Each goal is in the form of a vector either it is reaching a pose (the term used in this research for both position and orientation) or high level goals such as keeping homeostasis or allostasis below a threshold.
+         In this research, a plan is conceptualized as a goal tree. Each goal is represented as a vector, whether it concerns reaching a pose (the term used in this research for both position and orientation) or a high-level goal such as keeping homeostasis or allostasis below a threshold.
 
-         In this research homeostasis or allostasis are supposed to be kept below a threshold only if the Wasserstein distance between the prediction and the observation is tried to be continuously kept below that threshold.
+         In this research, homeostasis or allostasis is considered to remain below a threshold when the Wasserstein distance between the prediction and the observation is continuously kept below that threshold.
 
-         In this research planning is from top to bottom, that is first  a group of sentences form the concept of turning around the perimeter of a corridor.
+         In this research, planning proceeds from top to bottom; that is, a group of sentences first forms the concept of moving around the perimeter of a corridor.
          \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{plan_as_tree.png}
@@ -119,7 +119,7 @@
       \subsection{Planning}
 
 
-         In this research planning is based on breaking anomaly vector at each level to anomaly vectors in lower level.
+         In this research, planning is based on decomposing the anomaly vector at each level into anomaly vectors at lower levels.
 
          \begin{figure}[H]
             \centering
@@ -195,7 +195,7 @@
             \includegraphics[width=0.9\textwidth]{p_pid_controllers_phonemes_wasserstein.png}
          \end{figure}
 
-         At the physical position level, let \(\mathbf{w}_{p,k}\) denote the directed Wasserstein discrepancy expressed in position coordinates. In the proposed control architecture it is used as the outer-loop position-error signal,
+         At the physical position level, let \(\mathbf{w}_{p,k}\) denote the directed Wasserstein discrepancy expressed in position coordinates. In the proposed control architecture, it is used as the outer-loop position-error signal,
          \[
          \mathbf{e}^{W}_{p,k}
          =

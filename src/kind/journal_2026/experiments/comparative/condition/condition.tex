@@ -15,19 +15,19 @@
 
 \begin{document}
    \maketitle
-   This part provides a template for describing the condition under which the experiment was carried out.
+   This part provides a template for describing the conditions under which the experiment was carried out.
 
 
 
 
    \section{Goal}
-      The goal is that two robots learn what it is like to turn around a square like corridor corridor without colliding the walls by human teleportation control and then compare this experience with the experiences in which they should perform some maneuvers to avoid obstacles because of the changes made in the corridor.
-   \section{Involving Robots}
-      During online telemetry recording, a leader-follower strategy has been practiced by the two involving UAVs in the environment. The leader is the robot to which the human operator sends control inputs. The follower follows a set of rules which are dependent on leader's positional state. As we will describe the benefits, the we have also considered human and the environment as a robots.
+      The goal is for two robots to learn how to move around a square-like corridor without colliding with the walls under human teleportation control, and then to compare this experience with experiences in which they must perform maneuvers to avoid obstacles caused by changes made to the corridor.
+   \section{Involved robots}
+      During online telemetry recording, a leader--follower strategy is used by the two UAVs involved in the environment. The leader is the robot to which the human operator sends control inputs. The follower follows a set of rules that depend on the leader's positional state. As described later, the human and the environment are also considered robots.
       \subsection{Simulation environment}
          \input{/nd_research_publication/src/kind/journal_2026/experiments/simulation/simulation.tex}
       \subsection{UAV prototype}
-         Tarrot T650
+         Tarot T650
 
 
 
@@ -46,23 +46,23 @@
             \paragraph{LIDAR}
                \begin{itemize}
                   \item \textbf{Frequency:} 20.83 Hz
-                  \item 720 dimensions
+                  \item 720 dimensions.
                \end{itemize}
-               The 2D RP LiDAR A2 in each scan produces 720 distances each of which 0.14 degree away from the other and it scans as far as 14km. As such this makes 720 points. In this research every distance further than 4m is considered as 4m so that the wall of the other side of the corridor is omitted from the UAV. The clustering is done by DBSCAN on the polygon formed from connecting each two consequent aforementioned points.
+               In each scan, the 2D RP LiDAR A2 produces 720 distance measurements, each separated from the next by 0.14 degrees, and scans as far as 14 km. This produces 720 points. In this research, every distance greater than 4 m is treated as 4 m so that the wall on the opposite side of the corridor is omitted from the UAV's perception. DBSCAN clustering is performed on the polygon formed by connecting each pair of consecutive points.
                
                
 
       \subsection{Environment}
-         The world is simulated by Gazebo and the robot simulation is done by ROS.
+         The world is simulated in Gazebo, and the robot simulation is implemented using ROS.
 
       \subsection{Human}
-         Human is also considered as a
+         The human is also considered a robot.
 
       \subsection{Homogeneity}
-         Homogenous
+         Homogeneous
 
       \subsection{Dependency}
-         Leader-Followers
+         Leader--follower
    \section{Scenarios}
    \include{/nd_research_publication/src/kind/journal_2026/experiments/comparative/condition/normal/normal.tex}
    \include{/home/donkarlo/Dropbox/repo/nd_research_publication/src/kind/journal_2026/experiments/comparative/condition/follow/follow.tex}
