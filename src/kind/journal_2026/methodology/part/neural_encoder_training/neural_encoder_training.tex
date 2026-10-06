@@ -104,92 +104,92 @@
          \includegraphics[width=0.9\textwidth]{training_conversion_of_apt_to_graded_potentials.png}
       \end{figure}
 
-\section{GP training from sensory observation} \label{graded_potentials_calculations}
-         In the presence of a sensory observation, the following process is used to assign a value and sign to graded potentials according to the Wasserstein distance between the observation and the clusters learned during the training phase.
-         \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.9\textwidth]{ipsp_epsp_determination.png}
-         \end{figure}
-         Let $\mathbf{x}$ denote the current point observation, and let the $k$th learned class $C_k$ contain $N_k$ observations,
+   \section{GP training from sensory observation} \label{graded_potentials_calculations}
+      In the presence of a sensory observation, the following process is used to assign a value and sign to graded potentials according to the Wasserstein distance between the observation and the clusters learned during the training phase.
+      \begin{figure}[H]
+         \centering
+         \includegraphics[width=0.9\textwidth]{ipsp_epsp_determination.png}
+      \end{figure}
+      Let $\mathbf{x}$ denote the current point observation, and let the $k$th learned class $C_k$ contain $N_k$ observations,
 
-         \[
-         C_k
-         =
-         \left\{
-         \mathbf{z}_{k,1},
-         \mathbf{z}_{k,2},
-         \ldots,
-         \mathbf{z}_{k,N_k}
-         \right\},
-         \]
+      \[
+      C_k
+      =
+      \left\{
+      \mathbf{z}_{k,1},
+      \mathbf{z}_{k,2},
+      \ldots,
+      \mathbf{z}_{k,N_k}
+      \right\},
+      \]
 
-         where $\mathbf{z}_{k,j}$ denotes the $j$th observation belonging to class $C_k$.
+      where $\mathbf{z}_{k,j}$ denotes the $j$th observation belonging to class $C_k$.
 
-         The empirical probability distribution \cite{wasserman-2006-all-of-nonparametric-statistics} \seeherefooter{/nd_math_learning_project/src/probability/distribution/non_parametric/empirical_probability_distribution.tex} representing class $C_k$ is
+      The empirical probability distribution \cite{wasserman-2006-all-of-nonparametric-statistics} \seeherefooter{/nd_math_learning_project/src/probability/distribution/non_parametric/empirical_probability_distribution.tex} representing class $C_k$ is
 
-         \[
-         \mu_k
-         =
-         \frac{1}{N_k}
-         \sum_{j=1}^{N_k}
-         \delta_{\mathbf{z}_{k,j}},
-         \]
+      \[
+      \mu_k
+      =
+      \frac{1}{N_k}
+      \sum_{j=1}^{N_k}
+      \delta_{\mathbf{z}_{k,j}},
+      \]
 
-         where $\delta_{\mathbf{z}_{k,j}}$ denotes the Dirac measure concentrated at
-         $\mathbf{z}_{k,j}$. Similarly, the point observation $\mathbf{x}$ is represented by the Dirac measure $\delta_{\mathbf{x}}$.
+      where $\delta_{\mathbf{z}_{k,j}}$ denotes the Dirac measure concentrated at
+      $\mathbf{z}_{k,j}$. Similarly, the point observation $\mathbf{x}$ is represented by the Dirac measure $\delta_{\mathbf{x}}$.
 
-         \paragraph{Reason to use empirical distribution} The empirical distribution is used because it represents the complete set of observations in a class without assuming a specific parametric form for the cluster.
+            \paragraph{Reason to use empirical distribution} The empirical distribution is used because it represents the complete set of observations in a class without assuming a specific parametric form for the cluster.
 
-         The point-to-class $p$-Wasserstein distance is denoted by
-         $d_k(\mathbf{x})$ and is defined as
+               The point-to-class $p$-Wasserstein distance is denoted by
+               $d_k(\mathbf{x})$ and is defined as
 
-         \[
-         d_k(\mathbf{x})
-         =
-         W_p\!\left(
-         \delta_{\mathbf{x}},
-         \mu_k
-         \right)
-         =
-         \left(
-         \frac{1}{N_k}
-         \sum_{j=1}^{N_k}
-         \left\|
-         \mathbf{x}
-         -
-         \mathbf{z}_{k,j}
-         \right\|_2^p
-         \right)^{1/p}.
-         \]
+               \[
+               d_k(\mathbf{x})
+               =
+               W_p\!\left(
+               \delta_{\mathbf{x}},
+               \mu_k
+               \right)
+               =
+               \left(
+               \frac{1}{N_k}
+               \sum_{j=1}^{N_k}
+               \left\|
+               \mathbf{x}
+               -
+               \mathbf{z}_{k,j}
+               \right\|_2^p
+               \right)^{1/p}.
+               \]
 
-         For the second-order Wasserstein distance used in this research,
+               For the second-order Wasserstein distance used in this research,
 
-         \[
-         \boxed{
-         d_k(\mathbf{x})
-         =
-         W_2\!\left(
-         \delta_{\mathbf{x}},
-         \mu_k
-         \right)
-         =
-         \sqrt{
-         \frac{1}{N_k}
-         \sum_{j=1}^{N_k}
-         \left\|
-         \mathbf{x}
-         -
-         \mathbf{z}_{k,j}
-         \right\|_2^2
-         }
-         }.
-         \]
+               \[
+               \boxed{
+               d_k(\mathbf{x})
+               =
+               W_2\!\left(
+               \delta_{\mathbf{x}},
+               \mu_k
+               \right)
+               =
+               \sqrt{
+               \frac{1}{N_k}
+               \sum_{j=1}^{N_k}
+               \left\|
+               \mathbf{x}
+               -
+               \mathbf{z}_{k,j}
+               \right\|_2^2
+               }
+               }.
+               \]
 
-         Therefore, $d_k(\mathbf{x})$ represents the Wasserstein distance between the current point observation $\mathbf{x}$ and the empirical distribution of class $C_k$.
+               Therefore, $d_k(\mathbf{x})$ represents the Wasserstein distance between the current point observation $\mathbf{x}$ and the empirical distribution of class $C_k$.
 
-         In this particular point-to-empirical-distribution case, it is equal to the root mean squared Euclidean distance from $\mathbf{x}$ to all observations belonging to $C_k$.
+               In this particular point-to-empirical-distribution case, it is equal to the root mean squared Euclidean distance from $\mathbf{x}$ to all observations belonging to $C_k$.
 
-\section{Computing firing threshold for each neuron}
+   \section{Computing firing threshold for each neuron}
       \todo{This part should be finished}
    \section{Training steps}
       \begin{figure}[H]
