@@ -41,6 +41,24 @@
    Autonomous navigation is based on minimizing the anomaly signal.
 
    \section{Definitions}
+      \subsection{Goal}
+         \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/goal/goal.tex}
+         A goal is a representation of a desired future state or outcome. In planning, the goal constrains which future states count as successful and therefore guides the selection of actions or plans that can reach the desired state \cite{mcdermott-1999-using-regression-match-graphs-to-control-search-in-planning}.
+
+      \subsection{Motor goals}
+         \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/motion/motor_goal/motor_goal.tex}
+         A motor goal is the desired outcome of a motor act rather than the detailed specification of the movements that produce that outcome. \cite{rizzolatti-2014-the-mirror-mechanism-recent-findings-and-perspectives} distinguish a motor act from an individual movement and define the motor goal in terms of the outcome achieved by the organized motor act .
+
+      \subsection{Life goal}
+         \seeherefooter{/nd_robotic_ai_learning_project/src/robot/life/life_goals/life_goal.tex}
+         In biological organisms, some goals are grounded in the maintenance of viable internal states. Homeostatic and allostatic regulation can therefore be treated as a source of motivational goals: deviations of regulated variables from desired ranges create pressures for actions that restore or protect physiological stability \cite{keramati-2014-homeostatic-reinforcement-learning}.
+
+      \subsection{Artificial potential fields}
+         \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/motion/navigation/path_planning/kind/artificial_potential_field/artificial_potential_field.tex}
+         The artificial potential field (APF) method represents a navigation problem by assigning a virtual potential to the robot configuration. The goal produces an attractive contribution and obstacles produce repulsive contributions. The robot is then driven in the direction of decreasing total potential \cite{khatib-1986-real-time-obstacle-avoidance}.
+         For biological analogy see \cite{hu-2014-bacterial-navigation-gradients, kerr-2017-biological-goal-seeking}
+
+
       \subsection{Perception--action cycle}
          \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/perception_action_cycle.tex}
          \cite{fuster-2004-upper-processing-stages-of-the-perception-action-cycle} argues that perception and action form a continuous functional cycle rather than separate processing stages. Higher cortical areas integrate perceptual information with goals, memory, and behavioral context to guide actions. The consequences of actions generate new sensory information, thereby closing and continuously updating the perception--action cycle.
@@ -50,8 +68,8 @@
          \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/planning.tex}
          \cite{mattar-2026-planning-in-the-brain-its-not-what-you-think-it-is}
          Planning is the cognitive process of using internal simulations of possible future actions and states to guide behavior and learning.
-         
-      
+
+
 
       \subsection{Flight controller unit (FCU)}
          A flight controller unit (FCU) refers to hardware, such as Pixhawk, used to manage the relationship among sensors, actuators, and the CPU.
@@ -61,13 +79,13 @@
          An autopilot is software that uses the shared data flowing through the system to generate the appropriate control signals so that the agent can achieve its next goal.
 
       \subsection{Controller}
-      \seeherefooter{/nd_robotic_ai_learning_project/src/control_theory/controller/controller.tex}
-       A controller is the part of a control system that determines the control input applied to a plant or process in order to influence its behavior toward a desired objective \cite{astrom-2008-feedback-systems-an-introduction-for-scientists-and-engineers}.
+         \seeherefooter{/nd_robotic_ai_learning_project/src/control_theory/controller/controller.tex}
+         A controller is the part of a control system that determines the control input applied to a plant or process in order to influence its behavior toward a desired objective \cite{astrom-2008-feedback-systems-an-introduction-for-scientists-and-engineers}.
          \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{controller.png}
          \end{figure}
-         
+
          \subsubsection{P controller}
             \seeherefooter{/nd_robotic_ai_learning_project/src/control_theory/kind/proportional_controller/proportional_controller.tex}
             A proportional controller is a feedback controller whose control output is proportional to the current control error \cite{astrom-2008-feedback-systems-an-introduction-for-scientists-and-engineers}.
@@ -75,8 +93,8 @@
          \subsubsection{PID controller}
             \seeherefooter{/nd_robotic_ai_learning_project/src/control_theory/kind/proportional_integral_derivative_controller/proportional_integral_derivative_controller.tex}
             A proportional--integral--derivative (PID) controller is a feedback controller that combines the present control error, the accumulated past error, and the rate of change of the error to generate a corrective control input \cite{astrom-2008-feedback-systems-an-introduction-for-scientists-and-engineers}.
-            
-         \subsection{Cascade controller}
+
+      \subsection{Cascade controller}
          Controllers can also be connected in a cascade. In cascade control, the output of an outer controller becomes the setpoint of an inner controller \cite{lee-1998-pid-controller-tuning-for-cascade-control-systems}. For example, an outer proportional position controller can generate a desired velocity that is tracked by an inner PID velocity controller.
    \section{Solution}
 
