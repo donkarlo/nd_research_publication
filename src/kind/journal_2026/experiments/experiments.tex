@@ -31,10 +31,54 @@
 
 \begin{document}
    \maketitle
-   \begin{figure}[H]
-      \centering
-      \includegraphics[width=0.9\textwidth]{artificial_field_potentials.png}
-   \end{figure}
+   ROS2
+   \begin{itemize}
+      \item GAZEBO
+      \item ROS2
+      \item Autopilot: PX4
+      \item Flight controller unit: Pixhawk
+   \end{itemize}
+
+
+   \section{Involved robots}
+      During online telemetry recording, a leader--follower strategy is used by the two UAVs involved in the environment. The leader is the robot to which the human operator sends control inputs. The follower follows a set of rules that depend on the leader's positional state. As described later, the human and the environment are also considered robots.
+      \subsection{Simulation environment}
+
+      \subsection{UAV prototype}
+         Tarot T650
+
+         \subsubsection{Sensors}
+            % to find frequencies, run /home/donkarlo/Dropbox/repo/nd_robotic_project/src/nd_robotic_ai/platform/ros/message/message_frequency_finder.py
+
+            \paragraph{GPS}
+               \begin{itemize}
+                  \item \textbf{Frequency:} 83.33 Hz
+               \end{itemize}
+
+            \paragraph{LIDAR}
+               \begin{itemize}
+                  \item \textbf{Frequency:} 20.83 Hz
+                  \item 720 dimensions.
+               \end{itemize}
+               In each scan, the 2D RP LiDAR A2 produces 720 distance measurements, each separated from the next by 0.14 degrees, and scans as far as 14 km. This produces 720 points. In this research, every distance greater than 4 m is treated as 4 m so that the wall on the opposite side of the corridor is omitted from the UAV's perception. DBSCAN clustering is performed on the polygon formed by connecting each pair of consecutive points.
+
+      \subsection{Environment}
+         The world is simulated in Gazebo, and the robot simulation is implemented using ROS.
+
+      \subsection{Human}
+         The human is also considered a robot.
+
+      \subsection{Homogeneity}
+         Homogeneous
+
+      \subsection{Dependency}
+         Leader--follower
+      
+      \section{Sensrory and neuron states}
+         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{artificial_field_potentials.png}
+         \end{figure}
       \subsection{LiDAR scan polygon and its centroid}
 
          Consider a two-dimensional LiDAR that scans the complete \(360^\circ\) surrounding environment. Let \(N_{\mathrm{L}}\) denote the number of LiDAR rays in one complete scan. For the \(i\)-th ray, the LiDAR provides the scanning angle
@@ -167,8 +211,9 @@
          \(\mathbf{p}_{\mathrm{cg}}^{\mathrm{L}}\) is the centroid of this bounded LiDAR scan region and should not necessarily be interpreted as the geometric center of the complete physical environment.
 
          \input{/nd_research_publication/src/kind/journal_2026/experiments/comparative/comparative.tex}
-         \input{/nd_research_publication/src/kind/journal_2026/experiments/simulation/simulation.tex}
+
          \input{/nd_research_publication/src/kind/journal_2026/experiments/code_implementation/code_implementation.tex}
+
          \bibliographystyle{plainnat}
          \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}
