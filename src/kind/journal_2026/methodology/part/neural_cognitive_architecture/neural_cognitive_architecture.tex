@@ -30,15 +30,18 @@
 
 % for external graphviz
 
-\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+\input{nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
 
 % for tags
 
-\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
+\input{/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
 
 % for links
 
-\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+\input{/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+% for nested lists and sections
+\input{/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
 
 \title{Neural cognitive architecture}
 
@@ -72,67 +75,103 @@
             \centering
             \includegraphics[width=0.9\textwidth]{mind_without_memory.png}
          \end{figure}
-            \paragraph{Language} is a cognitive process that maps structured forms to meaning and meaning back to structured forms, independently of whether those forms are spoken, written, or signed \cite{matchin-2020-the-cortical-organization-of-syntax} \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/language/language.tex}.
-            \paragraph{Thinking} is the ability to change a model's structure, such as by changing the number of layers in a deep learning method \cite{markman-2001-thinking}.
 
-               \begin{figure}[H]
-                  \centering
-                  \includegraphics[width=0.9\textwidth]{thinking.png}
-               \end{figure}
+         \subsubsection{Perception}
+         \subsubsection{Language} is a cognitive process that maps structured forms to meaning and meaning back to structured forms, independently of whether those forms are spoken, written, or signed \cite{matchin-2020-the-cortical-organization-of-syntax} \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/language/language.tex}.
+         \subsubsection{Thinking} is the ability to change a model's structure, such as by changing the number of layers in a deep learning method \cite{markman-2001-thinking}.
 
-               In this research, although this hierarchy is not completely consistent with the literature, it is useful for understanding the proposed approach.
-               \begin{figure}[H]
-                  \centering
-                  \includegraphics[width=0.9\textwidth]{thinking_van.png}
-               \end{figure}
-               \subparagraph{Decision making}
-                  \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/decision_making/decision_making.tex}
-                  \cite{gold-2007-the-neural-basis-of-decision-making} argues that decision making is the cognitive process of deliberating over available information and committing to a choice.
+            \begin{figure}[H]
+               \centering
+               \includegraphics[width=0.9\textwidth]{thinking.png}
+            \end{figure}
 
-                  In this research, decision making occurs during autonomous navigation while the agent attempts to minimize the level of surprise.
+            In this research, although this hierarchy is not completely consistent with the literature, it is useful for understanding the proposed approach.
+            \begin{figure}[H]
+               \centering
+               \includegraphics[width=0.9\textwidth]{thinking_van.png}
+            \end{figure}
+            \paragraph{Decision making}
+               \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/decision_making/decision_making.tex}
+               \cite{gold-2007-the-neural-basis-of-decision-making} argues that decision making is the cognitive process of deliberating over available information and committing to a choice.
 
-               \subparagraph{Planning}
-                  \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/planning.tex}
+               In this research, decision making occurs during autonomous navigation while the agent attempts to minimize the level of surprise.
 
-                  \cite{mattar-2026-planning-in-the-brain-its-not-what-you-think-it-is} defines planning as the cognitive process of using internal simulations of possible future actions and states to guide behavior and learning.
+            \paragraph{Planning}
+               \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/planning.tex}
 
-                  In this research, planning occurs mainly during autonomous navigation through the minimization of surprise.
-               \subparagraph{Concept formation}
-                  \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/concept_formation/concept_formation.tex}
-                  \cite{sloutsky-2019-categories-concepts-and-conceptual-development}
-                  describes concept formation as a cognitive process through which experience or language gives rise to conceptual categories that can subsequently be organized and used in higher-level cognition.
+               \cite{mattar-2026-planning-in-the-brain-its-not-what-you-think-it-is} defines planning as the cognitive process of using internal simulations of possible future actions and states to guide behavior and learning.
+
+               In this research, planning occurs mainly during autonomous navigation through the minimization of surprise.
+            \paragraph{Concept formation}
+               \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/concept_formation/concept_formation.tex}
+               \cite{sloutsky-2019-categories-concepts-and-conceptual-development}
+               describes concept formation as a cognitive process through which experience or language gives rise to conceptual categories that can subsequently be organized and used in higher-level cognition.
 
 
-                  In this research, concept formation occurs during clustering and novelty detection.
-               \subparagraph{Problem solving}
-                  \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/problem_solving/problem_solving.tex}
+               In this research, concept formation occurs during clustering and novelty detection.
+            \paragraph{Problem solving}
+               \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/problem_solving/problem_solving.tex}
 
-                  \cite{mayer-2013-problem-solving} describes problem solving as a cognitive processing directed toward achieving a goal when the method for reaching that goal is not initially known.
+               \cite{mayer-2013-problem-solving} describes problem solving as a cognitive processing directed toward achieving a goal when the method for reaching that goal is not initially known.
 
-                  In this research, this ability is based on choosing actions to minimise surprise.
+               In this research, this ability is based on choosing actions to minimise surprise.
 
-               \subparagraph{Reasoning}
-                  \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/reasoning/reasoning.tex}
+            \paragraph{Reasoning}
+               \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/reasoning/reasoning.tex}
 
-                  \cite{johnson-laird-2010-mental-models-and-human-reasoning} argues that reasoning is the cognitive process of representing possibilities consistent with available information and deriving conclusions from those representations.
+               \cite{johnson-laird-2010-mental-models-and-human-reasoning} argues that reasoning is the cognitive process of representing possibilities consistent with available information and deriving conclusions from those representations.
 
-            \paragraph{Learning}
-               \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/learning/learning.tex}
-               \cite{de-houwer-2013-what-is-learning-on-the-nature-and-merits-of-a-functional-definition-of-learning}
-               Learning is the process of adaptation resulting from regularities in an organism's experience with its environment.
+         \subsubsection{Learning}
+            \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/learning/learning.tex}
+            \cite{de-houwer-2013-what-is-learning-on-the-nature-and-merits-of-a-functional-definition-of-learning}
+            Learning is the process of adaptation resulting from regularities in an organism's experience with its environment.
 
-               In this research, learning occurs whenever model parameters are optimized, such as the weights of deep-learning methods including variational autoencoders or Transformers.
-            \paragraph{Perception}
-               \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/perception/perception.tex}
-               \cite{shin-2026-the-neural-code-of-perceptual-inference} defines perception as a process of inference in which incoming sensory evidence is interpreted based on prior expectations about the sensory world.
+            In this research, learning occurs whenever model parameters are optimized, such as the weights of deep-learning methods including variational autoencoders or Transformers.
+         \subsubsection{Perception}
+            \begin{figure}[H]
+               \centering
+               \includegraphics[width=0.9\textwidth]{perception_tree.png}
+            \end{figure}
+            \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/perception/perception.tex}
+            \cite{shin-2026-the-neural-code-of-perceptual-inference} defines perception as a process of inference in which incoming sensory evidence is interpreted based on prior expectations about the sensory world.
 
-               In this research, this characteristic is realized by forming structured attribute--value data, referred to as a trace or engram, and then continuing the abstraction needed for language building and its use in state estimation.
-            \paragraph{Attention}
-               \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/attention/attention.tex}
-               \cite{chun-2011-a-taxonomy-of-external-and-internal-attention}
-               Attention is the cognitive process of selecting, modulating, and sustaining focus on information that is most relevant for behavior.
+            In this research, this characteristic is realized by forming structured attribute--value data, referred to as a trace or engram, and then continuing the abstraction needed for language building and its use in state estimation.
+            \paragraph{State estimation}
+               \subparagraph{State}
+                  \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/perception/state_estimation/state/state.tex}
+                  In dynamical systems and state estimation, the \textbf{state} is a set of variables that summarizes the information about a system at a given time needed to predict its future evolution when subsequent inputs are known \cite{kalman-1960-a-new-approach-to-linear-filtering-and-prediction-problems,simon-2006-optimal-state-estimation,thrun-2005-probabilistic-robotics}.
 
-               In this research, attention is used by multi-head attention-based Transformers to learn local sequential patterns in sequences.
+                  \sparagraph{self-state}
+                  \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/meta_cognition/part/self_conciousness/self_awareness/self/self_state/self_state.tex}
+
+
+                  A \textbf{self-state representation} is an internal representation of an agent's current condition with respect to its body, internal regulatory processes, and self-related cognition. In cognitive neuroscience, these aspects are studied through interacting forms of bodily, environmental, and mental self-processing rather than through a single universally agreed state vector. \cite{qin-2020-linking-bodily-environmental-and-mental-states-in-the-self} propose three connected levels of self-processing: \emph{interoceptive}, \emph{exteroceptive}, and \emph{mental-self} processing. Their distinctions provide a neuroscientific motivation for combining physiological, sensorimotor, and cognitive information in a computational model of self-state.
+
+               \subparagraph{State definition in this research. A computational decomposition}
+                  For an artificial agent, we propose the following \emph{modelling abstraction}:
+                  \begin{equation}
+                     \mathbf{s}^{\mathrm{self}}_t =
+                     \begin{bmatrix}
+                        \mathbf{s}^{\mathrm{body}}_t\\
+                        \mathbf{s}^{\mathrm{internal}}_t\\
+                        \mathbf{s}^{\mathrm{cognitive}}_t
+                     \end{bmatrix}.
+                  \end{equation}
+                  Here, the three components represent:
+                  \begin{itemize}
+                     \item \textbf{Body state} ($\mathbf{s}^{\mathrm{body}}_t$): the agent's estimated posture, position, orientation, motion, and other bodily or sensorimotor variables.
+                     \item \textbf{Internal state} ($\mathbf{s}^{\mathrm{internal}}_t$): physiological or artificial regulatory variables, such as energy availability, temperature, and other conditions relevant to maintaining viability.
+                     \item \textbf{Cognitive state} ($\mathbf{s}^{\mathrm{cognitive}}_t$): internal cognitive variables such as currently represented goals, intentions, beliefs, or active plans.
+                  \end{itemize}
+                  
+\input{tikz.tex}
+
+         \subsubsection{Attention}
+            \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/attention/attention.tex}
+            \cite{chun-2011-a-taxonomy-of-external-and-internal-attention}
+            Attention is the cognitive process of selecting, modulating, and sustaining focus on information that is most relevant for behavior.
+
+            In this research, attention is used by multi-head attention-based Transformers to learn local sequential patterns in sequences.
          \subsubsection{Memory}
             Memory can be regarded as a neural property. However, in this research, for ease of presenting the method, it is treated as one of the cognitive processes of the mind, and a language is built for event-specific knowledge memory. Here is the taxonomy used for memory:
 
@@ -351,7 +390,7 @@
                \centering
                \includegraphics[width=0.9\textwidth]{neural_pool.png}
             \end{figure}
-         
+
       \subsection{Large scale brain networks}
          This research does not discuss or implement large-scale brain networks. It only argues, where necessary, that the approach taken to build computational MRS self-awareness is biologically plausible. Therefore, only a short introduction to three of the most important networks is provided here.
          \begin{figure}[H]
@@ -368,7 +407,7 @@
             The ventral attention network detects salient or unexpected stimuli and reorients attention toward them in a stimulus-driven (bottom-up) manner \cite{scalf-2014-trial-history-effects-in-the-ventral-attentional-network}.
 
             \include{/nd_research_publication/src/kind/journal_2026/methodology/part/neural_cognitive_architecture/language.tex}
-            
+
             \include{/nd_research_publication/src/kind/journal_2026/methodology/part/neural_cognitive_architecture/prediction_and_state_estimation_model/prediction_and_state_estimation_model.tex}
 
             \bibliographystyle{plainnat}
