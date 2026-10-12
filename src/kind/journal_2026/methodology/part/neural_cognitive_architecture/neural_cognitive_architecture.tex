@@ -107,7 +107,6 @@
                \cite{sloutsky-2019-categories-concepts-and-conceptual-development}
                describes concept formation as a cognitive process through which experience or language gives rise to conceptual categories that can subsequently be organized and used in higher-level cognition.
 
-
                In this research, concept formation occurs during clustering and novelty detection.
             \paragraph{Problem solving}
                \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/problem_solving/problem_solving.tex}
@@ -141,11 +140,10 @@
                   \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/perception/state_estimation/state/state.tex}
                   In dynamical systems and state estimation, the \textbf{state} is a set of variables that summarizes the information about a system at a given time needed to predict its future evolution when subsequent inputs are known \cite{kalman-1960-a-new-approach-to-linear-filtering-and-prediction-problems,simon-2006-optimal-state-estimation,thrun-2005-probabilistic-robotics}.
 
-                  \sparagraph{self-state}
-                  \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/meta_cognition/part/self_conciousness/self_awareness/self/self_state/self_state.tex}
+            \paragraph{self-state}
+               \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/meta_cognition/part/self_conciousness/self_awareness/self/self_state/self_state.tex}
 
-
-                  A \textbf{self-state representation} is an internal representation of an agent's current condition with respect to its body, internal regulatory processes, and self-related cognition. In cognitive neuroscience, these aspects are studied through interacting forms of bodily, environmental, and mental self-processing rather than through a single universally agreed state vector. \cite{qin-2020-linking-bodily-environmental-and-mental-states-in-the-self} propose three connected levels of self-processing: \emph{interoceptive}, \emph{exteroceptive}, and \emph{mental-self} processing. Their distinctions provide a neuroscientific motivation for combining physiological, sensorimotor, and cognitive information in a computational model of self-state.
+               A \textbf{self-state representation} is an internal representation of an agent's current condition with respect to its body, internal regulatory processes, and self-related cognition. In cognitive neuroscience, these aspects are studied through interacting forms of bodily, environmental, and mental self-processing rather than through a single universally agreed state vector. \cite{qin-2020-linking-bodily-environmental-and-mental-states-in-the-self} propose three connected levels of self-processing: \emph{interoceptive}, \emph{exteroceptive}, and \emph{mental-self} processing. Their distinctions provide a neuroscientific motivation for combining physiological, sensorimotor, and cognitive information in a computational model of self-state.
 
                \subparagraph{State definition in this research. A computational decomposition}
                   For an artificial agent, we propose the following \emph{modelling abstraction}:
@@ -161,11 +159,12 @@
                   \begin{itemize}
                      \item \textbf{Body state} ($\mathbf{s}^{\mathrm{body}}_t$): the agent's estimated posture, position, orientation, motion, and other bodily or sensorimotor variables.
                      \item \textbf{Internal state} ($\mathbf{s}^{\mathrm{internal}}_t$): physiological or artificial regulatory variables, such as energy availability, temperature, and other conditions relevant to maintaining viability.
-                     \item \textbf{Cognitive state} ($\mathbf{s}^{\mathrm{cognitive}}_t$): internal cognitive variables such as currently represented goals, intentions, beliefs, or active plans.
+                     \item \textbf{Cognitive state} ($\mathbf{s}^{\mathrm{cognitive}}_t$): internal cognitive variables such as currently represented goals, intentions, beliefs\cite{seitz-2018-from-believing-to-belief-a-general-theoretical-model,seitz-2017-processes-of-believing-where-do-they-come-from-what-are-they-good-for,harris-2008-functional-neuroimaging-of-belief-disbelief-and-uncertainty} \seeherefooter{nd_robotic_ai_learning_project/src/robot/part/mind/mental_representation/part/belief/belief.tex}, or active plans.
                   \end{itemize}
-                  
-\input{tikz.tex}
-
+                  \begin{figure}[H]
+                     \centering
+                     \includegraphics[width=0.9\textwidth]{self_state.png}
+                  \end{figure}
          \subsubsection{Attention}
             \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/attention/attention.tex}
             \cite{chun-2011-a-taxonomy-of-external-and-internal-attention}
@@ -245,7 +244,6 @@
             \includegraphics[width=0.9\textwidth]{action_potential_anatomy.png}
 
          \end{figure}
-
 
          \begin{itemize}
             \item \textbf{Depolarization period}
@@ -327,7 +325,6 @@
 
          This research uses APT to represent a spike train.
 
-
    \section{Neuron types}
 
       \subsection{Sensory - receptors}
@@ -341,7 +338,6 @@
             \includegraphics[width=0.9\textwidth]{sensory_transduction.png}
 
          \end{figure}
-
 
          Simplified sensory transduction
 
@@ -360,7 +356,6 @@
                \includegraphics[width=0.9\textwidth]{intensity_and_intensity_rate_change.png}
             \end{figure}
 
-
          \subsubsection{Different types of potential summation in a destination neuron}
             \begin{figure}[H]
                \centering
@@ -370,7 +365,6 @@
                Summation of potentials coming from different neurons.
             \paragraph{Temporal summation}
                Summation of the potentials from one spike train.
-
 
       \subsection{Neural pool and the whole architecture together}
          Neuronal pools are groups of interconnected neurons organized to receive, integrate, and transmit neural signals in characteristic ways \cite{brainkart-2017-transmission-and-processing-of-signals-in-neuronal-pools}.
@@ -384,7 +378,6 @@
                \item correlations between neurons
             \end{itemize}
             jointly affect how accurately stimuli can be encoded and decoded.
-
 
             \begin{figure}[H]
                \centering
