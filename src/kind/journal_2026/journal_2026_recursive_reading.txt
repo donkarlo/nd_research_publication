@@ -2555,7 +2555,7 @@ FILE 27: /home/donkarlo/Dropbox/repo/nd_research_publication/src/kind/journal_20
 
          \subsubsection{Simulation with ``Frequency-Modulated Möbius (FMM)``}
 
-            \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/part/action_potential/wave_form/kind/frequency_modulated_mobius/frequency_modulated_mobius.tex}
+            \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/part/action_potential/modeling/kind/frequency_modulated_mobius/frequency_modulated_mobius.tex}
 
             \begin{equation}
                X(t)

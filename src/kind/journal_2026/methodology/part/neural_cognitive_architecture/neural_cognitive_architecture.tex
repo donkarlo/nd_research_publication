@@ -140,6 +140,11 @@
                   \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/perception/state_estimation/state/state.tex}
                   In dynamical systems and state estimation, the \textbf{state} is a set of variables that summarizes the information about a system at a given time needed to predict its future evolution when subsequent inputs are known \cite{kalman-1960-a-new-approach-to-linear-filtering-and-prediction-problems,simon-2006-optimal-state-estimation,thrun-2005-probabilistic-robotics}.
 
+                  \subsubparagraph{In this research}
+                  In this research a state is represented by a neuron that is able to receive GP evidences from other nearby neurons(either they are state or sensory neurons) and convert to APs for their nearby neurons.
+
+                  A state neuron represents the empirical distribution of traces resulting from DBSCAN clustering during training and has the form of a trace.
+
             \paragraph{self-state}
                \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/meta_cognition/part/self_conciousness/self_awareness/self/self_state/self_state.tex}
 
@@ -192,18 +197,43 @@
 
          An engram refers to a unit of cognitive information encoded in a physical medium. It is hypothesized to represent the mechanism through which memories are preserved as biophysical or biochemical modifications in the brain or other biological tissues following external stimulation \cite{josselyn-2020-memory-engrams-recalling-the-past-and-imagining-the-future,sakaguchi-2012-catching-the-engram-strategies-to-examine-the-memory-trace}.
 
-         In this research, a trace is considered a labeled data point or an attribute--value data point, linguistically equivalent to a feature structure \cite{kay-1984-functional-unification-grammar, kasper-1986-a-logical-semantics-for-feature-structures} \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/language/theory/universal_grammar/part/feature_structure/feature_structure.tex}
+         \subsubsection{Application in this research}
+            In this research, a trace, structurally is considered as a labeled or an attribute-value data point that represents the empirical distribution of state neuron members which are formed as the result of DBSN clustering during training.
+
+            Linguistically, it is equivalent to a feature structure data form \cite{kay-1984-functional-unification-grammar, kasper-1986-a-logical-semantics-for-feature-structures} \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/language/theory/universal_grammar/part/feature_structure/feature_structure.tex}
 
    \section{Nervous system}
-      The architecture should be considered a brain composed of neurons and formulated as probabilistic graphical models.
 
-      Each neuron receives a set of evidence and weights it according to what it learned during the learning-by-demonstration phase described in \ref{methodology_neural_encoder_tarining}, and finally decides whether to spike. If it does, an action potential propagates evidence to the next vertical or horizontal neuronal layers. This weighting and spiking process continues until the brain determines the probability distribution at each vertical state.
 
-      During training and anomaly detection, specific neurons may appear that are activated only in those phases.
 
-      In this section, we explain only the architecture shared between the two aforementioned phases. First, a brief explanation of the neuron and its spiking mechanism is provided.
+      \subsection{Biological composition of nervous system}
+         \begin{itemize}
+            \item Central
+            \begin{itemize}
+               \item Brain
+               \item Spinal cord
+            \end{itemize}
+            \item Peripheral
+            \begin{itemize}
+               \item Sensory neurons
+               \item Sensory receptors
+            \end{itemize}
 
-   \section{Anatomy of a neuron}
+
+         \end{itemize}
+
+      \subsection{This research nervous system architecture}
+         In the architecture proposed by this research should be considered a brain composed of neurons and formulated as probabilistic graphical models.
+
+
+
+
+
+   \section{Neuron}
+      \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/neuron.tex}
+
+      A neuron is a specialized, electrically excitable cell of the nervous system that receives, integrates, and transmits information through changes in membrane potential and through communication with other cells. Neuronal signaling combines electrical processes within the cell with chemical or electrical transmission at connections between cells \cite{purves-2001-neuroscience}.
+
 
       A neuron is composed of
 
@@ -227,16 +257,31 @@
 
       \end{figure}
 
+         \subsubsection{Neuron in this research}
+            In this research Each neuron receives a set of evidences(similar to GPs) and weights it according to what it learned during the learning-by-demonstration phase described in \ref{methodology_neural_encoder_tarining}, and finally decides whether to spike. If it does, an action potential propagates evidence to the next vertical or horizontal neuronal layers. This weighting and spiking process continues until the brain determines the probability distribution at each vertical state.
+
+            During training and anomaly detection, specific neurons may appear that are activated only in those phases.
+
+            neuron types in this research
+            \begin{itemize}
+               \item \textbf{Sensory neuron:} A a neuron that distributes GPs between the states according to the proximity of the evidences to the state each state neuron is representing
+               \item \textbf{State neuron:} A neuron that represents a class of approximately similar traces. That class is delegated by the empirical distribution of those traces.
+            \end{itemize}
+
+
       \subsection{Graded potentials}
+         \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/part/action_potential/kind/graded_or_binary/kind/graded/graded.tex}
+         
+         A \textbf{graded potential} is a change in a cell's membrane potential whose amplitude and time course depend on the strength and duration of the input, rather than following the all-or-none behavior characteristic of a conventional action potential. Graded potentials occur in sensory receptor cells and in the dendrites and somata of neurons. They include sensory receptor potentials and postsynaptic potentials, and can provide continuously varying electrical signals for neural processing \citep{purves-2001-neuroscience,haag-1998-active-membrane-properties-and-signal-encoding-in-graded-potential-neurons}.
 
          \begin{itemize}
-            \item IPSP (to decrease the evidence potential)
-            \item EPSP (to increase the evidence potential)
+            \item IPSP (to decrease the evidence potential) \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/part/action_potential/kind/graded_or_binary/kind/graded/kind/inhibitory_postsynaptic_potential/inhibitory_postsynaptic_potential.tex} An \emph{excitatory postsynaptic potential} (EPSP) is a graded change in a postsynaptic neuron's membrane potential that increases the probability of generating an action potential \cite{purves-2001-excitatory-and-inhibitory-postsynaptic-potentials,purves-2001-summation-of-synaptic-potentials}.
+            \item EPSP (to increase the evidence potential) \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/part/action_potential/kind/graded_or_binary/kind/graded/kind/excitatory_postsynaptic_potential/excitatory_postsynaptic_potential.tex} An \emph{inhibitory postsynaptic potential} (IPSP) is a graded postsynaptic electrical response that decreases the probability of an action potential in the receiving neuron \cite{purves-2001-excitatory-and-inhibitory-postsynaptic-potentials,purves-2001-summation-of-synaptic-potentials}.
          \end{itemize}
 
-      \subsection{Anatomy of action potentials}
+      \subsection{Action potential}
 
-         The decision to spike or not is one of the most basic yet fundamental decisions made in the human body. \iffalse I remember there was a paper mentioning this \fi. Later, we will see that this research extends this dichotomy to more complex language abstractions. In this research, the shape of an action potential, as well as its temporal firing pattern, carries information. This also occurs biologically because the action-potential waveform is not identical across neuronal types; sensory-neuron subtypes can exhibit characteristic differences in action-potential duration, overshoot, repolarization profile, and afterhyperpolarization \cite{korner-2022-functional-subgroups-of-rat-and-human-sensory-neurons-a-systematic-review-of-electrophysiological-properties}.
+         The decision to spike or not is one of the most basic yet fundamental decisions made in the human body. \iffalse I remember there was a paper mentioning this \fi. Later, we will see that this research extends this dichotomy to more complex language abstractions. In this research, the shape of an action potential, as well as its temporal firing pattern, carries information. This also occurs biologically because the action-potential waveform is not identical across neuronal types; sensory-neuron subtypes can exhibit characteristic differences in action-potential duration, overshoot, repolarization profile, and after hyperpolarization \cite{korner-2022-functional-subgroups-of-rat-and-human-sensory-neurons-a-systematic-review-of-electrophysiological-properties}.
          \begin{figure}[H]
 
             \centering
@@ -267,7 +312,7 @@
 
          \subsubsection{Simulation with ``Frequency-Modulated Möbius (FMM)``}
 
-            \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/part/action_potential/wave_form/kind/frequency_modulated_mobius/frequency_modulated_mobius.tex}
+            \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/part/shared/neuron/part/action_potential/modeling/kind/frequency_modulated_mobius/frequency_modulated_mobius.tex}
 
             \begin{equation}
                X(t)
@@ -345,6 +390,16 @@
             \centering
             \includegraphics[width=0.9\textwidth]{sensory_transduction_schematic.png}
          \end{figure}
+
+         \subsubsection{In this research}
+            In this research a sensory neuron is responsible to produce GPs for state neurons.
+
+            \begin{figure}[H]
+               \centering
+               \includegraphics[width=0.9\textwidth]{sensory_transduction_in_this research.png}
+            \end{figure}
+
+            \input{tikz.tex}
 
    \section{Neural population}
       \subsection{Neural circuits}
