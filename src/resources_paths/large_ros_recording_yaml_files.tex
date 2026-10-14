@@ -16,6 +16,8 @@
 
    These files are large YAML dumps associated with ROS recordings, mainly containing GPS/odometry and RPLidar data from the UAV experiments.
 
+   The paths below use the intended Ubuntu Dropbox root \texttt{/home/donkarlo/Dropbox}. The files and directories were verified in the online Dropbox account; the large recording files may currently be excluded from local synchronization to save disk space.
+
    \section{Normal Scenario}
 
       \begin{itemize}
@@ -23,18 +25,22 @@
          \begin{itemize}
             \item \textbf{GPS + LiDAR, both UAVs}
 
-            \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/normal-scenario/uav1-gps-lidar-uav2-gps-lidar.yaml}}
+            \texttt{\detokenize{/home/donkarlo/Dropbox/phd/data/old_experiment_not_synced_dropbox/normal-scenario/uav1-gps-lidar-uav2-gps-lidar.yaml}}
 
             Size: 3,538,377,514 bytes $\approx$ 3.30 GiB.
 
             \item \textbf{Two LiDARs}
 
-            \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/normal-scenario/rplidar/twoLidars.yaml}}
+            \texttt{\detokenize{/home/donkarlo/Dropbox/phd/data/old_experiment_not_synced_dropbox/normal-scenario/rplidar/twoLidars.yaml}}
 
             Size: 1,798,675,105 bytes $\approx$ 1.68 GiB.
          \end{itemize}
          \item World
          \begin{itemize}
+            \item \textbf{Gazebo world file}
+
+            \texttt{\detokenize{/home/donkarlo/Dropbox/projs/research/artificial-intelligence/self-awareness/selfaware-drones/rosws/worlds/normal-scenario.world}}
+
             \item \textbf{Outer square dimensions:} $32\,\mathrm{m} \times 32\,\mathrm{m}$.
             \item \textbf{Inner square dimensions:} $8\,\mathrm{m} \times 8\,\mathrm{m}$.
             \item \textbf{Corridor width:} approximately $12\,\mathrm{m}$ on each side, computed as $(32-8)/2$.
@@ -52,25 +58,27 @@
 
             \item \textbf{GPS + LiDAR, both UAVs}
 
-            \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/follow-scenario/uav1-gps-lidar-uav2-gps-lidar.yaml}}
+            \texttt{\detokenize{/home/donkarlo/Dropbox/phd/data/old_experiment_not_synced_dropbox/follow-scenario/uav1-gps-lidar-uav2-gps-lidar.yaml}}
 
             Size: 3,539,686,192 bytes $\approx$ 3.30 GiB.
 
             \item \textbf{Two LiDARs}
 
-            \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/follow-scenario/lidar/twoLidars.yaml}}
+            \texttt{\detokenize{/home/donkarlo/Dropbox/phd/data/old_experiment_not_synced_dropbox/follow-scenario/lidar/twoLidars.yaml}}
 
             Size: 1,609,409,606 bytes $\approx$ 1.50 GiB.
 
             \item \textbf{One LiDAR round}
 
-            \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/follow-scenario/lidar/oneRound.yaml}}
+            \texttt{\detokenize{/home/donkarlo/Dropbox/phd/data/old_experiment_not_synced_dropbox/follow-scenario/lidar/oneRound.yaml}}
 
             Size: 162,543,418 bytes $\approx$ 155 MiB.
          \end{itemize}
          \item Gazebo world
          \begin{itemize}
-            \item /projs/research/artificial-intelligence/self-awareness/selfaware-drones/rosws/worlds/inner-squares-follow.world
+            \item \textbf{Gazebo world file}
+
+            \texttt{\detokenize{/home/donkarlo/Dropbox/projs/research/artificial-intelligence/self-awareness/selfaware-drones/rosws/worlds/follow-scenario.world}}
             \item \textbf{Narrowing wall elements:} each added rectangular wall element has dimensions $4\,\mathrm{m} \times 7.5\,\mathrm{m} \times 0.05\,\mathrm{m}$ (length $\times$ height $\times$ thickness).
          \end{itemize}
 
@@ -93,7 +101,7 @@
 
       The folder
 
-      \texttt{\detokenize{/phd/data/old_experiment_not_synced_dropbox/next-to-scenario}}
+      \texttt{\detokenize{/home/donkarlo/Dropbox/phd/data/old_experiment_not_synced_dropbox/next-to-scenario}}
 
       exists, but no YAML file larger than 100 MB was found there. The currently visible data in that scenario are mainly GPS text files and the ROS topic-recording script \texttt{topicsRecord.sh}.
 
