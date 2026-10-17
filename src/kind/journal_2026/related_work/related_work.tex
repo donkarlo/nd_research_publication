@@ -44,6 +44,30 @@
    \section{Factorized Trajectory Planning}
       \cite{sun-2026-sparsedrivev2-scoring-is-all-you-need-for-end-to-end-autonomous-driving} proposed SparseDriveV2, a scoring-based framework for end-to-end autonomous driving that factorizes candidate trajectories into geometric paths and temporal velocity profiles. The geometric paths are represented by spatially resampled waypoints, whereas the velocity profiles contain sequences of scalar speeds sampled at fixed time intervals. These two representations are independently clustered using K-means to build compact path and velocity vocabularies, whose combinations form a much denser set of candidate trajectories. The framework first scores paths and velocity profiles separately and then performs fine-grained scoring on a selected subset of composed trajectories. Unlike a sequence-to-sequence motion-prediction model, SparseDriveV2 selects a planned trajectory from predefined candidates; moreover, its velocity profiles represent scalar speed rather than the full first-order derivative of a fused multisensor state .
 
+   
+   \section{Clustering-Based Motion Model Learning and Prediction}
+
+   \paragraph{Learning Motion Patterns of People for Compliant Robot Motion (2005).}
+   Bennewitz et al.\ cluster pedestrian trajectories obtained from laser-range measurements using expectation maximization. A hidden Markov model learned from these motion patterns estimates and predicts pedestrian positions, and the resulting probabilistic predictions inform the path planning of a mobile robot \cite{bennewitz-2005-learning-motion-patterns-of-people-for-compliant-robot-motion}.
+
+   \paragraph{Trajectory Learning and Reproduction for Differential Drive Mobile Robots (2015).}
+   Vukovi\'c et al.\ learn motions from teleoperated demonstrations of a differential-drive robot. Their approach represents incremental changes between consecutive robot poses with a Gaussian mixture model, captures transitions between mixture components with a hidden Markov model, and incorporates dynamic time warping for trajectory learning and reproduction \cite{vukovic-2015-trajectory-learning-and-reproduction-for-differential-drive-mobile-robots}.
+
+   \paragraph{A Bayesian Nonparametric Approach to Modeling Motion Patterns (2011).}
+   Joseph et al.\ model target motion using a mixture of Gaussian processes, where each component describes a recurring motion pattern. A Dirichlet-process prior assigns observed trajectories to patterns while adapting the number of components, enabling probabilistic prediction of future locations for target tracking \cite{joseph-2011-a-bayesian-nonparametric-approach-to-modeling-motion-patterns}.
+
+   \paragraph{A Physically-Consistent Bayesian Non-Parametric Mixture Model for Dynamical System Learning (2018).}
+   Figueroa and Billard fit a Bayesian nonparametric Gaussian mixture model to demonstrations, encouraging cluster assignments consistent with spatial locality and movement direction. They use the resulting mixture in a linear-parameter-varying formulation to learn globally asymptotically stable nonlinear dynamical systems; their experiments include robot-arm motions rather than autonomous navigation \cite{figueroa-2018-a-physically-consistent-bayesian-non-parametric-mixture-model}.
+
+   \paragraph{Augmented Dictionary Learning for Motion Prediction (2016).}
+   Chen et al.\ propose augmented semi-nonnegative sparse coding to represent trajectories with a compact dictionary of reusable local motion patterns. Rather than assigning every trajectory to a single cluster, the learned dictionary atoms support part-based trajectory representation and future-motion prediction \cite{chen-2016-augmented-dictionary-learning-for-motion-prediction}.
+
+   \paragraph{Motion Learning from Observation Using Affinity Propagation Clustering (2013).}
+   Chang and Kuli\'c apply affinity propagation to observed motions represented by dynamic movement primitives or hidden Markov models. The method identifies representative exemplars for groups of similar demonstrations, providing a compact set of movement prototypes that can also be used to generate motions \cite{chang-2013-motion-learning-from-observation-using-affinity-propagation-clustering}.
+
+   \paragraph{Segment, Compare, and Learn: Creating Movement Libraries of Complex Task for Learning from Demonstration (2025).}
+   Prados et al.\ segment complex demonstrated tasks into simpler motions and use Gaussian mixture models for probabilistic grouping. They compare segment-level Gaussian processes using Gaussian optimal transport to identify similar subtasks and construct reusable movement-primitive libraries, demonstrated primarily on robotic manipulation tasks \cite{prados-2025-segment-compare-and-learn-creating-movement-libraries}.
+
    \bibliographystyle{plainnat}
    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}
