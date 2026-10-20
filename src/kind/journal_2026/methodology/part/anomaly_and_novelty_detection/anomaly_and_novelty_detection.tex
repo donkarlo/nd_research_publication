@@ -55,18 +55,18 @@
    \section{Novelty:}
       \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/perception/novelty_detection/novelty_detection.tex}
       A persistent prediction error that exhibits reproducible temporal structure, while remaining compatible with the organism's viability constraints, provides evidence that the current generative model is incomplete rather than that the observations are merely noise. Such persistent structured errors can therefore drive structure learning or state-space expansion.
-      
+
       Additionally, novelty is an episode that is not sufficiently represented by the organism's existing model or memory. Novelty is the continuous persistence of neural responses in populations of neurons.
-      
+
       The type of novelty addressed in this research is described in \cite{smith-2020-an-active-inference-approach-to-modeling-structure-learning} as ``structure learning through state-space expansion``. This means that, when novelty is detected, a new state neuron should be added at the necessary level to improve the model's predictions.
 
       Biologically, new neurons are not added to learn new phenomena; instead, a new circuit is formed in the brain. However, this circuit formation is beyond the scope of this research.
 
-      
-      
+
+
 
             \paragraph{Application in this research:} It is used to update the generative model (a model that can generate sensory observations from hidden states of the world). This causes state-space expansion by adding new clusters at different levels of the neural-circuit model introduced in Section \ref{neural_cognitive_architecture}.
-      
+
 
 
 
@@ -146,7 +146,7 @@
 
 
    \section{Novelty detection}
-      
+
 
       \begin{algorithm}[H]
          \caption{Novelty Detection from Sensor Sequences}
@@ -188,6 +188,10 @@
          \item Splitting the periods into training and test sets.
          \item Taking $\mu + n \times \sigma$ of the anomaly values as the threshold.
       \end{enumerate}
+
+   \section{Continuous learning}
+
+
       \bibliographystyle{plainnat}
-      \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+      \bibliography{/nd_shared_research/bibliography/bibliography.bib}
 \end{document}
